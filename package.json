@@ -1,0 +1,32 @@
+{
+  "name": "macja_hisa_v2",
+  "version": "2.0.0",
+  "description": "Mačja hiša",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JHacin/macja_hisa_v2.git"
+  },
+  "keywords": [
+    "mačja",
+    "hiša",
+    "posvojitev",
+    "muce",
+    "zavetišče",
+    "mh",
+    "mačka"
+  ],
+  "author": "Jan Hacin",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JHacin/macja_hisa_v2/issues"
+  },
+  "homepage": "https://github.com/JHacin/macja_hisa_v2#readme",
+  "dependencies": {
+    "ejs": "^2.5.7",
+    "express": "^4.16.2"
+  }
+}
