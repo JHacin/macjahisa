@@ -1,0 +1,106 @@
+@media all and (max-width: 600px) {
+
+  body > div > .container {
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  .main > div > .container  {
+    padding: 20px 15px 37px 15px;
+    max-width: 100%;
+    margin: 0 auto;
+  }
+
+  .index_heading {
+    margin-bottom: 15px;
+  }
+
+  .mobile_header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px 15px;
+    border-bottom: 1px solid #343a40;
+  }
+
+  .mobile_top_contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .mobile_header a {
+    font-size: 0.9em;
+    color: #343a40;
+
+    margin: 3px 0;
+  }
+
+  .mobile_nav .fa-bars {
+    font-size: 2.8em;
+    vertical-align: middle;
+    color: #343a40;
+  }
+
+  .top_bar,
+  .jumbo_logo,
+  .nav_div {
+    display: none;
+  }
+
+  .jumbo_links {
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .jumbo_button {
+    width: 100%;
+  }
+
+  .search input[type=text] {
+    padding: 7px;
+    margin: 15px 0;
+  }
+
+  .news_reel,
+  .cat_reel,
+  .help_reel {
+    flex-direction: column;
+  }
+
+  .news_item,
+  .index_cat,
+  .help_item {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .footer > .container > div {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer_links {
+    margin-top: 17px;
+    margin-bottom: 16px;
+  }
+
+  .signature {
+    padding: 10px 0;
+    height: 50px;
+    line-height: 25px;
+    font-size: 0.75em;
+  }
+
+  .signature > .container {
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+  }
+
+}

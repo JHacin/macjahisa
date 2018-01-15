@@ -87,6 +87,10 @@ input[type=text]:focus, textarea:focus {
   font-family: 'Montserrat', sans-serif;
 }
 
+.mobile_header {
+  display: none;
+}
+
 .top_bar {
   background: #343a40;
   height: 40px;
