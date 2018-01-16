@@ -1,0 +1,70 @@
+.signature {
+  background: #343a40;
+  height: 30px;
+  line-height: 30px;
+  color: #e8e8e8;
+  font-size: 0.8em;
+}
+
+  .signature > .container {
+    justify-content: space-between;
+  }
+
+  .signature a {
+    color: #e8e8e8;
+    font-weight: bold;
+  }
+
+.footer {
+  background: #e8e8e8;
+  color: #343a40;
+  font-size: 0.9em;
+  padding: 15px 0 20px 0;
+}
+
+  .footer > .container {
+    justify-content: space-between;
+  }
+
+  .footer > .container > div {
+    width: 33.3%;
+  }
+
+  .footer h3 {
+    font-size: 1.3em;
+    text-transform: uppercase;
+    color: #a3a3a3;
+  }
+
+  .footer a {
+    color: #343a40;
+  }
+
+  .footer_nav_list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .footer_nav_list li {
+    margin: 8px 0;
+  }
+
+  .footer_links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .social .fa {
+    font-size: 2.6em;
+    color: #343a40;
+    margin: 0 12px 20px 12px;
+  }
+
+  .fb_link {
+    border: 1px solid rgba(0,0,0,0.4);
+    width: 80%;
+    text-align: center;
+    height: 150px;
+  }

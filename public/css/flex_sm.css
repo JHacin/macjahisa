@@ -24,6 +24,7 @@
     align-items: center;
     padding: 5px 15px;
     border-bottom: 1px solid #343a40;
+    background: #e8e8e8;
   }
 
   .mobile_top_contact {
@@ -36,7 +37,6 @@
   .mobile_header a {
     font-size: 0.9em;
     color: #343a40;
-
     margin: 3px 0;
   }
 
@@ -58,7 +58,8 @@
   }
 
   .jumbo_button {
-    width: 100%;
+    width: 65%;
+    align-self: center;
   }
 
   .search input[type=text] {
@@ -78,6 +79,20 @@
     width: 100%;
     margin: 0;
     padding: 0;
+  }
+
+  .nonindex > .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .content,
+  .sidebar {
+    width: 95%;
+  }
+
+  .content {
+    margin: 0;
   }
 
   .footer > .container > div {

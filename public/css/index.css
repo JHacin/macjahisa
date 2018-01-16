@@ -1,0 +1,75 @@
+.index_heading {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+  .index_heading h2 {
+    margin: 0 0 0.2em 0;
+  }
+
+  .index_heading hr {
+    width: 200px;
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(229, 148, 0, 0), rgba(229, 148, 0, 0.75), rgba(229, 148, 0, 0));
+  }
+
+.index_more {
+  padding-top: 30px;
+  text-align: center;
+  border-radius: 40%;
+}
+
+.index_btn {
+  background: #e8e8e8;
+  border: 1px solid rgba(0,0,0,0.4);
+  padding: 8px 30px;
+  color: #343a40;
+  font-family: 'Montserrat', sans-serif;
+  
+}
+
+.index_news,
+.index_cats,
+.index_help {
+  width: 100%;
+}
+
+  .news_reel,
+  .cat_reel,
+  .help_reel {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .news_item {
+    width: 30%;
+    text-align: center;
+    padding: 0 1em;
+    margin: 0 15px;
+  }
+
+    .news_item p,
+    .help_item p {
+      font-size: 0.9em;
+      margin-bottom: 0;
+    }
+
+.index_cats {
+  background: #f8f8f8;
+}
+
+.index_cat {
+  padding: 0 1em;
+  margin: 0 15px;
+  width: 20%;
+  text-align: center;
+}
+
+  .help_item {
+    width: 25%;
+    text-align: center;
+    padding: 0 1em;
+    margin: 0 15px;
+  }
