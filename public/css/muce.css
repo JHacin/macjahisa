@@ -1,0 +1,111 @@
+.main > div > .container_full  {
+  padding: 45px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.nonindex > .container_full {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.container_full > .content {
+  width: 100%;
+  margin-right: 0;
+}
+
+.container_full > .content h1 {
+  text-align: center;
+}
+
+.container_full > .content .content_title_subhr {
+  margin: 0.5em auto;
+  margin-bottom: 1.5em;
+  background-image: linear-gradient(to right, rgba(229, 148, 0, 0), rgba(229, 148, 0, 0.8), rgba(0,0, 0, 0));
+  width: 270px;
+}
+
+.container_full > .content .intro p {
+  text-align: center;
+}
+
+.muce_filter {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-top: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.2);
+  padding: 18px;
+}
+
+.muce_filter_group {
+  width: 30%;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.muce_filter_group strong {
+  color: #e59400;
+}
+
+.muce_filter_group:last-of-type {
+  width: 30%;
+}
+
+.muce_filter input[type=text] {
+  padding: 0.5em;
+  font-family: 'Montserrat', sans-serif;
+  width: 80%;
+  margin: 0 auto;
+}
+
+.cat_more {
+  color: #e59400;
+}
+
+.muce_seznam {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+}
+
+.muca {
+  width: 33.33333333%;
+  text-align: center;
+  margin-top: 2em;
+}
+
+.muca h2 {
+  margin: 0 0 0.3em 0;
+}
+
+.muca_img img {
+  border: 1px solid rgba(0,0,0,0.4);
+  border-bottom: 5px solid #343a40;
+  max-width: 90%;
+  margin-bottom: 0;
+}
+
+.vet_status img {
+  width: 40px;
+  margin: 0.5em 0.3em 0 0.3em;
+}
+
+.muca p {
+  text-align: center;
+  margin: 0.5em 0 0 0;
+}
+
+.muce_nav {
+  margin-top: 1em;
+  letter-spacing: 0.1em;
+  padding: 1em 1.5em;
+  text-align: center;
+  font-size: 1.2em;
+  font-weight: bold;
+}

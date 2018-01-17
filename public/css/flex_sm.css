@@ -62,9 +62,15 @@
     align-self: center;
   }
 
+  .search {
+    width: 100%;
+  }
+
   .search input[type=text] {
     padding: 7px;
     margin: 15px 0;
+    width: 65%;
+    text-align: center;
   }
 
   .news_reel,
@@ -95,6 +101,22 @@
     margin: 0;
   }
 
+  .muce_filter {
+    flex-direction: column;
+  }
+
+  .muce_filter_group,
+  .muce_filter_group:last-of-type {
+    width: 100%;
+    text-align: center;
+    margin: 8px 0;
+  }
+
+  .muce_filter input[type=text] {
+    width: 60%;
+    text-align: center;
+  }
+
   .footer > .container > div {
     width: 100%;
     text-align: center;
@@ -117,5 +139,32 @@
     text-align: center;
     justify-content: center;
   }
+
+  /* MUCE */
+  .main > .nonindex > .container_full {
+    padding: 20px 15px 37px 15px;
+    max-width: 100%;
+  }
+
+  .muce_seznam {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+
+  }
+
+  .muca {
+      width: 100%;
+      text-align: center;
+      margin-top: 2em;
+  }
+
+  .muce_filter {
+    border: none;
+    background: #f8f8f8;
+  }
+
+  /* END MUCE */
 
 }
