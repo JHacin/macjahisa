@@ -9,4 +9,10 @@ router.get("/muce", function(req, res){
   res.render("posvojitev/muce", {title: "Muce, ki iščejo dom | Mačja hiša"})
 });
 
+// Začasno !!!!!!
+router.get("/prikaz", function(req, res){
+  res.render("posvojitev/prikaz", {title: "Muca #1 | Mačja hiša"})
+});
+// Začasno !!!!!
+
 module.exports = router;

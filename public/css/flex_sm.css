@@ -165,6 +165,49 @@
     background: #f8f8f8;
   }
 
+  .photos,
+  .data,
+  .desc {
+    width: 100%;
+  }
+
+  #muca_name {
+    text-align: center;
+  }
+
+  #name_hr {
+    margin: 0.5em auto;
+    margin-bottom: 1.5em;
+    background-image: linear-gradient(to right, rgba(229, 148, 0, 0), rgba(229, 148, 0, 0.8), rgba(0,0, 0, 0));
+    width: 270px;
+  }
+
+  #muce_back {
+    text-align: center;
+  }
+
+  .photos {
+    margin-right: 0;
+  }
+
+  .desc {
+    margin-top: 30px;
+  }
+
+  .desc h2 {
+    text-align: center;
+  }
+
+  .desc > .contact p {
+    text-align: center;
+  }
+
+  .desc > .boter_true {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+
   /* END MUCE */
 
 }
