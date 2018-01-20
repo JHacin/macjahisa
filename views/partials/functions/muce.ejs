@@ -1,0 +1,33 @@
+<%
+
+stanjeMuce = function(num) {
+  var stanje="";
+  if(num==1) {
+    stanje="Oddaja se prvič";
+  } else if(num==2) {
+    stanje="Oddaja se ponovno";
+  } else if(num==3) {
+    stanje="Se ne oddaja / bo ostala za nedoločen čas";
+  } else if(num==4) {
+    stanje="V novem domu";
+  } else if(num==5) {
+    stanje="R.I.P.";
+  }
+  return stanje;
+};
+
+spolMuce = function(num) {
+  var spol="";
+  if(num==1) {
+    spol="samček";
+  } else if(num==2) {
+    spol="samička";
+  } else if(num==3) {
+    spol="samček in samička";
+  } else if(num==4) {
+    spol="neznano";
+  }
+  return spol;
+}
+
+%>

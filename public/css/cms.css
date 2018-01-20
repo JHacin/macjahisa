@@ -4,6 +4,11 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.hidden {
+  display: none;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -46,4 +51,49 @@ a:hover {
 
 .main {
   padding: 1em;
+  width: 83%;
+  margin: 0 auto;
+}
+
+.tableimg {
+
+  height: 50px;
+}
+
+#tabela {
+  font-size: 0.9em;
+  text-align: center;
+}
+
+#tabela > thead {
+  background: #b2d1a7;
+}
+
+#tabela tbody th, #tabela tbody td {
+  padding: 0 14px;
+}
+
+.cms_muca {
+  display: flex;
+  flex-direction: column;
+}
+
+.cms_muca_row {
+  display: flex;
+  flex-direction: row;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+
+.cms_attr {
+  width: 12%;
+  background: #b2d1a7;
+  padding: 4px 12px;
+}
+
+.cms_val {
+  padding: 4px 12px;
+}
+
+.cms_val img {
+  width: 150px;
 }

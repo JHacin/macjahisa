@@ -1,0 +1,121 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/muce"><< Nazaj</a></p>
+
+<h3>Vnesi novo muco</h3>
+
+<form action="/admin/muce" method="POST">
+  <div>
+    <label for="datum">datum:</label>
+    <input type="date" id="nova_datum" name="muca[datum]" value=""/>
+  </div>
+  <div>
+    <label for="stanje">stanje:</label>
+    <select id="nova_stanje" name="muca[stanje]">
+      <option value="1">oddaja se prvič</option>
+      <option value="2">oddaja se ponovno</option>
+      <option value="3">se ne oddaja oz. bo ostal za nedoločen čas</option>
+      <option value="4">v novem domu</option>
+      <option value="5">R.I.P.</option>
+    </select>
+  </div>
+  <div>
+    <label for="ime">ime:</label>
+    <input type="text" id="nova_ime" name="muca[ime]" />
+  </div>
+  <div>
+    <label for="starost">starost:</label>
+    <input type="text" id="nova_starost" name="muca[starost]" />
+  </div>
+  <div>
+    <label for="spol">spol:</label>
+    <select id="nova_spol" name="muca[spol]">
+      <option value="1">samček</option>
+      <option value="2">samička</option>
+      <option value="3">samček in samička</option>
+      <option value="4">neznano</option>
+    </select>
+  </div>
+  <div>
+    <label for="opis">opis:</label>
+    <textarea id="nova_opis" name="muca[opis]" cols="30" rows="10"></textarea>
+  </div>
+  <div>
+    <label for="kontakt">kontakt:</label>
+    <input type="text" id="nova_kontakt" name="muca[kontakt]" />
+  </div>
+  <div>
+    <label for="file_name1">file_name1:</label>
+    <input type="text" id="nova_file_name1" name="muca[file_name1]" />
+  </div>
+  <div>
+    <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
+    <select id="nova_posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
+      <option value="0">ne</option>
+      <option value="1">ja</option>
+    </select>
+  </div>
+  <div class="button">
+    <button type="submit">Potrdi</button>
+  </div>
+</form>
+
+<style>
+form {
+  /* Just to center the form on the page */
+  margin: 0 auto;
+  width: 600px;
+  /* To see the outline of the form */
+  padding: 1em;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+}
+
+form div + div {
+  margin-top: 1em;
+}
+
+label {
+  /* To make sure that all labels have the same size and are properly aligned */
+  display: inline-block;
+  width: 190px;
+  text-align: right;
+}
+
+input, textarea {
+  /* To make sure that all text fields have the same font settings
+     By default, textareas have a monospace font */
+  font: 1em sans-serif;
+
+  /* To give the same size to all text fields */
+  width: 300px;
+  box-sizing: border-box;
+
+  /* To harmonize the look & feel of text field border */
+  border: 1px solid #999;
+}
+
+input:focus, textarea:focus {
+  /* To give a little highlight on active elements */
+  border-color: #000;
+}
+
+textarea {
+  /* To properly align multiline text fields with their labels */
+  vertical-align: top;
+
+  /* To give enough room to type some text */
+  height: 5em;
+}
+
+.button {
+  /* To position the buttons to the same position of the text fields */
+  padding-left: 190px; /* same size as the label elements */
+}
+
+button {
+  /* This extra margin represent roughly the same space as the space
+     between the labels and their text fields */
+  margin-left: .5em;
+}
+</style>
+<% include ../../partials/admin/footer %>

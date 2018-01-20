@@ -1,0 +1,88 @@
+<% include ../../partials/admin/header %>
+<% include ../../partials/functions/muce %>
+<p><a href="/admin/muce"><< Nazaj</a></p>
+
+<h3><%= muca.ime %></h3>
+<div class="cms_muca">
+
+  <form>
+
+    <div class="cms_muca_row">
+      <div class="cms_attr">Datum prihoda</div>
+      <input type="date" id="datum" name="muca[datum]" value="<%= moment(muca.datum).format("YYYY-MM-DD") %>"/>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Status</div>
+      <select id="stanje" name="muca[stanje]">
+        <option value="1" <%= muca.stanje == 1 ? "selected" : "" %>>oddaja se prvič</option>
+        <option value="2" <%= muca.stanje == 2 ? "selected" : "" %>>oddaja se ponovno</option>
+        <option value="3" <%= muca.stanje == 3 ? "selected" : "" %>>se ne oddaja oz. bo ostal za nedoločen čas</option>
+        <option value="4" <%= muca.stanje == 4 ? "selected" : "" %>>v novem domu</option>
+        <option value="5" <%= muca.stanje == 5 ? "selected" : "" %>>R.I.P.</option>
+      </select>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Starost</div>
+      <input type="text" id="starost" name="muca[starost]" value="<%= muca.starost %>" />
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Skupina</div>
+      <div class="cms_val"><%= muca.id_starostne_kategorije %></div>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Spol</div>
+      <select id="spol" name="muca[spol]">
+        <option value="1" <%= muca.spol == 1 ? "selected" : "" %>>samček</option>
+        <option value="2" <%= muca.spol == 2 ? "selected" : "" %>>samička</option>
+        <option value="3" <%= muca.spol == 3 ? "selected" : "" %>>samček in samička</option>
+        <option value="4" <%= muca.spol == 4 ? "selected" : "" %>>neznano</option>
+      </select>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Opis</div>
+      <textarea id="opis" name="muca[opis]" cols="70" rows="10"><%- muca.opis %></textarea>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Kontakt</div>
+      <input type="text" id="kontakt" name="muca[kontakt]" value="<%= muca.kontakt %>" />
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Slika 1</div>
+      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /><p>Izberi novo | Izbriši</p></div>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Slika 2</div>
+      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name2 %>" /><p>Izberi novo | Izbriši</p></div>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Slika 3</div>
+      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name3 %>" /><p>Izberi novo | Izbriši</p></div>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Slika 4</div>
+      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name4 %>" /><p>Izberi novo | Izbriši</p></div>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Posvojitev na daljavo?</div>
+      <select id="posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
+        <option value="0" <%= muca.posvojitev_na_daljavo == 0 ? "selected" : "" %>>ne</option>
+        <option value="1" <%= muca.posvojitev_na_daljavo == 1 ? "selected" : "" %>>da</option>
+      </select>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Objavi zgodbo</div>
+      <select id="objavi_zgodbo" name="muca[objavi_zgodbo]">
+        <option value="0" <%= muca.objavi_zgodbo == 0 ? "selected" : "" %>>ne</option>
+        <option value="1" <%= muca.objavi_zgodbo == 1 ? "selected" : "" %>>da</option>
+      </select>
+    </div>
+    <div class="cms_muca_row">
+      <div class="cms_attr">Zgodba</div>
+      <div class="cms_val"><%= muca.zgodba %></div>
+    </div>
+
+  </form>
+
+</div>
+
+<% include ../../partials/admin/footer %>

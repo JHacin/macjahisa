@@ -1,0 +1,43 @@
+<% include ../../partials/admin/header %>
+<% include ../../partials/functions/muce %>
+
+<h3>Muce za posvojitev</h3>
+<p><a href="/admin/muce/add">+ Dodaj novo</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum sprejema</th>
+            <th>Status</th>
+            <th>Ime</th>
+            <th>Spol</th>
+            <th>Slika</th>
+            <th>Posvojitev na daljavo</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% muce.forEach(function(muca) { %>
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(muca.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(muca.datum).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><%= stanjeMuce(muca.stanje) %></td>
+              <td><%= muca.ime %></td>
+              <td><%= spolMuce(muca.spol) %></td>
+              <td><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></td>
+              <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
+              <td><a href="/admin/muce/<%= muca._id %>">Prikaži</a></td>
+              <td><a href="/admin/muce/edit/<%= muca._id %>">Uredi</a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>
