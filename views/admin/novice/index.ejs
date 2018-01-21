@@ -1,0 +1,41 @@
+<% include ../../partials/admin/header %>
+
+<h3>Novice</h3>
+<p><a href="/admin/novice/add">+ Dodaj novo</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum objave</th>
+            <th>Naslov</th>
+            <th>Vsebina</th>
+            <th>Objavil/-a</th>
+            <th>Objava</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% novice.forEach(function(novica) { %>
+
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(novica.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(novica.datum).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><%= novica.naslov %></td>
+              <td><%= novica.vsebina.substring(0,200) + "..." %></td>
+              <td><%= novica.user_id %></td>
+              <td><%= novica.objava == "1" ? "Da" : "Ne" %></td>
+              <td><a href="/admin/novice/<%= novica._id %>">Prikaži</a></td>
+              <td><a href="/admin/novice/edit/<%= novica._id %>">Uredi</a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

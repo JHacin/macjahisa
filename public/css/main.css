@@ -98,3 +98,18 @@ input[type=text]:focus, textarea:focus {
   color: #343a40;
   font-weight: bold;
 }
+
+.seznam_novic {
+  list-style: none;
+  padding: 0;
+  width: 100%;
+}
+
+.page_navigation {
+  text-align: right;
+  padding-top: 10px;
+}
+
+.page_navigation a {
+  margin: 0 0 0 5px;
+}

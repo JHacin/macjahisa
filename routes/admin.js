@@ -1,12 +1,16 @@
 var express = require("express");
 var router = express.Router({mergeParams: true});
 var Muca = require("../models/muca");
+var Novica = require("../models/novica");
+var Clanek = require("../models/clanek");
+var Podstran = require("../models/podstran");
 
 router.get("/", function(req, res){
   // index - preusmeri na seznam muc
   res.redirect("/admin/muce");
 });
 
+// MUCE
 router.get("/muce", function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete
   Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
@@ -23,17 +27,17 @@ router.get("/muce/edit/:id", function(req, res) {
   })
 });
 
+router.get("/muce/add", function(req, res){
+  // prikaži obrazec za novo muco
+  res.render("admin/muce/add");
+});
+
 router.get("/muce/:id", function(req, res) {
   // prikaži muco po IDju
   Muca.findById(req.params.id, function(err, muca) {
     if(err) return console.log(err);
     res.render("admin/muce/show", {muca: muca});
   })
-});
-
-router.get("/muce/add", function(req, res){
-  // prikaži obrazec za novo muco
-  res.render("admin/muce/add");
 });
 
 router.post("/muce", function(req, res){
@@ -43,5 +47,32 @@ router.post("/muce", function(req, res){
     res.redirect("/admin/muce");
   });
 });
+// END muce
+
+// NOVICE
+router.get("/novice", function(req, res){
+  res.render("admin/novice/index", {novice: req.novice});
+});
+// END NOVICE
+
+// ČLANKI
+router.get("/clanki", function(req, res){
+  // prikaži vse članke po vrsti od nazadnje objavljenega
+  Clanek.find({}).sort({datum: -1}).exec(function(err, clanki) {
+    if(err) return console.log(err);
+    res.render("admin/clanki/index", {clanki: clanki});
+  })
+});
+// END ČLANKI
+
+// PODSTRANI
+router.get("/podstrani", function(req, res){
+  // prikaži vse podstrani po vrsti od nazadnje spremenjene
+  Podstran.find({}).sort({datum: -1}).exec(function(err, podstrani) {
+    if(err) return console.log(err);
+    res.render("admin/podstrani/index", {podstrani: podstrani});
+  })
+});
+// END PODSTRANI
 
 module.exports = router;

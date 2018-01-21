@@ -1,0 +1,22 @@
+<% include ../partials/header %>
+<% include ../partials/nonindex %>
+
+<h1 class="content_heading">Novice</h1>
+<hr class="content_title_subhr" />
+
+<div id="page_container">
+  <ul class="content seznam_novic">
+    <% novice.forEach(function(novica) { %>
+      <li>
+        <h4><em><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></em> | <%= novica.naslov %></h4>
+        <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,250) + "..." %> <i class="fa fa-forward" aria-hidden="true"></i></p>
+      </li>
+    <% }) %>
+  </ul>
+  <div class="page_navigation"></div>
+</div>
+
+
+
+<% include ../partials/sidebar %>
+<% include ../partials/footer %>

@@ -1,0 +1,39 @@
+<% include ../../partials/admin/header %>
+
+<h3>Podstrani</h3>
+<p><a href="/admin/podstrani/add">+ Dodaj novo</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum zadnje spremembe</th>
+            <th>Portal</th>
+            <th>Naslov</th>
+            <th>Vsebina</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% podstrani.forEach(function(podstran) { %>
+
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(podstran.zadnja_sprememba).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(podstran.zadnja_sprememba).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><%= podstran.portal %></td>
+              <td><%= podstran.naslov %></td>
+              <td><%= podstran.vsebina.substring(0,200) + "..." %></td>
+              <td><a href="/admin/podstrani/<%= podstran._id %>">Prikaži</a></td>
+              <td><a href="/admin/podstrani/edit/<%= podstran._id %>">Uredi</a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

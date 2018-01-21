@@ -1,0 +1,39 @@
+<% include ../../partials/admin/header %>
+
+<h3>Članki</h3>
+<p><a href="/admin/clanki/add">+ Dodaj novega</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum objave</th>
+            <th>Naslov</th>
+            <th>Vsebina</th>
+            <th>Objava</th>
+            <th></th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% clanki.forEach(function(clanek) { %>
+
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(clanek.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(clanek.datum).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><%= clanek.naslov %></td>
+              <td><%= clanek.vsebina.substring(0,200) + "..." %></td>
+              <td><%= clanek.objava == "1" ? "Da" : "Ne" %></td>
+              <td><a href="/admin/clanki/<%= clanek._id %>">Prikaži</a></td>
+              <td><a href="/admin/clanki/edit/<%= clanek._id %>">Uredi</a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

@@ -10,6 +10,8 @@ $(document).ready( function() {
   $('#nova_datum').val(new Date().toDateInputValue());
 
 // dataTables
-  $('#tabela').DataTable();
+  $('#tabela').DataTable({
+    "order": [[ 0, 'desc' ]]
+  });
 
 });
