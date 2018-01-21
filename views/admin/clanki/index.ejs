@@ -25,7 +25,7 @@
                 <%= moment(clanek.datum).format("DD[.]MM[.]YYYY") %>
               </td>
               <td><%= clanek.naslov %></td>
-              <td><%= clanek.vsebina.substring(0,200) + "..." %></td>
+              <td><%- clanek.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= clanek.objava == "1" ? "Da" : "Ne" %></td>
               <td><a href="/admin/clanki/<%= clanek._id %>">Prikaži</a></td>
               <td><a href="/admin/clanki/edit/<%= clanek._id %>">Uredi</a></td>

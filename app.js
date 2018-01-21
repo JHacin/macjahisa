@@ -34,7 +34,7 @@ app.use("*", function(req, res, next) {
 
 // find all cats middleware
 app.use("*", function(req, res, next) {
-  Muca.find({}).sort({datum: -1}).limit(3).exec(function(err, sidebar_muce) {
+  Muca.find().where("status").in([1, 2]).sort({datum: -1}).limit(3).exec(function(err, sidebar_muce) {
     if(err) return console.log(err);
     req.sidebar_muce = sidebar_muce;
     next();

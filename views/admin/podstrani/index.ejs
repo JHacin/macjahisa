@@ -26,7 +26,7 @@
               </td>
               <td><%= podstran.portal %></td>
               <td><%= podstran.naslov %></td>
-              <td><%= podstran.vsebina.substring(0,200) + "..." %></td>
+              <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><a href="/admin/podstrani/<%= podstran._id %>">Prikaži</a></td>
               <td><a href="/admin/podstrani/edit/<%= podstran._id %>">Uredi</a></td>
           </tr>

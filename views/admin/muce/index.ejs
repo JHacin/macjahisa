@@ -26,7 +26,7 @@
                 <!-- actual date format shown -->
                 <%= moment(muca.datum).format("DD[.]MM[.]YYYY") %>
               </td>
-              <td><%= stanjeMuce(muca.stanje) %></td>
+              <td><%= stanjeMuce(muca.status) %></td>
               <td><%= muca.ime %></td>
               <td><%= spolMuce(muca.spol) %></td>
               <td><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></td>

@@ -4,7 +4,7 @@ var mucaSchema = new mongoose.Schema({
   dbid: Number,
   user_id: Number,
   datum: Date,
-  stanje: Number,
+  status: Number,
   ime: String,
   starost: String,
   id_starostne_kategorije: Number,

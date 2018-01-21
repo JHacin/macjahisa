@@ -12,8 +12,8 @@ router.get("/", function(req, res){
 
 // MUCE
 router.get("/muce", function(req, res){
-  // prikaži vse muce po vrsti od nazadnje sprejete
-  Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
+  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
+  Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
     if(err) return console.log(err);
     res.render("admin/muce/index", {muce: muce});
   })
@@ -51,7 +51,10 @@ router.post("/muce", function(req, res){
 
 // NOVICE
 router.get("/novice", function(req, res){
-  res.render("admin/novice/index", {novice: req.novice});
+  Novica.find({}, function(err, novice){
+    if(err) return console.log(err);
+    res.render("admin/novice/index", {novice: novice});
+  })
 });
 // END NOVICE
 

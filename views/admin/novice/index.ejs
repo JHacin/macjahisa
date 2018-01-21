@@ -26,7 +26,7 @@
                 <%= moment(novica.datum).format("DD[.]MM[.]YYYY") %>
               </td>
               <td><%= novica.naslov %></td>
-              <td><%= novica.vsebina.substring(0,200) + "..." %></td>
+              <td><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= novica.user_id %></td>
               <td><%= novica.objava == "1" ? "Da" : "Ne" %></td>
               <td><a href="/admin/novice/<%= novica._id %>">Prikaži</a></td>
