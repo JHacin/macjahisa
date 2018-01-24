@@ -6,6 +6,19 @@ var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Kategorija = require("../models/kategorija");
 
+// MULTER
+var multer = require("multer");
+var storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/files/oglasi_muce')
+  },
+  filename: function (req, file, cb) {
+    cb(null, req.body.muca.ime + '-' + Date.now() + ".jpg")
+  }
+})
+var upload = multer({ storage: storage });
+// END MULTER
+
 router.get("/", function(req, res){
   // index - preusmeri na seznam muc
   res.redirect("/admin/muce");
@@ -41,12 +54,33 @@ router.get("/muce/:id", function(req, res) {
   })
 });
 
-router.post("/muce", function(req, res){
+router.post("/muce", upload.fields([
+    {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
+  ]), (req, res) => {
+
   // dodaj novo muco
   Muca.create(req.body.muca, function(err, novaMuca) {
     if(err) return console.log(err);
+
+    // dodeli povezave do slik (če so)
+    if(req.files.slika1) {
+      novaMuca.file_name1 = req.files.slika1[0].filename;
+    };
+    if(req.files.slika2) {
+      novaMuca.file_name2 = req.files.slika1[0].filename;
+    };
+    if(req.files.slika3) {
+      novaMuca.file_name3 = req.files.slika1[0].filename;
+    };
+    if(req.files.slika4) {
+      novaMuca.file_name4 = req.files.slika1[0].filename;
+    };
+    // shrani
+    novaMuca.save();
+
     res.redirect("/admin/muce");
   });
+
 });
 // END muce
 

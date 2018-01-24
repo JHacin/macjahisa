@@ -3,7 +3,7 @@
 
 <h3>Vnesi novo muco</h3>
 
-<form action="/admin/muce" method="POST">
+<form action="/admin/muce" method="POST" enctype="multipart/form-data">
   <div>
     <label for="datum">datum sprejema:</label>
     <input type="date" id="nova_datum" name="muca[datum]" value=""/>
@@ -44,8 +44,20 @@
     <input type="text" id="nova_kontakt" name="muca[kontakt]" />
   </div>
   <div>
-    <label for="file_name1">file_name1:</label>
-    <input type="text" id="nova_file_name1" name="muca[file_name1]" />
+    <label for="slika1">Slika 1:</label>
+    <input type="file" id="slika1" name="slika1" />
+  </div>
+  <div>
+    <label for="slika2">Slika 2:</label>
+    <input type="file" id="slika2" name="slika2" />
+  </div>
+  <div>
+    <label for="slika3">Slika 3:</label>
+    <input type="file" id="slika3" name="slika3" />
+  </div>
+  <div>
+    <label for="slika4">Slika 4:</label>
+    <input type="file" id="slika4" name="slika4" />
   </div>
   <div>
     <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
