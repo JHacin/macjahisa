@@ -1,5 +1,5 @@
 <%
-
+<!-- STANJE -->
 stanjeMuce = function(num) {
   var stanje="";
   if(num==1) {
@@ -16,6 +16,7 @@ stanjeMuce = function(num) {
   return stanje;
 };
 
+<!-- SPOL -->
 spolMuce = function(num) {
   var spol="";
   if(num==1) {
@@ -29,5 +30,45 @@ spolMuce = function(num) {
   }
   return spol;
 }
+
+<!-- STAROST -->
+starostVMesecih = function(mesec_rojstva) {
+  var result = Math.floor(moment().diff(moment(mesec_rojstva), "months", true));
+  if(result < 1) {
+    return "manj kot 1 mesec";
+  } else if(result < 12) {
+    if(result == 2) {
+      return "2 meseca";
+    } else if (result == 3 || result == 4) {
+      return result + " meseci";
+    } else {
+      return result + " mesecev";
+    }
+  } else if (result >= 12) {
+    <!-- 1 leto in več -->
+    var leta = Math.floor(result/12);
+    var meseci = result%12;
+    var leta_str = "let";
+    var meseci_str = "mesecev";
+    <!-- končnica za leta -->
+    if(leta == 1) {
+      leta_str = "leto";
+    } else if (leta == 2) {
+      leta_str = "leti";
+    } else if (leta == 3 || leta == 4) {
+      leta_str = "leta";
+    }
+    <!-- končnica za mesece -->
+    if(meseci == 1) {
+      meseci_str = "mesec";
+    } else if (meseci == 2) {
+      meseci_str = "meseca";
+    } else if (meseci == 3 || meseci == 4) {
+      meseci_str = "meseci";
+    }
+    return leta + " " + leta_str + " in " + meseci + " " + meseci_str;
+  }
+}
+
 
 %>

@@ -4,6 +4,7 @@ var Muca = require("../models/muca");
 var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
+var Kategorija = require("../models/kategorija");
 
 router.get("/", function(req, res){
   // index - preusmeri na seznam muc
@@ -77,5 +78,27 @@ router.get("/podstrani", function(req, res){
   })
 });
 // END PODSTRANI
+
+// MENU
+router.get("/menu", function(req, res){
+  // prikaži vse podstrani po vrsti od nazadnje spremenjene
+  Kategorija.find({}).populate("podstrani").exec(function(err, kategorije) {
+    if(err) return console.log(err);
+    res.render("admin/menu/index", {kategorije: kategorije});
+  })
+});
+
+router.post("/menu", function(req, res){
+  Kategorija.create({naslov: req.body.naslov}, function(err, kategorija){
+    if(err) return console.log(err);
+    console.log("Kategorija dodana.");
+    res.redirect("/admin/menu");
+  });
+});
+
+router.get("/menu/add", function(req, res){
+    res.render("admin/menu/add");
+});
+// END MENU
 
 module.exports = router;

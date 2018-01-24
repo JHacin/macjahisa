@@ -5,15 +5,15 @@
 
 <form action="/admin/muce" method="POST">
   <div>
-    <label for="datum">datum:</label>
+    <label for="datum">datum sprejema:</label>
     <input type="date" id="nova_datum" name="muca[datum]" value=""/>
   </div>
   <div>
-    <label for="stanje">stanje:</label>
-    <select id="nova_stanje" name="muca[stanje]">
+    <label for="status">stanje:</label>
+    <select id="nova_status" name="muca[status]">
       <option value="1">oddaja se prvič</option>
       <option value="2">oddaja se ponovno</option>
-      <option value="3">se ne oddaja oz. bo ostal za nedoločen čas</option>
+      <option value="3">se ne oddaja oz. bo ostal/-a za nedoločen čas</option>
       <option value="4">v novem domu</option>
       <option value="5">R.I.P.</option>
     </select>
@@ -23,8 +23,8 @@
     <input type="text" id="nova_ime" name="muca[ime]" />
   </div>
   <div>
-    <label for="starost">starost:</label>
-    <input type="text" id="nova_starost" name="muca[starost]" />
+    <label for="mesec_rojstva">mesec rojstva:</label>
+    <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" />
   </div>
   <div>
     <label for="spol">spol:</label>

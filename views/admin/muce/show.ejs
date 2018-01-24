@@ -1,7 +1,6 @@
 <% include ../../partials/admin/header %>
 <% include ../../partials/functions/muce %>
 <p><a href="/admin/muce"><< Nazaj</a></p>
-
 <h3><%= muca.ime %></h3>
 <div class="cms_muca">
   <div class="cms_muca_row">
@@ -18,7 +17,7 @@
   </div>
   <div class="cms_muca_row">
     <div class="cms_attr">Starost</div>
-    <div class="cms_val"><%= muca.starost %></div>
+    <div class="cms_val"><%= starostVMesecih(muca.mesec_rojstva) %></div>
   </div>
   <div class="cms_muca_row">
     <div class="cms_attr">Skupina</div>

@@ -1,0 +1,18 @@
+<% include ../../partials/admin/header %>
+
+<h3>Urejanje menija</h3>
+<p><a href="/admin/menu/add">+ Dodaj novo kategorijo</a></p>
+<hr />
+<div class="kategorije">
+  <% kategorije.forEach(function(kategorija) { %>
+    <div class="kategorija">
+      <strong><%= kategorija.naslov %></strong>
+      <ul>
+        <% kategorija.podstrani.forEach(function(podstran){ %>
+          <li><%= podstran.naslov %></li>
+        <% }); %>
+      </ul>
+    </div>
+  <% }); %>
+</div>
+<% include ../../partials/admin/footer %>
