@@ -1,0 +1,35 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/podstrani"><< Nazaj</a></p>
+<h3>Uredi podstran</h3>
+
+<form action="/admin/podstrani/<%= podstran._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="podstran[naslov]">Naslov:</label>
+    <input type="text" name="podstran[naslov]" id="naslov" value="<%= podstran.naslov %>" required/>
+  </div>
+  <div>
+    <label for="podstran[url]">URL:</label>
+    <input type="text" name="podstran[url]" id="url" value="<%= podstran.url %>" required/>
+  </div>
+  <div>
+    <label for="podstran[kategorija]">Kategorija:</label>
+    <select id="kategorija" name="podstran[kategorija]">
+      <% kategorije.forEach(function(kategorija){ %>
+        <option value="<%= kategorija._id %>"><%= kategorija.naslov %></option>
+      <% }); %>
+    </select>
+  </div>
+  <div>
+    <label for="podstran[url]">Vsebina:</label>
+    <textarea cols="200" rows="40" name="podstran[vsebina]" id="vsebina" required><%= podstran.vsebina %></textarea>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+
+
+
+
+
+
+<% include ../../partials/admin/footer %>

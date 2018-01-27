@@ -1,0 +1,18 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/menu"><< Nazaj</a></p>
+<h3>Uredi kategorijo</h3>
+
+<form action="/admin/menu/<%= kategorija._id %>?_method=PUT" method="POST">
+  <div>
+    Naslov: <input type="text" name="naslov" id="naslov" value="<%= kategorija.naslov %>" />
+  </div>
+  <div>
+    URL: <input type="text" name="url" id="url" value="<%= kategorija.url %>" />
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+
+
+
+<% include ../../partials/admin/footer %>

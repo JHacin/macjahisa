@@ -1,6 +1,7 @@
 var express = require("express");
 var router  = express.Router({mergeParams: true});
 var Novica = require("../models/novica");
+var Podstran = require("../models/podstran");
 
 router.get("/", function(req, res){
   Novica.find({}, function(err, novice){

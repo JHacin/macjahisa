@@ -6,7 +6,8 @@
 <div class="kategorije">
   <% kategorije.forEach(function(kategorija) { %>
     <div class="kategorija">
-      <strong><%= kategorija.naslov %></strong>
+      <strong><%= kategorija.naslov %>
+        <a href="/admin/menu/<%= kategorija._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></strong>
       <ul>
         <% kategorija.podstrani.forEach(function(podstran){ %>
           <li><%= podstran.naslov %></li>

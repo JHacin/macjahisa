@@ -14,4 +14,9 @@ $(document).ready( function() {
     "order": [[ 0, 'desc' ]]
   });
 
+  $('#summernote').summernote({
+    minHeight: 500
+  });
+
+
 });

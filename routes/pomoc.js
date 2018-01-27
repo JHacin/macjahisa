@@ -1,16 +1,19 @@
 var express             = require("express");
 var router              = express.Router({mergeParams: true});
+var Podstran = require("../models/podstran");
 
-router.get("/", function(req, res){
-  res.render("pomoc/index", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Kako nam lahko pomagate? | Mačja hiša"})
-});
-
-router.get("/donacije", function(req, res){
-  res.render("pomoc/donacije", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Donacije | Mačja hiša"})
-});
-
-router.get("/dohodnina", function(req, res){
-  res.render("pomoc/dohodnina", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Namenite nam del dohodnine | Mačja hiša"})
+router.get("/:podstran", function(req, res){
+  Podstran.findOne({url: req.params.podstran}, function(err, podstran){
+    res.render("pomoc/show",
+    {
+      podstran: podstran,
+      nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani,
+      sidebar_novice: req.sidebar_novice,
+      sidebar_muce: req.sidebar_muce,
+      title: podstran.naslov + " | Mačja hiša"
+    });
+  });
 });
 
 module.exports = router;

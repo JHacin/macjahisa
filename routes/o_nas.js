@@ -1,24 +1,19 @@
-var express             = require("express");
-var router              = express.Router({mergeParams: true});
+var express = require("express");
+var router = express.Router({mergeParams: true});
+var Podstran = require("../models/podstran");
 
-router.get("/kaj_je_macja_hisa", function(req, res){
-  res.render("o_nas/kaj_je_macja_hisa", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Kdo smo? | Mačja hiša"})
-});
-
-router.get("/zavetisce_mh", function(req, res){
-  res.render("o_nas/zavetisce_mh", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Zavetišče MH | Mačja hiša"})
-});
-
-router.get("/kontakt", function(req, res){
-  res.render("o_nas/kontakt", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Kontakt | Mačja hiša"})
-});
-
-router.get("/cenik", function(req, res){
-  res.render("o_nas/cenik", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Cenik | Mačja hiša"})
-});
-
-router.get("/v_medijih", function(req, res){
-  res.render("o_nas/v_medijih", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "V medijih | Mačja hiša"})
+router.get("/:podstran", function(req, res){
+  Podstran.findOne({url: req.params.podstran}, function(err, podstran){
+    res.render("o_nas/show",
+    {
+      podstran: podstran,
+      nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani,
+      sidebar_novice: req.sidebar_novice,
+      sidebar_muce: req.sidebar_muce,
+      title: podstran.naslov + " | Mačja hiša"
+    });
+  });
 });
 
 module.exports = router;

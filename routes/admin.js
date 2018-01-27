@@ -5,6 +5,7 @@ var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Kategorija = require("../models/kategorija");
+var moment = require("moment");
 
 // MULTER
 var multer = require("multer");
@@ -33,7 +34,7 @@ router.get("/muce", function(req, res){
   })
 });
 
-router.get("/muce/edit/:id", function(req, res) {
+router.get("/muce/:id/edit/", function(req, res) {
   // prikaži obrazce za urejanje muce (po IDju)
   Muca.findById(req.params.id, function(err, muca) {
     if(err) return console.log(err);
@@ -106,11 +107,61 @@ router.get("/clanki", function(req, res){
 // PODSTRANI
 router.get("/podstrani", function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
-  Podstran.find({}).sort({datum: -1}).exec(function(err, podstrani) {
+  Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
     if(err) return console.log(err);
     res.render("admin/podstrani/index", {podstrani: podstrani});
   })
 });
+
+router.post("/podstrani", function(req, res){
+  Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
+    console.log(kategorija._id);
+    if(err) return console.log(err);
+    Podstran.create(req.body.podstran, function(err, podstran){
+      if(err) {
+        console.log(err);
+      } else {
+
+        podstran.dbid = kategorija.podstrani.length + 1;
+        podstran.naslov_en = "";
+        podstran.vsebina_en = "";
+        podstran.vrstni_red = kategorija.podstrani.length + 1;
+        podstran.include_after = "";
+        podstran.portal = "M";
+        podstran.include_before = "";
+        podstran.zadnja_sprememba = moment();
+        podstran.save();
+        kategorija.podstrani.push(podstran);
+        kategorija.save();
+        res.redirect("/admin/podstrani");
+      }
+    });
+  });
+});
+
+router.get("/podstrani/add", function(req, res){
+  Kategorija.find({}, function(err, kategorije){
+    res.render("admin/podstrani/add", {kategorije: kategorije});
+  });
+});
+
+router.put("/podstrani/:id", function(req, res){
+  Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
+    if(err) return console.log(err);
+    res.redirect("/admin/podstrani/");
+  });
+});
+
+router.get("/podstrani/:id/edit", function(req, res){
+  Podstran.findById(req.params.id, function(err, podstran) {
+    Kategorija.find({}, function(err, kategorije){
+      console.log(podstran);
+      if(err) return console.log(err);
+      res.render("admin/podstrani/edit", {podstran: podstran, kategorije: kategorije});
+    });
+  });
+});
+
 // END PODSTRANI
 
 // MENU
@@ -122,16 +173,29 @@ router.get("/menu", function(req, res){
   })
 });
 
+router.get("/menu/add", function(req, res){
+  res.render("admin/menu/add");
+});
+
+
 router.post("/menu", function(req, res){
-  Kategorija.create({naslov: req.body.naslov}, function(err, kategorija){
+  Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
+    res.redirect("/admin/menu/");
+  })
+});
+
+router.get("/menu/:id/edit", function(req, res){
+  Kategorija.findById(req.params.id, function(err, kategorija){
     if(err) return console.log(err);
-    console.log("Kategorija dodana.");
-    res.redirect("/admin/menu");
+    res.render("admin/menu/edit", {kategorija: kategorija});
   });
 });
 
-router.get("/menu/add", function(req, res){
-    res.render("admin/menu/add");
+router.put("/menu/:id", function(req, res){
+  Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
+    if(err) return console.log(err);
+    res.redirect("/admin/menu/" + kategorija._id + "/edit");
+  });
 });
 // END MENU
 

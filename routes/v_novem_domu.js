@@ -2,16 +2,6 @@ var express             = require("express");
 var router              = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 
-router.get("/muce", function(req, res){
-  res.render("posvojitev/muce", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša"})
-});
-
-// Začasno !!!!!!
-router.get("/prikaz", function(req, res){
-  res.render("posvojitev/prikaz", {sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce, title: "Muca #1 | Mačja hiša"})
-});
-// Začasno !!!!!
-
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
     res.render("posvojitev/show",

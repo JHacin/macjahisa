@@ -9,6 +9,7 @@
             <th>Datum zadnje spremembe</th>
             <th>Portal</th>
             <th>Naslov</th>
+            <th>Kategorija</th>
             <th>Vsebina</th>
             <th></th>
             <th></th>
@@ -26,9 +27,10 @@
               </td>
               <td><%= podstran.portal %></td>
               <td><%= podstran.naslov %></td>
+              <td><%= podstran.kategorija.naslov %></td>
               <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
-              <td><a href="/admin/podstrani/<%= podstran._id %>">Prikaži</a></td>
-              <td><a href="/admin/podstrani/edit/<%= podstran._id %>">Uredi</a></td>
+              <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>">Prikaži</a></td>
+              <td><a href="/admin/podstrani/<%= podstran._id %>/edit">Uredi</a></td>
           </tr>
         <% }) %>
     </tbody>

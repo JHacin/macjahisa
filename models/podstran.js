@@ -10,7 +10,12 @@ var podstranSchema = new mongoose.Schema({
   vrstni_red: Number,
   include_after: String,
   portal: String,
-  include_before: String
+  include_before: String,
+  url: String,
+  kategorija: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "Kategorija"
+  }
 });
 
 module.exports = mongoose.model("Podstran", podstranSchema);
