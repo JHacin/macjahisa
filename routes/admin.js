@@ -130,23 +130,20 @@ router.get("/podstrani", function(req, res){
 
 router.post("/podstrani", function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
-    console.log(kategorija._id);
     if(err) return console.log(err);
     Podstran.create(req.body.podstran, function(err, podstran){
       if(err) {
         console.log(err);
       } else {
-
-        podstran.dbid = kategorija.podstrani.length + 1;
+        podstran.dbid = kategorija.podstrani_length + 1;
         podstran.naslov_en = "";
         podstran.vsebina_en = "";
-        podstran.vrstni_red = kategorija.podstrani.length + 1;
+        podstran.vrstni_red = kategorija.podstrani_length + 1;
         podstran.include_after = "";
-        podstran.portal = "M";
         podstran.include_before = "";
         podstran.zadnja_sprememba = moment();
         podstran.save();
-        kategorija.podstrani.push(podstran);
+        kategorija.podstrani_length +=1;
         kategorija.save();
         res.redirect("/admin/podstrani");
       }
@@ -163,14 +160,17 @@ router.get("/podstrani/add", function(req, res){
 router.put("/podstrani/:id", function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
     if(err) return console.log(err);
-    res.redirect("/admin/podstrani/");
+    Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
+      if(err) return console.log(err);
+      kategorija.save();
+      res.redirect("/admin/podstrani/");
+    });
   });
 });
 
 router.get("/podstrani/:id/edit", function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
     Kategorija.find({}, function(err, kategorije){
-      console.log(podstran);
       if(err) return console.log(err);
       res.render("admin/podstrani/edit", {podstran: podstran, kategorije: kategorije});
     });
@@ -182,9 +182,12 @@ router.get("/podstrani/:id/edit", function(req, res){
 // MENU
 router.get("/menu", function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
-  Kategorija.find({}).populate("podstrani").exec(function(err, kategorije) {
+  Kategorija.find({}, function(err, kategorije) {
     if(err) return console.log(err);
-    res.render("admin/menu/index", {kategorije: kategorije});
+    Podstran.find({}, function(err, podstrani) {
+      if(err) return console.log(err);
+      res.render("admin/menu/index", {kategorije: kategorije, podstrani: podstrani});
+    });
   })
 });
 

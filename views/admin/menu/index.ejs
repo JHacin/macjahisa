@@ -1,7 +1,7 @@
 <% include ../../partials/admin/header %>
 
 <h3>Urejanje menija</h3>
-<p><a href="/admin/menu/add">+ Dodaj novo kategorijo</a></p>
+<p style="color: gray;">+ Dodaj novo kategorijo <em>(zaenkrat onemogočeno)</em></p>
 <hr />
 <div class="kategorije">
   <% kategorije.forEach(function(kategorija) { %>
@@ -9,8 +9,8 @@
       <strong><%= kategorija.naslov %>
         <a href="/admin/menu/<%= kategorija._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></strong>
       <ul>
-        <% kategorija.podstrani.forEach(function(podstran){ %>
-          <li><%= podstran.naslov %></li>
+        <% podstrani.forEach(function(podstran){ %>
+          <li><%= podstran.kategorija.equals(kategorija._id) ? podstran.naslov : "" %></li>
         <% }); %>
       </ul>
     </div>

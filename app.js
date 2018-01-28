@@ -32,7 +32,7 @@ app.locals.moment = require('moment');
 
 // find all categories and subpages (for navigation menu), cats and news (for sidebar)
 app.use("*", function(req, res, next) {
-  Kategorija.find({}).populate("podstrani").exec(function(err, kategorije){
+  Kategorija.find({}, function(err, kategorije){
     if(err) return console.log(err);
     Podstran.find({}, function(err, podstrani){
       if(err) return console.log(err);

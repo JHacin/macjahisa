@@ -29,7 +29,7 @@
               <td><%= podstran.naslov %></td>
               <td><%= podstran.kategorija.naslov %></td>
               <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
-              <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>">Prikaži</a></td>
+              <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>" target="_blank">Prikaži</a></td>
               <td><a href="/admin/podstrani/<%= podstran._id %>/edit">Uredi</a></td>
           </tr>
         <% }) %>

@@ -6,10 +6,12 @@
   <div>
     <label for="podstran[naslov]">Naslov:</label>
     <input type="text" name="podstran[naslov]" id="naslov" autofocus required/>
+    <em>(prikazano v meniju, na vrhu podstrani in kot naslov zavihka)</em>
   </div>
   <div>
     <label for="podstran[url]">URL:</label>
     <input type="text" name="podstran[url]" id="url" required/>
+    (zapiši v formatu <em><span style="color: red;">naslov_strani_in_tako_dalje</span></em> - <strong>brez presledkov, šumnikov ali posebnih simbolov</strong>)
   </div>
   <div>
     <label for="podstran[kategorija]">Kategorija:</label>
@@ -18,6 +20,14 @@
         <option value="<%= kategorija._id %>"><%= kategorija.naslov %></option>
       <% }); %>
     </select>
+  </div>
+  <div>
+    <label for="podstran[portal]">Portal:</label>
+    <select id="portal" name="podstran[portal]">
+        <option value="M" selected>Mačja hiša</option>
+        <option value="B" disabled>Mačji boter</option>
+    </select>
+    <em>(zaenkrat pusti)</em>
   </div>
   <div>
     <label for="podstran[vsebina]">Vsebina:</label>

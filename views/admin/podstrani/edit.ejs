@@ -15,7 +15,7 @@
     <label for="podstran[kategorija]">Kategorija:</label>
     <select id="kategorija" name="podstran[kategorija]">
       <% kategorije.forEach(function(kategorija){ %>
-        <option value="<%= kategorija._id %>"><%= kategorija.naslov %></option>
+        <option value="<%= kategorija._id %>" <%= podstran.kategorija.equals(kategorija._id) ? "selected" : "" %>><%= kategorija.naslov %></option>
       <% }); %>
     </select>
   </div>
