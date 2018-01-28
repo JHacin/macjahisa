@@ -2,7 +2,7 @@ $(document).ready( function() {
 
   // pagination
   $('#page_container').pajinate({
-    items_per_page : 15,
+    items_per_page : 10,
     item_container_id : '.content',
     nav_panel_id : '.page_navigation',
     num_page_links_to_display: 5,

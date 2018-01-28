@@ -27,5 +27,24 @@
 
 
 
-<% include ../partials/sidebar %>
+  </div>
+  <div class="sidebar">
+    <div class="side_cats">
+      <div class="side_header">Iščejo dom</div>
+      <div class="side_cats_list">
+        <% sidebar_muce.forEach(function(sidebar_muca) { %>
+          <div class="side_cat">
+            <img src="/files/oglasi_muce/<%= sidebar_muca.file_name1 %>" />
+            <h5><%= sidebar_muca.ime %></h5>
+          </div>
+        <% }) %>
+      </div>
+      <div class="side_more">
+        <div class="side_btn">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
 <% include ../partials/footer %>
