@@ -3,22 +3,16 @@
       <div class="side_news">
         <div class="side_header">Novice</div>
         <div class="side_news_list">
-          <div class="side_news_item">
-            <h3>Novica #1</h3>
-            <p>Wack the mini furry mouse step on your keyboard while you're gaming and then turn in a circle or scamper yet hiding behind the couch until lured out by a feathery toy.</p>
-          </div>
-          <div class="side_news_item">
-            <h3>Novica #2</h3>
-            <p>Need to chase tail attempt to leap between furniture but woefully miscalibrate and bellyflop onto the floor; what's your problem?</p>
-          </div>
-          <div class="side_news_item">
-            <h3>Novica #3</h3>
-              <p>Sleep on dog bed, force dog to sleep on floor furrier and even more furrier hairball sleep on dog bed, force dog to sleep on floor and destroy couch howl on top of tall thing or adventure always.</p>
+          <% sidebar_novice.forEach(function(sidebar_novica) { %>
+            <div class="side_news_item">
+              <h3><a href="/novice/<%= sidebar_novica._id %>"><%= sidebar_novica.naslov %></a></h3>
+              <p><%- sidebar_novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %>
+                <a href="/novice/<%= sidebar_novica._id %>">
+                  <i class="fa fa-forward" aria-hidden="true"></i>
+                </a>
+              </p>
             </div>
-          <div class="side_news_item">
-            <h3>Novica #4</h3>
-              <p>Sleep nap swat at dog. Immediately regret falling into bathtub yowling nonstop the whole night.</p>
-            </div>
+          <% }) %>
         </div>
         <div class="side_more">
           <div class="side_btn">Vse novice <i class="fa fa-caret-right" aria-hidden="true"></i></div>

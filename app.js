@@ -1,14 +1,15 @@
-var express         = require("express"),
-    ejs             = require("ejs"),
-    mongoose        = require("mongoose"),
-    app             = express(),
-    bodyParser      = require("body-parser"),
-    moment          = require("moment"),
-    methodOverride  = require("method-override"),
-    Novica          = require("./models/novica"),
-    Muca            = require("./models/muca"),
-    Kategorija      = require("./models/kategorija"),
-    Podstran        = require("./models/podstran");
+var express             = require("express"),
+    ejs                 = require("ejs"),
+    mongoose            = require("mongoose"),
+    mongooseQueryRandom = require("mongoose-query-random"),
+    app                 = express(),
+    bodyParser          = require("body-parser"),
+    moment              = require("moment"),
+    methodOverride      = require("method-override"),
+    Novica              = require("./models/novica"),
+    Muca                = require("./models/muca"),
+    Kategorija          = require("./models/kategorija"),
+    Podstran            = require("./models/podstran");
 
 // Route handling vars
 var o_nas = require("./routes/o_nas.js");
@@ -35,7 +36,7 @@ app.use("*", function(req, res, next) {
     if(err) return console.log(err);
     Podstran.find({}, function(err, podstrani){
       if(err) return console.log(err);
-      Muca.find().where("status").in([1, 2]).sort({datum: -1}).limit(3).exec(function(err, sidebar_muce) {
+      Muca.find().where("status").in([1, 2]).sort({datum: -1}).random(3, true, function(err, sidebar_muce) {
         if(err) return console.log(err);
         Novica.find({}).sort({datum: -1}).limit(4).exec(function(err, sidebar_novice) {
             if(err) return console.log(err);
@@ -52,14 +53,15 @@ app.use("*", function(req, res, next) {
 
 // INDEX ROUTE
 app.get("/", function(req, res){
-
-  res.render("index",
-    {
-      nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani,
-      title: "Mačja hiša - skupaj pomagamo brezdomnim mucam"
-    }
-  );
+  Novica.find({}).sort({datum: -1}).limit(3).exec(function(err, novice) {
+    if(err) return console.log(err);
+    Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
+      if(err) return console.log(err);
+      res.render("index", {nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
+          title: "Mačja hiša - skupaj pomagamo brezdomnim mucam", novice: novice, muce: muce
+      });
+    });
+  });
 });
 
 // OTHER routes

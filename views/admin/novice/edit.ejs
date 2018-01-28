@@ -1,0 +1,28 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/novice"><< Nazaj</a></p>
+<h3>Urejanje novice</h3>
+
+<form action="/admin/novice/<%= novica._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="novica[naslov]">Naslov:</label>
+    <input type="text" name="novica[naslov]" id="naslov" value="<%= novica.naslov %>" size="70" autofocus required/>
+  </div>
+  <div>
+    <label for="novica[naslovna_slika]">Naslovna slika:</label>
+    <input type="text" name="novica[naslovna_slika]" id="naslov" value="<%= novica.naslovna_slika %>" size="70" autofocus required/>
+  </div>
+  <div>
+    <label for="novica[objava]">Objava:</label>
+    <select id="objava" name="novica[objava]">
+      <option value="1" <%= novica.objava == '1' ? "selected" : "" %>>Da</option>
+      <option value="0" <%= novica.objava == '0' ? "selected" : "" %>>Ne</option>
+    </select>
+  </div>
+  <div>
+    <label for="novica[vsebina]">Vsebina:</label>
+    <textarea name="novica[vsebina]" id="summernote" required><%= novica.vsebina %></textarea>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

@@ -92,6 +92,21 @@ router.get("/novice", function(req, res){
     res.render("admin/novice/index", {novice: novice});
   })
 });
+
+router.get("/novice/:id/edit", function(req, res){
+  Novica.findById(req.params.id, function(err, novica){
+    if(err) return console.log(err);
+    res.render("admin/novice/edit", {novica: novica});
+  })
+});
+
+router.put("/novice/:id", function(req, res){
+  Novica.findByIdAndUpdate(req.params.id, req.body.novica, function(err){
+    if(err) return console.log(err);
+    res.redirect("/admin/novice/");
+  });
+});
+
 // END NOVICE
 
 // ČLANKI

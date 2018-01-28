@@ -29,8 +29,8 @@
               <td><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= novica.user_id %></td>
               <td><%= novica.objava == "1" ? "Da" : "Ne" %></td>
-              <td><a href="/admin/novice/<%= novica._id %>">Prikaži</a></td>
-              <td><a href="/admin/novice/edit/<%= novica._id %>">Uredi</a></td>
+              <td><a href="#">Prikaži</a></td>
+              <td><a href="/admin/novice/<%= novica._id %>/edit">Uredi</a></td>
           </tr>
         <% }) %>
     </tbody>

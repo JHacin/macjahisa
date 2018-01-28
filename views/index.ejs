@@ -7,21 +7,14 @@
             <hr />
           </div>
           <div class="news_reel">
-            <div class="news_item">
-              <h3>Novica #1</h3>
-              <img src="/images/stock1.jpg" />
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-            </div>
-            <div class="news_item">
-              <h3>Novica #2</h3>
-              <img src="/images/stock3.jpg" />
-              <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-            </div>
-            <div class="news_item">
-              <h3>Novica #3</h3>
-              <img src="/images/stock4.jpg" />
-              <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
-            </div>
+            <% novice.forEach(function(novica){ %>
+              <div class="news_item">
+
+                <img src="/files/<%= novica.naslovna_slika %>" />
+                <h3><%= novica.naslov %></h3>
+                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <i class="fa fa-forward" aria-hidden="true"></i></p>
+              </div>
+            <% }); %>
           </div>
           <div class="index_more">
             <button class="index_btn"><a href="/novice">Vse novice <i class="fa fa-caret-right" aria-hidden="true"></i></a></button>
@@ -35,26 +28,12 @@
             <hr />
           </div>
           <div class="cat_reel">
-            <div class="index_cat">
-              <h3>Muca #1</h3>
-              <img src="/images/stock_cat_1.jpg" />
-            </div>
-            <div class="index_cat">
-              <h3>Muca #2</h3>
-              <img src="/images/stock_cat_2.jpg" />
-            </div>
-            <div class="index_cat">
-              <h3>Muca #3</h3>
-              <img src="/images/stock_cat_3.jpg" />
-            </div>
-            <div class="index_cat">
-              <h3>Muca #4</h3>
-              <img src="/images/stock_cat_4.jpg" />
-            </div>
-            <div class="index_cat">
-              <h3>Muca #5</h3>
-              <img src="/images/stock_cat_5.jpg" />
-            </div>
+            <% muce.forEach(function(muca){ %>
+              <div class="index_cat">
+                <h3><%= muca.ime %></h3>
+                <img src="/files/oglasi_muce/<%= muca.file_name1 %>" />
+              </div>
+            <% }); %>
           </div>
           <div class="index_more">
             <button class="index_btn">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></button>

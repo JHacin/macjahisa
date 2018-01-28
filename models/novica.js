@@ -6,6 +6,7 @@ var novicaSchema = new mongoose.Schema({
   user_id: Number,
   naslov: String,
   vsebina: String,
+  naslovna_slika: String,
   naslov_en: String,
   vsebina_en: String,
   objava: String

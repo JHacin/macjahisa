@@ -3,11 +3,15 @@ var router              = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 
 router.get("/izobrazevalne_vsebine", function(req, res){
-  res.render("dobro_je_vedeti/izobrazevalne_vsebine", {title: "Izobraževalne vsebine | Mačja hiša"})
+  res.render("dobro_je_vedeti/izobrazevalne_vsebine", {nav_kategorije: req.nav_kategorije,
+  nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+  sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša"})
 });
 
 router.get("/koristne_informacije", function(req, res){
-  res.render("dobro_je_vedeti/koristne_informacije", {title: "Koristne informacije | Mačja hiša"})
+  res.render("dobro_je_vedeti/koristne_informacije", {nav_kategorije: req.nav_kategorije,
+  nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+  sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša"})
 });
 
 router.get("/:podstran", function(req, res){

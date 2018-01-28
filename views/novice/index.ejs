@@ -1,20 +1,29 @@
 <% include ../partials/header %>
-<% include ../partials/nonindex %>
+<div class="nonindex">
+  <div class="container">
+    <div class="content">
 
-<h1 class="content_heading">Novice</h1>
-<hr class="content_title_subhr" />
+    <h1 class="content_heading">Novice</h1>
+    <hr class="content_title_subhr" />
 
-<div id="page_container">
-  <ul class="content seznam_novic">
-    <% novice.forEach(function(novica) { %>
-      <li>
-        <h4><em><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></em> | <%= novica.naslov %></h4>
-        <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,250) + "..." %> <i class="fa fa-forward" aria-hidden="true"></i></p>
-      </li>
-    <% }) %>
-  </ul>
-  <div class="page_navigation"></div>
-</div>
+    <div id="page_container">
+      <ul class="content seznam_novic">
+        <% novice.forEach(function(novica) { %>
+          <li>
+            <h4>
+              <a href="/novice/<%= novica._id %>">
+                <em><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></em> | <%= novica.naslov %>
+              </a>
+            </h4>
+            <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,250) + "..." %>
+              <a href="/novice/<%= novica._id %>">
+                <i class="fa fa-forward" aria-hidden="true"></i></p>
+              </a>
+          </li>
+        <% }) %>
+      </ul>
+      <div class="page_navigation"></div>
+    </div>
 
 
 
