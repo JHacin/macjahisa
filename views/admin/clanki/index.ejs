@@ -10,8 +10,8 @@
             <th>Naslov</th>
             <th>Vsebina</th>
             <th>Objava</th>
-            <th></th>
-            <th></th>
+            <th>Prikaži</th>
+            <th>Uredi</th>
         </tr>
     </thead>
     <tbody>
@@ -27,8 +27,8 @@
               <td><%= clanek.naslov %></td>
               <td><%- clanek.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= clanek.objava == "1" ? "Da" : "Ne" %></td>
-              <td><a href="/admin/clanki/<%= clanek._id %>">Prikaži</a></td>
-              <td><a href="/admin/clanki/edit/<%= clanek._id %>">Uredi</a></td>
+              <td><a href="/dobro_je_vedeti/koristne_informacije/<%= clanek._id %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/clanki/<%= clanek._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
           </tr>
         <% }) %>
     </tbody>
