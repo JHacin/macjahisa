@@ -10,14 +10,14 @@
             <% novice.forEach(function(novica){ %>
               <div class="news_item">
 
-                <img src="/files/<%= novica.naslovna_slika %>" />
-                <h3><%= novica.naslov %></h3>
-                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <i class="fa fa-forward" aria-hidden="true"></i></p>
+                <a href="/novice/<%= novica._id %>"><img src="/files/<%= novica.naslovna_slika %>" /></a>
+                <h3><a href="/novice/<%= novica._id %>"><%= novica.naslov %></a></h3>
+                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica._id %>"><i class="fa fa-forward" aria-hidden="true"></i></a></p>
               </div>
             <% }); %>
           </div>
           <div class="index_more">
-            <button class="index_btn"><a href="/novice">Vse novice <i class="fa fa-caret-right" aria-hidden="true"></i></a></button>
+            <a href="/novice"><button class="index_btn">Arhiv novic <i class="fa fa-caret-right" aria-hidden="true"></i></button></a>
           </div>
         </div>
       </div>
@@ -30,13 +30,13 @@
           <div class="cat_reel">
             <% muce.forEach(function(muca){ %>
               <div class="index_cat">
-                <h3><%= muca.ime %></h3>
-                <img src="/files/oglasi_muce/<%= muca.file_name1 %>" />
+                <a href="posvojitev/muce/<%= muca._id %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
+                <h3><a href="posvojitev/muce/<%= muca._id %>"><%= muca.ime %></a></h3>
               </div>
             <% }); %>
           </div>
           <div class="index_more">
-            <button class="index_btn">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></button>
+            <a href="/posvojitev/muce"><button class="index_btn">Vse muce, ki še nimajo svojega kavča <i class="fa fa-caret-right" aria-hidden="true"></i></button></a>
           </div>
         </div>
       </div>
@@ -69,7 +69,7 @@
             </div>
           </div>
           <div class="index_more">
-            <button class="index_btn">Vse oblike pomoči <i class="fa fa-caret-right" aria-hidden="true"></i></button>
+            <a href="/pomoc/nacini_pomoci"><button class="index_btn">Kako nam lahko pomagate?</button></a>
           </div>
         </div>
       </div>

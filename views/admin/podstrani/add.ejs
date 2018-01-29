@@ -14,6 +14,13 @@
     (zapiši v formatu <em><span style="color: red;">naslov_strani_in_tako_dalje</span></em> - <strong>brez presledkov, šumnikov ali posebnih simbolov</strong>)
   </div>
   <div>
+    <label for="podstran[objava]">Objava na strani:</label>
+    <select id="podstran[objava]" name="podstran[objava]">
+      <option value="Da">Da</option>
+      <option value="Ne">Ne</option>
+    </select>
+  </div>
+  <div>
     <label for="podstran[kategorija]">Kategorija:</label>
     <select id="kategorija" name="podstran[kategorija]">
       <% kategorije.forEach(function(kategorija){ %>

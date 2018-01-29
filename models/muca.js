@@ -6,6 +6,7 @@ var mucaSchema = new mongoose.Schema({
   datum: Date,
   status: Number,
   ime: String,
+  nacin_posvojitve: String,
   mesec_rojstva: Date,
   starost: String,
   id_starostne_kategorije: Number,
@@ -25,6 +26,14 @@ var mucaSchema = new mongoose.Schema({
   zgodba_file_name3: String,
   last_update: Date,
   add_date: Date,
+  vet: {
+    s_k: { type: Boolean, default: false },
+    cipiranje: { type: Boolean, default: false },
+    cepljenje: { type: Boolean, default: false },
+    razparazit: { type: Boolean, default: false },
+    felv: { type: Boolean, default: false },
+    fiv: { type: Boolean, default: false }
+  }
 });
 
 module.exports = mongoose.model("Muca", mucaSchema);

@@ -24,14 +24,14 @@
                 <!-- hidden date format for table ordering purposes  -->
                 <span class="hidden"><%= moment(muca.datum).format("YYYY[/]MM[/]DD") %></span>
                 <!-- actual date format shown -->
-                <%= moment(muca.datum).format("DD[.]MM[.]YYYY") %>
+                <%= moment(muca.datum).format("D[.]M[.]YYYY") %>
               </td>
               <td><%= stanjeMuce(muca.status) %></td>
               <td><%= muca.ime %></td>
               <td><%= spolMuce(muca.spol) %></td>
               <td><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></td>
               <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
-              <td><a href="/admin/muce/<%= muca._id %>">Prikaži</a></td>
+              <td><a href="/posvojitev/muce/<%= muca._id %>" target="_blank">Prikaži</a></td>
               <td><a href="/admin/muce/<%= muca._id %>/edit">Uredi</a></td>
           </tr>
         <% }) %>

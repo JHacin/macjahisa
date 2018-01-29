@@ -12,6 +12,13 @@
     <input type="text" name="podstran[url]" id="url" value="<%= podstran.url %>" required/>
   </div>
   <div>
+    <label for="podstran[objava]">Objava na strani:</label>
+    <select id="podstran[objava]" name="podstran[objava]">
+      <option value="Da">Da</option>
+      <option value="Ne">Ne</option>
+    </select>
+  </div>
+  <div>
     <label for="podstran[kategorija]">Kategorija:</label>
     <select id="kategorija" name="podstran[kategorija]">
       <% kategorije.forEach(function(kategorija){ %>

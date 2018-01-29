@@ -22,13 +22,29 @@ var upload = multer({ storage: storage });
 
 router.get("/", function(req, res){
   // index - preusmeri na seznam muc
-  res.redirect("/admin/muce");
+  res.redirect("/admin/muce/iscejo");
 });
 
 // MUCE
-router.get("/muce", function(req, res){
+router.get("/muce/iscejo", function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
   Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
+    if(err) return console.log(err);
+    res.render("admin/muce/index", {muce: muce});
+  })
+});
+
+router.get("/muce/v_novem_domu", function(req, res){
+  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
+  Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
+    if(err) return console.log(err);
+    res.render("admin/muce/index", {muce: muce});
+  })
+});
+
+router.get("/muce/arhiv", function(req, res){
+  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
+  Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
     if(err) return console.log(err);
     res.render("admin/muce/index", {muce: muce});
   })
@@ -63,6 +79,11 @@ router.post("/muce", upload.fields([
   Muca.create(req.body.muca, function(err, novaMuca) {
     if(err) return console.log(err);
 
+    // VET STATUS
+    for(var key in req.body.vet) {
+        novaMuca.vet[key] = true;
+    }
+
     // dodeli povezave do slik (če so)
     if(req.files.slika1) {
       novaMuca.file_name1 = req.files.slika1[0].filename;
@@ -79,7 +100,7 @@ router.post("/muce", upload.fields([
     // shrani
     novaMuca.save();
 
-    res.redirect("/admin/muce");
+    res.redirect("/admin/muce/iscejo");
   });
 
 });
@@ -100,13 +121,24 @@ router.get("/novice/:id/edit", function(req, res){
   })
 });
 
+router.get("/novice/add", function(req, res){
+  res.render("admin/novice/add");
+});
+
+router.post("/novice", function(req, res){
+  Novica.create(req.body.novica, function(err, novica){
+    novica.datum = moment();
+    novica.save();
+    res.redirect("/admin/novice");
+  });
+});
+
 router.put("/novice/:id", function(req, res){
   Novica.findByIdAndUpdate(req.params.id, req.body.novica, function(err){
     if(err) return console.log(err);
     res.redirect("/admin/novice/");
   });
 });
-
 // END NOVICE
 
 // ČLANKI

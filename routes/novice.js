@@ -4,7 +4,7 @@ var Novica = require("../models/novica");
 var Podstran = require("../models/podstran");
 
 router.get("/", function(req, res){
-  Novica.find({}).sort({datum: -1}).exec(function(err, novice){
+  Novica.find().where("objava").equals("1").sort({datum: -1}).exec(function(err, novice){
     res.render("novice/index",
     { novice: novice,
       sidebar_novice: req.sidebar_novice,

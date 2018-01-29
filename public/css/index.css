@@ -27,7 +27,12 @@
   padding: 8px 30px;
   color: #343a40;
   font-family: 'Montserrat', sans-serif;
+}
 
+.index_btn:hover {
+  cursor: pointer;
+  background: #343a40;
+  color: #e8e8e8;
 }
 
 .index_news,
@@ -54,6 +59,11 @@
       height: 250px;
       max-width: 100%;
       border: 1px solid rgba(0,0,0,0.2);
+      border-radius: 10%;
+    }
+
+    .news_item img:hover {
+      filter:drop-shadow(2px 2px 4px rgba(0,0,0,0.3));
     }
 
     .news_item p,
@@ -77,6 +87,11 @@
     height: 150px;
     max-width: 100%;
     border: 1px solid rgba(0,0,0,0.2);
+    border-radius: 50%;
+  }
+
+  .index_cat img:hover {
+    filter:brightness(130%);
   }
 
   .help_item {
@@ -85,3 +100,8 @@
     padding: 0 1em;
     margin: 0 15px;
   }
+
+    .help_item img {
+      border-radius: 10%;
+      border: 1px solid rgba(0,0,0,0.2);
+    }

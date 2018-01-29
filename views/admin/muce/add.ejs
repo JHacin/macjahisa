@@ -1,9 +1,9 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/muce"><< Nazaj</a></p>
+<p><a href="/admin/muce/iscejo"><< Nazaj</a></p>
 
 <h3>Vnesi novo muco</h3>
 
-<form action="/admin/muce" method="POST" enctype="multipart/form-data">
+<form action="/admin/muce/iscejo" method="POST" enctype="multipart/form-data">
   <div>
     <label for="datum">datum sprejema:</label>
     <input type="date" id="nova_datum" name="muca[datum]" value=""/>
@@ -11,6 +11,7 @@
   <div>
     <label for="status">stanje:</label>
     <select id="nova_status" name="muca[status]">
+      <option selected disabled></option>
       <option value="1">oddaja se prvič</option>
       <option value="2">oddaja se ponovno</option>
       <option value="3">se ne oddaja oz. bo ostal/-a za nedoločen čas</option>
@@ -23,12 +24,21 @@
     <input type="text" id="nova_ime" autofocus name="muca[ime]" />
   </div>
   <div>
+    <label for="nacin_posvojitve">način posvojitve:</label>
+    <select id="nova_nacin_posvojitve" name="muca[nacin_posvojitve]">
+      <option selected disabled>--</option>
+      <option value="posebej">posebej</option>
+      <option value="v_paru">v paru</option>
+    </select>
+  </div>
+  <div>
     <label for="mesec_rojstva">mesec rojstva:</label>
     <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" />
   </div>
   <div>
     <label for="spol">spol:</label>
     <select id="nova_spol" name="muca[spol]">
+      <option selected disabled>--</option>
       <option value="1">samček</option>
       <option value="2">samička</option>
       <option value="3">samček in samička</option>
@@ -42,6 +52,33 @@
   <div>
     <label for="kontakt">kontakt:</label>
     <input type="text" id="nova_kontakt" name="muca[kontakt]" />
+  </div>
+  <div>
+    <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
+    <select id="nova_posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
+      <option selected disabled>--</option>
+      <option value="0">ne</option>
+      <option value="1">da</option>
+    </select>
+  </div>
+  <div>
+    <hr />
+    <h4>VET. STATUS:</h4>
+    <div>
+      <label for="vet[s_k]">Sterilizirana / kastriran:</label>
+      <input type="checkbox" id="vet[s_k]" name="vet[s_k]" />
+      <label for="vet[cipiranje]">Čipirana:</label>
+      <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" />
+      <label for="vet[cepljenje]">Cepljena:</label>
+      <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" />
+      <label for="vet[razparazit]">Razparazitena:</label>
+      <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" />
+      <label for="vet[felv]">FeLV pozitivna:</label>
+      <input type="checkbox" id="vet[felv]" name="vet[felv]" />
+      <label for="vet[fiv]">FIV pozitivna:</label>
+      <input type="checkbox" id="vet[fiv]" name="vet[fiv]" />
+    </div>
+    <hr />
   </div>
   <div>
     <label for="slika1">Slika 1:</label>
@@ -58,13 +95,6 @@
   <div>
     <label for="slika4">Slika 4:</label>
     <input type="file" id="slika4" name="slika4" />
-  </div>
-  <div>
-    <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
-    <select id="nova_posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
-      <option value="0">ne</option>
-      <option value="1">ja</option>
-    </select>
   </div>
   <div class="button">
     <button type="submit">Potrdi</button>

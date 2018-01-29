@@ -10,7 +10,10 @@
         <a href="/admin/menu/<%= kategorija._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></strong>
       <ul>
         <% podstrani.forEach(function(podstran){ %>
-          <li><%= podstran.kategorija.equals(kategorija._id) ? podstran.naslov : "" %></li>
+          <% if (podstran.kategorija.equals(kategorija._id)) { %>
+            <li><%= podstran.naslov %></li>
+          <% } %>
+
         <% }); %>
       </ul>
     </div>

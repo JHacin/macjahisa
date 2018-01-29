@@ -11,6 +11,7 @@ var podstranSchema = new mongoose.Schema({
   include_after: String,
   portal: String,
   include_before: String,
+  objava: String,
   url: String,
   kategorija: {
     type: mongoose.Schema.Types.ObjectId,
