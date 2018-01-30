@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var novicaSchema = new mongoose.Schema({
   dbid: Number,
-  datum: Date,
+  datum: {type: Date, default: Date.now()},
   user_id: Number,
   naslov: String,
   vsebina: String,

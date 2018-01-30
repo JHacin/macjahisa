@@ -33,9 +33,9 @@
               </td>
               <td><%= clanek.tip %></td>
               <td><%= clanek.naslov %></td>
-              <td><%- clanek.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
+              <td><%- (clanek.tip == "datoteka" || clanek.tip == "povezava") ? clanek.vsebina : clanek.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= clanek.objava == "1" ? "Da" : "Ne" %></td>
-              <td><a href="/dobro_je_vedeti/koristne_informacije/<%= clanek._id %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/clanki/<%= clanek._id %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
               <td><a href="/admin/clanki/<%= clanek._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
           </tr>
         <% }) %>

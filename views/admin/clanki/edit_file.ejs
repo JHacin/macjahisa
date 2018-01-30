@@ -1,0 +1,28 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/clanki"><< Nazaj</a></p>
+<h3>Uredi datoteko</h3>
+
+<form action="/admin/clanki/<%= clanek._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="clanek[naslov]">Naslov:</label>
+    <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
+  </div>
+  <div>
+    <label for="clanek[vsebina]">Datoteka:</label>
+    <input type="text" name="clanek[vsebina]" id="vsebina" value="<%= clanek.vsebina %>" size="70" disabled/>
+  </div>
+  <div>
+    <label for="clanek[nova_vsebina]">Naloži drugo datoteko:</label>
+    <input type="file" name="clanek[nova_vsebina]" id="nova_vsebina" size="70"/>
+  </div>
+  <div>
+    <label for="clanek[objava]">Objava:</label>
+    <select id="objava" name="clanek[objava]">
+      <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>
+      <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

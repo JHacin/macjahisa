@@ -2,7 +2,7 @@
 <p><a href="/admin/clanki"><< Nazaj</a></p>
 <h3>Nova povezava</h3>
 
-<form action="/admin/novice" method="POST">
+<form action="/admin/clanki" method="POST">
   <div>
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
@@ -10,14 +10,16 @@
   <div>
     <label for="clanek[vsebina]">Povezava:</label>
     <input type="text" name="clanek[vsebina]" id="vsebina" size="70" autofocus required/>
+    <span style="color: red;">- URL mora biti cel, npr. <strong>https://www.macjahisa.si</strong></em></span>
   </div>
   <div>
     <label for="clanek[objava]">Objava:</label>
     <select id="objava" name="clanek[objava]">
-      <option value="1">Da</option>
+      <option value="1" selected>Da</option>
       <option value="0">Ne</option>
     </select>
   </div>
+  <input type="hidden" name="clanek[tip]" value="povezava" />
   <input type="submit" value="Dodaj">
 </form>
 

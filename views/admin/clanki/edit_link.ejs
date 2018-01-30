@@ -1,0 +1,25 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/clanki"><< Nazaj</a></p>
+<h3>Uredi povezavo</h3>
+
+<form action="/admin/clanki/<%= clanek._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="clanek[naslov]">Naslov:</label>
+    <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
+  </div>
+  <div>
+    <label for="clanek[vsebina]">Povezava:</label>
+    <input type="text" name="clanek[vsebina]" id="vsebina" size="70" value="<%= clanek.vsebina %>" autofocus required/>
+    <span style="color: red;">- URL mora biti cel, npr. <strong>https://www.macjahisa.si</strong></em></span>
+  </div>
+  <div>
+    <label for="clanek[objava]">Objava:</label>
+    <select id="objava" name="clanek[objava]">
+      <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>
+      <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

@@ -127,8 +127,6 @@ router.get("/novice/add", function(req, res){
 
 router.post("/novice", function(req, res){
   Novica.create(req.body.novica, function(err, novica){
-    novica.datum = moment();
-    novica.save();
     res.redirect("/admin/novice");
   });
 });
@@ -160,6 +158,51 @@ router.get("/clanki/add_file", function(req, res){
 
 router.get("/clanki/add_link", function(req, res){
   res.render("admin/clanki/add_link");
+});
+
+router.get("/clanki/:id/edit", function(req, res){
+  Clanek.findById(req.params.id, function(err, clanek){
+    if(err) return console.log(err);
+    var tip = clanek.tip;
+    if(tip=="datoteka") {
+      res.render("admin/clanki/edit_file", {clanek: clanek});
+    } else if(tip=="povezava") {
+      res.render("admin/clanki/edit_link", {clanek: clanek});
+    } else {
+      res.render("admin/clanki/edit_text", {clanek: clanek});
+    }
+  });
+});
+
+router.post("/clanki", function(req, res){
+  Clanek.create(req.body.clanek, function(err, clanek){
+    if(err) return console.log(err);
+    res.redirect("/admin/clanki");
+  });
+});
+
+router.get("/clanki/:id", function(req, res){
+  Clanek.findById(req.params.id, function(err, clanek) {
+    if(err) return console.log(err);
+    if(clanek.tip == "povezava") {
+      res.redirect(clanek.vsebina);
+    } else if(clanek.tip == "datoteka") {
+      res.redirect("/files/dobro_je_vedeti/" + clanek.vsebina);
+    } else {
+      res.redirect("/dobro_je_vedeti/koristne_informacije/" + clanek._id);
+    }
+  });
+});
+
+router.put("/clanki/:id", function(req, res){
+  Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
+    if(err) return console.log(err);
+    if (req.body.clanek.nova_vsebina != undefined && req.body.clanek.nova_vsebina != "") {
+      clanek.vsebina = req.body.clanek.nova_vsebina;
+      clanek.save();
+    }
+    res.redirect("/admin/clanki");
+  });
 });
 // END ČLANKI
 
