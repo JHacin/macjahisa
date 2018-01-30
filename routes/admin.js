@@ -149,6 +149,18 @@ router.get("/clanki", function(req, res){
     res.render("admin/clanki/index", {clanki: clanki});
   })
 });
+
+router.get("/clanki/add_text", function(req, res){
+  res.render("admin/clanki/add_text");
+});
+
+router.get("/clanki/add_file", function(req, res){
+  res.render("admin/clanki/add_file");
+});
+
+router.get("/clanki/add_link", function(req, res){
+  res.render("admin/clanki/add_link");
+});
 // END ČLANKI
 
 // PODSTRANI

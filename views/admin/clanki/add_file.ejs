@@ -1,0 +1,24 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/clanki"><< Nazaj</a></p>
+<h3>Nova datoteka</h3>
+
+<form action="/admin/novice" method="POST">
+  <div>
+    <label for="clanek[naslov]">Naslov:</label>
+    <input type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
+  </div>
+  <div>
+    <label for="clanek[vsebina]">Datoteka:</label>
+    <input type="file" name="clanek[vsebina]" id="vsebina" size="70" required/>
+  </div>
+  <div>
+    <label for="novica[objava]">Objava:</label>
+    <select id="objava" name="novica[objava]">
+      <option value="1">Da</option>
+      <option value="0">Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Dodaj">
+</form>
+
+<% include ../../partials/admin/footer %>

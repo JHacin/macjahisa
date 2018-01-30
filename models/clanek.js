@@ -8,7 +8,8 @@ var clanekSchema = new mongoose.Schema({
   vsebina: String,
   naslov_en: String,
   vsebina_en: String,
-  objava: String
+  objava: String,
+  tip: String
 });
 
 module.exports = mongoose.model("Clanek", clanekSchema);
