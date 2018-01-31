@@ -2,11 +2,14 @@
 <% include ../../partials/functions/muce %>
 <p><a href="/admin/muce/iscejo"><< Nazaj</a></p>
 
-<h3><%= muca.ime %></h3>
 <div class="cms_muca">
 
-  <form>
+  <form action="/admin/muce/<%= muca._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
 
+    <div class="cms_muca_row">
+      <div class="cms_attr">Ime</div>
+      <input type="text" id="ime" name="muca[ime]" value="<%= muca.ime %>"/>
+    </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Datum prihoda</div>
       <input type="date" id="datum" name="muca[datum]" value="<%= moment(muca.datum).format("YYYY-MM-DD") %>"/>
@@ -22,12 +25,8 @@
       </select>
     </div>
     <div class="cms_muca_row">
-      <div class="cms_attr">Starost</div>
-      <input type="text" id="starost" name="muca[starost]" value="<%= muca.starost %>" />
-    </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr">Skupina</div>
-      <div class="cms_val"><%= muca.id_starostne_kategorije %></div>
+      <div class="cms_attr">Mesec rojstva</div>
+      <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" value="<%= moment(muca.mesec_rojstva).format("YYYY-MM") %>" />
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Spol</div>
@@ -40,27 +39,104 @@
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Opis</div>
-      <textarea id="opis" name="muca[opis]" cols="70" rows="10"><%- muca.opis %></textarea>
+      <textarea id="summernote" name="muca[opis]"><%- muca.opis %></textarea>
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Kontakt</div>
       <input type="text" id="kontakt" name="muca[kontakt]" value="<%= muca.kontakt %>" />
     </div>
+      <div class="cms_muca_row">
+        <div class="cms_attr">Veterinarski status</div>
+        <div style="margin: 1em;">
+          <label for="vet[s_k]">Sterilizirana / kastriran:</label>
+          <input type="checkbox" id="vet[s_k]" name="vet[s_k]" <%= muca.vet.s_k == true ? "checked" : "" %>/><br />
+          <label for="vet[cipiranje]">Čipirana:</label>
+          <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" <%= muca.vet.cipiranje == true ? "checked" : "" %>/><br />
+          <label for="vet[cepljenje]">Cepljena:</label>
+          <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" <%= muca.vet.cepljenje == true ? "checked" : "" %>/><br />
+          <label for="vet[razparazit]">Razparazitena:</label>
+          <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" <%= muca.vet.razparazit == true ? "checked" : "" %>/><br />
+          <label for="vet[felv]">FeLV pozitivna:</label>
+          <input type="checkbox" id="vet[felv]" name="vet[felv]" <%= muca.vet.felv == true ? "checked" : "" %>/><br />
+          <label for="vet[fiv]">FIV pozitivna:</label>
+          <input type="checkbox" id="vet[fiv]" name="vet[fiv]" <%= muca.vet.fiv == true ? "checked" : "" %>/>
+        </div>
+      </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Slika 1</div>
-      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /><p>Izberi novo | Izbriši</p></div>
+      <div class="cms_val">
+        <!-- če ima sploh sliko se jo prikaže -->
+        <% if(muca.file_name1 != undefined) { %>
+        <img src="/files/oglasi_muce/<%= muca.file_name1 %>" />
+        <% }; %>
+        <!-- če ni slike se prikaže gumb za dodajanje -->
+        <% if(muca.file_name1 == undefined) { %>
+          <input type="file" id="slika1" name="slika1" />
+        <% }; %>
+        <% if(muca.file_name1 != undefined) { %>
+        <p>
+          <label for="slika1">Izberi novo sliko:</label>
+          <input type="file" id="slika1" name="slika1" />
+        </p>
+        <% }; %>
+      </div>
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Slika 2</div>
-      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name2 %>" /><p>Izberi novo | Izbriši</p></div>
+      <div class="cms_val">
+        <!-- če ima sploh sliko se jo prikaže -->
+        <% if(muca.file_name2 != undefined) { %>
+        <img src="/files/oglasi_muce/<%= muca.file_name2 %>" />
+        <% }; %>
+        <!-- če ni slike se prikaže gumb za dodajanje -->
+        <% if(muca.file_name2 == undefined) { %>
+          <input type="file" id="slika2" name="slika2" />
+        <% }; %>
+        <% if(muca.file_name2 != undefined) { %>
+        <p>
+          <label for="slika2">Izberi novo sliko:</label>
+          <input type="file" id="slika2" name="slika2" />
+        </p>
+        <% }; %>
+      </div>
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Slika 3</div>
-      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name3 %>" /><p>Izberi novo | Izbriši</p></div>
+      <div class="cms_val">
+        <!-- če ima sploh sliko se jo prikaže -->
+        <% if(muca.file_name3 != undefined) { %>
+        <img src="/files/oglasi_muce/<%= muca.file_name3 %>" />
+        <% }; %>
+        <!-- če ni slike se prikaže gumb za dodajanje -->
+        <% if(muca.file_name3 == undefined) { %>
+          <input type="file" id="slika3" name="slika3" />
+        <% }; %>
+        <% if(muca.file_name3 != undefined) { %>
+        <p>
+          <label for="slika3">Izberi novo sliko:</label>
+          <input type="file" id="slika3" name="slika3" />
+        </p>
+        <% }; %>
+      </div>
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Slika 4</div>
-      <div class="cms_val"><img src="/files/oglasi_muce/<%= muca.file_name4 %>" /><p>Izberi novo | Izbriši</p></div>
+      <div class="cms_val">
+        <!-- če ima sploh sliko se jo prikaže -->
+        <% if(muca.file_name4 != undefined) { %>
+        <img src="/files/oglasi_muce/<%= muca.file_name4 %>" />
+        <% }; %>
+        <!-- če ni slike se prikaže gumb za dodajanje -->
+        <% if(muca.file_name4 == undefined) { %>
+          <input type="file" id="slika4" name="slika4" />
+        <% }; %>
+        <% if(muca.file_name4 != undefined) { %>
+        <p>
+          <label for="slika4">Izberi novo sliko:</label>
+          <input type="file" id="slika4" name="slika4" />
+        </p>
+        <% }; %>
+      </div>
     </div>
     <div class="cms_muca_row">
       <div class="cms_attr">Posvojitev na daljavo?</div>
@@ -69,6 +145,7 @@
         <option value="1" <%= muca.posvojitev_na_daljavo == 1 ? "selected" : "" %>>da</option>
       </select>
     </div>
+    <input type="submit" value="Potrdi spremembe" />
   </form>
 
 </div>

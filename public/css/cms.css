@@ -84,6 +84,10 @@ a:hover {
   border: 1px solid rgba(0,0,0,0.1);
 }
 
+  .cms_muca_row .note-editor {
+    width: 88%;
+  }
+
 .cms_attr {
   width: 12%;
   background: #b2d1a7;

@@ -3,7 +3,7 @@
 
 <h3>Vnesi novo muco</h3>
 
-<form action="/admin/muce/iscejo" method="POST" enctype="multipart/form-data">
+<form action="/admin/muce" method="POST" enctype="multipart/form-data">
   <div>
     <label for="datum">datum sprejema:</label>
     <input type="date" id="nova_datum" name="muca[datum]" value=""/>
@@ -47,7 +47,7 @@
   </div>
   <div>
     <label for="opis">opis:</label>
-    <textarea id="nova_opis" name="muca[opis]" cols="30" rows="10"></textarea>
+    <textarea id="summernote" name="muca[opis]"></textarea>
   </div>
   <div>
     <label for="kontakt">kontakt:</label>

@@ -2,7 +2,7 @@
 <p><a href="/admin/clanki"><< Nazaj</a></p>
 <h3>Uredi datoteko</h3>
 
-<form action="/admin/clanki/<%= clanek._id %>?_method=PUT" method="POST">
+<form action="/admin/clanki_upload/<%= clanek._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   <div>
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>

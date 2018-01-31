@@ -9,15 +9,26 @@ var moment = require("moment");
 
 // MULTER
 var multer = require("multer");
-var storage = multer.diskStorage({
+var storage_muce = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/files/oglasi_muce')
   },
   filename: function (req, file, cb) {
-    cb(null, req.body.muca.ime + '-' + Date.now() + ".jpg")
+    cb(null, Date.now() + file.originalname)
   }
 })
-var upload = multer({ storage: storage });
+
+var storage_clanki = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/files/clanki')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
+var upload_muce = multer({ storage: storage_muce });
+var upload_clanki = multer({ storage: storage_clanki });
 // END MULTER
 
 router.get("/", function(req, res){
@@ -71,7 +82,7 @@ router.get("/muce/:id", function(req, res) {
   })
 });
 
-router.post("/muce", upload.fields([
+router.post("/muce", upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
 
@@ -89,13 +100,13 @@ router.post("/muce", upload.fields([
       novaMuca.file_name1 = req.files.slika1[0].filename;
     };
     if(req.files.slika2) {
-      novaMuca.file_name2 = req.files.slika1[0].filename;
+      novaMuca.file_name2 = req.files.slika2[0].filename;
     };
     if(req.files.slika3) {
-      novaMuca.file_name3 = req.files.slika1[0].filename;
+      novaMuca.file_name3 = req.files.slika3[0].filename;
     };
     if(req.files.slika4) {
-      novaMuca.file_name4 = req.files.slika1[0].filename;
+      novaMuca.file_name4 = req.files.slika4[0].filename;
     };
     // shrani
     novaMuca.save();
@@ -103,6 +114,40 @@ router.post("/muce", upload.fields([
     res.redirect("/admin/muce/iscejo");
   });
 
+});
+
+router.put("/muce/:id", upload_muce.fields([
+    {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
+  ]), (req, res) => {
+
+    Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
+
+      // resetiraj vet status pri muci
+      muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
+                   razparazit: false, felv: false, fiv: false };
+
+      // ponovno nastavi
+      for(var key in req.body.vet) {
+         muca.vet[key] = true;
+      }
+
+      // posodobi slike
+      if(req.files.slika1) {
+        muca.file_name1 = req.files.slika1[0].filename;
+      };
+      if(req.files.slika2) {
+        muca.file_name2 = req.files.slika2[0].filename;
+      };
+      if(req.files.slika3) {
+        muca.file_name3 = req.files.slika3[0].filename;
+      };
+      if(req.files.slika4) {
+        muca.file_name4 = req.files.slika4[0].filename;
+      };
+
+      muca.save();
+      res.redirect("/admin/muce/iscejo");
+    });
 });
 // END muce
 
@@ -174,6 +219,17 @@ router.get("/clanki/:id/edit", function(req, res){
   });
 });
 
+router.post("/clanki_upload", upload_clanki.single("clanek[vsebina]"), function(req, res, next){
+  Clanek.create(req.body.clanek, function(err, clanek){
+    if(err) return console.log(err);
+    if(req.file) {
+      clanek.vsebina = req.file.originalname;
+      clanek.save();
+    };
+    res.redirect("/admin/clanki");
+  });
+});
+
 router.post("/clanki", function(req, res){
   Clanek.create(req.body.clanek, function(err, clanek){
     if(err) return console.log(err);
@@ -187,7 +243,7 @@ router.get("/clanki/:id", function(req, res){
     if(clanek.tip == "povezava") {
       res.redirect(clanek.vsebina);
     } else if(clanek.tip == "datoteka") {
-      res.redirect("/files/dobro_je_vedeti/" + clanek.vsebina);
+      res.redirect("/files/clanki/" + clanek.vsebina);
     } else {
       res.redirect("/dobro_je_vedeti/koristne_informacije/" + clanek._id);
     }
@@ -199,6 +255,18 @@ router.put("/clanki/:id", function(req, res){
     if(err) return console.log(err);
     if (req.body.clanek.nova_vsebina != undefined && req.body.clanek.nova_vsebina != "") {
       clanek.vsebina = req.body.clanek.nova_vsebina;
+      clanek.save();
+    }
+    res.redirect("/admin/clanki");
+  });
+});
+
+router.put("/clanki_upload/:id", upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
+  Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
+    if(err) return console.log(err);
+    console.log(req.file != undefined);
+    if (req.file) {
+      clanek.vsebina = req.file.originalname;
       clanek.save();
     }
     res.redirect("/admin/clanki");
