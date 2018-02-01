@@ -9,6 +9,7 @@ var clanekSchema = new mongoose.Schema({
   naslov_en: String,
   vsebina_en: String,
   objava: String,
+  kategorija: String,
   tip: String
 });
 

@@ -8,6 +8,15 @@
     <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
   </div>
   <div>
+    <label for="kategorija">Kategorija:</label>
+    <select id="kategorija" name="clanek[kategorija]">
+      <option value="prispevki" <%= clanek.kategorija == "prispevki" ? "selected" : "" %>>prispevki</option>
+      <option value="nasveti" <%= clanek.kategorija == "nasveti" ? "selected" : "" %>>nasveti</option>
+      <option value="zakonodaja" <%= clanek.kategorija == "zakonodaja" ? "selected" : "" %>>zakonodaja</option>
+      <option value="zdravje" <%= clanek.kategorija == "zdravje" ? "selected" : "" %>>zdravje</option>
+    </select>
+  </div>
+  <div>
     <label for="clanek[objava]">Objava:</label>
     <select id="objava" name="clanek[objava]">
       <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>

@@ -8,6 +8,15 @@
     <input type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
   </div>
   <div>
+    <label for="kategorija">Kategorija:</label>
+    <select id="kategorija" name="clanek[kategorija]">
+      <option value="prispevki">prispevki</option>
+      <option value="nasveti">nasveti</option>
+      <option value="zakonodaja">zakonodaja</option>
+      <option value="zdravje">zdravje</option>
+    </select>
+  </div>
+  <div>
     <label for="clanek[vsebina]">Povezava:</label>
     <input type="text" name="clanek[vsebina]" id="vsebina" size="70" autofocus required/>
     <span style="color: red;">- URL mora biti cel, npr. <strong>https://www.macjahisa.si</strong></em></span>

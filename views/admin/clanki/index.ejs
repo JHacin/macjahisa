@@ -14,6 +14,7 @@
         <tr>
             <th>Datum objave</th>
             <th>Tip</th>
+            <th>Kategorija</th>
             <th>Naslov</th>
             <th>Vsebina</th>
             <th>Objava</th>
@@ -32,6 +33,7 @@
                 <%= moment(clanek.datum).format("DD[.]MM[.]YYYY") %>
               </td>
               <td><%= clanek.tip %></td>
+              <td><%= clanek.kategorija %></td>
               <td><%= clanek.naslov %></td>
               <td><%- (clanek.tip == "datoteka" || clanek.tip == "povezava") ? clanek.vsebina : clanek.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= clanek.objava == "1" ? "Da" : "Ne" %></td>
