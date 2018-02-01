@@ -16,20 +16,32 @@ router.get("/izobrazevalne_vsebine", function(req, res){
 router.get("/koristne_informacije", function(req, res){
   Podstran.findOne({naslov: "Koristne informacije"}, function(err, podstran){
     if(err) return console.log(err);
-    res.render("dobro_je_vedeti/koristne_informacije", {nav_kategorije: req.nav_kategorije,
-    nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-    sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
-    podstran: podstran})
+    Clanek.find({}, function(err, clanki) {
+      if(err) return console.log(err);
+      res.render("dobro_je_vedeti/koristne_informacije", {nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+      sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
+      podstran: podstran, clanki: clanki})
+    });
   });
 });
 
 router.get("/koristne_informacije/:id", function(req, res){
   Clanek.findById(req.params.id, function(err, clanek){
     if(err) return console.log(err);
-    res.render("dobro_je_vedeti/clanek", {clanek: clanek,
-      nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
-      sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce,
-      title: clanek.naslov + " | Mačja hiša"})
+
+    if(clanek.tip == "besedilo") {
+
+      res.render("dobro_je_vedeti/clanek", {clanek: clanek,
+        nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
+        sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce,
+        title: clanek.naslov + " | Mačja hiša"});
+
+    } else if(clanek.tip == "datoteka"){
+      res.redirect("/files/clanki/" + clanek.vsebina);
+    } else if (clanek.tip =="povezava"){
+      res.redirect(clanek.vsebina);
+    }
   });
 });
 
