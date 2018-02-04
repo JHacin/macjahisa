@@ -1,4 +1,5 @@
-.mobile_header {
+.mobile_logo,
+.mobile_top_contact {
   display: none;
 }
 
@@ -63,17 +64,64 @@
     justify-content: space-between;
   }
 
-  .nav_list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    flex-direction: row;
-  }
+    /* STELLARNAV CUSTOM */
+    @media all and (min-width: 601px) {
+      .stellarnav > ul {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items:center;
 
-  .nav_category a {
-    margin: 0 18px 0 0;
-    color: #343a40;
-  }
+      }
+
+        .stellarnav .nav_kategorija {
+          margin: 0 10px 0 0;
+          padding: 0 10px;
+          height: 50px;
+          line-height: 50px;
+        }
+
+      .stellarnav .nav_kategorija > a {
+        padding: 0!important;
+      }
+
+      .stellarnav .nav_podstrani {
+        margin: 0 -10px;
+        border-left: 1px solid rgba(0,0,0,0.3);
+        border-right: 1px solid rgba(0,0,0,0.3);
+      }
+
+      .stellarnav .nav_podstran {
+        padding: 10px;
+        font-size: 0.9em;
+
+      }
+
+      .stellarnav .nav_podstran a {
+        padding: 0;
+      }
+    }
+
+      .stellarnav .nav_podstrani {
+        background: white!important;
+      }
+
+      .stellarnav .nav_podstran {
+        border-bottom: 1px solid rgba(0,0,0,0.3);
+      }
+
+      .stellarnav .nav_kategorija:hover {
+        background: #343a40;
+      }
+
+      .stellarnav .nav_kategorija > a:hover {
+        color: #e8e8e8;
+        cursor: pointer;
+      }
+      .stellarnav .nav_podstran:hover {
+        background: rgba(0,0,0,0.04);
+      }
+    /* END STELLARNAV */
 
   .nav .fa-search {
     font-size: 1.5em;
@@ -89,10 +137,6 @@
   .search {
     width: 25%;
     text-align: center;
-  }
-
-  .search form {
-
   }
 
   .search input {

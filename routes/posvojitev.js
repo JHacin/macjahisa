@@ -3,6 +3,10 @@ var router = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 var Muca = require("../models/muca");
 
+router.get("/", function(req, res){
+  res.redirect("/posvojitev/muce");
+});
+
 router.get("/muce", function(req, res){
   Podstran.findOne({naslov: "Muce, ki iščejo dom"}, function(err, podstran){
     if(err) return console.log(err);

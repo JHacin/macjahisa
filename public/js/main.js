@@ -13,4 +13,10 @@ $(document).ready( function() {
     show_paginate_if_one: false
   });
 
+  // dropdown menu
+  $(".stellarnav").stellarNav({
+    position: "left",
+    breakpoint: 600
+  });
+
 });

@@ -2,6 +2,10 @@ var express             = require("express");
 var router              = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 
+router.get("/", function(req, res){
+  res.render("v_novem_domu/index");
+});
+
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
     res.render("posvojitev/show",

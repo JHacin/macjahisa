@@ -4,6 +4,10 @@ var Podstran = require("../models/podstran");
 var Clanek = require("../models/clanek");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 
+router.get("/", function(req, res){
+  res.redirect("/dobro_je_vedeti/izobrazevalne_vsebine");
+});
+
 router.get("/izobrazevalne_vsebine", function(req, res){
   Podstran.findOne({naslov: "Izobraževalne vsebine"}, function(err, podstran){
     if(err) return console.log(err);

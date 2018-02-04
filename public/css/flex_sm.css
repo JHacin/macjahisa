@@ -1,5 +1,10 @@
 @media all and (max-width: 600px) {
 
+  body {
+    display: flex;
+    flex-direction: column;
+  }
+
   body > div > .container {
     max-width: 100%;
     display: flex;
@@ -13,35 +18,81 @@
     margin: 0 auto;
   }
 
+  .nav {
+    order: 1;
+  }
+
+  .mobile_header {
+    order: 2;
+  }
+
+  .jumbo {
+    order: 3;
+    border-bottom: 1px solid rgba(0,0,0,0.4);
+  }
+
+  .main {
+    order: 4;
+  }
+
+  .footer {
+    order: 5;
+  }
+
+  .signature {
+    order: 6;
+  }
+
+  /* STELLAR NAV */
+
+  /* END STELLAR NAV */
+
   .index_heading {
     margin-bottom: 15px;
   }
 
-  .mobile_header {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 5px 15px;
-    border-bottom: 1px solid #343a40;
-    background: #e8e8e8;
+  .mobile_logo,
+  .mobile_top_contact {
+    display: block;
+  }
+
+  .mobile_logo {
+    width: 20%;
   }
 
   .mobile_top_contact {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+    width: 40%;
   }
 
-  .mobile_header a {
+  .nav {
+    width: 100%;
+    border-bottom: 1px solid #343a40;
+    background: #e8e8e8;
+    border-top: none;
+  }
+
+  .nav > .container {
+    padding: 5px 0;
+    width: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+  }
+
+  .stellarnav {
+    width: 20%!important;
+  }
+
+  .mobile_top_contact a {
     font-size: 0.9em;
     color: #343a40;
     margin: 3px 0;
   }
 
-  .mobile_nav .fa-bars {
-    font-size: 2.8em;
+  .stellarnav .fa-bars {
+    font-size: 2.4em;
     vertical-align: middle;
     color: #343a40;
   }
