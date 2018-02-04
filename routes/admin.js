@@ -5,6 +5,7 @@ var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Kategorija = require("../models/kategorija");
+var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 var moment = require("moment");
 
 // MULTER
@@ -27,8 +28,18 @@ var storage_clanki = multer.diskStorage({
   }
 })
 
+var storage_izobrazevanje = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/files/izobrazevanje')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname)
+  }
+})
+
 var upload_muce = multer({ storage: storage_muce });
 var upload_clanki = multer({ storage: storage_clanki });
+var upload_izobrazevanje = multer({ storage: storage_izobrazevanje });
 // END MULTER
 
 router.get("/", function(req, res){
@@ -273,6 +284,60 @@ router.put("/clanki_upload/:id", upload_clanki.single("clanek[nova_vsebina]"), f
   });
 });
 // END ČLANKI
+
+// BEGIN IZOBRAŽEVANJE
+router.get("/izobrazevalne_vsebine", function(req, res){
+  // prikaži vse vsebine po vrsti od nazadnje spremenjene
+  Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
+    if(err) return console.log(err);
+    res.render("admin/izobrazevalne_vsebine/index", {vsebine: vsebine});
+  })
+});
+
+router.get("/izobrazevalne_vsebine/add", function(req, res){
+  res.render("admin/izobrazevalne_vsebine/add");
+});
+
+router.get("/izobrazevalne_vsebine/:id/edit", function(req, res){
+  Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
+    if(err) return console.log(err);
+    res.render("admin/izobrazevalne_vsebine/edit", {vsebina: vsebina})
+  });
+});
+
+router.post("/izobrazevalne_vsebine", upload_izobrazevanje.fields([
+    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
+  Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
+    if(err) return console.log(err);
+    if(req.files["vsebina[datoteka]"]) {
+      vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname;
+      vsebina.save();
+    };
+
+    if(req.files["vsebina[naslovna_slika]"]) {
+      vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname;
+      vsebina.save();
+    };
+    res.redirect("/admin/izobrazevalne_vsebine");
+  });
+});
+
+router.put("/izobrazevalne_vsebine/:id", upload_izobrazevanje.fields([
+    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
+  Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
+    if(err) return console.log(err);
+    if(req.files["vsebina[nova_datoteka]"]) {
+      vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname;
+      vsebina.save();
+    };
+    if(req.files["vsebina[nova_naslovna_slika]"]) {
+      vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname;
+      vsebina.save();
+    };
+    res.redirect("/admin/izobrazevalne_vsebine");
+  });
+});
+// END IZOBRAŽEVANJE
 
 // PODSTRANI
 router.get("/podstrani", function(req, res){

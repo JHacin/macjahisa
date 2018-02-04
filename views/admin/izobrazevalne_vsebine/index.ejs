@@ -1,0 +1,39 @@
+<% include ../../partials/admin/header %>
+
+<h3>Izobraževalne vsebine</h3>
+<p><a href="/admin/izobrazevalne_vsebine/add">+ Dodaj novo</a></p>
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum objave</th>
+            <th>Naslov</th>
+            <th>Naslovna slika</th>
+            <th>Datoteka</th>
+            <th>Objava</th>
+            <th>Prikaži</th>
+            <th>Uredi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% vsebine.forEach(function(vsebina) { %>
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(vsebina.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(vsebina.datum).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><%= vsebina.naslov %></td>
+              <td><img class="thumb" src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" /></td>
+              <td><%- vsebina.datoteka %></td>
+              <td><%= vsebina.objava == "1" ? "Da" : "Ne" %></td>
+              <td><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/izobrazevalne_vsebine/<%= vsebina._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

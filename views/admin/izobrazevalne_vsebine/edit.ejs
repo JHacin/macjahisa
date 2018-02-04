@@ -1,0 +1,36 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/izobrazevalne_vsebine"><< Nazaj</a></p>
+<h3>Urejanje izobraževalne vsebine</h3>
+
+<form action="/admin/izobrazevalne_vsebine/<%= vsebina._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="vsebina[naslov]">Naslov:</label>
+    <input type="text" name="vsebina[naslov]" id="naslov" size="70" value="<%= vsebina.naslov %>" autofocus required/>
+  </div>
+  <div>
+    <label for="vsebina[datoteka]">Datoteka:</label>
+    <input type="text" name="vsebina[datoteka]" id="datoteka" value="<%= vsebina.datoteka %>" size="70" disabled/>
+  </div>
+  <div>
+    <label for="vsebina[nova_datoteka]">Nova datoteka:</label>
+    <input type="file" name="vsebina[nova_datoteka]" id="nova_datoteka" size="70"/>
+  </div>
+  <div>
+    <label for="vsebina[naslovna_slika]">Naslovna slika:</label>
+    <input type="text" name="vsebina[naslovna_slika]" id="naslovna_slika" value="<%= vsebina.naslovna_slika %>" size="70" disabled/>
+  </div>
+  <div>
+    <label for="vsebina[nova_naslovna_slika]">Nova naslovna slika:</label>
+    <input type="file" name="vsebina[nova_naslovna_slika]" id="nova_naslovna_slika" size="70"/>
+  </div>
+  <div>
+    <label for="vsebina[objava]">Objava:</label>
+    <select id="objava" name="vsebina[objava]">
+      <option value="1" <%= vsebina.objava == "1" ? "selected" : "" %>>Da</option>
+      <option value="0" <%= vsebina.objava == "0" ? "selected" : "" %>>Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>
