@@ -3,5 +3,19 @@
 
 <%- podstran.vsebina %>
 
+<div class="izobrazevalne_vsebine">
+  <% vsebine.forEach(function(vsebina){ %>
+    <div class="vnos">
+      <div class="naslovna_slika">
+        <img src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" />
+      </div>
+      <div class="vsebina">
+        <h3><%= vsebina.naslov %></h3>
+        <p><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank">Preberi več ></a></p>
+      </div>
+    </div>
+  <% }); %>
+</div>
+
 <% include ../partials/sidebar %>
 <% include ../partials/footer %>

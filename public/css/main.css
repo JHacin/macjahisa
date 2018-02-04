@@ -113,3 +113,33 @@ input[type=text]:focus, textarea:focus {
 .page_navigation a {
   margin: 0 0 0 5px;
 }
+
+.izobrazevalne_vsebine {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+}
+
+.izobrazevalne_vsebine > .vnos {
+  display: flex;
+  flex-direction: row;
+}
+
+.izobrazevalne_vsebine > .vnos > .naslovna_slika {
+  width: 20%;
+}
+
+  .naslovna_slika img {
+    max-width: 100%;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
+.izobrazevalne_vsebine > .vnos > .vsebina {
+  width: 80%;
+  padding: 0 1em;
+}
+
+  .vsebina h3 {
+    font-weight: bold;
+    color: #e59400;
+  }

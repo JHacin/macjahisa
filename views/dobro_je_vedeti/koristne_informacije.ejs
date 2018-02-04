@@ -11,10 +11,10 @@ var zdravje = [];
 var zakonodaja = [];
 
 clanki.forEach(function(clanek){
-  if(clanek.kategorija == "prispevki") prispevki.push(clanek);
-  if(clanek.kategorija == "nasveti") nasveti.push(clanek);
-  if(clanek.kategorija == "zdravje") zdravje.push(clanek);
-  if(clanek.kategorija == "zakonodaja") zakonodaja.push(clanek);
+  if(clanek.kategorija == "prispevki" && clanek.objava == "1") prispevki.push(clanek);
+  if(clanek.kategorija == "nasveti" && clanek.objava == "1") nasveti.push(clanek);
+  if(clanek.kategorija == "zdravje" && clanek.objava == "1") zdravje.push(clanek);
+  if(clanek.kategorija == "zakonodaja" && clanek.objava == "1") zakonodaja.push(clanek);
 });
 %>
 <!-- SORTIRANJE END -->
@@ -36,7 +36,7 @@ clanki.forEach(function(clanek){
 <h2>Zdravje</h2>
 <ul>
   <% zdravje.forEach(function(clanek){ %>
-    <li><a href="/dobro_je_vedeti/koristne_informacije/<%= clanek._id %>" target="_blank"><%= clanek.naslov %></a></li>   
+    <li><a href="/dobro_je_vedeti/koristne_informacije/<%= clanek._id %>" target="_blank"><%= clanek.naslov %></a></li>
   <% }); %>
 </ul>
 
