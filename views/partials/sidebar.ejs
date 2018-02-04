@@ -23,8 +23,8 @@
         <div class="side_cats_list">
           <% sidebar_muce.forEach(function(sidebar_muca) { %>
             <div class="side_cat">
-              <img src="/files/oglasi_muce/<%= sidebar_muca.file_name1 %>" />
-              <h5><%= sidebar_muca.ime %></h5>
+              <a href="/posvojitev/muce/<%= sidebar_muca._id %>"><img src="/files/oglasi_muce/<%= sidebar_muca.file_name1 %>" /></a>
+              <h5><a href="/posvojitev/muce/<%= sidebar_muca._id %>"><%= sidebar_muca.ime %></a></h5>
             </div>
           <% }) %>
         </div>
