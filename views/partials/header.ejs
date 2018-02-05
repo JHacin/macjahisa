@@ -64,7 +64,7 @@
               <input type="hidden" name="hosted_button_id" value="3T8VTPP8R7H74">
               <button type="submit"  border="0" alt="PayPal donacije">PayPal donacije <i class='fa fa-caret-right' aria-hidden='true'></i></button>
             </form>
-          </div>  
+          </div>
         </div>
       </div>
     </div>
@@ -90,7 +90,7 @@
                 <% if(kategorija.podstrani_length > 1) { %>
                   <ul class="nav_podstrani">
                     <% nav_podstrani.forEach(function(podstran){ %>
-                      <% if (podstran.kategorija.equals(kategorija._id)) { %>
+                      <% if (podstran.kategorija.equals(kategorija._id) && podstran.objava == "Da") { %>
                         <li class="nav_podstran"><a href="/<%= kategorija.url %>/<%= podstran.url %>"><%= podstran.naslov %></a></li>
                       <% }; %>
                     <% }); %>

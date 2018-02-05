@@ -6,7 +6,7 @@
 <form action="/admin/muce" method="POST" enctype="multipart/form-data">
   <div>
     <label for="datum">datum sprejema:</label>
-    <input type="date" id="nova_datum" name="muca[datum]" value=""/>
+    <input type="date" id="nova_datum" name="muca[datum]" value="" required/>
   </div>
   <div>
     <label for="status">stanje:</label>
@@ -21,7 +21,7 @@
   </div>
   <div>
     <label for="ime">ime:</label>
-    <input type="text" id="nova_ime" autofocus name="muca[ime]" />
+    <input type="text" id="nova_ime" autofocus name="muca[ime]" required/>
   </div>
   <div>
     <label for="nacin_posvojitve">način posvojitve:</label>
@@ -33,7 +33,7 @@
   </div>
   <div>
     <label for="mesec_rojstva">mesec rojstva:</label>
-    <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" />
+    <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" required/>
   </div>
   <div>
     <label for="spol">spol:</label>
@@ -47,11 +47,11 @@
   </div>
   <div>
     <label for="opis">opis:</label>
-    <textarea id="summernote" name="muca[opis]"></textarea>
+    <textarea id="summernote" name="muca[opis]" required></textarea>
   </div>
   <div>
     <label for="kontakt">kontakt:</label>
-    <input type="text" id="nova_kontakt" name="muca[kontakt]" />
+    <input type="text" id="nova_kontakt" name="muca[kontakt]" required/>
   </div>
   <div>
     <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
@@ -82,7 +82,7 @@
   </div>
   <div>
     <label for="slika1">Slika 1:</label>
-    <input type="file" id="slika1" name="slika1" />
+    <input type="file" id="slika1" name="slika1" required/>
   </div>
   <div>
     <label for="slika2">Slika 2:</label>
