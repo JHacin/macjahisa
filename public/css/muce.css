@@ -63,11 +63,14 @@
   margin: 0 auto;
 }
 
-.muce_seznam {
+.muce_seznam > .content {
+  list-style: none;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: flex-start;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0;
 }
 
 .muca {
@@ -84,6 +87,7 @@
   border: 1px solid rgba(0,0,0,0.4);
   border-bottom: 5px solid #343a40;
   max-width: 90%;
+  height: 200px;
   margin-bottom: 0;
 }
 

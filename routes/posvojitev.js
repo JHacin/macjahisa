@@ -9,10 +9,13 @@ router.get("/", function(req, res){
 
 router.get("/muce", function(req, res){
   Podstran.findOne({naslov: "Muce, ki iščejo dom"}, function(err, podstran){
-    if(err) return console.log(err);
-    res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
-    nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-    sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša"})
+    Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce){
+      if(err) return console.log(err);
+      res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+      sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša",
+      muce: muce})
+    });
   });
 });
 

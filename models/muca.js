@@ -27,10 +27,10 @@ var mucaSchema = new mongoose.Schema({
   last_update: Date,
   add_date: Date,
   vet: {
-    s_k: { type: Boolean, default: false },
-    cipiranje: { type: Boolean, default: false },
-    cepljenje: { type: Boolean, default: false },
-    razparazit: { type: Boolean, default: false },
+    s_k: { type: Boolean, default: true },
+    cipiranje: { type: Boolean, default: true },
+    cepljenje: { type: Boolean, default: true },
+    razparazit: { type: Boolean, default: true },
     felv: { type: Boolean, default: false },
     fiv: { type: Boolean, default: false }
   }

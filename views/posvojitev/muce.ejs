@@ -1,4 +1,5 @@
 <% include ../partials/header %>
+<% include ../partials/functions/muce %>
 <div class="nonindex">
   <div class="container_full">
     <div class="content">
@@ -39,128 +40,30 @@
       <!-- END SEARCH FILTERS -->
 
       <!-- BEGIN LIST -->
-      <div class="muce_seznam">
-        <div class="muca">
-          <h2>Muca #1</h2>
-          <div class="muca_img"><img src="/images/c1.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samicka.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more"><a href="/posvojitev/prikaz">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </a></p>
-        </div>
-        <div class="muca">
-          <h2>Muca #2</h2>
-          <div class="muca_img"><img src="/images/c2.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samcek.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> več kot 0 mesecev</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #3</h2>
-          <div class="muca_img"><img src="/images/c3.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samcek.png" />
-            <img src="/images/felvplus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #4</h2>
-          <div class="muca_img"><img src="/images/c7.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samicka.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #5</h2>
-          <div class="muca_img"><img src="/images/c5.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samcek.png" />
-            <img src="/images/felvplus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #6</h2>
-          <div class="muca_img"><img src="/images/c6.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samicka.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivplus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #7</h2>
-          <div class="muca_img"><img src="/images/c4.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samcek.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivminus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #8</h2>
-          <div class="muca_img"><img src="/images/c8.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samicka.png" />
-            <img src="/images/felvplus.png" />
-            <img src="/images/fivplus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
-        <div class="muca">
-          <h2>Muca #9</h2>
-          <div class="muca_img"><img src="/images/c9.jpg" /></div>
-          <div class="vet_status">
-            <img src="/images/samicka.png" />
-            <img src="/images/felvminus.png" />
-            <img src="/images/fivplus.png" />
-          </div>
-          <p><strong>Starost:</strong> ne povemo</p>
-          <p class="cat_more">
-            Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-          </p>
-        </div>
+      <div class="muce_seznam" id="muce_container">
+        <ul class="content">
+          <% muce.forEach(function(muca){ %>
+            <li class="muca">
+              <div>
+                <h2><a href="/posvojitev/muce/<%= muca._id %>"><%= muca.ime %> <i class="fa fa-<%= spolSimbol(muca.spol) %>" aria-hidden="true"></i></a></h2>
+                <div class="muca_img"><a href="/posvojitev/muce/<%= muca._id %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></div>
+                <div class="vet_status">
+                  <img src="/images/<%= muca.vet.felv == true ? "felvplus" : "felvminus" %>.png" />
+                  <img src="/images/<%= muca.vet.fiv == true ? "fivplus" : "fivminus" %>.png" />
+                </div>
+                <p><strong>Starost:</strong> <%= starostVMesecih(muca.mesec_rojstva) %></p>
+                <p class="cat_more"><a href="/posvojitev/muce/<%= muca._id %>">
+                  Več <i class="fa fa-caret-right" aria-hidden="true"></i>
+                </a></p>
+              </div>
+            </li>
+          <% }); %>
+        </ul>
+        <div class="page_navigation"></div>
       </div>
       <!-- END LIST -->
       <div class="muce_nav">
-        [1] [2] [3] ... [>] [>>]
+
       </div>
 
     </div><!--end content-->
