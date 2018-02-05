@@ -218,3 +218,28 @@
     color: #e59400;
   }
 /* END FULL PAGE */
+
+
+/* V NOVEM DOMU */
+#v_novem_domu_container > .content {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+.v_novem_domu_muca {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 1em;
+}
+
+.v_novem_domu_muca img {
+  width: 300px;
+  height: auto;
+}
+
+.v_novem_domu_muca > .muca_info {
+  padding: 0;
+}

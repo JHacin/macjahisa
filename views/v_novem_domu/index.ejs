@@ -1,0 +1,23 @@
+<% include ../partials/header %>
+<% include ../partials/nonindex %>
+
+<%- podstran.vsebina %>
+<div id="v_novem_domu_container">
+  <ul class="content">
+    <% muce.forEach(function(muca){ %>
+      <li>
+        <div class="v_novem_domu_muca">
+          <div class="muca_img"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></div>
+          <div class="muca_info">
+            <h2><%= muca.ime %></h2>
+            <p>Datum odhoda: <strong><%= moment(muca.datum).format("D[. ]M[. ]YYYY") %></strong></p>
+          </div>
+        </div>
+      </li>
+    <% }); %>
+  </ul>
+  <div class="page_navigation"></div>
+</div>
+
+<% include ../partials/sidebar %>
+<% include ../partials/footer %>

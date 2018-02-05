@@ -55,10 +55,16 @@
           </a>
         </div>
         <div class="jumbo_links">
-          <div class="jumbo_button">Dohodnina <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-          <div class="jumbo_button">Posvojitev <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-          <div class="jumbo_button">Donacije <i class="fa fa-caret-right" aria-hidden="true"></i></div>
-          <div class="jumbo_button">PayPal donacije <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+          <div class="jumbo_button"><a href="/pomoc/dohodnina">Dohodnina <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
+          <div class="jumbo_button"><a href="/posvojitev/muce">Posvojitev <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
+          <div class="jumbo_button"><a href="/pomoc/donacije">Donacije <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
+          <div class="jumbo_button">
+            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+              <input type="hidden" name="cmd" value="_s-xclick">
+              <input type="hidden" name="hosted_button_id" value="3T8VTPP8R7H74">
+              <button type="submit"  border="0" alt="PayPal donacije">PayPal donacije <i class='fa fa-caret-right' aria-hidden='true'></i></button>
+            </form>
+          </div>  
         </div>
       </div>
     </div>
