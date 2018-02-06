@@ -3,7 +3,7 @@ var router              = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 
 router.get("/", function(req, res){
-  res.redirect("/pomoc_nacini_pomoci");
+  res.redirect("/pomoc/nacini_pomoci");
 });
 
 router.get("/:podstran", function(req, res){

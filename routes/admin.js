@@ -432,7 +432,7 @@ router.get("/menu/:id/edit", function(req, res){
 router.put("/menu/:id", function(req, res){
   Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) return console.log(err);
-    res.redirect("/admin/menu/" + kategorija._id + "/edit");
+    res.redirect("/admin/menu/");
   });
 });
 // END MENU

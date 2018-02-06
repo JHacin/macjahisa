@@ -236,10 +236,47 @@
 }
 
 .v_novem_domu_muca img {
-  width: 200px;
+  width: 300px;
   height: auto;
 }
 
 .v_novem_domu_muca > .muca_info {
   padding: 0;
+}
+
+/* PAGINATOR */
+.paginator {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  width: 100%;
+  padding: 0;
+  border: 1px solid rgba(0,0,0,0.3);
+}
+
+.paginator a {
+  text-align: center;
+  border-right: 1px solid rgba(0,0,0,0.3);
+  width: 12.5%;
+}
+
+.paginator a li {
+  padding: 15px;
+}
+
+.paginator a:last-child {
+  border-right: none;
+}
+
+.paginator_disabled {
+  color: lightgray;
+}
+
+.paginator_active {
+  background: lightgray;
+  color: #343a40;
+}
+
+.paginator_page:hover {
+  background: #e59400;
 }
