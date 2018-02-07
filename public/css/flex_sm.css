@@ -35,12 +35,16 @@
     order: 4;
   }
 
-  .footer {
+  .related_links {
     order: 5;
   }
 
-  .signature {
+  .footer {
     order: 6;
+  }
+
+  .signature {
+    order: 7;
   }
 
   /* STELLAR NAV */

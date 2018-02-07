@@ -66,3 +66,27 @@
     width: 80%;
     text-align: center;
   }
+
+.related_links {
+  background: #f8f8f8;
+  border-bottom: 1px solid rgba(0,0,0,0.1);
+}
+
+.related_links > .container {
+  align-items: baseline;
+  padding: 3em 0;
+}
+
+.related_div {
+  width: 25%;
+  text-align: center;
+}
+
+.related_div img {
+  max-height: 100px;
+}
+
+.related_div p {
+  color: #343a40;
+  font-size: 0.8em;
+}
