@@ -1,0 +1,21 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/kontakti"><< Nazaj</a></p>
+<h3>Nov kontakt</h3>
+
+<form action="/admin/kontakti" method="POST">
+  <div>
+    <label for="kontakt[ime]">Ime:</label>
+    <input type="text" name="kontakt[ime]" id="ime" autofocus/>
+  </div>
+  <div>
+    <label for="kontakt[email]">E-mail:</label>
+    <input type="text" name="kontakt[email]" id="email" required/>
+  </div>
+  <div>
+    <label for="kontakt[tel]">Telefonska številka:</label>
+    <input type="text" name="kontakt[tel]" id="tel"/>
+  </div>
+  <input type="submit" value="Dodaj">
+</form>
+
+<% include ../../partials/admin/footer %>

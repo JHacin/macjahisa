@@ -5,6 +5,7 @@ var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Kategorija = require("../models/kategorija");
+var Kontakt = require("../models/kontakt");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 var moment = require("moment");
 
@@ -75,14 +76,18 @@ router.get("/muce/arhiv", function(req, res){
 router.get("/muce/:id/edit/", function(req, res) {
   // prikaži obrazce za urejanje muce (po IDju)
   Muca.findById(req.params.id, function(err, muca) {
-    if(err) return console.log(err);
-    res.render("admin/muce/edit", {muca: muca});
+    Kontakt.find({}, function(err, kontakti){
+      if(err) return console.log(err);
+      res.render("admin/muce/edit", {muca: muca, kontakti: kontakti});
+    });
   })
 });
 
 router.get("/muce/add", function(req, res){
   // prikaži obrazec za novo muco
-  res.render("admin/muce/add");
+  Kontakt.find({}, function(err, kontakti){
+    res.render("admin/muce/add", {kontakti: kontakti});
+  });
 });
 
 router.get("/muce/:id", function(req, res) {
@@ -436,5 +441,37 @@ router.put("/menu/:id", function(req, res){
   });
 });
 // END MENU
+
+// BEGIN CONTACTS
+router.get("/kontakti", function(req, res){
+  Kontakt.find({}, function(err, kontakti) {
+    if(err) return console.log(err);
+      res.render("admin/kontakti/index", {kontakti: kontakti});
+  })
+});
+
+router.get("/kontakti/add", function(req, res){
+  res.render("admin/kontakti/add");
+});
+
+router.post("/kontakti", function(req, res){
+  Kontakt.create(req.body.kontakt, function(err, kontakt){
+    res.redirect("/admin/kontakti/");
+  })
+});
+
+router.get("/kontakti/:id/edit", function(req, res){
+  Kontakt.findById(req.params.id, function(err, kontakt){
+    res.render("admin/kontakti/edit", {kontakt: kontakt});
+  });
+});
+
+router.put("/kontakti/:id", function(req, res){
+  Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, function(err, kontakt) {
+    if(err) return console.log(err);
+      res.redirect("/admin/kontakti");
+  })
+});
+// END CONTACTS
 
 module.exports = router;

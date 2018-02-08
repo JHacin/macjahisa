@@ -42,8 +42,13 @@
       <textarea id="summernote" name="muca[opis]" required><%- muca.opis %></textarea>
     </div>
     <div class="cms_muca_row">
-      <div class="cms_attr">Kontakt</div>
-      <input type="text" id="kontakt" name="muca[kontakt]" value="<%= muca.kontakt %>" required/>
+      <div class="cms_attr">Opis</div>
+      <select id="kontakt" name="muca[kontakt]">
+        <% kontakti.forEach(function(kontakt){ %>
+          <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
+          <option value="<%= k %>" <%= muca.kontakt == k ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
+        <% }); %>
+      </select>
     </div>
       <div class="cms_muca_row">
         <div class="cms_attr">Veterinarski status</div>

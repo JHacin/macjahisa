@@ -1,0 +1,21 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/kontakti"><< Nazaj</a></p>
+<h3>Uredi kontakt</h3>
+
+<form action="/admin/kontakti/<%= kontakt._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="kontakt[ime]">Ime:</label>
+    <input type="text" name="kontakt[ime]" id="ime" value="<%= kontakt.ime %>"/>
+  </div>
+  <div>
+    <label for="kontakt[email]">E-mail:</label>
+    <input type="text" name="kontakt[email]" id="email" value="<%= kontakt.email %>"/>
+  </div>
+  <div>
+    <label for="kontakt[tel]">Telefonska številka:</label>
+    <input type="text" name="kontakt[tel]" id="tel" value="<%= kontakt.tel %>"/>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

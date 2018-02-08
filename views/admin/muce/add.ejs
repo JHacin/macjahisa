@@ -1,4 +1,5 @@
 <% include ../../partials/admin/header %>
+<% include ../../partials/functions/muce %>
 <p><a href="/admin/muce/iscejo"><< Nazaj</a></p>
 
 <h3>Vnesi novo muco</h3>
@@ -51,8 +52,17 @@
   </div>
   <div>
     <label for="kontakt">kontakt:</label>
-    <input type="text" id="nova_kontakt" name="muca[kontakt]" required/>
+    <select id="nova_kontakt" name="muca[kontakt]">
+      <% kontakti.forEach(function(kontakt){ %>
+        <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
+        <option value="<%= k %>" <%= kontakt.email == "info@macjahisa.si" ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
+      <% }); %>
+    </select>
   </div>
+  <!-- <div>
+    <label for="kontakt">kontakt:</label>
+    <input type="text" id="nova_kontakt" name="muca[kontakt]" required/>
+  </div> -->
   <div>
     <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
     <select id="nova_posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">

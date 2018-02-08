@@ -1,0 +1,29 @@
+<% include ../../partials/admin/header %>
+
+<h3>Kontakti</h3>
+<p><a href="/admin/kontakti/add">+ Dodaj nov kontakt</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>E-mail</th>
+            <th>Telefon</th>
+            <th>Uredi podatke</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% kontakti.forEach(function(kontakt) { %>
+          <tr>
+              <td><%= kontakt.ime %></td>
+              <td><%= kontakt.email %></td>
+              <td><%= kontakt.tel %></td>
+              <td><a href="/admin/kontakti/<%= kontakt._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

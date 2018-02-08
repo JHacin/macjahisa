@@ -87,5 +87,19 @@ starostVMesecih = function(mesec_rojstva) {
   }
 }
 
+sestavaKontaktaCMS = function(email, tel) {
+  var result = "";
+
+  if(email != undefined && email != "") {
+    result += email;
+  }
+
+  if(tel != undefined && tel != "") {
+    result += " / ";
+    result += tel;
+  }
+
+  return result;
+}
 
 %>
