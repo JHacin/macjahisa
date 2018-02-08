@@ -44,6 +44,7 @@ app.use("*", function(req, res, next) {
             req.nav_podstrani = podstrani;
             req.sidebar_muce = sidebar_muce;
             req.sidebar_novice = sidebar_novice;
+            search = podstrani;
             next();
         });
       });
@@ -62,6 +63,12 @@ app.get("/", function(req, res){
       });
     });
   });
+});
+
+app.get("/search", function(req, res){
+  res.render("search", {title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
+  nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+  sidebar_muce: req.sidebar_muce});
 });
 
 // OTHER routes
