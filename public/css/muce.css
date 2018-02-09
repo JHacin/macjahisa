@@ -56,14 +56,11 @@
   width: 30%;
 }
 
-.muce_filter input[type=text] {
-  padding: 0.5em;
-  font-family: 'Montserrat', sans-serif;
-  width: 80%;
-  margin: 0 auto;
+.text-filter-box input {
+  margin: 0;
 }
 
-.muce_seznam > .content {
+.muce_seznam > .list {
   list-style: none;
   display: flex;
   flex-direction: row;

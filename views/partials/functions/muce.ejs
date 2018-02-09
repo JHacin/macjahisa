@@ -44,6 +44,10 @@ spolMuce = function(num) {
     }
   }
 
+starostNum = function(mesec_rojstva){
+  return Math.floor(moment().diff(moment(mesec_rojstva), "months", true));
+}
+
 <!-- STAROST -->
 starostVMesecih = function(mesec_rojstva) {
   var result = Math.floor(moment().diff(moment(mesec_rojstva), "months", true));
