@@ -126,3 +126,8 @@ a {
     font-weight: bold;
     color: #e59400;
   }
+
+/* SLICK ARROWS */
+.slick-prev:before, .slick-next:before {
+    color:#343a40 !important;
+}

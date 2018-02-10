@@ -4,13 +4,37 @@
   <div class="container">
     <div class="content">
 
+<!-- združi vse slike -->
+<%
+  var slike = [];
+
+  if(muca.file_name1 != undefined && muca.file_name1 != "" && muca.file_name1 != "NULL") {
+    slike.push(muca.file_name1);
+  }
+
+  if(muca.file_name2 != undefined && muca.file_name2 != "" && muca.file_name2 != "NULL") {
+    slike.push(muca.file_name2);
+  }
+
+  if(muca.file_name3 != undefined && muca.file_name3 != "" && muca.file_name3 != "NULL") {
+    slike.push(muca.file_name3);
+  }
+
+  if(muca.file_name4 != undefined && muca.file_name4 != "" && muca.file_name4 != "NULL") {
+    slike.push(muca.file_name4);
+  }
+%>
 
 <h1 class="content_heading" id="muca_name"><%= muca.ime %></h1>
 <hr class="content_title_subhr" id="name_hr" />
 <p id="muce_back"><a href="/posvojitev/muce"><strong><i class="fa fa-undo" aria-hidden="true"></i> nazaj na seznam</strong></a></p>
 <div class="cat_full">
   <div class="photos">
-    <img src="/files/oglasi_muce/<%= muca.file_name1 %>" />
+    <% slike.forEach(function(slika){ %>
+      <div class="photo">
+        <img src="/files/oglasi_muce/<%= slika %>" />
+      </div>
+    <% }); %>
   </div>
   <div class="data">
     <div class="data_basic">

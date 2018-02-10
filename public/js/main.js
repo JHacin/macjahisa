@@ -21,9 +21,20 @@ $(document).ready( function() {
 
   // MUCE LIST
   $('.muce_seznam').jplist({
-              itemsBox: '.list',
-              itemPath: '.list-item',
-              panelPath: '.jplist-panel'
-           });
+    itemsBox: '.list',
+    itemPath: '.list-item',
+    panelPath: '.jplist-panel'
+   });
+
+   // MUCA IMAGE SLIDER
+   $('.photos').slick({
+     dots: true,
+     arrows: true,
+     infinite: true,
+     speed: 300,
+     slidesToShow: 1,
+     adaptiveHeight: true,
+   });
+
 
 });
