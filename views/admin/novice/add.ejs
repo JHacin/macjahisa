@@ -2,14 +2,14 @@
 <p><a href="/admin/novice"><< Nazaj</a></p>
 <h3>Dodaj novico</h3>
 
-<form action="/admin/novice" method="POST">
+<form action="/admin/novice" method="POST" enctype="multipart/form-data">
   <div>
     <label for="novica[naslov]">Naslov:</label>
     <input type="text" name="novica[naslov]" id="naslov" size="70" autofocus required/>
   </div>
   <div>
     <label for="novica[naslovna_slika]">Naslovna slika:</label>
-    <input type="text" name="novica[naslovna_slika]" id="naslov" size="70" autofocus required/>
+    <input type="file" name="novica[naslovna_slika]" id="naslovna_slika" size="70" required/>
   </div>
   <div>
     <label for="novica[objava]">Objava:</label>

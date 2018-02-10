@@ -2,14 +2,18 @@
 <p><a href="/admin/novice"><< Nazaj</a></p>
 <h3>Urejanje novice</h3>
 
-<form action="/admin/novice/<%= novica._id %>?_method=PUT" method="POST">
+<form action="/admin/novice/<%= novica._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   <div>
     <label for="novica[naslov]">Naslov:</label>
     <input type="text" name="novica[naslov]" id="naslov" value="<%= novica.naslov %>" size="70" autofocus required/>
   </div>
   <div>
     <label for="novica[naslovna_slika]">Naslovna slika:</label>
-    <input type="text" name="novica[naslovna_slika]" id="naslov" value="<%= novica.naslovna_slika %>" size="70" autofocus required/>
+    <input type="text" name="novica[naslovna_slika]" id="naslovna_slika" value="<%= novica.naslovna_slika %>" size="70" disabled/>
+  </div>
+  <div>
+    <label for="novica[nova_naslovna_slika]">Nova naslovna slika:</label>
+    <input type="file" name="novica[nova_naslovna_slika]" id="nova_naslovna_slika" size="70"/>
   </div>
   <div>
     <label for="novica[objava]">Objava:</label>

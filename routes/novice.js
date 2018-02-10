@@ -17,7 +17,7 @@ router.get("/", function(req, res){
 });
 
 router.get("/:id", function(req, res){
-  Novica.findById(req.params.id, function(err, novica){
+  Novica.findOne({dbid: req.params.id}, function(err, novica){
     res.render("novice/show",
     { novica: novica,
       sidebar_novice: req.sidebar_novice,

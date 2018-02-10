@@ -11,12 +11,12 @@
         <% novice.forEach(function(novica) { %>
           <li>
             <h4>
-              <a href="/novice/<%= novica._id %>">
+              <a href="/novice/<%= novica.dbid %>">
                 <em><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></em> | <%= novica.naslov %>
               </a>
             </h4>
             <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,250) + "..." %>
-              <a href="/novice/<%= novica._id %>">
+              <a href="/novice/<%= novica.dbid %>">
                 <i class="fa fa-forward" aria-hidden="true"></i></p>
               </a>
           </li>
@@ -34,13 +34,15 @@
       <div class="side_cats_list">
         <% sidebar_muce.forEach(function(sidebar_muca) { %>
           <div class="side_cat">
+            <a href="/posvojitev/muce/<%= sidebar_muca.dbid %>">
             <img src="/files/oglasi_muce/<%= sidebar_muca.file_name1 %>" />
             <h5><%= sidebar_muca.ime %></h5>
+            </a>
           </div>
         <% }) %>
       </div>
       <div class="side_more">
-        <div class="side_btn">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></div>
+        <div class="side_btn"><a href="/posvojitev/muce">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
       </div>
     </div>
   </div>

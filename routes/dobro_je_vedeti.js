@@ -34,7 +34,7 @@ router.get("/koristne_informacije", function(req, res){
 });
 
 router.get("/koristne_informacije/:id", function(req, res){
-  Clanek.findById(req.params.id, function(err, clanek){
+  Clanek.findOne({dbid: req.params.id}, function(err, clanek){
     if(err) return console.log(err);
 
     if(clanek.tip == "besedilo") {

@@ -10,9 +10,9 @@
             <% novice.forEach(function(novica){ %>
               <div class="news_item">
 
-                <a href="/novice/<%= novica._id %>"><img src="/files/<%= novica.naslovna_slika %>" /></a>
-                <h3><a href="/novice/<%= novica._id %>"><%= novica.naslov %></a></h3>
-                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica._id %>"><i class="fa fa-forward" aria-hidden="true"></i></a></p>
+                <a href="/novice/<%= novica.dbid %>"><img src="/files/<%= novica.naslovna_slika %>" /></a>
+                <h3><a href="/novice/<%= novica.dbid %>"><%= novica.naslov %></a></h3>
+                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica.dbid %>"><i class="fa fa-forward" aria-hidden="true"></i></a></p>
               </div>
             <% }); %>
           </div>
@@ -30,8 +30,8 @@
           <div class="cat_reel">
             <% muce.forEach(function(muca){ %>
               <div class="index_cat">
-                <a href="posvojitev/muce/<%= muca._id %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
-                <h3><a href="posvojitev/muce/<%= muca._id %>"><%= muca.ime %></a></h3>
+                <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
+                <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
               </div>
             <% }); %>
           </div>

@@ -20,7 +20,7 @@ router.get("/muce", function(req, res){
 });
 
 router.get("/muce/:id", function(req, res){
-  Muca.findById(req.params.id, function (err, muca){
+  Muca.findOne({dbid: req.params.id}, function (err, muca){
     if(err) return console.log(err);
     res.render("posvojitev/prikaz", {muca: muca, nav_kategorije: req.nav_kategorije,
     nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,

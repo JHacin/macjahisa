@@ -9,6 +9,7 @@ var express             = require("express"),
     Novica              = require("./models/novica"),
     Muca                = require("./models/muca"),
     Kategorija          = require("./models/kategorija"),
+    Clanek              = require("./models/clanek"),
     Podstran            = require("./models/podstran");
 
 // Route handling vars
@@ -70,6 +71,21 @@ app.get("/search", function(req, res){
   nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
   sidebar_muce: req.sidebar_muce});
 });
+
+// Muca.find({}, function(err, clanki){
+//   if(err) console.log(err);
+//   var id = 1;
+//   clanki.forEach(function(clanek){
+//     clanek.dbid = id;
+//     clanek.save().then(function (result) {
+//   // promise was "resolved" successfully
+// }, function (err) {
+//   console.log(err);
+//   // Promise was "rejected"
+// });
+//     id++;
+//   });
+// });
 
 // OTHER routes
 app.use("/o_nas/", o_nas);

@@ -17,7 +17,7 @@ var mucaSchema = new mongoose.Schema({
   file_name2: String,
   file_name3: String,
   file_name4: String,
-  posvojitev_na_daljavo: Number,
+  posvojitev_na_daljavo: {type: Number, default: 0},
   posvojitev_na_daljavo_zgodovina: Number,
   objavi_zgodbo: Number,
   zgodba: String,
@@ -25,7 +25,7 @@ var mucaSchema = new mongoose.Schema({
   zgodba_file_name2: String,
   zgodba_file_name3: String,
   last_update: Date,
-  add_date: Date,
+  add_date: {type: Date, default: Date.now()},
   vet: {
     s_k: { type: Boolean, default: true },
     cipiranje: { type: Boolean, default: true },
