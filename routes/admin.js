@@ -186,6 +186,7 @@ router.put("/muce/:id", upload_muce.fields([
         muca.file_name4 = req.files.slika4[0].filename;
       };
 
+      // spremeni datum sprejema / odhoda v nov dom če se status spremeni
       if(gre_v_nov_dom || (req.body.muca.status != 4 && muca.status == 4)) {
         muca.datum = moment();
       }
