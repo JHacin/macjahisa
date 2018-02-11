@@ -6,8 +6,10 @@ var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Kategorija = require("../models/kategorija");
 var Kontakt = require("../models/kontakt");
+var Oskrbnica = require("../models/oskrbnica");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 var moment = require("moment");
+const nodemailer = require("nodemailer");
 
 // MULTER
 var multer = require("multer");
@@ -149,8 +151,18 @@ router.put("/muce/:id", upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
 
-    Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
+    var gre_v_nov_dom = false;
 
+    // če gre muca v nov dom, pripravi za pošiljanje maila
+    Muca.findById(req.params.id, function(err, muca){
+      if(err) return console.log(err);
+      if (req.body.muca.status == 4 && muca.status != 4) {
+        gre_v_nov_dom = true;
+      }
+    });
+
+    Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
+      if(err) return console.log(err);
       // resetiraj vet status pri muci
       muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
                    razparazit: false, felv: false, fiv: false };
@@ -174,7 +186,74 @@ router.put("/muce/:id", upload_muce.fields([
         muca.file_name4 = req.files.slika4[0].filename;
       };
 
+      if(gre_v_nov_dom || (req.body.muca.status != 4 && muca.status == 4)) {
+        muca.datum = moment();
+      }
+
       muca.save();
+
+      // če gre v nov dom pošlji maile ostalim oskrbrnicam
+      if(gre_v_nov_dom) {
+        Oskrbnica.find({}, function(err, oskrbnice){
+          // create reusable transporter object using the default SMTP transport
+          let transporter = nodemailer.createTransport({
+              host: 'mail.macjahisa.si',
+              port: 26,
+              secure: false,
+              tls: {
+                rejectUnauthorized:false
+              },
+              auth: {
+                  user: "obvestila@macjahisa.si",
+                  pass: "obvestila123"
+              }
+          });
+
+          // create array with email addresses
+          var mailing_seznam = [];
+          oskrbnice.forEach(function(oskrbnica){
+            mailing_seznam.push(oskrbnica.email);
+          });
+
+          // gre/gresta
+          var subject_stevilo = "gre";
+          if(muca.nacin_posvojitve == "v_paru") {
+            subject_stevilo = "gresta";
+          }
+
+          // html zapis
+          var html_zapis = "";
+          html_zapis += "<h3>" + muca.ime + " ";
+          if(muca.nacin_posvojitve == "v_paru") {
+            html_zapis += "gresta ";
+          } else {
+            html_zapis += "gre ";
+          }
+          html_zapis += "v nov dom.";
+          html_zapis += "</h3><p>";
+          html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
+          html_zapis += "</p>";
+          html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>"
+
+          // setup email data with unicode symbols
+          let mailOptions = {
+              from: 'obvestila@macjahisa.si', // sender address
+              to: mailing_seznam, // list of receivers
+              subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
+              text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
+              html: html_zapis // html body
+          };
+
+          // send mail with defined transport object
+          transporter.sendMail(mailOptions, (error, info) => {
+              if (error) {
+                  return console.log(error);
+              }
+              console.log('Message sent: %s', info.messageId);
+          });
+        });
+      }
+
       res.redirect("/admin/muce/iscejo");
     });
 });
@@ -227,17 +306,6 @@ router.put("/novice/:id", upload_novice.single("novica[nova_naslovna_slika]"), f
     res.redirect("/admin/novice/");
   });
 });
-
-// router.put("/clanki_upload/:id", upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
-//   Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
-//     if(err) return console.log(err);
-//     if (req.file) {
-//       clanek.vsebina = req.file.originalname;
-//       clanek.save();
-//     }
-//     res.redirect("/admin/clanki");
-//   });
-// });
 
 // END NOVICE
 
@@ -520,5 +588,37 @@ router.put("/kontakti/:id", function(req, res){
   })
 });
 // END CONTACTS
+
+// OSKRBNICE
+router.get("/oskrbnice", function(req, res){
+  Oskrbnica.find({}, function(err, oskrbnice) {
+    if(err) return console.log(err);
+      res.render("admin/oskrbnice/index", {oskrbnice: oskrbnice});
+  })
+});
+
+router.get("/oskrbnice/add", function(req, res){
+  res.render("admin/oskrbnice/add");
+});
+
+router.post("/oskrbnice", function(req, res){
+  Oskrbnica.create(req.body.oskrbnica, function(err, oskrbnica){
+    res.redirect("/admin/oskrbnice/");
+  })
+});
+
+router.get("/oskrbnice/:id/edit", function(req, res){
+  Oskrbnica.findById(req.params.id, function(err, oskrbnica){
+    res.render("admin/oskrbnice/edit", {oskrbnica: oskrbnica});
+  });
+});
+
+router.put("/oskrbnice/:id", function(req, res){
+  Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, function(err, oskrbnica) {
+    if(err) return console.log(err);
+      res.redirect("/admin/oskrbnice");
+  })
+});
+// END OSKRBNICE
 
 module.exports = router;

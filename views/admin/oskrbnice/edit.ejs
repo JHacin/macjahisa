@@ -1,0 +1,24 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/oskrbnice"><< Nazaj</a></p>
+<h3>Uredi mail</h3>
+
+<form action="/admin/oskrbnice/<%= oskrbnica._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="oskrbnica[ime]">Ime:</label>
+    <input type="text" name="oskrbnica[ime]" id="ime" value="<%= oskrbnica.ime %>" autofocus required/>
+  </div>
+  <div>
+    <label for="oskrbnica[email]">E-mail:</label>
+    <input type="text" name="oskrbnica[email]" id="email" value="<%= oskrbnica.email %>" required/>
+  </div>
+  <div>
+    <label for="aktivna">Aktivna:</label>
+    <select id="aktivna" name="oskrbnica[aktivna]">
+      <option value="Da" <%= oskrbnica.aktivna == "Da" ? "selected" : "" %>>Da</option>
+      <option value="Ne" <%= oskrbnica.aktivna == "Ne" ? "selected" : "" %>>Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

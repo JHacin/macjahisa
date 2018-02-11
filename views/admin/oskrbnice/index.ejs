@@ -1,0 +1,30 @@
+<% include ../../partials/admin/header %>
+
+<h3>Oskrbnice</h3>
+<p>Vsi maili, na katere bodo poslana obvestila o pomembnih spremembah.</p>
+<p><a href="/admin/oskrbnice/add">+ Dodaj nov mail</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>E-mail</th>
+            <th>Aktivna</th>
+            <th>Uredi podatke</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% oskrbnice.forEach(function(oskrbnica) { %>
+          <tr>
+              <td><%= oskrbnica.ime %></td>
+              <td><%= oskrbnica.email %></td>
+              <td><%= oskrbnica.aktivna %></td>
+              <td><a href="/admin/oskrbnice/<%= oskrbnica._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>
