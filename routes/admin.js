@@ -8,7 +8,10 @@ var Kategorija = require("../models/kategorija");
 var Kontakt = require("../models/kontakt");
 var Oskrbnica = require("../models/oskrbnica");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
+var User = require("../models/user");
 var moment = require("moment");
+var passport = require("passport");
+var middleware = require("../middleware");
 const nodemailer = require("nodemailer");
 
 // MULTER
@@ -55,13 +58,8 @@ var upload_izobrazevanje = multer({ storage: storage_izobrazevanje });
 var upload_novice = multer({ storage: storage_novice });
 // END MULTER
 
-router.get("/", function(req, res){
-  // index - preusmeri na seznam muc
-  res.redirect("/admin/muce/iscejo");
-});
-
-// MUCE
-router.get("/muce/iscejo", function(req, res){
+// INDEX ADMIN
+router.get("/", middleware.isLoggedIn, function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
   Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
     if(err) return console.log(err);
@@ -69,7 +67,38 @@ router.get("/muce/iscejo", function(req, res){
   })
 });
 
-router.get("/muce/v_novem_domu", function(req, res){
+router.get("/login", function(req, res){
+  res.render("admin/login");
+});
+
+router.get("/register", function(req, res){
+  res.render("admin/register");
+});
+
+// LOGIN LOGIC
+router.post("/login", passport.authenticate("local",
+    {
+        successRedirect: "/admin/muce/iscejo",
+        failureRedirect: "/admin/login"
+    }), function(req, res) {
+});
+
+// LOGOUT LOGIC
+router.get("/logout", function(req, res) {
+    req.logout();
+    res.redirect("/admin/login");
+});
+
+// MUCE
+router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
+  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
+  Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
+    if(err) return console.log(err);
+    res.render("admin/muce/index", {muce: muce});
+  })
+});
+
+router.get("/muce/v_novem_domu", middleware.isLoggedIn, function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
   Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
     if(err) return console.log(err);
@@ -77,7 +106,7 @@ router.get("/muce/v_novem_domu", function(req, res){
   })
 });
 
-router.get("/muce/arhiv", function(req, res){
+router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
   Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
     if(err) return console.log(err);
@@ -85,7 +114,7 @@ router.get("/muce/arhiv", function(req, res){
   })
 });
 
-router.get("/muce/:id/edit/", function(req, res) {
+router.get("/muce/:id/edit/", middleware.isLoggedIn, function(req, res) {
   // prikaži obrazce za urejanje muce (po IDju)
   Muca.findOne({dbid: req.params.id}, function(err, muca) {
     Kontakt.find({}, function(err, kontakti){
@@ -95,14 +124,14 @@ router.get("/muce/:id/edit/", function(req, res) {
   })
 });
 
-router.get("/muce/add", function(req, res){
+router.get("/muce/add", middleware.isLoggedIn, function(req, res){
   // prikaži obrazec za novo muco
   Kontakt.find({}, function(err, kontakti){
     res.render("admin/muce/add", {kontakti: kontakti});
   });
 });
 
-router.get("/muce/:id", function(req, res) {
+router.get("/muce/:id", middleware.isLoggedIn, function(req, res) {
   // prikaži muco po IDju
   Muca.findOne({dbid: req.params.id}, function(err, muca) {
     if(err) return console.log(err);
@@ -110,7 +139,7 @@ router.get("/muce/:id", function(req, res) {
   })
 });
 
-router.post("/muce", upload_muce.fields([
+router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
 
@@ -147,7 +176,7 @@ router.post("/muce", upload_muce.fields([
   });
 });
 
-router.put("/muce/:id", upload_muce.fields([
+router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
 
@@ -261,27 +290,27 @@ router.put("/muce/:id", upload_muce.fields([
 // END muce
 
 // NOVICE
-router.get("/novice", function(req, res){
+router.get("/novice", middleware.isLoggedIn, function(req, res){
   Novica.find({}, function(err, novice){
     if(err) return console.log(err);
     res.render("admin/novice/index", {novice: novice});
   })
 });
 
-router.get("/novice/:id/edit", function(req, res){
+router.get("/novice/:id/edit", middleware.isLoggedIn, function(req, res){
   Novica.findOne({dbid: req.params.id}, function(err, novica){
     if(err) return console.log(err);
     res.render("admin/novice/edit", {novica: novica});
   })
 });
 
-router.get("/novice/add", function(req, res){
+router.get("/novice/add", middleware.isLoggedIn, function(req, res){
   res.render("admin/novice/add");
 });
 
 
 
-router.post("/novice", upload_novice.single("novica[naslovna_slika]"), function(req, res, next){
+router.post("/novice", middleware.isLoggedIn, upload_novice.single("novica[naslovna_slika]"), function(req, res, next){
   Novica.count({}, function(err, count){
     Novica.create(req.body.novica, function(err, novica){
       if(req.file) {
@@ -296,7 +325,7 @@ router.post("/novice", upload_novice.single("novica[naslovna_slika]"), function(
   })
 });
 
-router.put("/novice/:id", upload_novice.single("novica[nova_naslovna_slika]"), function(req, res, next){
+router.put("/novice/:id", middleware.isLoggedIn, upload_novice.single("novica[nova_naslovna_slika]"), function(req, res, next){
   Novica.findByIdAndUpdate(req.params.id, req.body.novica, function(err, novica){
     if(err) return console.log(err);
     console.log(req.file);
@@ -311,7 +340,7 @@ router.put("/novice/:id", upload_novice.single("novica[nova_naslovna_slika]"), f
 // END NOVICE
 
 // ČLANKI
-router.get("/clanki", function(req, res){
+router.get("/clanki", middleware.isLoggedIn, function(req, res){
   // prikaži vse članke po vrsti od nazadnje objavljenega
   Clanek.find({}).sort({datum: -1}).exec(function(err, clanki) {
     if(err) return console.log(err);
@@ -319,19 +348,19 @@ router.get("/clanki", function(req, res){
   })
 });
 
-router.get("/clanki/add_text", function(req, res){
+router.get("/clanki/add_text", middleware.isLoggedIn, function(req, res){
   res.render("admin/clanki/add_text");
 });
 
-router.get("/clanki/add_file", function(req, res){
+router.get("/clanki/add_file", middleware.isLoggedIn, function(req, res){
   res.render("admin/clanki/add_file");
 });
 
-router.get("/clanki/add_link", function(req, res){
+router.get("/clanki/add_link", middleware.isLoggedIn, function(req, res){
   res.render("admin/clanki/add_link");
 });
 
-router.get("/clanki/:id/edit", function(req, res){
+router.get("/clanki/:id/edit", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
     if(err) return console.log(err);
     var tip = clanek.tip;
@@ -345,7 +374,7 @@ router.get("/clanki/:id/edit", function(req, res){
   });
 });
 
-router.post("/clanki_upload", upload_clanki.single("clanek[vsebina]"), function(req, res, next){
+router.post("/clanki_upload", middleware.isLoggedIn, upload_clanki.single("clanek[vsebina]"), function(req, res, next){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
       if(err) return console.log(err);
@@ -359,7 +388,7 @@ router.post("/clanki_upload", upload_clanki.single("clanek[vsebina]"), function(
   });
 });
 
-router.post("/clanki", function(req, res){
+router.post("/clanki", middleware.isLoggedIn, function(req, res){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
       if(err) return console.log(err);
@@ -370,7 +399,7 @@ router.post("/clanki", function(req, res){
   });
 });
 
-router.get("/clanki/:id", function(req, res){
+router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek) {
     if(err) return console.log(err);
     if(clanek.tip == "povezava") {
@@ -383,7 +412,7 @@ router.get("/clanki/:id", function(req, res){
   });
 });
 
-router.put("/clanki/:id", function(req, res){
+router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, req.body.clanek, function(err, clanek){
     if(err) return console.log(err);
     if (req.body.clanek.nova_vsebina != undefined && req.body.clanek.nova_vsebina != "") {
@@ -394,7 +423,7 @@ router.put("/clanki/:id", function(req, res){
   });
 });
 
-router.put("/clanki_upload/:id", upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
+router.put("/clanki_upload/:id", middleware.isLoggedIn, upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
   Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
     if(err) return console.log(err);
     if (req.file) {
@@ -407,7 +436,7 @@ router.put("/clanki_upload/:id", upload_clanki.single("clanek[nova_vsebina]"), f
 // END ČLANKI
 
 // BEGIN IZOBRAŽEVANJE
-router.get("/izobrazevalne_vsebine", function(req, res){
+router.get("/izobrazevalne_vsebine", middleware.isLoggedIn, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
     if(err) return console.log(err);
@@ -415,18 +444,18 @@ router.get("/izobrazevalne_vsebine", function(req, res){
   })
 });
 
-router.get("/izobrazevalne_vsebine/add", function(req, res){
+router.get("/izobrazevalne_vsebine/add", middleware.isLoggedIn, function(req, res){
   res.render("admin/izobrazevalne_vsebine/add");
 });
 
-router.get("/izobrazevalne_vsebine/:id/edit", function(req, res){
+router.get("/izobrazevalne_vsebine/:id/edit", middleware.isLoggedIn, function(req, res){
   Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
     if(err) return console.log(err);
     res.render("admin/izobrazevalne_vsebine/edit", {vsebina: vsebina})
   });
 });
 
-router.post("/izobrazevalne_vsebine", upload_izobrazevanje.fields([
+router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanje.fields([
     {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
     if(err) return console.log(err);
@@ -443,7 +472,7 @@ router.post("/izobrazevalne_vsebine", upload_izobrazevanje.fields([
   });
 });
 
-router.put("/izobrazevalne_vsebine/:id", upload_izobrazevanje.fields([
+router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazevanje.fields([
     {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
     if(err) return console.log(err);
@@ -461,7 +490,7 @@ router.put("/izobrazevalne_vsebine/:id", upload_izobrazevanje.fields([
 // END IZOBRAŽEVANJE
 
 // PODSTRANI
-router.get("/podstrani", function(req, res){
+router.get("/podstrani", middleware.isLoggedIn, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
     if(err) return console.log(err);
@@ -469,7 +498,7 @@ router.get("/podstrani", function(req, res){
   })
 });
 
-router.post("/podstrani", function(req, res){
+router.post("/podstrani", middleware.isLoggedIn, function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
     if(err) return console.log(err);
     Podstran.create(req.body.podstran, function(err, podstran){
@@ -492,13 +521,13 @@ router.post("/podstrani", function(req, res){
   });
 });
 
-router.get("/podstrani/add", function(req, res){
+router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
   Kategorija.find({}, function(err, kategorije){
     res.render("admin/podstrani/add", {kategorije: kategorije});
   });
 });
 
-router.put("/podstrani/:id", function(req, res){
+router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
     if(err) return console.log(err);
     Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
@@ -509,7 +538,7 @@ router.put("/podstrani/:id", function(req, res){
   });
 });
 
-router.get("/podstrani/:id/edit", function(req, res){
+router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
     Kategorija.find({}, function(err, kategorije){
       if(err) return console.log(err);
@@ -521,7 +550,7 @@ router.get("/podstrani/:id/edit", function(req, res){
 // END PODSTRANI
 
 // MENU
-router.get("/menu", function(req, res){
+router.get("/menu", middleware.isLoggedIn, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Kategorija.find({}, function(err, kategorije) {
     if(err) return console.log(err);
@@ -532,25 +561,25 @@ router.get("/menu", function(req, res){
   })
 });
 
-router.get("/menu/add", function(req, res){
+router.get("/menu/add", middleware.isLoggedIn, function(req, res){
   res.render("admin/menu/add");
 });
 
 
-router.post("/menu", function(req, res){
+router.post("/menu", middleware.isLoggedIn, function(req, res){
   Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     res.redirect("/admin/menu/");
   })
 });
 
-router.get("/menu/:id/edit", function(req, res){
+router.get("/menu/:id/edit", middleware.isLoggedIn, function(req, res){
   Kategorija.findById(req.params.id, function(err, kategorija){
     if(err) return console.log(err);
     res.render("admin/menu/edit", {kategorija: kategorija});
   });
 });
 
-router.put("/menu/:id", function(req, res){
+router.put("/menu/:id", middleware.isLoggedIn, function(req, res){
   Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) return console.log(err);
     res.redirect("/admin/menu/");
@@ -559,30 +588,30 @@ router.put("/menu/:id", function(req, res){
 // END MENU
 
 // BEGIN CONTACTS
-router.get("/kontakti", function(req, res){
+router.get("/kontakti", middleware.isLoggedIn, function(req, res){
   Kontakt.find({}, function(err, kontakti) {
     if(err) return console.log(err);
       res.render("admin/kontakti/index", {kontakti: kontakti});
   })
 });
 
-router.get("/kontakti/add", function(req, res){
+router.get("/kontakti/add", middleware.isLoggedIn, function(req, res){
   res.render("admin/kontakti/add");
 });
 
-router.post("/kontakti", function(req, res){
+router.post("/kontakti", middleware.isLoggedIn, function(req, res){
   Kontakt.create(req.body.kontakt, function(err, kontakt){
     res.redirect("/admin/kontakti/");
   })
 });
 
-router.get("/kontakti/:id/edit", function(req, res){
+router.get("/kontakti/:id/edit", middleware.isLoggedIn, function(req, res){
   Kontakt.findById(req.params.id, function(err, kontakt){
     res.render("admin/kontakti/edit", {kontakt: kontakt});
   });
 });
 
-router.put("/kontakti/:id", function(req, res){
+router.put("/kontakti/:id", middleware.isLoggedIn, function(req, res){
   Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, function(err, kontakt) {
     if(err) return console.log(err);
       res.redirect("/admin/kontakti");
@@ -591,30 +620,30 @@ router.put("/kontakti/:id", function(req, res){
 // END CONTACTS
 
 // OSKRBNICE
-router.get("/oskrbnice", function(req, res){
+router.get("/oskrbnice", middleware.isLoggedIn, function(req, res){
   Oskrbnica.find({}, function(err, oskrbnice) {
     if(err) return console.log(err);
       res.render("admin/oskrbnice/index", {oskrbnice: oskrbnice});
   })
 });
 
-router.get("/oskrbnice/add", function(req, res){
+router.get("/oskrbnice/add", middleware.isLoggedIn, function(req, res){
   res.render("admin/oskrbnice/add");
 });
 
-router.post("/oskrbnice", function(req, res){
+router.post("/oskrbnice", middleware.isLoggedIn, function(req, res){
   Oskrbnica.create(req.body.oskrbnica, function(err, oskrbnica){
     res.redirect("/admin/oskrbnice/");
   })
 });
 
-router.get("/oskrbnice/:id/edit", function(req, res){
+router.get("/oskrbnice/:id/edit", middleware.isLoggedIn, function(req, res){
   Oskrbnica.findById(req.params.id, function(err, oskrbnica){
     res.render("admin/oskrbnice/edit", {oskrbnica: oskrbnica});
   });
 });
 
-router.put("/oskrbnice/:id", function(req, res){
+router.put("/oskrbnice/:id", middleware.isLoggedIn, function(req, res){
   Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, function(err, oskrbnica) {
     if(err) return console.log(err);
       res.redirect("/admin/oskrbnice");
