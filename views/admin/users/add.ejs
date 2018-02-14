@@ -1,0 +1,36 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/users"><< Nazaj</a></p>
+<h3>Nov uporabnik</h3>
+
+<form action="/admin/users" method="POST">
+  <div>
+    <label for="username">Uporabniško ime:</label>
+    <input type="text" name="username" id="username" autofocus required/>
+  </div>
+  <div>
+    <label for="password">Začetno geslo (uporabnik si ga lahko po prijavi spremeni):</label>
+    <input type="text" name="password" id="password" required/>
+  </div>
+  <div>
+    <label for="firstName">Ime:</label>
+    <input type="text" name="firstName" id="firstName" required/>
+  </div>
+  <div>
+    <label for="lastName">Priimek:</label>
+    <input type="text" name="lastName" id="lastName" required/>
+  </div>
+  <div>
+    <label for="email">E-mail naslov:</label>
+    <input type="email" name="email" id="email" required/>
+  </div>
+  <div>
+    <label for="adminLevel">Stopnja pravic:</label>
+    <select id="adminLevel" name="adminLevel">
+      <option value="editor" selected>Urednik</option>
+      <option value="admin">Administrator</option>
+    </select>
+  </div>
+  <input type="submit" value="Dodaj">
+</form>
+
+<% include ../../partials/admin/footer %>

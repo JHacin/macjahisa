@@ -1,0 +1,32 @@
+<% include ../../partials/admin/header %>
+
+<h3>Uporabniki CMSja</h3>
+<p>Vsi administratorji in uredniki.</p>
+<p><a href="/admin/users/add">+ Dodaj novega uporabnika</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Ime</th>
+            <th>Priimek</th>
+            <th>E-mail naslov</th>
+            <th>Stopnja pravic</th>
+            <th>Uredi podatke</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% users.forEach(function(user) { %>
+          <tr>
+              <td><%= user.firstName %></td>
+              <td><%= user.lastName %></td>
+              <td><%= user.email %></td>
+              <td><%= user.adminLevel %></td>
+              <td><a href="/admin/users/<%= user._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+
+<% include ../../partials/admin/footer %>

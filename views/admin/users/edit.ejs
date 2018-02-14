@@ -1,0 +1,32 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/users"><< Nazaj</a></p>
+<h3>Uredi uporabnika</h3>
+
+<form action="/admin/users/<%= user._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="username">Uporabniško ime:</label>
+    <input type="text" name="username" id="username" value="<%= user.username %>" autofocus required/>
+  </div>
+  <div>
+    <label for="firstName">Ime:</label>
+    <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required/>
+  </div>
+  <div>
+    <label for="lastName">Priimek:</label>
+    <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required/>
+  </div>
+  <div>
+    <label for="email">E-mail naslov:</label>
+    <input type="email" name="email" id="email" value="<%= user.email %>" required/>
+  </div>
+  <div>
+    <label for="adminLevel">Stopnja pravic:</label>
+    <select id="adminLevel" name="adminLevel">
+      <option value="editor" <%= user.adminLevel == "editor" ? "selected" : "" %>>Urednik</option>
+      <option value="admin" <%= user.adminLevel == "admin" ? "selected" : "" %>>Administrator</option>
+    </select>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

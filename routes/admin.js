@@ -576,7 +576,7 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazev
 // END IZOBRAŽEVANJE
 
 // PODSTRANI
-router.get("/podstrani", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani", middleware.isAdmin, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
     if(err) {
@@ -587,7 +587,7 @@ router.get("/podstrani", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.post("/podstrani", middleware.isLoggedIn, function(req, res){
+router.post("/podstrani", middleware.isAdmin, function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
@@ -615,7 +615,7 @@ router.post("/podstrani", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani/add", middleware.isAdmin, function(req, res){
   Kategorija.find({}, function(err, kategorije){
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -625,7 +625,7 @@ router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
+router.put("/podstrani/:id", middleware.isAdmin, function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
@@ -640,7 +640,7 @@ router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani/:id/edit", middleware.isAdmin, function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -659,7 +659,7 @@ router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
 // END PODSTRANI
 
 // MENU
-router.get("/menu", middleware.isLoggedIn, function(req, res){
+router.get("/menu", middleware.isAdmin, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Kategorija.find({}, function(err, kategorije) {
     if(err) {
@@ -676,12 +676,12 @@ router.get("/menu", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/menu/add", middleware.isLoggedIn, function(req, res){
+router.get("/menu/add", middleware.isAdmin, function(req, res){
   res.render("admin/menu/add");
 });
 
 
-router.post("/menu", middleware.isLoggedIn, function(req, res){
+router.post("/menu", middleware.isAdmin, function(req, res){
   Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri dodajanju kategorije.");
@@ -692,7 +692,7 @@ router.post("/menu", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/menu/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/menu/:id/edit", middleware.isAdmin, function(req, res){
   Kategorija.findById(req.params.id, function(err, kategorija){
     if(err) {
       req.flash("error", "Kategorije ne najdem v bazi podatkov.");
@@ -702,7 +702,7 @@ router.get("/menu/:id/edit", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/menu/:id", middleware.isLoggedIn, function(req, res){
+router.put("/menu/:id", middleware.isAdmin, function(req, res){
   Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju kategorije.");
@@ -813,5 +813,62 @@ router.put("/oskrbnice/:id", middleware.isLoggedIn, function(req, res){
   })
 });
 // END OSKRBNICE
+
+// BEGIN USERS
+router.get("/users", middleware.isLoggedIn, function(req, res){
+  User.find({}, function(err, users) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+      res.render("admin/users/index", {users: users});
+  })
+});
+
+router.get("/users/add", middleware.isAdmin, function(req, res){
+  res.render("admin/users/add");
+});
+
+router.post("/users", middleware.isAdmin, function(req, res){
+  var newUser = new User(
+        {
+            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            adminLevel: req.body.adminLevel
+        });
+  User.register(newUser, req.body.password, function(err, user){
+    if(err) {
+      console.log(err);
+      req.flash("error", err.message);
+      return res.redirect("/admin/users/add");
+    }
+    req.flash("success", "Nov " + user.adminLevel + " dodan.");
+    res.redirect("/admin/users/");
+  })
+});
+
+router.get("/users/:id/edit", middleware.isAdmin, function(req, res){
+  User.findById(req.params.id, function(err, user){
+    if(err) {
+      req.flash("error", err.message);
+      return res.redirect("/admin/users");
+    }
+    res.render("admin/users/edit", {user: user});
+  });
+});
+
+router.put("/users/:id", middleware.isAdmin, function(req, res){
+  User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
+      if(err) {
+        req.flash("error", err.message);
+        return res.redirect("/admin/users");
+      }
+      req.flash("success", "Uporabnik posodobljen.");
+      res.redirect("/admin/users");
+  })
+});
+// END USERS
 
 module.exports = router;
