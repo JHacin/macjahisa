@@ -33,6 +33,10 @@ a:hover {
   width: 100%;
 }
 
+.flash {
+  width: 100%;
+}
+
 .sidenav {
   width: 15%;
   background: lightgray;

@@ -16,6 +16,7 @@
     <div class="topnav">
       <h2>Mačja hiša CMS</h2>
     </div>
+
     <div class="sidenav">
       <ul>
         <li><h4>Muce</h4></li>
@@ -38,3 +39,15 @@
       </ul>
     </div>
     <div class="main">
+      <div class="flash">
+          <% if(error && error.length > 0) { %>
+          <div class="alert alert-danger" role="alert">
+              <%= error %>
+          </div>
+          <% } %>
+          <% if(success && success.length > 0) { %>
+          <div class="alert alert-success" role="alert">
+              <%= success %>
+          </div>
+          <% } %>
+      </div>

@@ -62,7 +62,10 @@ var upload_novice = multer({ storage: storage_novice });
 router.get("/", middleware.isLoggedIn, function(req, res){
   // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
   Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/muce/index", {muce: muce});
   })
 });
@@ -86,58 +89,72 @@ router.post("/login", passport.authenticate("local",
 // LOGOUT LOGIC
 router.get("/logout", function(req, res) {
     req.logout();
+    req.flash("success", "Odjava uspešna.");
     res.redirect("/admin/login");
 });
 
 // MUCE
 router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
-  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
   Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/muce/index", {muce: muce});
   })
 });
 
 router.get("/muce/v_novem_domu", middleware.isLoggedIn, function(req, res){
-  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
   Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/muce/index", {muce: muce});
   })
 });
 
 router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
-  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO V NOVEM DOMU
   Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/muce/index", {muce: muce});
   })
 });
 
 router.get("/muce/:id/edit/", middleware.isLoggedIn, function(req, res) {
-  // prikaži obrazce za urejanje muce (po IDju)
   Muca.findOne({dbid: req.params.id}, function(err, muca) {
     Kontakt.find({}, function(err, kontakti){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake v bazi podatkov.");
+        return res.redirect("/admin/muce/iscejo");
+      }
       res.render("admin/muce/edit", {muca: muca, kontakti: kontakti});
     });
   })
 });
 
 router.get("/muce/add", middleware.isLoggedIn, function(req, res){
-  // prikaži obrazec za novo muco
   Kontakt.find({}, function(err, kontakti){
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/muce/iscejo");
+    }
     res.render("admin/muce/add", {kontakti: kontakti});
   });
 });
 
-router.get("/muce/:id", middleware.isLoggedIn, function(req, res) {
-  // prikaži muco po IDju
-  Muca.findOne({dbid: req.params.id}, function(err, muca) {
-    if(err) return console.log(err);
-    res.render("admin/muce/show", {muca: muca});
-  })
-});
+// router.get("/muce/:id", middleware.isLoggedIn, function(req, res) {
+//   Muca.findOne({dbid: req.params.id}, function(err, muca) {
+//     if(err) {
+//       req.flash("error", "Prišlo je do napake v bazi podatkov.");
+//       return res.redirect("/admin/login");
+//     }
+//     res.render("admin/muce/show", {muca: muca});
+//   })
+// });
 
 router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
@@ -146,7 +163,10 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
   Muca.count({}, function(err, count){
     // dodaj novo muco
     Muca.create(req.body.muca, function(err, novaMuca) {
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake, muce trenutno ne morem dodati.");
+        return res.redirect("/admin/login");
+      }
 
       // VET STATUS
       for(var key in req.body.vet) {
@@ -170,7 +190,7 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
       novaMuca.dbid = count + 1;
       // shrani
       novaMuca.save();
-
+      req.flash("success", "Nova muca dodana.");
       res.redirect("/admin/muce/iscejo");
     });
   });
@@ -184,14 +204,20 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
 
     // če gre muca v nov dom, pripravi za pošiljanje maila
     Muca.findById(req.params.id, function(err, muca){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Muce ne najdem v bazi podatkov.");
+        return res.redirect("/admin/login");
+      }
       if (req.body.muca.status == 4 && muca.status != 4) {
         gre_v_nov_dom = true;
       }
     });
 
     Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
+        return res.redirect("/admin/login");
+      }
       // resetiraj vet status pri muci
       muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
                    razparazit: false, felv: false, fiv: false };
@@ -225,6 +251,10 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
       // če gre v nov dom pošlji maile ostalim oskrbrnicam
       if(gre_v_nov_dom) {
         Oskrbnica.find({}, function(err, oskrbnice){
+          if(err) {
+            req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+            return res.redirect("/admin/muce/iscejo");
+          }
           // create reusable transporter object using the default SMTP transport
           let transporter = nodemailer.createTransport({
               host: 'mail.macjahisa.si',
@@ -276,14 +306,15 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
 
           // send mail with defined transport object
           transporter.sendMail(mailOptions, (error, info) => {
-              if (error) {
-                  return console.log(error);
+              if(error) {
+                req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+                return res.redirect("/admin/muce/iscejo");
               }
               console.log('Message sent: %s', info.messageId);
           });
         });
       }
-
+      req.flash("success", "Podatki muce posodobljeni.");
       res.redirect("/admin/muce/iscejo");
     });
 });
@@ -292,14 +323,20 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
 // NOVICE
 router.get("/novice", middleware.isLoggedIn, function(req, res){
   Novica.find({}, function(err, novice){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/novice/index", {novice: novice});
   })
 });
 
 router.get("/novice/:id/edit", middleware.isLoggedIn, function(req, res){
   Novica.findOne({dbid: req.params.id}, function(err, novica){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Novice ne najdem v bazi podatkov.");
+      return res.redirect("/admin/novice");
+    }
     res.render("admin/novice/edit", {novica: novica});
   })
 });
@@ -313,13 +350,19 @@ router.get("/novice/add", middleware.isLoggedIn, function(req, res){
 router.post("/novice", middleware.isLoggedIn, upload_novice.single("novica[naslovna_slika]"), function(req, res, next){
   Novica.count({}, function(err, count){
     Novica.create(req.body.novica, function(err, novica){
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri kreiranju novice.");
+        return res.redirect("/admin/novice");
+      }
       if(req.file) {
         novica.naslovna_slika = req.file.originalname;
       } else {
         novica.naslovna_slika = "default.png";
       }
       novica.dbid = count + 1;
+      novica.user_id = req.user._id;
       novica.save();
+      req.flash("success", "Novica dodana.");
       res.redirect("/admin/novice");
     });
   })
@@ -327,12 +370,16 @@ router.post("/novice", middleware.isLoggedIn, upload_novice.single("novica[naslo
 
 router.put("/novice/:id", middleware.isLoggedIn, upload_novice.single("novica[nova_naslovna_slika]"), function(req, res, next){
   Novica.findByIdAndUpdate(req.params.id, req.body.novica, function(err, novica){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju novice.");
+      return res.redirect("/admin/novice");
+    }
     console.log(req.file);
       if (req.file) {
         novica.naslovna_slika = req.file.originalname;
         novica.save();
       }
+    req.flash("success", "Novica posodobljena.");
     res.redirect("/admin/novice/");
   });
 });
@@ -343,7 +390,10 @@ router.put("/novice/:id", middleware.isLoggedIn, upload_novice.single("novica[no
 router.get("/clanki", middleware.isLoggedIn, function(req, res){
   // prikaži vse članke po vrsti od nazadnje objavljenega
   Clanek.find({}).sort({datum: -1}).exec(function(err, clanki) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/clanki/index", {clanki: clanki});
   })
 });
@@ -362,7 +412,10 @@ router.get("/clanki/add_link", middleware.isLoggedIn, function(req, res){
 
 router.get("/clanki/:id/edit", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Članka ne najdem v bazi podatkov.");
+      return res.redirect("/admin/clanki");
+    }
     var tip = clanek.tip;
     if(tip=="datoteka") {
       res.render("admin/clanki/edit_file", {clanek: clanek});
@@ -377,12 +430,16 @@ router.get("/clanki/:id/edit", middleware.isLoggedIn, function(req, res){
 router.post("/clanki_upload", middleware.isLoggedIn, upload_clanki.single("clanek[vsebina]"), function(req, res, next){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri dodajanju prispevka.");
+        return res.redirect("/admin/clanki");
+      }
       if(req.file) {
         clanek.vsebina = req.file.originalname;
         clanek.dbid = count + 1;
         clanek.save();
       };
+      req.flash("success", "Prispevek dodan.");
       res.redirect("/admin/clanki");
     });
   });
@@ -391,9 +448,13 @@ router.post("/clanki_upload", middleware.isLoggedIn, upload_clanki.single("clane
 router.post("/clanki", middleware.isLoggedIn, function(req, res){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri dodajanju prispevka.");
+        return res.redirect("/admin/clanki");
+      }
       clanek.dbid = count + 1;
       clanek.save();
+      req.flash("success", "Prispevek dodan.");
       res.redirect("/admin/clanki");
     });
   });
@@ -401,7 +462,10 @@ router.post("/clanki", middleware.isLoggedIn, function(req, res){
 
 router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Članka ne najdem v bazi podatkov.");
+      return res.redirect("/admin/clanki");
+    }
     if(clanek.tip == "povezava") {
       res.redirect(clanek.vsebina);
     } else if(clanek.tip == "datoteka") {
@@ -414,22 +478,30 @@ router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
 
 router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, req.body.clanek, function(err, clanek){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
+      return res.redirect("/admin/clanki");
+    }
     if (req.body.clanek.nova_vsebina != undefined && req.body.clanek.nova_vsebina != "") {
       clanek.vsebina = req.body.clanek.nova_vsebina;
       clanek.save();
     }
+    req.flash("success", "Prispevek posodobljen.");
     res.redirect("/admin/clanki");
   });
 });
 
 router.put("/clanki_upload/:id", middleware.isLoggedIn, upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
   Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
+      return res.redirect("/admin/clanki");
+    }
     if (req.file) {
       clanek.vsebina = req.file.originalname;
       clanek.save();
     }
+    req.flash("success", "Prispevek posodobljen.");
     res.redirect("/admin/clanki");
   });
 });
@@ -439,7 +511,10 @@ router.put("/clanki_upload/:id", middleware.isLoggedIn, upload_clanki.single("cl
 router.get("/izobrazevalne_vsebine", middleware.isLoggedIn, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/izobrazevalne_vsebine/index", {vsebine: vsebine});
   })
 });
@@ -450,7 +525,10 @@ router.get("/izobrazevalne_vsebine/add", middleware.isLoggedIn, function(req, re
 
 router.get("/izobrazevalne_vsebine/:id/edit", middleware.isLoggedIn, function(req, res){
   Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Vsebine ne najdem v bazi podatkov.");
+      return res.redirect("/admin/izobrazevalne_vsebine");
+    }
     res.render("admin/izobrazevalne_vsebine/edit", {vsebina: vsebina})
   });
 });
@@ -458,7 +536,10 @@ router.get("/izobrazevalne_vsebine/:id/edit", middleware.isLoggedIn, function(re
 router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanje.fields([
     {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri vnosu vsebine.");
+      return res.redirect("/admin/izobrazevalne_vsebine");
+    }
     if(req.files["vsebina[datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname;
       vsebina.save();
@@ -468,6 +549,7 @@ router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanj
       vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname;
       vsebina.save();
     };
+    req.flash("success", "Vsebina dodana.");
     res.redirect("/admin/izobrazevalne_vsebine");
   });
 });
@@ -475,7 +557,10 @@ router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanj
 router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazevanje.fields([
     {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju vsebine.");
+      return res.redirect("/admin/izobrazevalne_vsebine");
+    }
     if(req.files["vsebina[nova_datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname;
       vsebina.save();
@@ -484,6 +569,7 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazev
       vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname;
       vsebina.save();
     };
+    req.flash("success", "Vsebina posodobljena.");
     res.redirect("/admin/izobrazevalne_vsebine");
   });
 });
@@ -493,17 +579,24 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazev
 router.get("/podstrani", middleware.isLoggedIn, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     res.render("admin/podstrani/index", {podstrani: podstrani});
   })
 });
 
 router.post("/podstrani", middleware.isLoggedIn, function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
+      return res.redirect("/admin/podstrani");
+    }
     Podstran.create(req.body.podstran, function(err, podstran){
       if(err) {
-        console.log(err);
+        req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
+        return res.redirect("/admin/podstrani");
       } else {
         podstran.dbid = kategorija.podstrani_length + 1;
         podstran.naslov_en = "";
@@ -515,6 +608,7 @@ router.post("/podstrani", middleware.isLoggedIn, function(req, res){
         podstran.save();
         kategorija.podstrani_length +=1;
         kategorija.save();
+        req.flash("success", "Podstran dodana.");
         res.redirect("/admin/podstrani");
       }
     });
@@ -523,16 +617,24 @@ router.post("/podstrani", middleware.isLoggedIn, function(req, res){
 
 router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
   Kategorija.find({}, function(err, kategorije){
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/podstrani");
+    }
     res.render("admin/podstrani/add", {kategorije: kategorije});
   });
 });
 
 router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
+      return res.redirect("/admin/login");
+    }
     Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
       if(err) return console.log(err);
       kategorija.save();
+      req.flash("success", "Podstran posodobljena.");
       res.redirect("/admin/podstrani/");
     });
   });
@@ -540,8 +642,15 @@ router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
 
 router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     Kategorija.find({}, function(err, kategorije){
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake v bazi podatkov.");
+        return res.redirect("/admin/login");
+      }
       res.render("admin/podstrani/edit", {podstran: podstran, kategorije: kategorije});
     });
   });
@@ -553,9 +662,15 @@ router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
 router.get("/menu", middleware.isLoggedIn, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Kategorija.find({}, function(err, kategorije) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
     Podstran.find({}, function(err, podstrani) {
-      if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake v bazi podatkov.");
+        return res.redirect("/admin/login");
+      };
       res.render("admin/menu/index", {kategorije: kategorije, podstrani: podstrani});
     });
   })
@@ -568,20 +683,32 @@ router.get("/menu/add", middleware.isLoggedIn, function(req, res){
 
 router.post("/menu", middleware.isLoggedIn, function(req, res){
   Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri dodajanju kategorije.");
+      return res.redirect("/admin/menu");
+    }
+    req.flash("success", "Kategorija dodana.");
     res.redirect("/admin/menu/");
   })
 });
 
 router.get("/menu/:id/edit", middleware.isLoggedIn, function(req, res){
   Kategorija.findById(req.params.id, function(err, kategorija){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Kategorije ne najdem v bazi podatkov.");
+      return res.redirect("/admin/menu");
+    };
     res.render("admin/menu/edit", {kategorija: kategorija});
   });
 });
 
 router.put("/menu/:id", middleware.isLoggedIn, function(req, res){
   Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju kategorije.");
+      return res.redirect("/admin/menu");
+    }
+    req.flash("success", "Kategorija posodobljena.");
     res.redirect("/admin/menu/");
   });
 });
@@ -590,7 +717,10 @@ router.put("/menu/:id", middleware.isLoggedIn, function(req, res){
 // BEGIN CONTACTS
 router.get("/kontakti", middleware.isLoggedIn, function(req, res){
   Kontakt.find({}, function(err, kontakti) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
       res.render("admin/kontakti/index", {kontakti: kontakti});
   })
 });
@@ -600,20 +730,37 @@ router.get("/kontakti/add", middleware.isLoggedIn, function(req, res){
 });
 
 router.post("/kontakti", middleware.isLoggedIn, function(req, res){
+  if(err) {
+    req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
+    return res.redirect("/admin/kontakti");
+  }
   Kontakt.create(req.body.kontakt, function(err, kontakt){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
+      return res.redirect("/admin/kontakti");
+    }
+    req.flash("success", "Kontaktna oseba dodana.");
     res.redirect("/admin/kontakti/");
   })
 });
 
 router.get("/kontakti/:id/edit", middleware.isLoggedIn, function(req, res){
   Kontakt.findById(req.params.id, function(err, kontakt){
+    if(err) {
+      req.flash("error", "Kontakta ne najdem v bazi podatkov.");
+      return res.redirect("/admin/kontakti");
+    }
     res.render("admin/kontakti/edit", {kontakt: kontakt});
   });
 });
 
 router.put("/kontakti/:id", middleware.isLoggedIn, function(req, res){
   Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, function(err, kontakt) {
-    if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri posodabljanju kontakta.");
+        return res.redirect("/admin/kontakti");
+      }
+      req.flash("success", "Kontaktna oseba posodobljena.");
       res.redirect("/admin/kontakti");
   })
 });
@@ -622,7 +769,10 @@ router.put("/kontakti/:id", middleware.isLoggedIn, function(req, res){
 // OSKRBNICE
 router.get("/oskrbnice", middleware.isLoggedIn, function(req, res){
   Oskrbnica.find({}, function(err, oskrbnice) {
-    if(err) return console.log(err);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
       res.render("admin/oskrbnice/index", {oskrbnice: oskrbnice});
   })
 });
@@ -633,19 +783,32 @@ router.get("/oskrbnice/add", middleware.isLoggedIn, function(req, res){
 
 router.post("/oskrbnice", middleware.isLoggedIn, function(req, res){
   Oskrbnica.create(req.body.oskrbnica, function(err, oskrbnica){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri dodajanju.");
+      return res.redirect("/admin/oskrbnice");
+    }
+    req.flash("success", "Oskrbnica dodana.");
     res.redirect("/admin/oskrbnice/");
   })
 });
 
 router.get("/oskrbnice/:id/edit", middleware.isLoggedIn, function(req, res){
   Oskrbnica.findById(req.params.id, function(err, oskrbnica){
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/oskrbnice");
+    }
     res.render("admin/oskrbnice/edit", {oskrbnica: oskrbnica});
   });
 });
 
 router.put("/oskrbnice/:id", middleware.isLoggedIn, function(req, res){
   Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, function(err, oskrbnica) {
-    if(err) return console.log(err);
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
+        return res.redirect("/admin/oskrbnice");
+      }
+      req.flash("success", "Oskrbnica posodobljena.");
       res.redirect("/admin/oskrbnice");
   })
 });
