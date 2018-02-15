@@ -979,7 +979,7 @@ router.post('/forgot', function(req, res, next) {
         from: 'obvestila@macjahisa.si',
         subject: 'Mačja hiša CMS - Sprememba gesla',
         text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
-          'Postopek lahko zaključite s pritiskom na spodnjo povezavo:\n\n' +
+          'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
           'http://207.154.195.5:3001/admin/reset/' + token + '\n\n' +
           'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n'
       };

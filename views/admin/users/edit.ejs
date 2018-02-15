@@ -24,7 +24,7 @@
     <select id="adminLevel" name="adminLevel">
       <option value="editor" <%= user.adminLevel == "editor" ? "selected" : "" %>>Urednik</option>
       <option value="admin" <%= user.adminLevel == "admin" ? "selected" : "" %>>Administrator</option>
-      <option value="owner" <%= user.adminLevel == "owner" ? "selected" : "" %> >Lastnik</option>
+      <option value="owner" <%= user.adminLevel == "owner" ? "selected" : "" %> <%= user.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>
     </select>
   </div>
   <input type="submit" value="Potrdi spremembe">
