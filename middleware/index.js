@@ -10,7 +10,7 @@ middlewareObj.isLoggedIn = function(req, res, next){
 
 middlewareObj.isAdmin = function(req, res, next){
 
-    if(req.user && (req.user.adminLevel == "admin" || req.user.adminLevel == "owner")){
+    if(req.user && (req.user.adminLevel == "admin" )){
         return next();
     }
     req.flash("error", "Za to moraš imeti administratorske pravice.");
