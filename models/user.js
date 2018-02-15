@@ -14,4 +14,31 @@ var userSchema = new mongoose.Schema({
 
 userSchema.plugin(passportLocalMongoose);
 
+// enable password change
+userSchema.methods.changePassword = function(oldPassword, newPassword, cb) {
+  if (!oldPassword || !newPassword) {
+    return cb("Eno od gesel manjka");
+  }
+
+  var self = this;
+
+  this.authenticate(oldPassword, function(err, authenticated) {
+    if (err) { return cb(err); }
+
+    if (!authenticated) {
+      return cb("Napačno staro geslo.");
+    }
+
+    self.setPassword(newPassword, function(setPasswordErr, user) {
+      if (setPasswordErr) { return cb(setPasswordErr); }
+
+      self.save(function(saveErr) {
+        if (saveErr) { return cb(saveErr); }
+
+        cb(null, user);
+      });
+    });
+  });
+};
+
 module.exports = mongoose.model("User", userSchema);

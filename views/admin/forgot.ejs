@@ -11,16 +11,14 @@
     <% } %>
 </div>
 <h1>Mačja hiša CMS</h1>
-<h3>Prijava</h3>
-<form action="/admin/login" method="POST">
+<h3>Pozabljeno geslo</h3>
+<p>Navodila za ponastavitev gesla bodo poslana na vpisani e-mail naslov.</p>
+<form action="/admin/forgot" method="POST">
   <div>
-     <input type="text" name="username" placeholder="uporabniško ime">
+      <label for="email">E-mail naslov:</label>
+     <input type="email" name="email" autofocus required>
   </div>
   <div>
-     <input type="password" name="password" placeholder="geslo">
-  </div>
-  <div>
-     <button>Prijava</button>
+     <button>Pošlji</button>
   </div>
 </form>
-<a href="/admin/forgot">Pozabil/-a sem geslo</a>

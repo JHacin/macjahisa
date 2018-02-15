@@ -31,13 +31,17 @@
         <li><a href="/admin/izobrazevalne_vsebine">Izobraževalne vsebine</a></li>
         <li><h4>Mailing</h4></li>
         <li><a href="/admin/oskrbnice">Oskrbnice</a></li>
-        <% if(currentUser && currentUser.adminLevel == "admin"){ %>
+        <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
         <li><h4>Administracija</h4></li>
         <li><a href="/admin/podstrani">Podstrani</a></li>
-        <li><a href="/admin/menu">Urejanje menija</a></li>
         <li><a href="/admin/users">Uporabniki CMSja</a></li>
         <% }; %>
+        <% if(currentUser && currentUser.adminLevel == "owner"){ %>
+        <li><a href="/admin/menu">Urejanje menija</a></li>
+        <% }; %>
         <li><h4>Račun</h4></li>
+        <li><a href="/admin/profil">Uredi osebne podatke</a></li>
+        <li><a href="/admin/profil/geslo">Spremeni geslo</a></li>
         <li><a href="/admin/logout">Odjava</a></li>
       </ul>
     </div>

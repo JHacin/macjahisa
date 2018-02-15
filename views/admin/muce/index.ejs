@@ -29,7 +29,7 @@
               <td><%= stanjeMuce(muca.status) %></td>
               <td><%= muca.ime %></td>
               <td><%= spolMuce(muca.spol) %></td>
-              <td><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></td>
+              <td><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></td>
               <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
               <td><a href="/posvojitev/muce/<%= muca.dbid %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
               <td><a href="/admin/muce/<%= muca.dbid %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>

@@ -1,0 +1,20 @@
+<% include ../../partials/admin/header %>
+<h3>Spremeni geslo</h3>
+<h5><%= user.username %></h5>
+<form action="/admin/profil/geslo/<%= user._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="oldPassword">Staro geslo:</label>
+    <input type="password" name="oldPassword" id="oldPassword" required/>
+  </div>
+  <div>
+    <label for="newPassword">Novo geslo:</label>
+    <input type="password" name="newPassword" id="newPassword" required/>
+  </div>
+  <div>
+    <label for="confirm">Ponovi novo geslo:</label>
+    <input type="password" name="confirm" id="confirm" required/>
+  </div>
+  <input type="submit" value="Potrdi spremembo">
+</form>
+
+<% include ../../partials/admin/footer %>

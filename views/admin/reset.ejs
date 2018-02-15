@@ -11,16 +11,17 @@
     <% } %>
 </div>
 <h1>Mačja hiša CMS</h1>
-<h3>Prijava</h3>
-<form action="/admin/login" method="POST">
+<h3>Ponastavitev gesla</h3>
+<form action="/admin/reset/<%= token %>" method="POST">
   <div>
-     <input type="text" name="username" placeholder="uporabniško ime">
+     <label for="password">Novo geslo:</label>
+     <input type="password" name="password" autofocus required>
   </div>
   <div>
-     <input type="password" name="password" placeholder="geslo">
+     <label for="confirm">Potrdi novo geslo:</label>
+     <input type="password" name="confirm" autofocus required>
   </div>
   <div>
-     <button>Prijava</button>
+     <button>Potrdi</button>
   </div>
 </form>
-<a href="/admin/forgot">Pozabil/-a sem geslo</a>

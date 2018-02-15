@@ -1,0 +1,21 @@
+<% include ../../partials/admin/header %>
+
+<h3>Uredi osebne podatke</h3>
+<h5><%= user.username %></h5>
+<form action="/admin/profil/<%= user._id %>?_method=PUT" method="POST">
+  <div>
+    <label for="firstName">Ime:</label>
+    <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required/>
+  </div>
+  <div>
+    <label for="lastName">Priimek:</label>
+    <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required/>
+  </div>
+  <div>
+    <label for="email">E-mail naslov:</label>
+    <input type="email" name="email" id="email" value="<%= user.email %>" autofocus required/>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+
+<% include ../../partials/admin/footer %>

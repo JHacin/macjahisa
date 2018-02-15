@@ -28,6 +28,7 @@
     <select id="adminLevel" name="adminLevel">
       <option value="editor" selected>Urednik</option>
       <option value="admin">Administrator</option>
+      <option value="owner" <%= currentUser.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>
     </select>
   </div>
   <input type="submit" value="Dodaj">

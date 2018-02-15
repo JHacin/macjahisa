@@ -24,7 +24,7 @@
                 <%= moment(vsebina.datum).format("DD[.]MM[.]YYYY") %>
               </td>
               <td><%= vsebina.naslov %></td>
-              <td><img class="thumb" src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" /></td>
+              <td><a href="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" target="_blank"><img class="thumb" src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" /></a></td>
               <td><%- vsebina.datoteka %></td>
               <td><%= vsebina.objava == "1" ? "Da" : "Ne" %></td>
               <td><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>

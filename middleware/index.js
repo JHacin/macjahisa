@@ -9,11 +9,20 @@ middlewareObj.isLoggedIn = function(req, res, next){
 };
 
 middlewareObj.isAdmin = function(req, res, next){
-    if(req.user && req.user.adminLevel == "admin"){
+
+    if(req.user && (req.user.adminLevel == "admin" || req.user.adminLevel == "owner")){
         return next();
     }
     req.flash("error", "Za to moraš imeti administratorske pravice.");
-    res.redirect("/admin/login");
+    res.redirect("/admin");
+};
+
+middlewareObj.isOwner = function(req, res, next){
+    if(req.user && req.user.adminLevel == "owner"){
+        return next();
+    }
+    req.flash("error", "Za to moraš imeti pravice lastnika.");
+    res.redirect("/admin");
 };
 
 module.exports = middlewareObj;

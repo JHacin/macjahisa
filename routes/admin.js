@@ -13,6 +13,8 @@ var moment = require("moment");
 var passport = require("passport");
 var middleware = require("../middleware");
 const nodemailer = require("nodemailer");
+var crypto = require("crypto");
+var async = require("async");
 
 // MULTER
 var multer = require("multer");
@@ -59,15 +61,12 @@ var upload_novice = multer({ storage: storage_novice });
 // END MULTER
 
 // INDEX ADMIN
-router.get("/", middleware.isLoggedIn, function(req, res){
-  // prikaži vse muce po vrsti od nazadnje sprejete - SAMO AKTIVNE (iščejo dom ali pa so začasno pri nas)
-  Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
-    if(err) {
-      req.flash("error", "Prišlo je do napake v bazi podatkov.");
-      return res.redirect("/admin/login");
-    }
-    res.render("admin/muce/index", {muce: muce});
-  })
+router.get("/", function(req, res){
+  if(req.user){
+    return res.redirect("/admin/muce/iscejo");
+  } else {
+    res.redirect("/admin/login");
+  }
 });
 
 router.get("/login", function(req, res){
@@ -659,7 +658,7 @@ router.get("/podstrani/:id/edit", middleware.isAdmin, function(req, res){
 // END PODSTRANI
 
 // MENU
-router.get("/menu", middleware.isAdmin, function(req, res){
+router.get("/menu", middleware.isOwner, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Kategorija.find({}, function(err, kategorije) {
     if(err) {
@@ -676,12 +675,12 @@ router.get("/menu", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/menu/add", middleware.isAdmin, function(req, res){
+router.get("/menu/add", middleware.isOwner, function(req, res){
   res.render("admin/menu/add");
 });
 
 
-router.post("/menu", middleware.isAdmin, function(req, res){
+router.post("/menu", middleware.isOwner, function(req, res){
   Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri dodajanju kategorije.");
@@ -692,7 +691,7 @@ router.post("/menu", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/menu/:id/edit", middleware.isAdmin, function(req, res){
+router.get("/menu/:id/edit", middleware.isOwner, function(req, res){
   Kategorija.findById(req.params.id, function(err, kategorija){
     if(err) {
       req.flash("error", "Kategorije ne najdem v bazi podatkov.");
@@ -702,7 +701,7 @@ router.get("/menu/:id/edit", middleware.isAdmin, function(req, res){
   });
 });
 
-router.put("/menu/:id", middleware.isAdmin, function(req, res){
+router.put("/menu/:id", middleware.isOwner, function(req, res){
   Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju kategorije.");
@@ -860,15 +859,224 @@ router.get("/users/:id/edit", middleware.isAdmin, function(req, res){
 });
 
 router.put("/users/:id", middleware.isAdmin, function(req, res){
-  User.findByIdAndUpdate(req.params.id, req.body.user, function(err, user) {
+  var userData = {
+            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email,
+            adminLevel: req.body.adminLevel
+        };
+  User.findByIdAndUpdate(req.params.id, userData, function(err, user) {
       if(err) {
         req.flash("error", err.message);
         return res.redirect("/admin/users");
       }
       req.flash("success", "Uporabnik posodobljen.");
       res.redirect("/admin/users");
-  })
+  });
 });
 // END USERS
+
+// BEGIN PROFIL UPORABNIKA
+router.get("/profil", middleware.isLoggedIn, function(req, res){
+  res.render("admin/profil", {user: req.user});
+});
+
+router.get("/profil/geslo", middleware.isLoggedIn, function(req, res){
+  res.render("admin/profil/geslo", {user: req.user});
+});
+
+router.put("/profil/:id", middleware.isLoggedIn, function(req, res){
+  var userData = {
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            email: req.body.email
+        };
+  User.findByIdAndUpdate(req.params.id, userData, function(err, user) {
+      if(err) {
+        req.flash("error", err.message);
+        return res.redirect("/admin/users");
+      }
+      req.flash("success", "Uporabnik posodobljen.");
+      res.redirect("/admin/users");
+  });
+});
+
+// sprememba gesla
+router.put("/profil/geslo/:id", middleware.isLoggedIn, function(req, res){
+  User.findById(req.params.id, function(err, user) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi.");
+      return res.redirect("/admin/profil");
+    }
+
+    if(req.body.newPassword === req.body.confirm) {
+      user.changePassword(req.body.oldPassword, req.body.newPassword, function(err){
+        if(err) {
+          req.flash("error", "Staro geslo ni pravilno.");
+          return res.redirect("/admin/profil/geslo");
+        }
+        req.flash("success", "Geslo spremenjeno.");
+        res.redirect("/admin/muce/iscejo");
+      });
+    } else {
+      req.flash("error", "Novi gesli se ne ujemata.");
+      return res.redirect("/admin/profil/geslo");
+    }
+
+  });
+});
+// END PROFIL UPORABNIKA
+
+
+// BEGIN SPREMEMBA POZABLJENEGA GESLA
+router.get('/forgot', function(req, res) {
+  res.render('admin/forgot');
+});
+
+router.post('/forgot', function(req, res, next) {
+  async.waterfall([
+    function(done) {
+      crypto.randomBytes(20, function(err, buf) {
+        var token = buf.toString('hex');
+        done(err, token);
+      });
+    },
+    function(token, done) {
+      User.findOne({ email: req.body.email }, function(err, user) {
+          if(err) {
+              req.flash('error', 'Nekaj je šlo narobe.');
+              return res.redirect('back');
+          }
+          if (!user) {
+          req.flash('error', 'Uporabnik s tem e-mail naslovom ne obstaja.');
+          return res.redirect('/admin/forgot');
+        }
+
+        user.resetPasswordToken = token;
+        user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
+
+        user.save(function(err) {
+          done(err, token, user);
+        });
+      });
+    },
+    function(token, user, done) {
+      var smtpTransport = nodemailer.createTransport({
+        host: 'mail.macjahisa.si',
+        port: 26,
+        secure: false,
+        tls: {
+          rejectUnauthorized:false
+        },
+        auth: {
+            user: "obvestila@macjahisa.si",
+            pass: "obvestila123"
+        }
+      });
+      var mailOptions = {
+        to: user.email,
+        from: 'obvestila@macjahisa.si',
+        subject: 'Mačja hiša CMS - Sprememba gesla',
+        text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
+          'Postopek lahko zaključite s pritiskom na spodnjo povezavo:\n\n' +
+          'http://207.154.195.5:3001/admin/reset/' + token + '\n\n' +
+          'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        req.flash('success', 'Navodila za ponastavitev gesla so bila poslana na e-mail naslov ' + user.email + '.');
+        done(err, 'done');
+      });
+    }
+  ], function(err) {
+    if (err) return next(err);
+    res.redirect('/admin/forgot');
+  });
+});
+
+router.get('/reset/:token', function(req, res) {
+  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+    if(err) {
+      req.flash('error', 'Nekaj je šlo narobe.');
+      return res.redirect('back');
+    }
+    if (!user) {
+      req.flash('error', 'Žeton za ponastavitev gesla je napačen ali pa ni več aktiven.');
+      return res.redirect('/admin/forgot');
+    }
+    res.render('admin/reset', {token: req.params.token});
+  });
+});
+
+router.post('/reset/:token', function(req, res) {
+  async.waterfall([
+    function(done) {
+      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+        if(err) {
+          req.flash('error', 'Nekaj je šlo narobe.');
+          return res.redirect('back');
+        }
+        if (!user) {
+          req.flash('error', 'Žeton za ponastavitev gesla je napačen ali pa ni več aktiven.');
+          return res.redirect('back');
+        }
+        if(req.body.password === req.body.confirm) {
+          user.setPassword(req.body.password, function(err) {
+            if(err) {
+              req.flash('error', 'Nekaj je šlo narobe.');
+              return res.redirect('back');
+            }
+            user.resetPasswordToken = undefined;
+            user.resetPasswordExpires = undefined;
+
+            user.save(function(err) {
+                if(err) {
+                  req.flash('error', 'Nekaj je šlo narobe.');
+                  return res.redirect('back');
+                }
+              req.logIn(user, function(err) {
+                done(err, user);
+              });
+            });
+          })
+        } else {
+            req.flash("error", "Gesli se ne ujemata.");
+            return res.redirect('back');
+        }
+      });
+    },
+    function(user, done) {
+      var smtpTransport = nodemailer.createTransport({
+        host: 'mail.macjahisa.si',
+        port: 26,
+        secure: false,
+        tls: {
+          rejectUnauthorized:false
+        },
+        auth: {
+            user: "obvestila@macjahisa.si",
+            pass: "obvestila123"
+        }
+      });
+      var mailOptions = {
+        to: user.email,
+        from: 'obvestila@macjahisa.si',
+        subject: 'Vaše geslo za administrativno stran (CMS) Mačja hiša je bilo spremenjeno',
+        text: 'Obveščamo vas, da je bilo geslo za račun z e-mail naslovom ' + user.email + ' ravnokar spremenjeno.\n'
+      };
+      smtpTransport.sendMail(mailOptions, function(err) {
+        req.flash('success', 'Geslo je bilo uspešno spremenjeno.');
+        done(err);
+      });
+    }
+  ], function(err) {
+        if(err) {
+          req.flash('error', 'Nekaj je šlo narobe.');
+          return res.redirect('back');
+        }
+    res.redirect('/admin/muce/iscejo');
+  });
+});
+// END SPREMEMBA POZABLJENEGA GESLA
 
 module.exports = router;
