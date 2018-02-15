@@ -974,6 +974,9 @@ router.post('/forgot', function(req, res, next) {
             pass: "obvestila123"
         }
       });
+
+      var link = "http://207.154.195.5:3001/admin/reset/" + token;
+
       var mailOptions = {
         to: user.email,
         from: 'obvestila@macjahisa.si',
@@ -981,7 +984,8 @@ router.post('/forgot', function(req, res, next) {
         text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
           'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
           'http://207.154.195.5:3001/admin/reset/' + token + '\n\n' +
-          'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n'
+          'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n',
+        html: "<p>Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.</p><p>Postopek lahko zaključite z uporabo spodnje povezave:</p><p><a href='" + link + "' target='_blank'>" + link + "</a></p><p>Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.</p>"
       };
       smtpTransport.sendMail(mailOptions, function(err) {
         req.flash('success', 'Navodila za ponastavitev gesla so bila poslana na e-mail naslov ' + user.email + '.');
