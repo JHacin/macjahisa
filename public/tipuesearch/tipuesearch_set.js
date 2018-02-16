@@ -13,26 +13,26 @@ Stop words list from http://www.ranks.nl/stopwords
 */
 
 var tipuesearch_pages = [
-  "http://207.154.195.5:3001/posvojitev/muce",
-  "http://207.154.195.5:3001/dobro_je_vedeti/sterilizacija_kastracija",
-  "http://207.154.195.5:3001/pomoc/donacije",
-  "http://207.154.195.5:3001/o_nas/kdo_smo",
-  "http://207.154.195.5:3001/o_nas/zavetisce_mh",
-  "http://207.154.195.5:3001/o_nas/veterina_mh",
-  "http://207.154.195.5:3001/o_nas/macji_boter",
-  "http://207.154.195.5:3001/o_nas/super_combe",
-  "http://207.154.195.5:3001/o_nas/kontakt",
-  "http://207.154.195.5:3001/o_nas/v_medijih",
-  "http://207.154.195.5:3001/posvojitev/pogoji_in_postopek",
-  "http://207.154.195.5:3001/dobro_je_vedeti/koristne_informacije",
-  "http://207.154.195.5:3001/dobro_je_vedeti/izobrazevalne_vsebine",
-  "http://207.154.195.5:3001/pomoc/nacini_pomoci",
-  "http://207.154.195.5:3001/pomoc/dohodnina",
-  "http://207.154.195.5:3001/projekt_vita/predstavitev",
-  "http://207.154.195.5:3001/projekt_vita/po_zivljenju_za_zivljenje",
-  "http://207.154.195.5:3001/projekt_vita/kako_zapustiti_premozenje_macji_hisi",
-  "http://207.154.195.5:3001/projekt_vita/skrb_za_muce_po_smrti",
-  "http://207.154.195.5:3001/projekt_vita/najpogostejsa_vprasanja",
+  "http://http://207.154.195.5:3001/posvojitev/muce",
+  "http://http://207.154.195.5:3001/dobro_je_vedeti/sterilizacija_kastracija",
+  "http://http://207.154.195.5:3001/pomoc/donacije",
+  "http://http://207.154.195.5:3001/o_nas/kdo_smo",
+  "http://http://207.154.195.5:3001/o_nas/zavetisce_mh",
+  "http://http://207.154.195.5:3001/o_nas/veterina_mh",
+  "http://http://207.154.195.5:3001/o_nas/macji_boter",
+  "http://http://207.154.195.5:3001/o_nas/super_combe",
+  "http://http://207.154.195.5:3001/o_nas/kontakt",
+  "http://http://207.154.195.5:3001/o_nas/v_medijih",
+  "http://http://207.154.195.5:3001/posvojitev/pogoji_in_postopek",
+  "http://http://207.154.195.5:3001/dobro_je_vedeti/koristne_informacije",
+  "http://http://207.154.195.5:3001/dobro_je_vedeti/izobrazevalne_vsebine",
+  "http://http://207.154.195.5:3001/pomoc/nacini_pomoci",
+  "http://http://207.154.195.5:3001/pomoc/dohodnina",
+  "http://http://207.154.195.5:3001/projekt_vita/predstavitev",
+  "http://http://207.154.195.5:3001/projekt_vita/po_zivljenju_za_zivljenje",
+  "http://http://207.154.195.5:3001/projekt_vita/kako_zapustiti_premozenje_macji_hisi",
+  "http://http://207.154.195.5:3001/projekt_vita/skrb_za_muce_po_smrti",
+  "http://http://207.154.195.5:3001/projekt_vita/najpogostejsa_vprasanja"
 ];
 
 
@@ -65,6 +65,14 @@ var tipuesearch_stem = {'words': [
 
 
 // Related searches
+
+var tipuesearch_related = {'searches': [
+     {'search': 'tipue', 'related': 'Tipue Search'},
+     {'search': 'tipue', 'before': 'Tipue Search', 'related': 'Getting Started'},
+     {'search': 'tipue', 'before': 'Tipue', 'related': 'jQuery'},
+     {'search': 'tipue', 'before': 'Tipue', 'related': 'Blog'}
+]};
+
 
 // Internal strings
 
