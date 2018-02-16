@@ -13,7 +13,6 @@ Stop words list from http://www.ranks.nl/stopwords
 */
 
 var tipuesearch_pages = [
-  "http://207.154.195.5:3001/posvojitev/muce",
   "http://207.154.195.5:3001/dobro_je_vedeti/sterilizacija_kastracija",
   "http://207.154.195.5:3001/pomoc/donacije",
   "http://207.154.195.5:3001/o_nas/kdo_smo",
