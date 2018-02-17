@@ -42,7 +42,8 @@ router.get("/koristne_informacije/:id", function(req, res){
       res.render("dobro_je_vedeti/clanek", {clanek: clanek,
         nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
         sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce,
-        title: clanek.naslov + " | Mačja hiša"});
+        title: clanek.naslov + " | Mačja hiša", social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
+        social_image: "http://" + req.headers.host + "/files/page/article_default.png"});
 
     } else if(clanek.tip == "datoteka"){
       res.redirect("/files/clanki/" + clanek.vsebina);

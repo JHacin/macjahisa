@@ -22,9 +22,16 @@ router.get("/muce", function(req, res){
 router.get("/muce/:id", function(req, res){
   Muca.findOne({dbid: req.params.id}, function (err, muca){
     if(err) return console.log(err);
-    res.render("posvojitev/prikaz", {muca: muca, nav_kategorije: req.nav_kategorije,
-    nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-    sidebar_muce: req.sidebar_muce, title: muca.ime + " | Mačja hiša"})
+    res.render("posvojitev/prikaz", {
+      muca: muca,
+      nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani,
+      sidebar_novice: req.sidebar_novice,
+      sidebar_muce: req.sidebar_muce,
+      title: muca.ime + " | Mačja hiša",
+      social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
+      social_image: "http://" + req.headers.host + "/files/oglasi_muce/" + muca.file_name1
+    });
   });
 });
 

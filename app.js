@@ -51,9 +51,11 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use(function(req, res, next){
-    res.locals.currentUser = req.user;
-    res.locals.error       = req.flash("error");
-    res.locals.success     = req.flash("success");
+    res.locals.currentUser            = req.user;
+    res.locals.error                  = req.flash("error");
+    res.locals.success                = req.flash("success");
+    res.locals.social_url             = "http://" + req.headers.host + req.originalUrl;
+    res.locals.social_image_default   = "http://" + req.headers.host + "/files/page/social_default.png";
     next();
 });
 // END PASSPORT CONFIG
@@ -79,6 +81,23 @@ app.use("*", function(req, res, next) {
     });
   });
 });
+
+// poprava imen (ki vključejejo nepotreben CAPS LOCK)
+// Muca.find({}, function(err, muce){
+//   muce.forEach(function(muca){
+//     var ime = muca.ime;
+//     ime = ime.toLowerCase();
+//     ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+//     if(ime.indexOf(" in ") != -1) {
+//       var index = ime.indexOf(" in ");
+//       ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+//     };
+//     muca.ime = ime;
+//     muca.save(function(err, muca){
+//       if(err) return console.log(err);
+//     });
+//   });
+// });
 
 // INDEX ROUTE
 app.get("/", function(req, res){

@@ -18,15 +18,17 @@ router.get("/", function(req, res){
 
 router.get("/:id", function(req, res){
   Novica.findOne({dbid: req.params.id}, function(err, novica){
-    res.render("novice/show",
-    { novica: novica,
+    res.render("novice/show", {
+      novica: novica,
       sidebar_novice: req.sidebar_novice,
       sidebar_muce: req.sidebar_muce,
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      title: novica.naslov + " | Mačja hiša"});
+      title: novica.naslov + " | Mačja hiša",
+      social_description: novica.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
+      social_image: "http://" + req.headers.host + "/files/" + novica.naslovna_slika
+    });
   });
-
 });
 
 
