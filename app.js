@@ -83,7 +83,7 @@ app.use("*", function(req, res, next) {
     });
   });
 });
-
+// 
 // poprava imen (ki vključejejo nepotreben CAPS LOCK)
 // Muca.find({}, function(err, muce){
 //   muce.forEach(function(muca){

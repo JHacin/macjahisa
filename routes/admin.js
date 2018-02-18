@@ -145,16 +145,6 @@ router.get("/muce/add", middleware.isLoggedIn, function(req, res){
   });
 });
 
-// router.get("/muce/:id", middleware.isLoggedIn, function(req, res) {
-//   Muca.findOne({dbid: req.params.id}, function(err, muca) {
-//     if(err) {
-//       req.flash("error", "Prišlo je do napake v bazi podatkov.");
-//       return res.redirect("/admin/login");
-//     }
-//     res.render("admin/muce/show", {muca: muca});
-//   })
-// });
-
 router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
@@ -187,8 +177,20 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
       };
 
       novaMuca.dbid = count + 1;
+
+      // poprava imen (ki vključejejo nepotreben CAPS LOCK)
+      var ime = req.body.ime;
+      ime = ime.toLowerCase();
+      ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+      if(ime.indexOf(" in ") != -1) {
+        var index = ime.indexOf(" in ");
+        ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+      };
+      novaMuca.ime = ime;
+
       // shrani
       novaMuca.save();
+
       req.flash("success", "Nova muca dodana.");
       res.redirect("/admin/muce/iscejo");
     });
@@ -245,6 +247,17 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
         muca.datum = moment();
       }
 
+      // poprava imen (ki vključejejo nepotreben CAPS LOCK)
+      var ime = req.body.ime;
+      ime = ime.toLowerCase();
+      ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+      if(ime.indexOf(" in ") != -1) {
+        var index = ime.indexOf(" in ");
+        ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+      };
+      muca.ime = ime;
+
+      // shrani
       muca.save();
 
       // če gre v nov dom pošlji maile ostalim oskrbrnicam
