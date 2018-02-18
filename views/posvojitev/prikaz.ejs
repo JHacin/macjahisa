@@ -60,29 +60,31 @@
     <div class="data_vet">
       <!-- VET STATUS -->
       <div class="data_header"><h3>Veterinarski status</h3></div>
+      <div class="data_title_row">Opravljeni posegi:</div>
       <div class="data_row">
-        <div class="row_def">Sterilizirana</div>
+        <div class="row_def">Sterilizacija / kastracija</div>
         <div class="row_val"><i class="fa fa-<%= muca.vet.s_k == true ? "check" : "times" %>" aria-hidden="true"></i></div>
       </div>
       <div class="data_row">
-        <div class="row_def">Čipirana</div>
+        <div class="row_def">Čipiranje</div>
         <div class="row_val"><i class="fa fa-<%= muca.vet.cipiranje == true ? "check" : "times" %>" aria-hidden="true"></i></div>
       </div>
       <div class="data_row">
-        <div class="row_def">Cepljena</div>
+        <div class="row_def">Cepljenje</div>
         <div class="row_val"><i class="fa fa-<%= muca.vet.cepljenje == true ? "check" : "times" %>" aria-hidden="true"></i></div>
       </div>
       <div class="data_row">
-        <div class="row_def">Razparazitena</div>
+        <div class="row_def">Razparazitenje</div>
         <div class="row_val"><i class="fa fa-<%= muca.vet.razparazit == true ? "check" : "times" %>" aria-hidden="true"></i></div>
       </div>
+      <div class="data_title_row">Zdravstveno stanje:</div>
       <div class="data_row">
         <div class="row_def">FeLV</div>
-        <div class="row_val"><%= muca.vet.felv == true ? "pozitivna" : "negativna" %></div>
+        <div class="row_val"><i class="fa fa-<%= muca.vet.felv == true ? "plus" : "minus" %>" aria-hidden="true"></i></div>
       </div>
       <div class="data_row">
         <div class="row_def">FIV</div>
-        <div class="row_val"><%= muca.vet.fiv == true ? "pozitivna" : "negativna" %></div>
+        <div class="row_val"><i class="fa fa-<%= muca.vet.fiv == true ? "plus" : "minus" %>" aria-hidden="true"></i></div>
       </div>
       <!-- END VET STATUS -->
     </div>

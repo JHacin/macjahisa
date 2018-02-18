@@ -10,7 +10,7 @@
     <% muce.forEach(function(muca){ %>
       <li>
         <div class="v_novem_domu_muca">
-          <div class="muca_img"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></div>
+          <div class="muca_img"><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></div>
           <div class="muca_info">
             <h2><%= muca.ime %></h2>
             <p>Datum odhoda: <strong><%= moment(muca.datum).format("D[. ]M[. ]YYYY") %></strong></p>
