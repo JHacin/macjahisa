@@ -18,7 +18,12 @@
   .top_bar a {
     color: #e8e8e8;
     margin: 0 5px;
+    transition: all 0.2s ease;
   }
+
+    .top_bar a:hover {
+      color: #ffcb00;
+    }
 
   .top_bar_social a .fa {
     font-size: 2em;
@@ -27,11 +32,16 @@
 
 .jumbo {
   padding: 20px 0;
+  background-image: url(/files/page/header_bg.jpg );
+  background-size: cover;
+  background-position: center;
+  height: 200px;
 }
 
   .jumbo > .container {
     align-items: center;
     justify-content: space-between;
+    height: 100%;
   }
 
   .jumbo_links {

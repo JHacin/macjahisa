@@ -1,3 +1,118 @@
+.jumbo_index {
+  padding: 0;
+  background-image: url(/files/page/jumbo_index.jpeg );
+  background-size: cover;
+  background-position: top;
+  height: 100vh;
+}
+
+.jumbo_index_heading {
+  text-align: center;
+  color: #f0f0f0;
+  font-size: 24px;
+  line-height: 37px;
+  font-weight: 500;
+  padding-bottom: 10px;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+  font-family: 'Raleway', sans-serif;
+  letter-spacing: 1px;
+}
+
+  .jumbo_index_heading h1 {
+    color: #f0f0f0;
+    font-weight: 700;
+    margin: 25px 0;
+  }
+
+  .jumbo_index_heading h4 {
+    color: #f0f0f0;
+    font-weight: 700;
+    margin: 20px 0;
+  }
+
+.nav_index {
+  position: sticky;
+  top: 40px;
+}
+
+.index_hr {
+  width: 300px;
+  border: 0;
+  height: 2px;
+  background-image: linear-gradient(to right, rgba(255, 203, 0, 0.01), rgba(255, 203, 0, 1), rgba(255, 203, 0, 0.01));
+
+  margin: 0 auto;
+}
+
+.jumbo_index > .container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.jumbo_links_index {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.top_bar_index {
+  transition: background-color 0.7s ease;
+  position: fixed;
+  top: 0;
+  background: none;
+  text-align: center;
+  width: 100%;
+  color: #e8e8e8;
+}
+
+.jumbo_links_row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.jumbo_button_index {
+  text-align: center;
+  margin: 5px;
+  width: 300px;
+  padding: 10px;
+  font-size: 18px;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  background: rgba(230, 230, 230,0.8);
+}
+
+  .jumbo_button_index a {
+    color: #343a40;
+    transition: all 0.2s ease;
+  }
+
+  .jumbo_button_index i {
+
+
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+  }
+
+
+  .jumbo_button_index button {
+    background: none;
+    border: none;
+    color: #343a40;
+    transition: all 0.2s ease;
+  }
+
+  .jumbo_button_index button:hover,
+  .jumbo_button_index:hover {
+    cursor: pointer;
+    background: #ffcb00;
+  }
+
+  .top_bar_index a {
+    color: #e8e8e8;
+  }
+
 .index_heading {
   text-align: center;
   width: 100%;
