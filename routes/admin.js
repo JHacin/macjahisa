@@ -263,8 +263,8 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
                 rejectUnauthorized:false
               },
               auth: {
-                  user: "obvestila@macjahisa.si",
-                  pass: "obvestila123"
+                  user: process.env.NOTIF_MAIL,
+                  pass: process.env.NOTIF_MAIL_PW
               }
           });
 
@@ -296,7 +296,7 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
 
           // setup email data with unicode symbols
           let mailOptions = {
-              from: 'obvestila@macjahisa.si', // sender address
+              from: process.env.NOTIF_MAIL, // sender address
               to: mailing_seznam, // list of receivers
               subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
               text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
@@ -970,8 +970,8 @@ router.post('/forgot', function(req, res, next) {
           rejectUnauthorized:false
         },
         auth: {
-            user: "obvestila@macjahisa.si",
-            pass: "obvestila123"
+            user: process.env.NOTIF_MAIL,
+            pass: process.env.NOTIF_MAIL_PW
         }
       });
 
@@ -979,7 +979,7 @@ router.post('/forgot', function(req, res, next) {
 
       var mailOptions = {
         to: user.email,
-        from: 'obvestila@macjahisa.si',
+        from: process.env.NOTIF_MAIL,
         subject: 'Mačja hiša CMS - Sprememba gesla',
         text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
           'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
@@ -1058,13 +1058,13 @@ router.post('/reset/:token', function(req, res) {
           rejectUnauthorized:false
         },
         auth: {
-            user: "obvestila@macjahisa.si",
-            pass: "obvestila123"
+            user: process.env.NOTIF_MAIL,
+            pass: process.env.NOTIF_MAIL_PW
         }
       });
       var mailOptions = {
         to: user.email,
-        from: 'obvestila@macjahisa.si',
+        from: process.env.NOTIF_MAIL,
         subject: 'Vaše geslo za administrativno stran (CMS) Mačja hiša je bilo spremenjeno',
         text: 'Obveščamo vas, da je bilo geslo za račun z e-mail naslovom ' + user.email + ' ravnokar spremenjeno.\n'
       };

@@ -16,5 +16,9 @@
       data-href="<%= social_url %>"
       data-layout="button">
     </div>
+    <a class="twitter-share-button"
+      href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
+      data-text="<%= social_description %>">
+    <i class="fa fa-twitter"></i> Tweet</a>
 <% include ../partials/sidebar %>
 <% include ../partials/footer %>
