@@ -131,3 +131,8 @@ a {
 .slick-prev:before, .slick-next:before {
     color:#343a40 !important;
 }
+
+.novice_seznam {
+  display: flex;
+  flex-direction: column;
+}

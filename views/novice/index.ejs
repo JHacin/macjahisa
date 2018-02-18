@@ -6,12 +6,37 @@
     <h1 class="content_heading">Novice</h1>
     <hr class="content_title_subhr" />
 
-    <div id="novice_container">
-      <ul class="content seznam_novic">
+
+
+
+
+    <!-- main div -->
+    <div class="novice_seznam">
+      <!-- panel -->
+      <div class="jplist-panel">
+
+        <!-- text filter box -->
+        <div class="text-filter-box">
+           <i class="fa fa-search  jplist-icon"></i>
+           <input
+              data-path=".novica_naslov"
+              type="text"
+              value=""
+              placeholder="Išči..."
+              data-control-type="textbox"
+              data-control-name="naslov-filter"
+              data-control-action="filter"
+           />
+        </div>
+      </div>
+
+      <!-- HTML data -->
+      <div class="list">
+
         <% novice.forEach(function(novica) { %>
-          <li>
+          <div class="list-item">
             <h4>
-              <a href="/novice/<%= novica.dbid %>">
+              <a href="/novice/<%= novica.dbid %>" class="novica_naslov">
                 <em><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></em> | <%= novica.naslov %>
               </a>
             </h4>
@@ -19,14 +44,29 @@
               <a href="/novice/<%= novica.dbid %>">
                 <i class="fa fa-forward" aria-hidden="true"></i></p>
               </a>
-          </li>
+          </div>
         <% }) %>
-      </ul>
-      <div class="page_navigation"></div>
+
+      </div>
+
+      <!-- no results found -->
+       <div class="jplist-no-results">
+          <p>Ni rezultatov.</p>
+       </div>
+
+
+    <div class="jplist-panel">
+      <!-- pagination control -->
+      <div
+         class="jplist-pagination"
+         data-control-type="pagination"
+         data-control-name="paging"
+         data-control-action="paging"
+         data-items-per-page="6">
+      </div>
     </div>
-
-
-
+</div>
+<!-- SIDEBAR -->
   </div>
   <div class="sidebar">
     <div class="side_cats">
