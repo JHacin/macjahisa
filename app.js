@@ -30,7 +30,7 @@ var novice = require("./routes/novice.js");
 var v_novem_domu = require("./routes/v_novem_domu.js");
 
 // CONFIG
-mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE, {useMongoClient: true});
+mongoose.connect("mongodb://localhost/macjahisa" || "mongodb://207.154.195.5/macjahisa", {useMongoClient: true});
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
