@@ -1,25 +1,34 @@
 <!doctype html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MacjaHisa">
+    <meta name="twitter:creator" content="@MacjaHisa">
+    <% if (locals.social_description) { %>
+    <meta name="description" content="<%= social_description %>" />
+    <meta property="og:description" content="<%= social_description %>" />
+    <meta name="twitter:description" content="<%= social_description %>">
+    <% } else { %>
+    <meta name="description" content="Mačja hiša - skupaj pomagajmo brezdomnim mucam." />
+    <meta property="og:description" content="Mačja hiša - skupaj pomagajmo brezdomnim mucam." />
+    <% } %>
+    <title><%= title %></title>
     <meta property="og:url" content="<%= social_url %>" />
     <meta property="og:type" content="website" />
     <meta property="og:title" content="<%= title %>" />
-    <!-- FB/TWITTER META DESCRIPTION -->
-    <% if (locals.social_description) { %>
-    <meta property="og:description" content="<%= social_description %>" />
-    <% } else { %>
-    <meta property="og:description" content="Mačja hiša - skupaj pomagajmo brezdomnim mucam." />
-    <% } %>
-    <!-- FB/TWITTER META IMAGE -->
+    <meta name="twitter:title" content="<%= title %>">
     <% if (locals.social_image) { %>
     <meta property="og:image" content="<%= social_image %>" />
+    <meta name="twitter:image" content="<%= social_image %>">
     <% } else { %>
     <meta property="og:image" content="<%= social_image_default %>" />
+    <meta name="twitter:image" content="<%= social_image_default %>">
     <% } %>
     <link rel="icon" href="/images/favicon.ico">
-    <title><%= title %></title>
+
+
 
     <link rel="stylesheet" href="/css/index.css" />
     <link rel="stylesheet" href="/css/header.css" />
@@ -68,6 +77,24 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
     <!-- END FACEBOOK JAVASCRIPT SDK -->
+    <!-- TWITTER JS -->
+    <script>window.twttr = (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0],
+        t = window.twttr || {};
+      if (d.getElementById(id)) return t;
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "https://platform.twitter.com/widgets.js";
+      fjs.parentNode.insertBefore(js, fjs);
+
+      t._e = [];
+      t.ready = function(f) {
+        t._e.push(f);
+      };
+
+      return t;
+    }(document, "script", "twitter-wjs"));</script>
+    <!-- END TWITTER JS -->
 
     <div class="top_bar">
       <div class="container">
