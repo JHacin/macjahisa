@@ -4,11 +4,17 @@
 }
 
 .top_bar {
-  background: #343a40;
   height: 40px;
   line-height: 40px;
-  color: #e8e8e8;
   font-size: 0.9em;
+  transition: background-color 0.7s ease;
+  position: fixed;
+  top: 0;
+  background: #343a40;
+  text-align: center;
+  width: 100%;
+  color: #e8e8e8;
+  z-index: 100000;
 }
 
   .top_bar > .container {
@@ -31,11 +37,11 @@
   }
 
 .jumbo {
-  padding: 20px 0;
-  background-image: url(/files/page/header_bg.jpg );
+  padding: 40px 0 0 0;
+  background-image: url(/files/page/header_bg.jpg);
   background-size: cover;
   background-position: center;
-  height: 200px;
+  height: 250px;
 }
 
   .jumbo > .container {
@@ -48,23 +54,63 @@
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: flex-end;
   }
 
   .jumbo_button {
-    width: 46%;
     text-align: center;
-    background: #ffcb00;
-    border: 1px solid rgba(0,0,0,0.4);
     margin: 5px;
-    padding: 10px 0;
-    font-size: 0.9em;
+    width: 34%;
+    padding: 10px;
+    font-size: 16px;
+    line-height: 16px;
+    transition: all 0.3s ease;
+    background: rgba(255, 203, 0, 1);
+    border: 1px solid rgba(0,0,0,0.3);
+    font-family: 'Raleway', sans-serif;
+    letter-spacing: 1px;
   }
+
+    .jumbo_button i {
+      margin-left: 2px;
+    }
+
+    .jumbo_button a {
+      color: #343a40;
+      transition: all 0.1s ease;
+      font-family: 'Raleway', sans-serif;
+      padding: 0;
+      margin: 0;
+    }
+
+    .jumbo_button button {
+      font-family: 'Raleway', sans-serif;
+      background: none;
+      border: none;
+      color: #343a40;
+      transition: all 0.1s ease;
+      padding: 0;
+      margin: 0;
+      font-size: 16px;
+      line-height: 16px;
+      letter-spacing: 1px;
+    }
+
+
+
+.jumbo_button:hover {
+  background: #e8e8e8;
+}
+
+.jumbo_button button:hover {
+  cursor: pointer;
+}
 
 .nav {
   background: #e8e8e8;
-  border-top: 1px solid rgba(0,0,0,0.4);
-  border-bottom: 1px solid rgba(0,0,0,0.4);
+  position: sticky;
+  top: 40px;
+  z-index: 100000;
 }
 
   .nav > .container {
@@ -91,23 +137,23 @@
         }
 
       .stellarnav .nav_kategorija > a {
+        color: #343a40;
         padding: 0!important;
-        -webkit-transition-property: none;
-        -moz-transition-property: none;
-        -o-transition-property: none;
-        transition-property: none;
+        font-family: 'Raleway', sans-serif;
       }
 
       .stellarnav .nav_podstrani {
         margin: 0 -10px;
-        border-left: 1px solid rgba(0,0,0,0.3);
-        border-right: 1px solid rgba(0,0,0,0.3);
+        border-left: 1px solid #e8e8e8;
+        border-right: 1px solid #e8e8e8;
+        border-top: 1px solid rgba(0,0,0,0.5);
       }
 
       .stellarnav .nav_podstran {
         padding: 10px;
         font-size: 0.9em;
-
+        background: #f7f7f7;
+        border-bottom: 1px solid #e8e8e8;
       }
 
       .stellarnav .nav_podstran a {
@@ -116,23 +162,21 @@
     }
 
       .stellarnav .nav_podstrani {
-        background: white!important;
-      }
-
-      .stellarnav .nav_podstran {
-        border-bottom: 1px solid rgba(0,0,0,0.3);
-      }
-
-      .stellarnav .nav_kategorija:hover {
-        background: #343a40;
+        background: #f7f7f7!important;
+        padding-top: 0px;
       }
 
       .stellarnav .nav_kategorija > a:hover {
-        color: #e8e8e8;
+        color: black;
         cursor: pointer;
       }
+
       .stellarnav .nav_podstran:hover {
-        background: rgba(0,0,0,0.04);
+        background: #f7f7f7;
+      }
+
+      .stellarnav .nav_podstran a:hover {
+        color: black;
       }
     /* END STELLARNAV */
 
@@ -157,3 +201,15 @@
     padding: 5px;
     font-family: 'Montserrat', sans-serif;
   }
+
+  .search button {
+    border: none;
+    background: none;
+    margin: 0;
+    padding: 0;
+    font-size: 16px;
+  }
+
+    .search button:hover {
+      cursor: pointer;
+    }

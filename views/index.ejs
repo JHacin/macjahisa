@@ -34,7 +34,6 @@
     <link rel="stylesheet" href="/css/muce.css" />
     <link rel="stylesheet" href="/css/flex_sm.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Karla:400,700|Montserrat:400,600,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="/tipuesearch/css/tipuesearch.css">
@@ -116,9 +115,7 @@
     <div class="jumbo jumbo_index">
       <div class="container">
         <div class="jumbo_logo">
-          <a href="/">
             <img src="/files/page/logo_notitle.png" />
-          </a>
         </div>
         <div class="jumbo_index_heading">
           <h1>Mačja hiša</h1>
@@ -128,10 +125,10 @@
         <div class="jumbo_links jumbo_links_index">
            <div class="jumbo_links_row">
              <div class="jumbo_button_index">
-               <a href="/posvojitev/muce">Posvojitev muce <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+               <a href="/posvojitev/muce">Posvojitev muce <i class="fa fa-paw" aria-hidden="true"></i></a>
              </div>
              <div class="jumbo_button_index">
-               <a href="/pomoc/donacije">Donacije <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+               <a href="/pomoc/donacije">Donacije <i class="fa fa-heart" aria-hidden="true"></i></a>
              </div>
           </div>
           <div class="jumbo_links_row">
@@ -139,17 +136,17 @@
             <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
               <input type="hidden" name="cmd" value="_s-xclick">
               <input type="hidden" name="hosted_button_id" value="3T8VTPP8R7H74">
-              <button type="submit"  border="0" alt="PayPal donacije">PayPal donacije <i class='fa fa-arrow-circle-right' aria-hidden='true'></i></button>
+              <button type="submit"  border="0" alt="PayPal donacije">PayPal donacije <i class='fa fa-paypal' aria-hidden='true'></i></button>
             </form>
           </div>
           <div class="jumbo_button_index">
-            <a href="/pomoc/dohodnina">Namenite nam del dohodnine <i class="fa fa-arrow-circle-right" aria-hidden="true"></i></a>
+            <a href="/pomoc/dohodnina">Namenite nam del dohodnine <i class="fa fa-percent" aria-hidden="true"></i></a>
           </div>
         </div>
         </div>
       </div>
     </div>
-    <div class="nav nav_index">
+    <div class="nav">
       <div class="container">
         <div class="mobile_logo">
           <a href="/">
@@ -182,7 +179,8 @@
             <% }); %>
             <li class="search">
               <form action="/search">
-                <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required/> <i class="fa fa-search" aria-hidden="true"></i>
+                <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
+                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
               </form>
             </li>
           </ul>
