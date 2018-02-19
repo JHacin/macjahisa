@@ -114,6 +114,151 @@
     color: #e8e8e8;
   }
 
+.index_intro {
+  background: #232526;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  color: #e8e8e8;
+  font-family: 'Raleway', sans-serif;
+  text-align: center;
+}
+
+  .index_intro .container {
+    width: 1000px;
+  }
+
+  .index_intro p {
+    line-height: 24px;
+    font-size: 17px;
+    letter-spacing: 0.5px;
+    text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+  }
+
+  .index_intro h1,
+  {
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+    letter-spacing: 1px;
+  }
+
+.nreel {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+
+}
+
+  .nreel_item {
+    width: 280px;
+    margin: 10px;
+    background: rgba(249,249,249,1);
+    border: 1px solid rgba(0,0,0,0.2);
+    padding: 0;
+    font-family: 'Raleway', sans-serif;
+  }
+
+    .nreel_title {
+      margin: 0;
+    }
+
+    .nreel_title a {
+      color: #E18A07;
+      font-size: 16px;
+      font-weight: 500;
+      transition: all 0.1s ease;
+    }
+
+    .nreel_title a:hover {
+      color: #343a40;
+    }
+
+  .nreel_date {
+    font-weight: 300;
+    font-size: 13px;
+  }
+
+  .nreel_img {
+    width: 280px;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+  }
+
+
+  .nreel_img img {
+    position: absolute;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 390px;
+    /* For the following settings we set 100%, but it can be higher if needed
+    See the answer's update */
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+  }
+
+  .nreel_txt {
+    padding: 20px;
+  }
+
+  .nreel_short {
+    font-size: 14px;
+    line-height: 22px;
+    margin-bottom: 5px;
+  }
+
+  .nreel_more {
+    margin: 0;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: 500;
+  }
+
+    .nreel_more a {
+      color: #e18a07;
+      transition: all 0.1s ease;
+    }
+
+    .nreel_more a:hover {
+      color: #343a40;
+    }
+
+
+  .news_more {
+    text-align: center;
+    font-family: 'Raleway', sans-serif;
+  }
+
+    .news_more a {
+      color: #343a40;
+      font-size: 20px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
+      transition: all 0.1s ease;
+    }
+
+    .news_more a:hover {
+      color: #e18a07;
+    }
+
+
+  .index_intro .intro_more a {
+      color: #ffcb00;
+      font-size: 18px;
+      letter-spacing: 1px;
+      text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
+      transition: all 0.3s ease;
+    }
+
+    .index_intro .intro_more a i {
+      margin-left: 3px;
+    }
+
+  .index_intro .intro_more a:hover {
+    color: #e59400;
+  }
+
 .index_heading {
   text-align: center;
   width: 100%;
@@ -182,6 +327,17 @@
       font-size: 0.9em;
       margin-bottom: 0;
     }
+
+.index_news {
+  background: #e8e8e8;
+}
+
+  .index_news h1 {
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    font-family: 'Raleway', sans-serif;
+    text-align: center;
+  }
 
 .index_cats {
   background: #f8f8f8;

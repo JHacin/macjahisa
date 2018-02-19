@@ -103,7 +103,7 @@ app.use("*", function(req, res, next) {
 
 // INDEX ROUTE
 app.get("/", function(req, res){
-  Novica.find().where("objava").equals("1").sort({datum: -1}).limit(3).exec(function(err, novice) {
+  Novica.find().where("objava").equals("1").sort({datum: -1}).limit(4).exec(function(err, novice) {
     if(err) return console.log(err);
     Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
       if(err) return console.log(err);

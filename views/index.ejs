@@ -48,7 +48,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplist/5.2.0/css/jplist.pagination-bundle.min.css" integrity="sha256-XTBrlZtUCphfWhX2g0lriTnBYRhWPYl60zaLYBoPSpM=" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
-    <link href="https://fonts.googleapis.com/css?family=Raleway:400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css" />
 
   </head>
@@ -189,11 +189,35 @@
       </div>
     </div>
     <div class="main">
+      <div class="index_intro">
+        <div class="container">
+          <h1>Kdo smo?</h1>
+          <p>Mačja hiša je projekt <strong>Društva za pomoč živalim v stiski Slovenija</strong>, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo <strong>Cats Protection</strong> ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk.</p>
+          <p class="intro_more"><a href="/o_nas/kdo_smo">Več o nas <i class="fa fa-arrow-circle-right"></i></a></p>
+        </div>
+      </div>
       <div class="index_news">
         <div class="container">
-          <div class="index_heading">
-            <h2>Novice</h2>
-            <hr />
+          <h1>Kaj je novega?</h1>
+          <div class="nreel">
+            <% novice.forEach(function(novica){ %>
+            <div class="nreel_item">
+              <div class="nreel_img"><img src="/files/<%= novica.naslovna_slika %>" /></div>
+              <div class="nreel_txt">
+                <h3 class="nreel_title"><a href="/novice/<%= novica.dbid %>"><%= novica.naslov %></a></h3>
+                <p class="nreel_date"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></p>
+                <p class="nreel_short"><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica.dbid %>"></a></p>
+                <p class="nreel_more"><a href="/novice/<%= novica.dbid %>">VEČ</a></p>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+          <p class="news_more"><a href="/novice">Vse novice <i class="fa fa-arrow-circle-right"></i></a></p>
+          <!-- <div class="index_heading">
+            <h1>Novice</h1>
+            <div class="test">
+              <img class="thumbtest" src="/files/26168644_10155088856555069_7633918352339950177_n.jpg" />
+            </div>
           </div>
           <div class="news_reel">
             <% novice.forEach(function(novica){ %>
@@ -207,7 +231,7 @@
           </div>
           <div class="index_more">
             <a href="/novice"><button class="index_btn">Arhiv novic <i class="fa fa-caret-right" aria-hidden="true"></i></button></a>
-          </div>
+          </div> -->
         </div>
       </div>
       <div class="index_cats">
