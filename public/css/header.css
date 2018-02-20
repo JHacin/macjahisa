@@ -65,20 +65,26 @@
     font-size: 16px;
     line-height: 16px;
     transition: all 0.3s ease;
-    background: rgba(255, 203, 0, 1);
-    border: 1px solid rgba(0,0,0,0.3);
+    background: rgba(232, 232, 232, 0.9);
+
+    border-radius: 5px;
+    border: 1px solid rgba(0,0,0,0.4);
+    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.1);
     font-family: 'Raleway', sans-serif;
     letter-spacing: 1px;
   }
 
     .jumbo_button i {
       margin-left: 2px;
+      color: #E18A07;
+      text-shadow: 1px 1px rgba(0,0,0,0.6);
     }
 
     .jumbo_button a {
       color: #343a40;
       transition: all 0.1s ease;
       font-family: 'Raleway', sans-serif;
+      font-weight: 400;
       padding: 0;
       margin: 0;
     }
@@ -86,6 +92,7 @@
     .jumbo_button button {
       font-family: 'Raleway', sans-serif;
       background: none;
+      font-weight: 400;
       border: none;
       color: #343a40;
       transition: all 0.1s ease;
@@ -99,7 +106,7 @@
 
 
 .jumbo_button:hover {
-  background: #e8e8e8;
+  background: #ffcb00;
 }
 
 .jumbo_button button:hover {
