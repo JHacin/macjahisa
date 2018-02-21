@@ -330,7 +330,9 @@
     }
 
 .index_news {
-  background: #e8e8e8;
+  background: #fefefe;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to bottom, #fefefe, #e8e8e8);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #fefefe, #e8e8e8); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
 }
 
   .index_news h1 {
@@ -338,33 +340,133 @@
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     font-family: 'Raleway', sans-serif;
     text-align: center;
+    color: #414345;
   }
+
+.main > .index_cats > .container {
+  width: 100%;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border: none;
+}
 
 .index_cats {
   background: #f8f8f8;
 }
 
 .index_cat {
-  padding: 0 1em;
-  margin: 0 15px;
-  width: 25%;
+  padding: 0;
+  margin: 0;
+  width: 20%;
   text-align: center;
+  position: relative;
+  overflow: hidden;
+  height: 270px;
 }
 
   .index_cat img {
-    height: 150px;
-    max-width: 100%;
-    border: 1px solid rgba(0,0,0,0.2);
+    position: absolute;
+    margin: auto;
+    min-height: 100%;
+    min-width: 100%;
+    max-width: calc(100% * 1.2);
+    left: -100%;
+    right: -100%;
+    top: -100%;
+    bottom: -100%;
+    transition: all 0.2s ease-out;
   }
 
-  .help_item {
-    width: 25%;
-    text-align: center;
-    padding: 0 1em;
-    margin: 0 15px;
+    .index_cat img:hover {
+      max-width: 110%;
+    }
+
+    .index_cat:hover .index_cat h3 a {
+      color: red;
+    }
+
+  .index_cat h3 a {
+    position: absolute;
+    font-family: 'Raleway', sans-serif;
+    bottom: 0.4em;
+    right: 0.5em;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: 2px;
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+    font-size: 1.8em;
   }
+
+.main > .index_help {
+    background: #e8e8e8;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to bottom, #e8e8e8, #fefefe);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to bottom, #e8e8e8, #fefefe); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
+.index_help h2 {
+    letter-spacing: 1px;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    color: #414345;
+    margin-bottom: 20px;
+    margin-top: 25px;
+}
+
+.help_hr {
+  width: 140px;
+  border: 0;
+  height: 1px;
+  background-image: linear-gradient(to right, rgba(0,0,0, 0), rgba(225, 138, 7, 1), rgba(0,0,0, 0));
+  margin: 0 auto;
+}
+
+  .help_item {
+    width: 31.33%;
+    text-align: center;
+    padding: 0;
+
+    margin: 30px 10px;
+    color: #343a40;
+    text-align: center;
+  }
+
+  .help_reel {
+    margin-bottom: 0px;
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+    .help_item h4 {
+      font-size: 17px;
+      letter-spacing: 1px;
+      line-height: 22px;
+      color: #414345;
+      font-weight: 500;
+      margin: 0;
+    }
+
+    .help_item i {
+      color: #e18a07;
+      border-radius: 15%;
+      border: 1px solid #e18a07;
+      padding: 0.4em 0.8em;
+      font-size: 18px;
+      margin: 10px 0;
+    }
 
     .help_item img {
       border-radius: 10%;
       border: 1px solid rgba(0,0,0,0.2);
+    }
+
+    .help_item p {
+      font-size: 14px;
+      line-height: 22px;
+      margin: 0;
+      padding: 0;
     }

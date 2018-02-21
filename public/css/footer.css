@@ -69,11 +69,11 @@
 
 .related_links {
   background: #f8f8f8;
-  border-bottom: 1px solid rgba(0,0,0,0.1);
+  border-top: 1px solid rgba(0,0,0,0.1);
 }
 
 .related_links > .container {
-  align-items: baseline;
+  align-items: center;
   padding: 3em 0;
 }
 

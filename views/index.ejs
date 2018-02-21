@@ -31,7 +31,6 @@
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/sidebar.css" />
     <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/muce.css" />
     <link rel="stylesheet" href="/css/flex_sm.css" />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
@@ -42,12 +41,6 @@
     <link rel="stylesheet" href="/tipuesearch/css/tipuesearch.css">
     <script src="/tipuesearch/tipuesearch_set.js"></script>
     <script src="/tipuesearch/tipuesearch.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="/css/jplist.core.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/jplist.textbox-filter.min.css" />
-    <link rel="stylesheet" type="text/css" href="/css/jplist.filter-toggle-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplist/5.2.0/css/jplist.pagination-bundle.min.css" integrity="sha256-XTBrlZtUCphfWhX2g0lriTnBYRhWPYl60zaLYBoPSpM=" crossorigin="anonymous" />
-    <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
-    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css"/>
     <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="/css/index.css" />
 
@@ -75,24 +68,6 @@
        }(document, 'script', 'facebook-jssdk'));
     </script>
     <!-- END FACEBOOK JAVASCRIPT SDK -->
-    <!-- TWITTER JS -->
-    <script>window.twttr = (function(d, s, id) {
-      var js, fjs = d.getElementsByTagName(s)[0],
-        t = window.twttr || {};
-      if (d.getElementById(id)) return t;
-      js = d.createElement(s);
-      js.id = id;
-      js.src = "https://platform.twitter.com/widgets.js";
-      fjs.parentNode.insertBefore(js, fjs);
-
-      t._e = [];
-      t.ready = function(f) {
-        t._e.push(f);
-      };
-
-      return t;
-    }(document, "script", "twitter-wjs"));</script>
-    <!-- END TWITTER JS -->
 
     <div class="top_bar top_bar_index">
       <div class="container">
@@ -213,33 +188,10 @@
             <% }); %>
           </div>
           <p class="news_more"><a href="/novice">Vse novice <i class="fa fa-arrow-circle-right"></i></a></p>
-          <!-- <div class="index_heading">
-            <h1>Novice</h1>
-            <div class="test">
-              <img class="thumbtest" src="/files/26168644_10155088856555069_7633918352339950177_n.jpg" />
-            </div>
-          </div>
-          <div class="news_reel">
-            <% novice.forEach(function(novica){ %>
-              <div class="news_item">
-
-                <a href="/novice/<%= novica.dbid %>"><img src="/files/<%= novica.naslovna_slika %>" /></a>
-                <h3><a href="/novice/<%= novica.dbid %>"><%= novica.naslov %></a></h3>
-                <p><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica.dbid %>"><i class="fa fa-forward" aria-hidden="true"></i></a></p>
-              </div>
-            <% }); %>
-          </div>
-          <div class="index_more">
-            <a href="/novice"><button class="index_btn">Arhiv novic <i class="fa fa-caret-right" aria-hidden="true"></i></button></a>
-          </div> -->
         </div>
       </div>
       <div class="index_cats">
         <div class="container">
-          <div class="index_heading">
-            <h2>Muce, ki iščejo dom</h2>
-            <hr />
-          </div>
           <div class="cat_reel">
             <% muce.forEach(function(muca){ %>
               <div class="index_cat">
@@ -248,41 +200,45 @@
               </div>
             <% }); %>
           </div>
-          <div class="index_more">
-            <a href="/posvojitev/muce"><button class="index_btn">Vse muce, ki še nimajo svojega kavča <i class="fa fa-caret-right" aria-hidden="true"></i></button></a>
-          </div>
         </div>
       </div>
       <div class="index_help">
         <div class="container">
-          <div class="index_heading">
-            <h2>Podprite nas</h2>
-            <hr />
+          <div>
+            <h2>Kako nas lahko podprete?</h2>
+            <hr class="help_hr"/>
           </div>
           <div class="help_reel">
             <div class="help_item">
-              <h3>Oblika pomoči #1</h3>
-              <img src="/images/help1.jpg" />
-              <p>Sleep in the bathroom sink annoy kitten brother with poking jump off balcony, onto stranger's head but slap owner's face at 5am until human fills food dish.</p>
+
+
+              <h4>Donacije</h4><i class="fa fa-eur" aria-hidden="true"></i>
+              <p>Z donacijami in prispevki v finančni ali materialni obliki.</p>
             </div>
             <div class="help_item">
-              <h3>Oblika pomoči #2</h3>
-              <img src="/images/help2.jpg" />
-              <p>Meow meow, i tell my human hide at bottom of staircase to trip human or stare at the wall, play with food and get confused by dust for kitty ipsum dolor sit amet.</p>
+
+
+              <h4>Veterina in trgovina</h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p>Z nakupovanjem v trgovini Super Čombe in uporabo storitev na Veterini MH.</p>
             </div>
             <div class="help_item">
-              <h3>Oblika pomoči #3</h3>
-              <img src="/images/help3.jpg" />
-              <p>Wake up wander around the house making large amounts of noise jump on top of your human's bed and fall asleep again eats owners hair then claws head, or meow all night.</p>
+
+
+              <h4>Posvojitev</h4><i class="fa fa-paw" aria-hidden="true"></i>
+              <p>Muce lahko pri nas posvojite fizično ali na daljavo.</p>
             </div>
             <div class="help_item">
-              <h3>Oblika pomoči #4</h3>
-              <img src="/images/help4.jpg" />
-              <p>Unwrap toilet paper pose purrfectly to show my beauty destroy the blinds scratch me there, elevator butt knock dish off table.</p>
+
+
+              <h4>Prostovoljstvo</h4><i class="fa fa-users" aria-hidden="true"></i>
+              <p>Pomoč pri začasnem nameščanju muc, delu s potencialnimi posvojitelji, delu na terenu, ipd.</p>
             </div>
-          </div>
-          <div class="index_more">
-            <a href="/pomoc/nacini_pomoci"><button class="index_btn">Kako nam lahko pomagate?</button></a>
+            <div class="help_item">
+
+
+              <h4>Socialna omrežja</h4><i class="fa fa-share-alt" aria-hidden="true"></i>
+              <p>Naše objave lahko spremljate in delite na forumu Pomagamo živalim ter našem Twitterju in Facebooku.</p>
+            </div>
           </div>
         </div>
       </div>

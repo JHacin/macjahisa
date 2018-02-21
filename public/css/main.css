@@ -1,6 +1,7 @@
 body {
   margin: 0;
-  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
+  font-family: "Raleway", sans-serif;
 }
 
 body > div > .container {
@@ -20,14 +21,6 @@ a {
 
 .orange {
   color: #e59400;
-}
-
-.main > div {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
-}
-
-.main > div:last-child {
-  border-bottom: 1px solid rgba(0,0,0,0.1);
 }
 
 .main {
