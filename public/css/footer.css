@@ -12,7 +12,11 @@
 
   .signature a {
     color: #e8e8e8;
-    font-weight: bold;
+    font-weight: 600;
+  }
+
+  .signature a:hover {
+    color:#ffcb00;
   }
 
 .footer {
@@ -27,8 +31,11 @@
   }
 
   .footer > .container > div {
-    width: 33.3%;
+    width: 33.33%;
+    padding: 15px;
+    line-height: 34px;
   }
+
 
   .footer h3 {
     font-size: 1.3em;
@@ -38,6 +45,7 @@
 
   .footer a {
     color: #343a40;
+    transition: all 0.2s ease;
   }
 
   .footer_nav_list {
@@ -45,8 +53,20 @@
     padding: 0;
   }
 
-  .footer_nav_list li {
-    margin: 8px 0;
+
+  .footer_nav_list li a:hover,
+  .footer_contact p a:hover {
+    color: #e18a07;
+  }
+
+  .footer_contact p {
+    margin: 0;
+  }
+
+  .footer_contact i {
+    color: #e18a07;
+    font-size: 15px;
+    margin-right: 3px;
   }
 
   .footer_links {
@@ -58,12 +78,17 @@
 
   .social .fa {
     font-size: 2.6em;
-    color: #343a40;
+    color: #414345;
     margin: 0 12px 20px 12px;
+    transition: all 0.2s ease;
+  }
+
+  .social .fa:hover {
+    color: #e18a07;
   }
 
   .fb_link {
-    width: 80%;
+    width: 100%;
     text-align: center;
   }
 
