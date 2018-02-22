@@ -485,13 +485,13 @@ color:#e8e8e8;
   }
 
   .jumbo_index_heading h1 {
-    font-size: 1.5em!important;
+    font-size: 1.7em!important;
     margin-bottom: 15px!important;
 
   }
 
   .index_hr {
-    width: 150px!important;
+    width: 100px!important;
   }
 
   .jumbo_index_heading {
@@ -517,7 +517,7 @@ color:#e8e8e8;
 
   .main > .index_news > .container {
     padding: 20px 0;
-    width: 85%;
+    width: 80%;
     font-size: 90%;
   }
 
@@ -552,8 +552,15 @@ color:#e8e8e8;
   align-items: center;
 }
 
+.index_help h2 {
+  margin-bottom: 15px;
+}
+
 .help_item {
   width: 85%;
+  background: rgba(249,249,249,0.8);
+  border: 1px solid rgba(0,0,0,0.1);
+  padding: 24px 12px;
 }
 
 .related_links > .container {
