@@ -1,7 +1,3 @@
-.mobile_logo,
-.mobile_top_contact {
-  display: none;
-}
 
 .top_bar {
   height: 40px;
@@ -16,6 +12,15 @@
   color: #e8e8e8;
   z-index: 100000;
 }
+
+.mobile_logo,
+.mobile_top_contact {
+ display: none;
+ visibility: hidden;
+ opacity: 0;
+ transition: visibility 0s, opacity 0.3s linear;
+}
+
 
   .top_bar > .container {
     justify-content: space-between;
@@ -121,7 +126,7 @@
   background: #e8e8e8;
   position: sticky;
   top: 40px;
-  z-index: 100000;
+  z-index: 9000001;
 }
 
   .nav > .container {

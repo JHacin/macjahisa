@@ -104,10 +104,14 @@
     line-height: 16px;
   }
 
-  .jumbo_button_index button:hover,
   .jumbo_button_index:hover {
     cursor: pointer;
-    background: #ffcb00;
+    background: rgba(255, 203, 0, 0.85);
+  }
+
+  .jumbo_button_index button:hover {
+    cursor: pointer;
+    background: rgba(0,0,0,0);
   }
 
   .top_bar_index a {
@@ -233,7 +237,7 @@
 
     .news_more a {
       color: #343a40;
-      font-size: 20px;
+      font-size: 18px;
       letter-spacing: 1px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.1);
       transition: all 0.1s ease;
@@ -245,7 +249,7 @@
 
 
   .index_intro .intro_more a {
-      color: #ffcb00;
+color:#e8e8e8;
       font-size: 18px;
       letter-spacing: 1px;
       text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.6);
@@ -470,3 +474,99 @@
       margin: 0;
       padding: 0;
     }
+
+@media all and (max-width: 600px) {
+  .jumbo_index {
+    height: 100vh!important;
+    background-image: url(/files/page/sm.jpeg );
+
+    /* padding-top: 115px!important;
+    padding-bottom: 60px!important; */
+  }
+
+  .jumbo_index_heading h1 {
+    font-size: 1.5em!important;
+    margin-bottom: 15px!important;
+
+  }
+
+  .index_hr {
+    width: 150px!important;
+  }
+
+  .jumbo_index_heading {
+    width: 90%;
+
+  }
+
+  .jumbo_index_heading h4 {
+    font-size: 20px!important;
+    margin-top: 10px!important;
+    margin-bottom: 35px!important;
+  }
+
+  .main > .index_intro > .container {
+    padding: 20px 0;
+    width: 90%;
+    font-size: 90%;
+  }
+
+  .index_intro > .container > p {
+    font-size: 15px;
+  }
+
+  .main > .index_news > .container {
+    padding: 20px 0;
+    width: 85%;
+    font-size: 90%;
+  }
+
+    .nreel {
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .nreel_item {
+      width: 100%;
+      margin-bottom: 25px;
+    }
+
+    .nreel_img {
+      width: 100%;
+    }
+
+    .nreel_txt {
+      text-align: center;
+    }
+
+.cat_reel {
+  flex-direction: column;
+}
+
+  .index_cat {
+    width: 100%;
+  }
+
+.help_reel {
+  flex-direction: column;
+  align-items: center;
+}
+
+.help_item {
+  width: 85%;
+}
+
+.related_links > .container {
+  padding: 0 0 2.5em 0;
+}
+
+  .related_div {
+    width: 85%;
+    padding-top: 2.5em;
+  }
+
+.footer_nav {
+  padding-bottom: 0;
+}
+
+}

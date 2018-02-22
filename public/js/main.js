@@ -34,12 +34,26 @@ $(document).ready( function() {
    var scroll_pos = 0;
   $(document).scroll(function() {
       scroll_pos = $(this).scrollTop();
+      // desktop
       if(scroll_pos > 210) {
           $(".top_bar_index").css('background', '#343a40');
       } else {
           $(".top_bar_index").css('background', 'none');
       }
+      // mobile
+      if(scroll_pos > 150) {
+        $(".mobile_logo").css({'visibility': 'visible', 'opacity': '1'});
+        $(".mobile_top_contact").css({'visibility': 'visible', 'opacity': '1'});
+        $(".stellarnav .fa-bars").css('color', '#343a40');
+        $(".nav").css('background', 'rgba(230, 230, 230,1)');
+      } else {
+        $(".mobile_logo").css({'visibility': 'hidden', 'opacity': '0'});
+        $(".mobile_top_contact").css({'visibility': 'hidden', 'opacity': '0'});
+        $(".stellarnav .fa-bars").css('color', 'rgba(230, 230, 230,0.8)');
+        $(".nav").css('background', 'none');
+      }
   });
+
 
 
 });

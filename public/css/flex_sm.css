@@ -20,36 +20,35 @@
 
   .nav {
     order: 1;
-  }
-
-  .mobile_header {
-    order: 2;
+    position: fixed;
+    top:0;
+    transition: all 0.2s ease;
+    height: 85px;
+    width: 100%;
+    border: none;
+    background: none;
   }
 
   .jumbo {
-    order: 3;
+    order: 2;
     border-bottom: 1px solid rgba(0,0,0,0.4);
   }
 
   .main {
-    order: 4;
+    order: 3;
   }
 
   .related_links {
-    order: 5;
+    order: 4;
   }
 
   .footer {
-    order: 6;
+    order: 5;
   }
 
   .signature {
-    order: 7;
+    order: 6;
   }
-
-  /* STELLAR NAV */
-
-  /* END STELLAR NAV */
 
   .index_heading {
     margin-bottom: 15px;
@@ -57,8 +56,9 @@
 
   .mobile_logo,
   .mobile_top_contact {
-    display: block;
+   display: block;
   }
+
 
   .mobile_logo {
     width: 20%;
@@ -68,12 +68,7 @@
     width: 40%;
   }
 
-  .nav {
-    width: 100%;
-    border-bottom: 1px solid #343a40;
-    background: #e8e8e8;
-    border-top: none;
-  }
+
 
   .nav > .container {
     padding: 5px 0;
@@ -96,9 +91,11 @@
   }
 
   .stellarnav .fa-bars {
-    font-size: 2.4em;
+    font-size: 2.1em;
+    font-weight: 400;
     vertical-align: middle;
-    color: #343a40;
+    color: rgba(230, 230, 230,0.8);
+    transition: all 0.3s ease;
   }
 
   .top_bar,
@@ -107,15 +104,30 @@
     display: none;
   }
 
+  .jumbo_container {
+    height: auto;
+  }
+
+
+
   .jumbo_links {
     flex-direction: column;
     width: 80%;
+  }
+
+  .jumbo_links_index .jumbo_links_row {
+    flex-direction: column;
   }
 
   .jumbo_button {
     width: 65%;
     align-self: center;
   }
+
+  .jumbo_button_index {
+    max-width: 260px;
+  }
+
 
   .search {
     width: 100%;
@@ -175,7 +187,10 @@
   .footer > .container > div {
     width: 100%;
     text-align: center;
+    padding: 0;
   }
+
+
 
   .footer_links {
     margin-top: 17px;
@@ -201,6 +216,9 @@
     max-width: 100%;
   }
 
+  .footer > .container > .footer_contact {
+    padding-bottom: 15px;
+  }
   .muce_seznam {
     display: flex;
     flex-direction: column;
