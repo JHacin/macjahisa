@@ -148,10 +148,11 @@
           <a href="tel:040937959"><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</a>
         </div>
         <div class="stellarnav">
-          <ul style="position: fixed;">
+          <ul>
             <% nav_kategorije.forEach(function(kategorija){ %>
             <li class="nav_kategorija">
-              <a href="/<%= kategorija.url %>">
+              <a class="<%= kategorija.naslov == 'V novem domu' ? '' : 'kat_toggle' %>" href="<%= kategorija.naslov == 'V novem domu' ? '/v_novem_domu/1' : '#' %>">
+                <!-- <%= kategorija.url %> -->
               <%= kategorija.naslov %>
               </a>
                 <!-- PODSTRANI -->

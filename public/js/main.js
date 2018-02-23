@@ -42,18 +42,17 @@ $(document).ready( function() {
       }
       // mobile
       if(scroll_pos > 150) {
-        $(".mobile_logo").css({'visibility': 'visible', 'opacity': '1'});
-        $(".mobile_top_contact").css({'visibility': 'visible', 'opacity': '1'});
-        $(".stellarnav .fa-bars").css('color', '#343a40');
-        $(".nav").css('background', 'rgba(230, 230, 230,1)');
+        $(".mobile_logo_index").css({'visibility': 'visible', 'opacity': '1'});
+        $(".mobile_top_contact_index").css({'visibility': 'visible', 'opacity': '1'});
+        $(".stellar_index .fa-bars").css('color', '#343a40');
+        $(".nav_index").css('background', 'rgba(230, 230, 230,1)');
       } else {
-        $(".mobile_logo").css({'visibility': 'hidden', 'opacity': '0'});
-        $(".mobile_top_contact").css({'visibility': 'hidden', 'opacity': '0'});
-        $(".stellarnav .fa-bars").css('color', 'rgba(230, 230, 230,0.8)');
-        $(".nav").css('background', 'none');
+        $(".mobile_logo_index").css({'visibility': 'hidden', 'opacity': '0'});
+        $(".mobile_top_contact_index").css({'visibility': 'hidden', 'opacity': '0'});
+        $(".stellar_index .fa-bars").css('color', 'rgba(230, 230, 230,0.8)');
+        $(".nav_index").css('background', 'none');
       }
   });
-
 
 
 });

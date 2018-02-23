@@ -121,18 +121,18 @@
         </div>
       </div>
     </div>
-    <div class="nav">
+    <div class="nav nav_index">
       <div class="container">
-        <div class="mobile_logo">
+        <div class="mobile_logo_index">
           <a href="/">
             <img src="/images/logo_mobile.png" />
           </a>
         </div>
-        <div class="mobile_top_contact">
+        <div class="mobile_top_contact_index">
           <a href="mailto:info@macjahisa.si"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@macjahisa.si</a><br />
           <a href="tel:040937959"><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</a>
         </div>
-        <div class="stellarnav">
+        <div class="stellarnav stellar_index">
           <ul>
             <% nav_kategorije.forEach(function(kategorija){ %>
             <li class="nav_kategorija">
@@ -174,6 +174,7 @@
       <div class="index_news">
         <div class="container">
           <h1>Kaj je novega?</h1>
+          <hr class="help_hr"/>
           <div class="nreel">
             <% novice.forEach(function(novica){ %>
             <div class="nreel_item">
@@ -181,8 +182,8 @@
               <div class="nreel_txt">
                 <h3 class="nreel_title"><a href="/novice/<%= novica.dbid %>"><%= novica.naslov %></a></h3>
                 <p class="nreel_date"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></p>
-                <p class="nreel_short"><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %> <a href="/novice/<%= novica.dbid %>"></a></p>
-                <p class="nreel_more"><a href="/novice/<%= novica.dbid %>">VEČ</a></p>
+                <p class="nreel_short"><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "[...]" %> <a href="/novice/<%= novica.dbid %>"></a></p>
+                <p class="nreel_more"><a href="/novice/<%= novica.dbid %>">Več</a></p>
               </div>
             </div>
             <% }); %>

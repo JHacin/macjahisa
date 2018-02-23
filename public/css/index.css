@@ -2,12 +2,18 @@
   background: none;
 }
 
+.mobile_logo_index,
+.mobile_top_contact_index {
+display: none;
+}
+
 .jumbo_index {
   padding: 0;
   background-image: url(/files/page/jumbo_index.jpeg );
   background-size: cover;
   background-position: top;
   height: 100vh;
+  margin-top: 0;
 }
 
 .jumbo_index_heading {
@@ -34,13 +40,8 @@
     margin: 20px 0;
   }
 
-.nav_index {
-  position: sticky;
-  top: 40px;
-}
-
 .index_hr {
-  width: 300px;
+  width: 200px;
   border: 0;
   height: 2px;
   background-image: linear-gradient(to right, rgba(255, 203, 0, 0.01), rgba(255, 203, 0, 1), rgba(255, 203, 0, 0.01));
@@ -89,8 +90,8 @@
 
   .jumbo_button_index i {
     margin-left: 2px;
+    font-weight: 500;
   }
-
 
   .jumbo_button_index button {
     font-family: 'Raleway', sans-serif;
@@ -105,7 +106,7 @@
   }
 
   .jumbo_button_index:hover {
-    cursor: pointer;
+
     background: rgba(255, 203, 0, 0.85);
   }
 
@@ -148,7 +149,7 @@
   display: flex;
   flex-direction: row;
   justify-content: center;
-
+    margin-top: 20px;
 }
 
   .nreel_item {
@@ -167,7 +168,6 @@
     .nreel_title a {
       color: #E18A07;
       font-size: 16px;
-      font-weight: 500;
       transition: all 0.1s ease;
     }
 
@@ -217,12 +217,11 @@
     margin: 0;
     font-size: 14px;
     letter-spacing: 1px;
-    font-weight: 500;
   }
 
     .nreel_more a {
       color: #e18a07;
-      transition: all 0.1s ease;
+      transition: all 0.2s ease;
     }
 
     .nreel_more a:hover {
@@ -292,7 +291,7 @@ color:#e8e8e8;
   border: 1px solid rgba(0,0,0,0.4);
   padding: 8px 30px;
   color: #343a40;
-  font-family: 'Montserrat', sans-serif;
+  font-family: 'Raleway', sans-serif;
 }
 
 .index_btn:hover {
@@ -345,6 +344,8 @@ color:#e8e8e8;
     font-family: 'Raleway', sans-serif;
     text-align: center;
     color: #414345;
+    font-size: 1.8em;
+    margin-bottom: 10px;
   }
 
 .main > .index_cats > .container {
@@ -414,7 +415,7 @@ color:#e8e8e8;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
     text-align: center;
     color: #414345;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     margin-top: 25px;
 }
 
@@ -438,7 +439,7 @@ color:#e8e8e8;
 
   .help_reel {
     margin-bottom: 0px;
-    margin-top: 15px;
+    margin-top: 25px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -476,6 +477,48 @@ color:#e8e8e8;
     }
 
 @media all and (max-width: 600px) {
+
+  .nav_index {
+    background: none;
+  }
+
+  .stellar_index .fa-bars {
+    vertical-align: middle;
+    color: rgba(230, 230, 230,0.8);
+  }
+
+  .mobile_logo_index {
+    width: 20%;
+  }
+
+  .mobile_logo_index img {
+    height: 42px;
+  }
+
+  .mobile_top_contact_index {
+    width: 40%;
+  }
+
+
+    .mobile_top_contact_index a {
+      font-size: 0.9em;
+      color: #343a40;
+      margin: 3px 0;
+    }
+
+    .mobile_top_contact_index a i {
+      color: #e18a07;
+      margin-right: 3px;
+    }
+
+  .mobile_logo_index,
+  .mobile_top_contact_index {
+  display: block;
+   visibility: hidden;
+   opacity: 0;
+   transition: visibility 0s, opacity 0.3s linear;
+  }
+
   .jumbo_index {
     height: 100vh!important;
     background-image: url(/files/page/sm.jpeg );
@@ -524,6 +567,7 @@ color:#e8e8e8;
     .nreel {
       flex-direction: column;
       align-items: center;
+
     }
 
     .nreel_item {
@@ -563,17 +607,6 @@ color:#e8e8e8;
   padding: 24px 12px;
 }
 
-.related_links > .container {
-  padding: 0 0 2.5em 0;
-}
 
-  .related_div {
-    width: 85%;
-    padding-top: 2.5em;
-  }
-
-.footer_nav {
-  padding-bottom: 0;
-}
 
 }

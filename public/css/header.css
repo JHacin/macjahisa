@@ -13,20 +13,18 @@
   z-index: 100000;
 }
 
-.mobile_logo,
-.mobile_top_contact {
- display: none;
- visibility: hidden;
- opacity: 0;
- transition: visibility 0s, opacity 0.3s linear;
-}
-
 
   .top_bar > .container {
     justify-content: space-between;
   }
 
-  .top_bar a {
+  .top_bar_contact a {
+    color: #e8e8e8;
+    margin-right: 5px;
+    transition: all 0.2s ease;
+  }
+
+  .top_bar_social a {
     color: #e8e8e8;
     margin: 0 5px;
     transition: all 0.2s ease;
@@ -36,6 +34,7 @@
     color: #ffcb00;
   }
 
+
     .top_bar a:hover {
       color: #ffcb00;
     }
@@ -44,6 +43,12 @@
     font-size: 2em;
     vertical-align: middle;
   }
+
+
+.mobile_logo,
+.mobile_top_contact {
+display: none;
+}
 
 .jumbo {
   padding: 40px 0 0 0;
@@ -115,7 +120,7 @@
 
 
 .jumbo_button:hover {
-  background: #ffcb00;
+  background: rgba(255, 203, 0, 0.85);
 }
 
 .jumbo_button button:hover {
@@ -123,7 +128,7 @@
 }
 
 .nav {
-  background: #e8e8e8;
+  background: rgba(230, 230, 230,1);
   position: sticky;
   top: 40px;
   z-index: 9000001;
@@ -170,10 +175,12 @@
         font-size: 0.9em;
         background: #f7f7f7;
         border-bottom: 1px solid #e8e8e8;
+        transition: all 0.2s ease;
       }
 
       .stellarnav .nav_podstran a {
         padding: 0;
+        transition: all 0.2s ease;
       }
     }
 
@@ -188,7 +195,7 @@
       }
 
       .stellarnav .nav_podstran:hover {
-        background: #f7f7f7;
+        background: #f3f3f3;
       }
 
       .stellarnav .nav_podstran a:hover {
@@ -215,7 +222,7 @@
   .search input {
     width: 74.8%;
     padding: 5px;
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Raleway', sans-serif;
   }
 
   .search button {

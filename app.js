@@ -70,7 +70,7 @@ app.use("*", function(req, res, next) {
       if(err) return console.log(err);
       Muca.find().where("status").in([1, 2]).sort({datum: -1}).random(3, true, function(err, sidebar_muce) {
         if(err) return console.log(err);
-        Novica.find().where("objava").equals("1").sort({datum: -1}).limit(4).exec(function(err, sidebar_novice) {
+        Novica.find().where("objava").equals("1").sort({datum: -1}).limit(3).exec(function(err, sidebar_novice) {
             if(err) return console.log(err);
             req.nav_kategorije = kategorije;
             req.nav_podstrani = podstrani;
