@@ -136,7 +136,7 @@
           <ul>
             <% nav_kategorije.forEach(function(kategorija){ %>
             <li class="nav_kategorija">
-              <a href="/<%= kategorija.url %>">
+              <a class="<%= kategorija.naslov == 'V novem domu' ? '' : 'kat_toggle' %>" href="<%= kategorija.naslov == 'V novem domu' ? '/v_novem_domu/1' : '#' %>">
               <%= kategorija.naslov %>
               </a>
                 <!-- PODSTRANI -->
