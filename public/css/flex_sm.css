@@ -256,6 +256,12 @@
       margin: 0 auto 1.8em auto;
     }
 
+    .content img {
+      margin-bottom: 1em;
+      max-width: 100%;
+      height: auto;
+    }
+
   .muce_filter {
     flex-direction: column;
   }
@@ -387,8 +393,8 @@
   }
 
   .v_novem_domu_muca .muca_img {
-    width: 90%;
-    height: 300px;
+    width: 100%;
+    height: 260px;
     overflow: hidden;
     position: relative;
     border: 1px solid rgba(0,0,0,0.2);
