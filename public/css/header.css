@@ -75,17 +75,12 @@ display: none;
     text-align: center;
     margin: 5px;
     width: 34%;
-    padding: 10px;
+
     font-size: 16px;
     line-height: 16px;
     transition: all 0.3s ease;
-    background: rgba(232, 232, 232, 0.9);
-
-    border-radius: 5px;
-    border: 1px solid rgba(0,0,0,0.4);
-    box-shadow: 1px 1px 2px 1px rgba(0,0,0,0.1);
     font-family: 'Raleway', sans-serif;
-    letter-spacing: 1px;
+
   }
 
     .jumbo_button i {
@@ -104,13 +99,16 @@ display: none;
     }
 
     .jumbo_button button {
+      letter-spacing: 1px;
+      width: 100%;
+      background: rgba(232, 232, 232, 0.8);
+      border-radius: 5px;
       font-family: 'Raleway', sans-serif;
-      background: none;
       font-weight: 400;
-      border: none;
+      border: 1px solid rgba(0,0,0,0.4);
       color: #343a40;
-      transition: all 0.1s ease;
-      padding: 0;
+      transition: all 0.2s ease;
+      padding: 10px;
       margin: 0;
       font-size: 16px;
       line-height: 16px;
@@ -118,13 +116,9 @@ display: none;
     }
 
 
-
-.jumbo_button:hover {
-  background: rgba(255, 203, 0, 0.85);
-}
-
 .jumbo_button button:hover {
   cursor: pointer;
+  background: rgba(255, 203, 0, 0.75);
 }
 
 .nav {

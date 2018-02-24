@@ -58,6 +58,16 @@
       padding-top: 2.5em;
     }
 
+    .related_div img {
+      max-width: 100px;
+      max-height: auto;
+      margin-bottom: 0.7em;
+    }
+
+      .related_div img:last-of-type {
+        margin-bottom: 0em;
+      }
+
   .footer_nav {
     padding-bottom: 0;
   }
@@ -65,6 +75,14 @@
   .footer {
     order: 5;
   }
+
+    .footer h3 {
+      margin-bottom: 0.3em;
+    }
+
+    .footer_nav_list {
+      margin-top: 0;
+    }
 
   .signature {
     order: 6;

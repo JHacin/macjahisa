@@ -59,34 +59,35 @@ display: none;
   width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
+
 }
 
-.jumbo_links_row {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-}
+
 
 .jumbo_button_index {
+
+  align-self: center;
   text-align: center;
   margin: 5px;
-  width: 300px;
-  padding: 10px;
+  width: 350px;
   font-size: 16px;
   line-height: 16px;
   transition: all 0.3s ease;
-  border-radius: 4px;
-  background: rgba(230, 230, 230,0.8);
+  background: none;
+  border: none;
+  font-family: 'Raleway', sans-serif;
+  display: flex;
+  flex-direction: row;
+  justify-content:center;
 }
 
   .jumbo_button_index a {
     color: #343a40;
     transition: all 0.2s ease;
-    font-family: 'Raleway', sans-serif;
-    padding: 0;
+
     margin: 0;
   }
+
 
   .jumbo_button_index i {
     margin-left: 2px;
@@ -95,24 +96,27 @@ display: none;
 
   .jumbo_button_index button {
     font-family: 'Raleway', sans-serif;
-    background: none;
+    background: rgba(230, 230, 230,0.8);
     border: none;
+    border-radius: 4px;
+    background: rgba(230, 230, 230,0.8);
+    width: 300px;
     color: #343a40;
     transition: all 0.2s ease;
-    padding: 0;
+    padding: 10px 20px;
     margin: 0;
     font-size: 16px;
     line-height: 16px;
   }
 
-  .jumbo_button_index:hover {
-
-    background: rgba(255, 203, 0, 0.85);
+  .jumbo_button_index button:focus {
+    outline: 0;
   }
+
 
   .jumbo_button_index button:hover {
     cursor: pointer;
-    background: rgba(0,0,0,0);
+    background: rgba(255, 203, 0, 0.75);
   }
 
   .top_bar_index a {
