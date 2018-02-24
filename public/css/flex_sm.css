@@ -220,9 +220,41 @@
     width: 95%;
   }
 
+    .side_header {
+      text-align: center;
+    }
+
+    .side_news_item h3 {
+      text-align: center;
+    }
+
+    .side_news_item p {
+      text-align: center;
+    }
+
   .content {
     margin: 0;
   }
+
+    .content h1,
+    .content h2,
+    .content h3 {
+      text-align: center;
+    }
+
+    .content h1 {
+      margin-bottom: 0.4em;
+      font-size: 1.8em;
+      font-weight: 500;
+    }
+
+    .content_title_subhr {
+      width: 170px;
+      border: 0;
+      height: 2px;
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(229, 148, 0, 0.5), rgba(0, 0, 0, 0));
+      margin: 0 auto 1.8em auto;
+    }
 
   .muce_filter {
     flex-direction: column;
@@ -334,6 +366,44 @@
   .desc > .boter_true {
     text-align: center;
     margin-bottom: 30px;
+  }
+
+  #v_novem_domu_container > .content > li {
+   width: 100%;
+  }
+
+  .paginator {
+    margin: 0 0 1.7em 0;
+    justify-content: center;
+  }
+
+  .v_novem_domu_muca {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .v_novem_domu_muca > .muca_info {
+    padding: 0.5em 0;
+  }
+
+  .v_novem_domu_muca .muca_img {
+    width: 90%;
+    height: 300px;
+    overflow: hidden;
+    position: relative;
+    border: 1px solid rgba(0,0,0,0.2);
+  }
+
+  .v_novem_domu_muca .muca_img img {
+    min-height: 100%;
+    min-width: 100%;
+    max-width: 120%;
+  }
+
+
+
+  .v_novem_domu_muca .muca_info p:last-of-type {
+    margin-bottom: 0;
   }
 
 

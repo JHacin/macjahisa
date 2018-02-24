@@ -10,7 +10,11 @@
     <% muce.forEach(function(muca){ %>
       <li>
         <div class="v_novem_domu_muca">
-          <div class="muca_img"><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></div>
+          <div class="muca_img">
+            <a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank">
+              <img src="/files/oglasi_muce/<%= muca.file_name1 %>" />
+            </a>
+          </div>
           <div class="muca_info">
             <h2><%= muca.ime %></h2>
             <p>Datum odhoda: <strong><%= moment(muca.datum).format("D[. ]M[. ]YYYY") %></strong></p>
@@ -24,19 +28,19 @@
     <ul class="paginator">
       <!-- link do prve strani -->
       <% if (current == 1) { %>
-        <a><li class="paginator_disabled paginator_end">Začetek</li></a>
+        <a><li class="paginator_disabled paginator_end"><i class="fa fa-angle-double-left"></i></li></a>
       <% } else { %>
-        <a href="/v_novem_domu/1"><li class="paginator_end paginator_page">Začetek</li></a>
+        <a href="/v_novem_domu/1"><li class="paginator_end paginator_page"><i class="fa fa-angle-double-left"></i></li></a>
       <% } %>
       <!-- glede na trenutno stran določi linki do katerih strani so prikazani (najbližjih nekaj) -->
       <!-- variable i = številka prve strani za pikcami -->
-      <% var i = (Number(current) > 5 ? Number(current) - 3 : 1) %>
+      <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
       <!-- če smo na strani > 5 se na začetek dodajo tri pikce -->
       <% if (i !== 1) { %>
         <a><li class="paginator_disabled">...</li></a>
       <% } %>
       <!-- linki od 4 strani pred "var i" do 4 strani za "var i"; i<= pages čekira da ne prikaže več linkov kot je strani -->
-      <% for (; i <= (Number(current) + 4) && i <= pages; i++) { %>
+      <% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
         <!-- označi aktivno stran -->
         <% if (i == current) { %>
           <a><li class="paginator_active"><%= i %></li></a>
@@ -45,15 +49,15 @@
           <a href="/v_novem_domu/<%= i %>"><li class="paginator_page"><%= i %></li></a>
         <% } %>
         <!-- zadnje tri pikce -->
-        <% if (i == Number(current) + 4 && i < pages) { %>
+        <% if (i == Number(current) + 2 && i < pages) { %>
           <a><li class="paginator_disabled">...</li></a>
         <% } %>
       <% } %>
       <!-- link do zadnje strani -->
       <% if (current == pages) { %>
-        <a><li class="paginator_disabled paginator_end">Konec</li></a>
+        <a><li class="paginator_disabled paginator_end"><i class="fa fa-angle-double-right"></i></li></a>
       <% } else { %>
-        <a href="/v_novem_domu/<%= pages %>"><li class="paginator_end paginator_page">Konec</li></a>
+        <a href="/v_novem_domu/<%= pages %>"><li class="paginator_end paginator_page"><i class="fa fa-angle-double-right"></i></li></a>
       <% } %>
     </ul>
   <% } %>

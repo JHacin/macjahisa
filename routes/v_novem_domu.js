@@ -21,7 +21,7 @@ var Muca = require("../models/muca");
 // });
 
 router.get("/:page", function(req, res, next){
-  var perPage = 6;
+  var perPage = 8;
   var page = req.params.page || 1;
 
   // najdi podstran

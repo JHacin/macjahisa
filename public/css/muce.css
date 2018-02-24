@@ -80,12 +80,25 @@
   margin: 0 0 0.3em 0;
 }
 
+.muca_img {
+  width: 65%;
+  height: 300px;
+  overflow: hidden;
+  position: relative;
+}
+
 .muca_img img {
-  border: 1px solid rgba(0,0,0,0.4);
-  border-bottom: 5px solid #343a40;
-  max-width: 90%;
-  height: 200px;
-  margin-bottom: 0;
+  border: 1px solid rgba(0,0,0,0.1);
+  position: absolute;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 150%;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+
 }
 
 .vet_status img {
@@ -231,34 +244,56 @@
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content: center;
   width: 100%;
   margin: 0;
 }
 
 #v_novem_domu_container > .content > li {
   width: 50%;
-  text-align: center;
 }
 
 .v_novem_domu_muca {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin-bottom: 1em;
   width: 100%;
 }
 
-.v_novem_domu_muca img {
-  width: auto;
-  height: 200px;
+.v_novem_domu_muca .muca_img {
+  width: 50%;
+  height: 248px;
+  overflow: hidden;
+  position: relative;
+  border: 1px solid rgba(0,0,0,0.2);
 }
+
+.v_novem_domu_muca .muca_img img {
+
+  position: absolute;
+  margin: auto;
+  min-height: 100%;
+  min-width: 100%;
+  max-width: 140%;
+  left: -100%;
+  right: -100%;
+  top: -100%;
+  bottom: -100%;
+
+}
+
+.v_novem_domu_muca h2 {
+  margin: 0;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
 
 .v_novem_domu_muca > .muca_info {
-  padding: 0;
-}
-
-.v_novem_domu_muca p {
-  text-align: center;
+  padding: 0.5em 0 0 0.5em;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
 }
 
 /* PAGINATOR */
@@ -266,34 +301,47 @@
   list-style: none;
   display: flex;
   flex-direction: row;
-  width: 100%;
   padding: 0;
-  border: 1px solid rgba(0,0,0,0.3);
+
 }
 
 .paginator a {
   text-align: center;
-  border-right: 1px solid rgba(0,0,0,0.3);
-  width: 12.5%;
+  border: 1px solid rgba(0,0,0,0.2);
+  border-right: none;
+  width: 40px;
+  height: 36px;
+  transition: none;
+  font-weight: 500;
+}
+
+.paginator a:last-of-type {
+  border-right: 1px solid rgba(0,0,0,0.2);
+}
+
+.paginator a i {
+  vertical-align: middle;
+}
+
+
+.paginator a:hover {
+  color: #343a40;
 }
 
 .paginator a li {
-  padding: 15px;
-}
-
-.paginator a:last-child {
-  border-right: none;
+  padding: 10px 0;
+  transition: all 0.2s ease;
 }
 
 .paginator_disabled {
-  color: lightgray;
+  color: #e8e8e8;
 }
 
 .paginator_active {
-  background: lightgray;
+  background: #e8e8e8;
   color: #343a40;
 }
 
 .paginator_page:hover {
-  background: #e59400;
+  background: rgba(229, 148, 0, 0.9);
 }
