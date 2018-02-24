@@ -256,10 +256,18 @@
       margin: 0 auto 1.8em auto;
     }
 
+    .content p {
+      margin: 0 0 0.8em 0;
+    }
+
     .content img {
       margin-bottom: 1em;
       max-width: 100%;
       height: auto;
+    }
+
+    .content p img {
+      margin: 0;
     }
 
   .muce_filter {
