@@ -224,3 +224,16 @@ a {
   flex-direction: row;
   justify-content: space-between;
 }
+
+.jplist-panel .jplist-pagination button:focus,
+.jplist-panel .jplist-pagination button:active {
+  outline: 0;
+}
+
+.jplist-panel .text-filter-box .jplist-icon {
+  transition: all 0.2s ease;
+}
+
+.jplist-panel .text-filter-box .jplist-icon:hover {
+    color: #e18a07;
+}
