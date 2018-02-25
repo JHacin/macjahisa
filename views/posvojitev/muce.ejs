@@ -1,11 +1,7 @@
 <% include ../partials/header %>
+<% include ../partials/nonindex %>
 <% include ../partials/functions/muce %>
-<div class="nonindex">
-  <div class="container_full">
-    <div class="content">
 
-        <h1 class="content_heading">Muce, ki iščejo dom</h1>
-        <hr class="content_title_subhr" />
           <div class="intro">
             <%- podstran.vsebina %>
           </div>
@@ -13,7 +9,7 @@
         <!-- main div -->
         <div class="muce_seznam">
           <!-- panel -->
-          <div class="jplist-panel">
+          <div class="jplist-panel muce_filtri">
 
             <!-- text filter box -->
             <div class="text-filter-box">
@@ -118,7 +114,6 @@
           </div>
         </div>
       </div><!-- end main -->
-    </div><!--end content-->
-  </div><!--end container-full-->
-</div><!--end nonindex div-->
+
+<% include ../partials/sidebar_onlynews %>
 <% include ../partials/footer %>

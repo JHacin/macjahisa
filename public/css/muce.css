@@ -74,6 +74,9 @@
   width: 33.33333333%;
   text-align: center;
   margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .muca h2 {
@@ -81,8 +84,8 @@
 }
 
 .muca_img {
-  width: 65%;
-  height: 300px;
+  width: 90%;
+  height: 200px;
   overflow: hidden;
   position: relative;
 }
@@ -93,7 +96,7 @@
   margin: auto;
   min-height: 100%;
   min-width: 100%;
-  max-width: 150%;
+  max-width: 120%;
   left: -100%;
   right: -100%;
   top: -100%;
@@ -115,6 +118,11 @@
 .cat_more a {
   color: #e59400;
   font-weight: normal;
+  transition: all 0.2s ease;
+}
+
+.cat_more a:hover {
+  color: #343a40;
 }
 
 .muce_nav {
@@ -296,45 +304,133 @@
   justify-content: flex-start;
 }
 
+/* JPLIST */
+.muce_filtri {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+  .muce_filtri .jplist-icon {
+    height: 35px;
+    box-shadow: none;
+    color: #343a40;
+    line-height: 35px;
+    padding: 0 12px;
+  }
+
+  .jplist-panel .text-filter-box .jplist-icon {
+    background: rgba(230, 230, 230,1);
+  }
+
+  .jplist-panel input[type=text] {
+    height: 35px;
+    width: 200px;
+    outline: none;
+    border: 1px solid #DDDDDD;
+    webkit-transition: all 0.30s ease-in-out;
+    -moz-transition: all 0.30s ease-in-out;
+    -ms-transition: all 0.30s ease-in-out;
+    -o-transition: all 0.30s ease-in-out;
+  }
+
+  .jplist-panel input[type=text]:focus {
+    border: 1px solid rgba(229, 148, 0, 0.7);
+    box-shadow: 0 0 3px rgba(229, 148, 0,0.7);
+  }
+
+  .jplist-panel .jplist-group {
+    height: 35px;
+    color: #27252a;
+    margin: 10px 10px 0 0;
+    padding: 0 5px 0 10px;
+  }
+
+  .jplist-panel .jplist-group input, .jplist-panel .jplist-group label {
+    height: 35px;
+    line-height: 35px;
+  }
+
+  .jplist-panel .jplist-pagination {
+    float: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin-top: 1em;
+  }
+
+  .jplist-panel .jplist-pagination .jplist-pagingprev button, .jplist-panel .jplist-pagination .jplist-pagingnext button {
+    font-size: 24px;
+    line-height: 24px;
+    font-family: "Raleway", sans-serif;
+  }
+
+  .jplist-panel .jplist-pagination button {
+    display: inline-block;
+    color: #343a40;
+    height: 35px;
+    line-height: 30px;
+    padding: 0 13px;
+  }
+
+.jplist-panel button:hover {
+  color: #e18a07;
+  cursor: pointer;
+  background: #f2f2f2;
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fafafa),color-stop(100%,#ededed));
+  background: -webkit-linear-gradient(top,#fafafa 0,#ededed 100%);
+  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%);
+}
+
+.jplist-panel button {
+  color: #343a40;
+  background: rgba(230, 230, 230,0.4);
+  margin: 10px 10px 0 0;
+}
+
+.jplist-panel .jplist-pagination .jplist-current {
+  font-weight: normal;
+  color: #e18a07;
+}
+
 /* PAGINATOR */
 .paginator {
   list-style: none;
   display: flex;
   flex-direction: row;
+  justify-content: center;
   padding: 0;
-
 }
 
 .paginator a {
   text-align: center;
   border: 1px solid rgba(0,0,0,0.2);
-  border-right: none;
-  width: 40px;
-  height: 36px;
+  font-family: sans-serif;
+  width: 35px;
+  font-size: 14px;
+  height: 35px;
+  line-height: 35px;
   transition: none;
+  padding: 0;
   font-weight: 500;
+  margin: 10px 10px 0 0;
+  border-radius: 3px;
+  background: rgba(230, 230, 230,0.4);
 }
 
-.paginator a:last-of-type {
-  border-right: 1px solid rgba(0,0,0,0.2);
-}
+
 
 .paginator a i {
   vertical-align: middle;
 }
 
-
-.paginator a:hover {
-  color: #343a40;
-}
-
 .paginator a li {
-  padding: 10px 0;
   transition: all 0.2s ease;
 }
 
 .paginator_disabled {
-  color: #e8e8e8;
+  color: #343a40;
 }
 
 .paginator_active {
@@ -343,5 +439,8 @@
 }
 
 .paginator_page:hover {
-  background: rgba(229, 148, 0, 0.9);
+  background: #f2f2f2;
+  background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fafafa),color-stop(100%,#ededed));
+  background: -webkit-linear-gradient(top,#fafafa 0,#ededed 100%);
+  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%);
 }
