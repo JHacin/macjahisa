@@ -327,6 +327,7 @@
     height: 35px;
     width: 200px;
     outline: none;
+    font-family: "Raleway", sans-serif;
     border: 1px solid #DDDDDD;
     webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
@@ -349,6 +350,7 @@
   .jplist-panel .jplist-group input, .jplist-panel .jplist-group label {
     height: 35px;
     line-height: 35px;
+    font-family: "Raleway", sans-serif;
   }
 
   .jplist-panel .jplist-pagination {
@@ -407,7 +409,7 @@
     padding: 0 10px;
     margin: 10px 10px 0 0;
     background: none;
-
+    font-family: "Raleway", sans-serif;
 }
 
 
