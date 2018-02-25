@@ -492,5 +492,20 @@
         margin: 10px 3px 0px 0px;
     }
 
+    .novice_seznam .jplist-panel {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .novice_seznam .jplist-panel .jplist-pagination {
+      order: 2;
+      margin-bottom: 1.5em;
+      margin-top: 0.5em;
+    }
+
+
+
 
 }

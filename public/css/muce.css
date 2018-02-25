@@ -269,8 +269,8 @@
 }
 
 .v_novem_domu_muca .muca_img {
-  width: 50%;
-  height: 248px;
+  width: 60%;
+  height: 230px;
   overflow: hidden;
   position: relative;
   border: 1px solid rgba(0,0,0,0.2);
@@ -282,7 +282,7 @@
   margin: auto;
   min-height: 100%;
   min-width: 100%;
-  max-width: 140%;
+  max-width: 110%;
   left: -100%;
   right: -100%;
   top: -100%;

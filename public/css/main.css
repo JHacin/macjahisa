@@ -154,4 +154,73 @@ a {
 .novice_seznam {
   display: flex;
   flex-direction: column;
+
+}
+
+  .novice_seznam .list {
+    margin-top: 0;
+  }
+
+  .novica_naslov_title {
+    font-size: 16px;
+    font-weight: 500;
+    color: #e18a07;
+  }
+
+
+.jplist-icon {
+    height: 35px;
+    line-height: 35px;
+}
+
+.novice_seznam .jplist-panel .jplist-pagination {
+    justify-content: flex-start;
+    margin-top: 0;
+}
+
+  .novice_seznam h4 {
+    margin: 0 0 0.2em 0;
+  }
+
+  .novice_seznam .novica_txt {
+    margin: 0;
+    font-size: 14px;
+  }
+
+  .list-item .novica_naslov_datum {
+    font-weight: 500;
+    font-size: 13px;
+    margin-bottom: 0.4em;
+  }
+
+.novice_seznam .list-item {
+  padding-top: 1em;
+  padding-bottom: 1em;
+  border-top: 1px solid rgba(0,0,0,0.1);
+}
+
+.novice_seznam .list-item:first-child {
+  border-top: none;
+  padding-top: 0;
+}
+
+.novica_txt a i {
+  font-size: 12px;
+  color: #e18a07;
+}
+
+.novica_txt a i,
+.novica_naslov_title {
+  transition: all 0.2s ease;
+}
+
+.novica_txt a i:hover,
+.novica_naslov_title:hover {
+  color: #343a40;
+}
+
+.novice_seznam .jplist-panel {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
