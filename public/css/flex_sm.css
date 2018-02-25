@@ -500,10 +500,19 @@
     }
 
     .novice_seznam .jplist-panel .jplist-pagination {
-      order: 2;
+      order: 3;
       margin-bottom: 1.5em;
       margin-top: 0.5em;
     }
+
+    .novice_seznam .jplist-panel .jplist-label {
+      order: 2;
+      margin-top: 1.2em;
+    }
+
+    .novice_seznam .jplist-panel .text-filter-box {
+    order: 1;
+  }
 
 
 

@@ -372,7 +372,7 @@
     display: inline-block;
     color: #343a40;
     height: 35px;
-    line-height: 30px;
+    line-height: 35px;
     padding: 0 13px;
   }
 
@@ -397,18 +397,9 @@
 }
 
 .jplist-label {
-    font-size: 16px;
+    font-size: 14px;
     height: 35px;
     line-height: 35px;
-    float: left;
-    box-shadow: none;
-    border: none;
-    border-radius: 0;
-    text-shadow: none;
-    color: #27252a;
-    padding: 0 10px;
-    margin: 10px 10px 0 0;
-    background: none;
     font-family: "Raleway", sans-serif;
 }
 
