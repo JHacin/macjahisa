@@ -435,7 +435,16 @@
     margin: 5px 5px 0 0;
 }
 
+.content .novica_datum {
+  text-align: center;
+  margin-top: 0;
+  font-weight: 400;
+}
 
+.social_buttons {
+  justify-content: center;
+  margin: 0.5em 0 1.5em 0;
+}
 
   /* END MUCE */
   .izobrazevalne_vsebine > .vnos {

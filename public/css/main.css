@@ -11,6 +11,22 @@ body > div > .container {
   margin: 0 auto;
 }
 
+.social_buttons {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+  .social_buttons > div {
+    margin-right: 5px;
+  }
+
+.content .novica_datum {
+  font-weight: 400;
+}
+
 h3 {
   font-weight: normal;
 }
