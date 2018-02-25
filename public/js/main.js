@@ -21,13 +21,42 @@ $(document).ready( function() {
     });
 
    // MUCA IMAGE SLIDER
+   // $('.photos').slick({
+   //   dots: true,
+   //   arrows: true,
+   //   infinite: true,
+   //   speed: 300,
+   //   slidesToShow: 2,
+   //   slidesToScroll: 1,
+   //   adaptiveHeight: true,
+   //   variableWidth: true
+   // });
+
    $('.photos').slick({
      dots: true,
-     arrows: true,
+     arrows: false,
      infinite: true,
-     speed: 300,
+     speed: 400,
+     autoplay: true,
+     autoplaySpeed: 2500,
      slidesToShow: 1,
-     adaptiveHeight: true,
+     centerMode: true,
+     variableWidth: true,
+     responsive: [
+       {
+         breakpoint: 600,
+         settings: {
+           dots: true,
+           arrows: true,
+           infinite: true,
+           speed: 400,
+           adaptiveHeight: true,
+           variableWidth: false,
+           centerMode: false,
+           slidesToShow: 1
+         }
+       }
+     ]
    });
 
    // indexpage - change top bar background on scroll

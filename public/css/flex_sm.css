@@ -18,6 +18,19 @@
     margin: 0 auto;
   }
 
+  .photos img {
+    width: 100%;
+    height:
+  }
+
+  .desc .contact h3 {
+    text-align: center;
+  }
+
+  .slick-dotted.slick-slider {
+    margin-bottom: 0px;
+}
+
   .nav {
     order: 1;
     position: fixed;
@@ -357,6 +370,27 @@
     width: 100%;
   }
 
+  .data {
+    margin-top: 20px;
+    margin-bottom: 0.55em;
+  }
+
+  .photos {
+    order: 1;
+  }
+
+  .data {
+    order: 2;
+  }
+
+  .desc {
+    order: 3;
+  }
+
+  .data_header h3 {
+    text-align: center;
+  }
+
   #muca_name {
     text-align: center;
   }
@@ -372,12 +406,35 @@
     text-align: center;
   }
 
+  .content .muce_back {
+    text-align: center;
+}
+
   .photos {
-    margin-right: 0;
+    width: 100%;
+    padding: 0 25px;
   }
 
   .desc {
-    margin-top: 30px;
+    margin-top: 10px;
+    padding-right: 0;
+  }
+
+  .cat_full h2 {
+    padding-left: 0;
+  }
+
+  .slick-prev {
+    left: -5px;
+  }
+
+  .slick-dots {
+
+    position: static;
+  }
+
+  .slick-next {
+    right: -5px;
   }
 
   .desc h2 {
@@ -390,7 +447,7 @@
 
   .desc > .boter_true {
     text-align: center;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
   }
 
   #v_novem_domu_container > .content > li {

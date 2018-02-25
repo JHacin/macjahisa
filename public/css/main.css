@@ -17,6 +17,7 @@ body > div > .container {
   justify-content: flex-start;
   align-items: center;
   width: 100%;
+  margin-top: 1em;
 }
 
   .social_buttons > div {

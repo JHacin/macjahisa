@@ -27,7 +27,7 @@
 
 <h1 class="content_heading" id="muca_name"><%= muca.ime %></h1>
 <hr class="content_title_subhr" id="name_hr" />
-<p id="muce_back"><a href="/posvojitev/muce"><strong><i class="fa fa-undo" aria-hidden="true"></i> nazaj na seznam</strong></a></p>
+<p class="muce_back"><a href="/posvojitev/muce"><i class="fa fa-backward" aria-hidden="true"></i> nazaj na seznam muc</a></p>
 <div class="cat_full">
   <div class="photos">
     <% slike.forEach(function(slika){ %>
@@ -35,6 +35,40 @@
         <img src="/files/oglasi_muce/<%= slika %>" />
       </div>
     <% }); %>
+  </div>
+  <div class="desc">
+    <h2>O <%= muca.spol == 3 ? "nama" : "meni" %>:</h2>
+    <div class="full_desc">
+      <%- muca.opis %>
+    </div>
+    <div class="contact">
+      <h2>Kontakt:</h2>
+      <p class="contact_info"><%= muca.kontakt %></p>
+    </div>
+    <% if(muca.posvojitev_na_daljavo == 1) { %>
+      <h2>Posvojitev na daljavo:</h2>
+      <div class="boter_true">
+        <p>Muca je na voljo za posvojitev na daljavo. Če jo želite posvojiti na daljavo, lahko to storite preko <a onclick="this.target='_blank'" href="http://www.macjiboter.si/posvojitev_na_daljavo_obrazec.php?id=1637">spletnega obrazca</a> in postanete mačji boter. Preberite si več o <a onclick="this.target='_blank'" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
+      </p></div>
+    <% }; %>
+
+    <div class="social_buttons">
+      <div class="fb-like"
+        data-href="<%= social_url %>"
+        data-layout="button"
+        data-action="like"
+        data-show-faces="true">
+      </div>
+      <div class="fb-share-button"
+        data-href="<%= social_url %>"
+        data-layout="button">
+      </div>
+      <a class="twitter-share-button"
+        href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
+        data-text="<%= social_description %>">
+      <i class="fa fa-twitter"></i> Tweet</a>
+    </div>
+
   </div>
   <div class="data">
     <div class="data_basic">
@@ -88,39 +122,6 @@
       </div>
       <!-- END VET STATUS -->
     </div>
-  </div>
-  <div class="desc">
-    <h2>O <%= muca.spol == 3 ? "nama" : "meni" %>:</h2>
-    <div>
-      <%- muca.opis %>
-    </div>
-    <div class="contact">
-      <p><span class="orange"><strong>Kontakt:</strong></span></p>
-      <p><strong><%= muca.kontakt %></strong></p>
-    </div>
-    <% if(muca.posvojitev_na_daljavo == 1) { %>
-      <p class="boter_true">
-        <em>
-          Muca je na voljo za <strong>posvojitev na daljavo</strong>. Če jo želite posvojiti na daljavo, lahko to storite preko <a onclick="this.target='_blank'" href="http://www.macjiboter.si/posvojitev_na_daljavo_obrazec.php?id=1637">spletnega obrazca</a> in postanete mačji boter. Preberite si več o <a onclick="this.target='_blank'" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
-        </em>
-      </p>
-    <% }; %>
-  </div>
-  <div class="social_buttons">
-    <div class="fb-like"
-      data-href="<%= social_url %>"
-      data-layout="button"
-      data-action="like"
-      data-show-faces="true">
-    </div>
-    <div class="fb-share-button"
-      data-href="<%= social_url %>"
-      data-layout="button">
-    </div>
-    <a class="twitter-share-button"
-      href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
-      data-text="<%= social_description %>">
-    <i class="fa fa-twitter"></i> Tweet</a>
   </div>
 </div>
 <% include ../partials/sidebar %>
