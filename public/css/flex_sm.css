@@ -486,5 +486,11 @@
       margin: 0 0 1.5em 0;
     }
 
+    .jplist-panel button {
+        color: rgb(52, 58, 64);
+        background: rgba(230, 230, 230, 0.4);
+        margin: 10px 3px 0px 0px;
+    }
+
 
 }
