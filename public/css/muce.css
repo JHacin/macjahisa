@@ -394,6 +394,24 @@
   color: #e18a07;
 }
 
+.jplist-label {
+    font-size: 16px;
+    height: 35px;
+    line-height: 35px;
+    float: left;
+    box-shadow: none;
+    border: none;
+    border-radius: 0;
+    text-shadow: none;
+    color: #27252a;
+    padding: 0 10px;
+    margin: 10px 10px 0 0;
+    background: none;
+
+}
+
+
+
 /* PAGINATOR */
 .paginator {
   list-style: none;
