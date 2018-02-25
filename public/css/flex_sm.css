@@ -157,10 +157,11 @@
   }
 
   .top_bar,
-  .jumbo_logo,
   .nav_div {
     display: none;
   }
+
+  
 
   .jumbo {
     padding: 0;
