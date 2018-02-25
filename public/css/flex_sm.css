@@ -5,6 +5,10 @@
     flex-direction: column;
   }
 
+  .content ul {
+    padding-left: 24px;
+  }
+
   body > div > .container {
     max-width: 100%;
     display: flex;
