@@ -1,0 +1,264 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@MacjaHisa">
+    <meta name="twitter:creator" content="@MacjaHisa">
+    <% if (locals.social_description) { %>
+    <meta name="description" content="<%= social_description %>" />
+    <meta property="og:description" content="<%= social_description %>" />
+    <meta name="twitter:description" content="<%= social_description %>">
+    <% } else { %>
+    <meta name="description" content="Mačja hiša je projekt Društva za pomoč živalim v stiski Slovenija, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo Cats Protection ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk." />
+    <meta property="og:description" content="Mačja hiša je projekt Društva za pomoč živalim v stiski Slovenija, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo Cats Protection ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk." />
+    <% } %>
+    <title><%= title %></title>
+    <meta property="og:url" content="<%= social_url %>" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="<%= title %>" />
+    <meta name="twitter:title" content="<%= title %>">
+    <% if (locals.social_image) { %>
+    <meta property="og:image" content="<%= social_image %>" />
+    <meta name="twitter:image" content="<%= social_image %>">
+    <% } else { %>
+    <meta property="og:image" content="<%= social_image_default %>" />
+    <meta name="twitter:image" content="<%= social_image_default %>">
+    <% } %>
+    <link rel="icon" href="/images/favicon.ico">
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/flex_sm.css" />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="/tipuesearch/css/tipuesearch.css">
+    <link rel="stylesheet" href="/tipuesearch/css/normalize.css">
+    <script src="/tipuesearch/tipuesearch_content.js"></script>
+    <link rel="stylesheet" href="/tipuesearch/css/tipuesearch.css">
+    <script src="/tipuesearch/tipuesearch_set.js"></script>
+    <script src="/tipuesearch/tipuesearch.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+    <link rel="stylesheet" href="/css/index.css" />
+
+  </head>
+  <body>
+    <!-- FACEBOOK JAVASCRIPT SDK -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId      : '1653543114703176',
+          cookie     : true,
+          xfbml      : true,
+          version    : 'v2.12'
+        });
+
+        FB.AppEvents.logPageView();
+      };
+
+      (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+       }(document, 'script', 'facebook-jssdk'));
+    </script>
+    <!-- END FACEBOOK JAVASCRIPT SDK -->
+
+    <div class="top_bar top_bar_index">
+      <div class="container">
+        <div class="top_bar_contact">
+          <a href="mailto:info@macjahisa.si"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@macjahisa.si</a>
+          <a href="tel:040937959"><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</a>
+        </div>
+        <div class="top_bar_social">
+          <a href="http://www.macjiboter.si/" target="_blank">Mačji boter</a> |
+          <a href="http://www.supercombe.si/" target="_blank">Super Čombe</a> |
+          <a href="http://www.macjahisa-vet.si/" target="_blank">Veterina MH</a>
+          <a href="https://www.facebook.com/MacjaHisa" target="_blank"><i class="fa fa-facebook-official" aria-hidden="true"></i></a>
+          <a href="https://twitter.com/MacjaHisa" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+          <a href="http://www.youtube.com/channel/UC_Gq4voyvfoOCafJMNY0oHg" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+          <a href="http://instagram.com/macjahisa" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+          <a href="https://plus.google.com/+macjahisa" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+        </div>
+      </div>
+    </div>
+    <div class="jumbo jumbo_index">
+      <div class="container">
+        <div class="jumbo_logo_index">
+            <img src="/files/page/logo_notitle_original.png" />
+        </div>
+        <div class="jumbo_index_heading">
+          <h1>Mačja hiša</h1>
+          <hr class="index_hr"/>
+          <h4>Pomagamo brezdomnim mucam po vsej Sloveniji.</h4>
+        </div>
+        <div class="jumbo_links jumbo_links_index">
+
+             <div class="jumbo_button_index">
+             <a href="/posvojitev/muce">
+               <button>
+               Posvojitev muce <i class="fa fa-paw" aria-hidden="true"></i>
+              </button>
+             </a>
+             </div>
+
+
+             <div class="jumbo_button_index">
+               <a href="/pomoc/donacije">
+                 <button>
+                   Donacije <i class="fa fa-heart" aria-hidden="true"></i>
+                 </button>
+               </a>
+             </div>
+
+
+            <div class="jumbo_button_index">
+              <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                <input type="hidden" name="cmd" value="_s-xclick">
+                <input type="hidden" name="hosted_button_id" value="3T8VTPP8R7H74">
+                <button type="submit"  border="0" alt="PayPal donacije">PayPal donacije <i class='fa fa-paypal' aria-hidden='true'></i></button>
+              </form>
+            </div>
+
+
+            <div class="jumbo_button_index">
+              <a href="/pomoc/dohodnina">
+                <button>
+                  Namenite nam del dohodnine <i class="fa fa-percent" aria-hidden="true"></i>
+                </button>
+              </a>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="nav nav_index">
+      <div class="container">
+        <div class="mobile_logo_index">
+          <a href="/">
+            <img src="/images/logo_mobile.png" />
+          </a>
+        </div>
+        <div class="mobile_top_contact_index">
+          <a href="mailto:info@macjahisa.si"><i class="fa fa-envelope-o" aria-hidden="true"></i> info@macjahisa.si</a><br />
+          <a href="tel:040937959"><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</a>
+        </div>
+        <div class="stellarnav stellar_index">
+          <ul>
+            <% nav_kategorije.forEach(function(kategorija){ %>
+            <li class="nav_kategorija">
+              <a class="<%= kategorija.naslov == 'V novem domu' ? '' : 'kat_toggle' %>" href="<%= kategorija.naslov == 'V novem domu' ? '/v_novem_domu/1' : '#' %>">
+              <%= kategorija.naslov %>
+              </a>
+                <!-- PODSTRANI -->
+                <% if(kategorija.podstrani_length > 1) { %>
+                  <ul class="nav_podstrani">
+                    <% nav_podstrani.forEach(function(podstran){ %>
+                      <% if (podstran.kategorija.equals(kategorija._id) && podstran.objava == "Da") { %>
+                        <li class="nav_podstran"><a href="/<%= kategorija.url %>/<%= podstran.url %>"><%= podstran.naslov %></a></li>
+                      <% }; %>
+                    <% }); %>
+                  </ul>
+                <% }; %>
+            </li>
+
+            <% }); %>
+            <li class="search">
+              <form action="/search">
+                <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
+                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </form>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+    </div>
+    <div class="main">
+      <div class="index_intro">
+        <div class="container">
+          <h1>Kdo smo?</h1>
+          <p>Mačja hiša je projekt <strong>Društva za pomoč živalim v stiski Slovenija</strong>, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo <strong>Cats Protection</strong> ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk.</p>
+          <p class="intro_more"><a href="/o_nas/kdo_smo">Več o nas <i class="fa fa-arrow-circle-right"></i></a></p>
+        </div>
+      </div>
+      <div class="index_news">
+        <div class="container">
+          <h1>Kaj je novega?</h1>
+          <hr class="help_hr"/>
+          <div class="nreel">
+            <% novice.forEach(function(novica){ %>
+            <div class="nreel_item">
+              <div class="nreel_img"><img src="/files/<%= novica.naslovna_slika %>" /></div>
+              <div class="nreel_txt">
+                <h3 class="nreel_title"><a href="/novice/<%= novica.dbid %>"><%= novica.naslov %></a></h3>
+                <p class="nreel_date"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></p>
+                <p class="nreel_short"><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "[...]" %> <a href="/novice/<%= novica.dbid %>"></a></p>
+                <p class="nreel_more"><a href="/novice/<%= novica.dbid %>">Več</a></p>
+              </div>
+            </div>
+            <% }); %>
+          </div>
+          <p class="news_more"><a href="/novice">Vse novice <i class="fa fa-arrow-circle-right"></i></a></p>
+        </div>
+      </div>
+      <div class="index_cats">
+        <div class="container">
+          <div class="cat_reel">
+            <% muce.forEach(function(muca){ %>
+              <div class="index_cat">
+                <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
+                <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
+              </div>
+            <% }); %>
+          </div>
+        </div>
+      </div>
+      <div class="index_help">
+        <div class="container">
+          <div>
+            <h2>Kako nas lahko podprete?</h2>
+            <hr class="help_hr"/>
+          </div>
+          <div class="help_reel">
+            <div class="help_item">
+
+
+              <h4>Donacije</h4><i class="fa fa-eur" aria-hidden="true"></i>
+              <p>Z donacijami in prispevki v finančni ali materialni obliki.</p>
+            </div>
+            <div class="help_item">
+
+
+              <h4>Veterina in trgovina</h4><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+              <p>Z nakupovanjem v trgovini Super Čombe in uporabo storitev na Veterini MH.</p>
+            </div>
+            <div class="help_item">
+
+
+              <h4>Posvojitev</h4><i class="fa fa-paw" aria-hidden="true"></i>
+              <p>Muce lahko pri nas posvojite fizično ali na daljavo.</p>
+            </div>
+            <div class="help_item">
+
+
+              <h4>Prostovoljstvo</h4><i class="fa fa-users" aria-hidden="true"></i>
+              <p>Pomoč pri začasnem nameščanju muc, delu s potencialnimi posvojitelji, delu na terenu, ipd.</p>
+            </div>
+            <div class="help_item">
+
+
+              <h4>Socialna omrežja</h4><i class="fa fa-share-alt" aria-hidden="true"></i>
+              <p>Naše objave lahko spremljate in delite na forumu Pomagamo živalim ter našem Twitterju in Facebooku.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+
+<% include ./partials/footer %>
