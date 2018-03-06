@@ -43,8 +43,13 @@
     <link href="https://fonts.googleapis.com/css?family=Alegreya:400,500,700,800&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Alegreya+SC:400,500,700,800,900&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
+    <style type="text/css">
+    	#mc_embed_signup{background:#fff; clear:left; font:14px Helvetica,Arial,sans-serif; width:100%;}
+    	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
+    	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
+    </style>
     <link rel="stylesheet" href="/css/index.css" />
-
   </head>
   <body>
     <!-- FACEBOOK JAVASCRIPT SDK -->
@@ -109,33 +114,94 @@
     </div>
     <div class="i_jumbo">
       <div class="i_jumbo_text">
-        <h1 class="i_jumbo_title">Naslov</h1>
-        <h2 class="i_jumbo_subtitle">Podnaslov</h2>
-        <button class="i_jumbo_button">Gumb</button>
+        <h1 class="i_jumbo_title">Posvojitev muce</h1>
+        <h2 class="i_jumbo_subtitle">Muce lahko pri nas posvojite fizično ali na daljavo.</h2>
+        <button class="i_jumbo_button">Muce, ki iščejo dom</button>
       </div>
     </div>
     <div class="i_dohodnina">
-
-      <h1>Namenite nam del dohodnine</h1>
       <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>
       <p>Z vašo pomočjo bomo lahko pomagali še večjemu številu muc!</p>
+      <button>Namenite nam del dohodnine</button>
     </div>
     <div class="i_muce">
-
+      <div class="i_muce_head">
+        <h1>Iščejo dom</h1>
+      </div>
+      <div class="i_muce_reel">
+        <% muce.forEach(function(muca){ %>
+          <div class="i_muca">
+            <div class="i_muca_img">
+              <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
+            </div>
+            <div class="i_muca_txt">
+              <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
+            </div>
+          </div>
+        <% }); %>
+      </div>
+    </div>
+    <div class="divider">
+      <img src="/files/page/section_divider.jpg" />
     </div>
     <div class="i_mailing">
+      <h2>Naroči se na e-novice</h2>
+      <div id="mc_embed_signup">
+        <form action="https://macjahisa.us5.list-manage.com/subscribe/post?u=d07acd44f9838ec72a617ce1f&amp;id=b794a4e2e2" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+            <div id="mc_embed_signup_scroll">
 
+        	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="e-naslov" required>
+            <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+            <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d07acd44f9838ec72a617ce1f_b794a4e2e2" tabindex="-1" value=""></div>
+            <div class="clear"><input type="submit" value="Prijavi se" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            </div>
+        </form>
+      </div>
     </div>
     <div class="i_help">
-
+      <h1>Kako nas še lahko podprete?</h1>
+      <div class="help_reel">
+        <div class="help_item">
+          <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <h3>Veterina in trgovina</h3>
+          <hr />
+          <p>Z nakupovanjem v trgovini <span class="orange">Super Čombe</span> in uporabo storitev na <span class="orange">Veterini MH</span>.</p>
+        </div>
+        <div class="help_item">
+          <i class="fa fa-users" aria-hidden="true"></i>
+          <h3>Prostovoljstvo</h3>
+          <hr />
+          <p>Pomoč pri začasnem nameščanju muc, delu s potencialnimi posvojitelji, delu na terenu, ipd.</p>
+        </div>
+        <div class="help_item">
+          <i class="fa fa-share-alt" aria-hidden="true"></i>
+          <h3>Socialna omrežja</h3>
+          <hr />
+          <p>Naše objave lahko spremljate in delite na forumu <span class="orange">Pomagamo živalim</span> ter našem <span class="orange">Twitterju</span> in <span class="orange">Facebooku</span>.</p>
+        </div>
+      </div>
     </div>
     <div class="i_edu">
-
+      <h1>Več znaš, več veljaš</h1>
+      <div class="i_edu_img">
+        <img src="/files/index/edu1.jpg" />
+        <img src="/files/index/edu2.jpg" />
+      </div>
+      <p>Predstavljamo novost - <strong>izobraževalne vsebine</strong> Mačje hiše.</p>
+      <p>Članke in letake lahko v PDF formatu shranite na svoj računalnik, jih preberete in natisnete.</p>
+      <p>Zelo veseli bomo tudi, če jih boste delili s prijatelji.</p>
+      <button>Preberi več</button>
     </div>
     <div class="i_donate">
-
+      <h2>Z vašo pomočjo lahko pomagamo še večjemu številu muc!</h2>
+      <button>DONIRAJ</button>
     </div>
     <div class="i_boter">
-
+      <h1>Mačji boter</h1>
+      <img src="/files/index/boter.png" />
+      <p>Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>.</p>
+        <p>Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck.</p>
+        <p>Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.</p>
+      <button>Posvoji muco na daljavo</button>
     </div>
 <!-- <% include ./partials/footer %> -->
