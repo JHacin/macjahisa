@@ -158,6 +158,10 @@ p {
 .i_jumbo > div {
   width: 100%;
   height: calc(100vh - 95px);
+  background-image: url(/files/index/5.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
   .i_jumbo_1 {
     background-image: url(/files/index/5.jpg);
@@ -203,6 +207,10 @@ p {
       letter-spacing: 1px;
       padding: 15px 30px;
       border-radius: 5px;
+    }
+
+    .slick-slide:focus {
+      outline: none;
     }
 
     .i_jumbo .slick-dots {
