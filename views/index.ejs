@@ -49,6 +49,8 @@
     	/* Add your own MailChimp form style overrides in your site stylesheet or in this style block.
     	   We recommend moving this block and the preceding CSS link to the HEAD of your HTML file. */
     </style>
+    <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
+    <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
     <link rel="stylesheet" href="/css/index.css" />
   </head>
   <body>
@@ -82,7 +84,7 @@
         <div class="menu_primary">
           <ul>
             <li>Posvojitev</li>
-            <li>Donacije</li>
+            <li>Vaša pomoč</li>
             <li>Izobraževanje</li>
           </ul>
         </div>
@@ -91,7 +93,6 @@
           <ul>
             <li>O nas</li>
             <li>Zavetišče MH</li>
-            <li>Vaša pomoč</li>
             <li>V novem domu</li>
             <li>Projekt Vita</li>
           </ul>
@@ -113,15 +114,24 @@
       </div>
     </div>
     <div class="i_jumbo">
-      <div class="i_jumbo_text">
-        <h1 class="i_jumbo_title">Posvojitev muce</h1>
-        <h2 class="i_jumbo_subtitle">Muce lahko pri nas posvojite fizično ali na daljavo.</h2>
-        <button class="i_jumbo_button">Muce, ki iščejo dom</button>
+      <div class="i_jumbo_1">
+        <div class="i_jumbo_text">
+          <h1 class="i_jumbo_title">Posvojitev muce</h1>
+          <h2 class="i_jumbo_subtitle">Muce lahko pri nas posvojite fizično ali na daljavo.</h2>
+          <button class="i_jumbo_button">Muce, ki iščejo dom</button>
+        </div>
+      </div>
+      <div class="i_jumbo_2">
+        <div class="i_jumbo_text">
+          <h1 class="i_jumbo_title">Donacije</h1>
+          <h2 class="i_jumbo_subtitle">Pomagajte nam oskrbeti še večje število muc.</h2>
+          <button class="i_jumbo_button">Doniraj</button>
+        </div>
       </div>
     </div>
     <div class="i_dohodnina">
       <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>
-      <p>Z vašo pomočjo bomo lahko pomagali še večjemu številu muc!</p>
+      <p>Vas ne stane nič, nam pa veliko pomeni.</p>
       <button>Namenite nam del dohodnine</button>
     </div>
     <div class="i_muce">
@@ -142,7 +152,8 @@
       </div>
     </div>
     <div class="divider">
-      <img src="/files/page/section_divider.jpg" />
+      <i class="fa fa-ellipsis-h"></i>
+      <!-- <img src="/files/page/section_divider.jpg" /> -->
     </div>
     <div class="i_mailing">
       <h2>Naroči se na e-novice</h2>
@@ -153,7 +164,7 @@
         	<input type="email" value="" name="EMAIL" class="email" id="mce-EMAIL" placeholder="e-naslov" required>
             <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
             <div style="position: absolute; left: -5000px;" aria-hidden="true"><input type="text" name="b_d07acd44f9838ec72a617ce1f_b794a4e2e2" tabindex="-1" value=""></div>
-            <div class="clear"><input type="submit" value="Prijavi se" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
+            <div class="clear"><input type="submit" value="Potrdi" name="subscribe" id="mc-embedded-subscribe" class="button"></div>
             </div>
         </form>
       </div>
@@ -193,15 +204,102 @@
       <button>Preberi več</button>
     </div>
     <div class="i_donate">
-      <h2>Z vašo pomočjo lahko pomagamo še večjemu številu muc!</h2>
+      <h2>Podprite naše delo in nam pomagajte oskrbeti številne brezdomne muce.</h2>
       <button>DONIRAJ</button>
     </div>
     <div class="i_boter">
       <h1>Mačji boter</h1>
       <img src="/files/index/boter.png" />
-      <p>Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>.</p>
-        <p>Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck.</p>
-        <p>Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.</p>
+      <div class="i_boter_txt">
+        Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>. Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck. Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.
+      </div>
       <button>Posvoji muco na daljavo</button>
     </div>
-<!-- <% include ./partials/footer %> -->
+    <!-- Kasneje prestavi v partial in spremeni classe -->
+    <div class="i_footer">
+      <div class="container">
+        <div>
+          <h3>Hitre povezave</h3>
+          <ul>
+            <li>Zavetišče MH</li>
+            <li>Muce, ki iščejo dom</li>
+            <li>Posvojitev na daljavo</li>
+            <li>Izobraževanje</li>
+            <li>Projekt Vita</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Obiščite tudi</h3>
+          <ul>
+            <li>Veterina MH</li>
+            <li>Mačji boter</li>
+            <li>Trgovina Super čombe</li>
+            <li>Forum Pomagamo živalim</li>
+          </ul>
+        </div>
+        <div>
+          <h3>Kontakt</h3>
+          <ul>
+            <li>Zavod Mačja hiša</li>
+            <li><i class="fa fa-home" aria-hidden="true"></i> Groharjeva ulica 8, 3000 Celje</li>
+            <li><i class="fa fa-envelope" aria-hidden="true"></i> info@macjahisa.si</li>
+            <li><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</li>
+          </ul>
+        </div>
+        <div>
+          <div class="social_buttons">
+            <a href="https://twitter.com/MacjaHisa" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+            <a href="http://www.youtube.com/channel/UC_Gq4voyvfoOCafJMNY0oHg" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+            <a href="http://instagram.com/macjahisa" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+            <a href="https://plus.google.com/+macjahisa" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+          </div>
+          <div class="fb_banner">
+            <div class="fb-page" data-href="https://www.facebook.com/macjahisa" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/macjahisa" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/macjahisa">Mačja hiša</a></blockquote></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="i_signature">
+      <div class="container">
+        Zavod Mačja hiša © 2018<i class="fa fa-square signature_divider" aria-hidden="true"></i>Vse pravice pridržane<i class="fa fa-square signature_divider" aria-hidden="true"></i>Izdelava: <a href="mailto:jan.hacin@gmail.com">Jan Hacin</a></div>
+      </div>
+    </div>
+    <!-- BACK TO TOP BUTTON -->
+    <a href="#" class="i_scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+    <!-- SCRIPTS -->
+    <script
+      src="https://code.jquery.com/jquery-2.2.4.min.js"
+      integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+      crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/slick/slick.min.js"></script>
+    <script type="text/javascript">
+        $(document).on('ready', function () {
+            $(".i_jumbo").slick({
+              dots: true,
+              arrows: false,
+              slidesToShow: 1,
+              autoplay: true,
+              autoplaySpeed: 3000,
+              pauseOnFocus: false,
+              pauseOnHover: false,
+              pauseOnDotsHover: false,
+              infinite: true
+            });
+
+            $(window).scroll(function(){
+              if($(this).scrollTop() > 100) {
+                $(".i_scrollToTop").fadeIn();
+              } else {
+                $(".i_scrollToTop").fadeOut();
+              }
+            });
+
+            // scroll to top on btn click
+            $(".i_scrollToTop").click(function(){
+              $("html, body").animate({scrollTop: 0}, 600);
+              return false;
+            });
+        });
+    </script>
+</body>
+</html>

@@ -4,13 +4,21 @@ $(document).ready( function() {
   $(window).scroll(function(){
     if($(this).scrollTop() > 100) {
       $(".scrollToTop").fadeIn();
+      $(".i_scrollToTop").fadeIn();
     } else {
       $(".scrollToTop").fadeOut();
+      $(".i_scrollToTop").fadeOut();
     }
   });
 
   // scroll to top on btn click
   $(".scrollToTop").click(function(){
+    $("html, body").animate({scrollTop: 0}, 600);
+    return false;
+  });
+
+  // scroll to top on btn click
+  $(".i_scrollToTop").click(function(){
     $("html, body").animate({scrollTop: 0}, 600);
     return false;
   });
@@ -46,6 +54,12 @@ $(document).ready( function() {
    //   adaptiveHeight: true,
    //   variableWidth: true
    // });
+  //
+  //  $('.i_jumbo').slick({
+  //   dots: true,
+  //   infinite: true,
+  //
+  // });
 
    $('.photos').slick({
      dots: true,

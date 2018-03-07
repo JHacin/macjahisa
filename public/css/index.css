@@ -4,6 +4,10 @@ body > div {
   font-family: 'Roboto Slab', serif;
 }
 
+body > div > .container {
+  width: 1200px;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 0.5em;
@@ -144,19 +148,32 @@ p {
         font-weight: 700;
         font-family: 'Roboto Slab', serif;
         z-index: 9000;
+        position: sticky;
       }
 
 
 /* END NAVBAR */
 
 /* JUMBO */
-.i_jumbo {
+.i_jumbo > div {
+  width: 100%;
   height: calc(100vh - 95px);
-  background-image: url(/files/index/5.jpg);
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
+  .i_jumbo_1 {
+    background-image: url(/files/index/5.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 95px);
+  }
+
+  .i_jumbo_2 {
+    background-image: url(/files/index/8.jpg);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: calc(100vh - 95px);
+  }
 
   .i_jumbo_text {
     font-family: 'Roboto Slab', serif;
@@ -187,6 +204,32 @@ p {
       padding: 15px 30px;
       border-radius: 5px;
     }
+
+    .i_jumbo .slick-dots {
+      bottom: 10%;
+    }
+
+    .slick-dotted.slick-slider {
+      margin-bottom: 0;
+    }
+
+    .slick-dots li {
+      margin-right: 15px;
+    }
+
+    .slick-dots li button:before {
+        font-size: 30px;
+        line-height: 30px;
+        color: #fff;
+        opacity: 1;
+        margin-right: 50px;
+    }
+
+    .i_jumbo .slick-dots li.slick-active button:before {
+      opacity: 1;
+      color: #ff6300;
+
+    }
 /* END JUMBO */
 
 /* DOHODNINA */
@@ -195,7 +238,7 @@ p {
   flex-direction: column;
   color: #fff;
   text-align: center;
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
   .i_dohodnina > p {
@@ -244,8 +287,8 @@ p {
       .i_muca_img {
         position: relative;
         overflow: hidden;
-        height: 270px;
-        width: 350px;
+        height: 200px;
+        width: 270px;
         margin: 20px;
         border-bottom: 4px solid #ff6300;
       }
@@ -278,6 +321,11 @@ p {
 .divider {
   justify-content: center;
 }
+
+  .divider .fa {
+    font-size: 3rem;
+    color: rgba(0,0,0,0.14);
+  }
 
 /* MAILING */
 .i_mailing {
@@ -414,7 +462,7 @@ p {
 .i_edu {
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
+  padding: 60px 0;
 }
 
 .i_edu > h1 {
@@ -463,10 +511,10 @@ p {
   color: #fff;
   flex-direction: column;
   align-items: center;
-  padding: 50px 0;
+  padding: 60px 0;
   background-image: url(/files/index/7.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
 }
 
@@ -491,7 +539,7 @@ p {
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 50px 0;
+  padding: 60px 0;
   font-weight: 300;
 }
 
@@ -504,6 +552,13 @@ p {
 
   .i_boter img {
     margin-bottom: 25px;
+  }
+
+  .i_boter_txt {
+    width: 900px;
+    font-size: 18px;
+    line-height: 28px;
+    margin: 5px 0 5px 0;
   }
 
   .i_boter button {
@@ -521,3 +576,102 @@ p {
     margin-top: 20px;
   }
 /* END BOTER */
+
+/* FOOTER */
+.i_footer {
+  justify-content: center;
+  align-items: center;
+  background: #3f3f3f;
+  padding: 60px 0;
+
+}
+
+    .i_footer > .container > div {
+      width: 25%;
+    }
+
+      .i_footer h3 {
+        text-transform: uppercase;
+        font-weight: 300;
+        letter-spacing: 2px;
+        color: rgba(255, 255, 255, 0.5);
+      }
+
+      .i_footer > .container > div > ul {
+        list-style: none;
+        padding-left: 0;
+        font-weight: 300;
+      }
+
+        .i_footer > .container > div > ul > li {
+          font-weight: 300;
+          line-height: 34px;
+          color: rgba(255, 255, 255, 0.8);
+        }
+
+        .social_buttons {
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+        }
+
+          .social_buttons a .fa {
+            color: rgba(255, 255, 255, 0.5);
+            font-size: 32px;
+            vertical-align: middle;
+            padding-bottom: 18.72px;
+          }
+
+        .fb-page {
+          border: 1px solid rgba(255,255,255,0.3);
+        }
+
+.i_signature {
+  background: #232323;
+  color: rgba(255,255,255,0.6);
+  letter-spacing: 1px;
+  font-size: 13px;
+  height: 30px;
+  line-height: 30px;
+  padding: 6px 0;
+  font-weight: 300;
+}
+
+  .i_signature > .container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+  }
+
+  .i_signature a {
+    color: rgba(255,255,255,0.7);
+    margin-left: 2px;
+    font-weight: 500;
+  }
+
+  .signature_divider {
+    align-self: center;
+    color: rgba(255,255,255,0.8);
+    margin: 0 8px;
+    font-size: 0.5rem;
+  }
+
+  .i_scrollToTop {
+    position: fixed;
+    padding: 0.7em 1em;
+    bottom: 1em;
+    right: 1.3em;
+    background-color: rgba(255, 99, 0, 0.7);
+    color: white;
+    font-size: 1em;
+    opacity: 0.6;
+    border-radius: 14%;
+    display: none;
+    transition: none;
+  }
+
+  .i_scrollToTop:hover {
+    opacity: 1;
+  }
+
+/* END FOOTER */
