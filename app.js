@@ -126,6 +126,18 @@ app.get("/test", function(req, res){
   });
 });
 
+app.get("/rumena", function(req, res){
+  Novica.find().where("objava").equals("1").sort({datum: -1}).limit(4).exec(function(err, novice) {
+    if(err) return console.log(err);
+    Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
+      if(err) return console.log(err);
+      res.render("index_yellow", {nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
+          title: "Mačja hiša - skupaj pomagamo brezdomnim mucam", novice: novice, muce: muce
+      });
+    });
+  });
+});
+
 app.get("/search", function(req, res){
   res.render("search", {title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
   nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
