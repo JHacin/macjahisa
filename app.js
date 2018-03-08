@@ -131,8 +131,18 @@ app.get("/rumena", function(req, res){
     if(err) return console.log(err);
     Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
       if(err) return console.log(err);
-      res.render("index_yellow", {nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
-          title: "Mačja hiša - skupaj pomagamo brezdomnim mucam", novice: novice, muce: muce
+      Muca.where("status").in([1, 2]).count().exec(function(err, count){
+          var steviloMuc = count;
+          if(err) return console.log(err);
+          res.render("index_yellow",
+          {
+            nav_kategorije: req.nav_kategorije,
+            nav_podstrani: req.nav_podstrani,
+            title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
+            novice: novice,
+            muce: muce,
+            steviloMucKiIscejoDom: steviloMuc
+          });
       });
     });
   });
