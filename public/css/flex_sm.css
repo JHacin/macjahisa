@@ -111,6 +111,7 @@
   flex-direction: column;
   align-items: center;
   margin: 80px 0 40px 0;
+  padding: 0 10px;
 }
 
 .i_dohodnina {
@@ -158,18 +159,32 @@
 
 .help_item {
   margin-bottom: 40px;
+  background-color: rgba(180, 180, 180, 0.7);
 }
 
 .i_edu {
   padding: 40px 1em;
 }
 
+.i_edu_img {
+  margin-bottom: 10px;
+}
+
+  .i_edu h1 {
+    text-align: center;
+  }
+
   .i_edu p {
     text-align: center;
   }
 
+.i_donate {
+  padding: 40px 10px;
+}
+
 .i_donate h2 {
   text-align: center;
+  margin-top: 0;
 }
 
 .i_boter {
