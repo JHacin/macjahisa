@@ -1,6 +1,95 @@
-@media all and (max-width: 600px) {
+@media all and (max-width: 768px) {
 
-  body {
+  /* MENU */
+  .navbar {
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+  }
+
+  .nav_menu {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    width: 85px;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar > .logo {
+    margin: 0;
+    order: 1;
+    border-right: none;
+  }
+
+    .navbar > .logo > img {
+      height: 65px;
+    }
+
+  .stellarnav > ul > li:nth-of-type(n+4),
+  .stellarnav > ul > .nav_search_mobile {
+    display: flex;
+    flex-direction: row;
+    padding-right: 50px;
+  }
+
+  .stellarnav > ul > li:nth-of-type(n+4) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  }
+
+    .stellarnav > ul > li:nth-of-type(7) {
+      border-bottom: none;
+    
+    }
+
+  .stellarnav > ul > .nav_search_mobile {
+    padding: 20px 0 0 0!important;
+    border-bottom: none!important;
+  }
+
+  .menu_secondary,
+  .nav_search {
+    display: none;
+  }
+
+  .nav_menu {
+    justify-content: flex-start;
+    height: 85px;
+    order: 3;
+    margin-right: 0;
+  }
+
+  .nav_donate {
+    width: 100%;
+    order: 2;
+    position: relative;
+    padding: 0;
+    height: 85px;
+  }
+
+    .nav_donate > form {
+      width: 100%;
+      position: relative;
+      top: 0;
+      right: 0;
+    }
+
+      .nav_donate > form > button {
+        border: none;
+        height: 85px;
+        width: 100%;
+        padding: 0;
+        border-radius: 0;
+        font-size: 30px;
+        font-weight: 700;
+        position: relative;
+      }
+
+/* END MENU */
+
+
+  /* body {
     display: flex;
     flex-direction: column;
   }
@@ -328,7 +417,7 @@
   }
 
   /* MUCE */
-  .main > .nonindex > .container_full {
+  /* .main > .nonindex > .container_full {
     padding: 20px 15px 37px 15px;
     max-width: 100%;
   }
@@ -584,9 +673,7 @@
 
     .novice_seznam .jplist-panel .text-filter-box {
     order: 1;
-  }
-
-
+  }  */
 
 
 }

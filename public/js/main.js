@@ -1,5 +1,31 @@
 $(document).ready( function() {
 
+  $(".i_jumbo").slick({
+    dots: true,
+    arrows: false,
+    slidesToShow: 1,
+    autoplay: true,
+    autoplaySpeed: 150000,
+    pauseOnFocus: false,
+    pauseOnHover: false,
+    pauseOnDotsHover: false,
+    speed: 700
+  });
+
+  $(window).scroll(function(){
+    if($(this).scrollTop() > 100) {
+      $(".i_scrollToTop").fadeIn();
+    } else {
+      $(".i_scrollToTop").fadeOut();
+    }
+  });
+
+  // scroll to top on btn click
+  $(".i_scrollToTop").click(function(){
+    $("html, body").animate({scrollTop: 0}, 600);
+    return false;
+  });
+
   // check if window is top - if not, display nav_button
   $(window).scroll(function(){
     if($(this).scrollTop() > 100) {
@@ -26,7 +52,8 @@ $(document).ready( function() {
   // dropdown menu
   $(".stellarnav").stellarNav({
     position: "left",
-    breakpoint: 600
+    breakpoint: 1350,
+    showArrows: false
   });
 
   // MUCE LIST
@@ -44,23 +71,6 @@ $(document).ready( function() {
     });
 
    // MUCA IMAGE SLIDER
-   // $('.photos').slick({
-   //   dots: true,
-   //   arrows: true,
-   //   infinite: true,
-   //   speed: 300,
-   //   slidesToShow: 2,
-   //   slidesToScroll: 1,
-   //   adaptiveHeight: true,
-   //   variableWidth: true
-   // });
-  //
-  //  $('.i_jumbo').slick({
-  //   dots: true,
-  //   infinite: true,
-  //
-  // });
-
    $('.photos').slick({
      dots: true,
      arrows: false,
@@ -111,6 +121,5 @@ $(document).ready( function() {
         $(".nav_index").css('background', 'none');
       }
   });
-
 
 });
