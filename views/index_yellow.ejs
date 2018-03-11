@@ -327,8 +327,39 @@
       crossorigin="anonymous"></script>
     <script type="text/javascript" src="/js/stellarnav.min.js"></script>
     <script type="text/javascript" src="/slick/slick.min.js"></script>
-    <script src="/js/main.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
+    <script type="text/javascript">
+              $(document).on('ready', function () {
+                $(".stellarnav").stellarNav({
+                  position: "left",
+                  breakpoint: 1350,
+                  showArrows: false
+                });
 
+                  $(".i_jumbo").slick({
+                    dots: true,
+                    arrows: false,
+                    slidesToShow: 1,
+                    autoplay: true,
+                    autoplaySpeed: 15000,
+                    infinite: true
+                  });
+
+                $(window).scroll(function(){
+                  if($(this).scrollTop() > 100) {
+                    $(".i_scrollToTop").fadeIn();
+                  } else {
+                    $(".i_scrollToTop").fadeOut();
+                  }
+                });
+
+                // scroll to top on btn click
+                $(".i_scrollToTop").click(function(){
+                  $("html, body").animate({scrollTop: 0}, 600);
+                  return false;
+                });
+              });
+    </script>
 
 </body>
 </html>
