@@ -52,10 +52,10 @@
 
     }
 
-  .stellarnav.mobile.left>ul, .stellarnav.mobile.right>ul {
-    max-width: 100%;
+  /* .stellarnav.mobile.left>ul, .stellarnav.mobile.right>ul {
+    max-width: 280px;
 
-  }
+  } */
 
   .stellarnav.mobile > ul > .mobile_nav_logo {
     border-bottom: 1px solid rgba(0,0,0,0.2);
