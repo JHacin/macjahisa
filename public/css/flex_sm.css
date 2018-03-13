@@ -1,5 +1,7 @@
 @media all and (max-width: 768px) {
 
+
+
   /* MENU */
   .navbar {
     height: auto;
@@ -21,9 +23,10 @@
     margin: 0;
     order: 1;
     border-right: none;
+    height: 65px;
   }
 
-    .navbar > .logo > img {
+    .navbar .logo img {
       height: 65px;
     }
 
@@ -89,35 +92,73 @@
 /* END MENU */
 
 /* INDEX PAGE */
-.i_jumbo_title {
-  font-size: 50px;
-  text-align: center;
 
-}
 
 .i_jumbo > div,
 .i_jumbo_1,
 .i_jumbo_2 {
-  height: calc(80vh - 50px);
+  height: calc(70vh - 50px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.i_jumbo_title {
+  font-size: 50px;
+  text-align: center;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .i_jumbo_subtitle {
   text-align: center;
-
+  font-size: 20px;
+  font-weight: 500;
+  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
 }
 
 .i_jumbo_text {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
-  margin: 80px 0 40px 0;
-  padding: 0 10px;
+  margin: 0 5%;
+  height: 100%;
 }
 
-.i_dohodnina {
-  padding-left: 1em;
-  padding-right: 1em;
+  .i_jumbo_button {
+    font-size: 18px;
+  }
 
+  .i_jumbo .slick-dots {
+    bottom: 5%;
+  }
+
+.i_dohodnina {
+  padding-left: 2em;
+  padding-right: 2em;
+}
+
+.i_dohodnina p,
+.i_edu p,
+.i_boter_txt {
+  font-size: 16px;
+}
+
+.i_dohodnina > button, .i_donate > button, .i_boter > button {
+  font-size: 16px;
+  padding: 10px 25px;
+}
+
+#mc_embed_signup {
+  width: 90%;
+}
+
+#mc_embed_signup form {
+    width: 90%;
+}
+
+#mc_embed_signup input.email {
+  width: 100%;
 }
 
 .i_muce {
@@ -126,19 +167,20 @@
 
   .i_muca {
     margin-bottom: 20px;
-    width: 100%;
+    width: 80%;
+    max-width: 90%;
   }
 
     .i_muca_txt {
       width: 100%;
-      border-radius: 0;
-      padding: 15px 0;
+
+      padding: 10px 0;
     }
 
     .i_muca_img {
       width: 100%;
-      height: 320px;
-      border-radius: 0;
+      min-height: 380px;
+
     }
 
 .i_mailing {
@@ -151,15 +193,20 @@
 
 .i_help h1 {
   text-align: center;
+  font-size: 34px;
+  margin-bottom: 0.9em;
 }
 
 .help_reel {
   flex-direction: column;
+  align-items: center;
 }
 
 .help_item {
+  margin: 0 0 40px 0;
   margin-bottom: 40px;
-  background-color: rgba(180, 180, 180, 0.7);
+  background-color: rgba(140, 140, 140, 0.9);
+  width: 70%;
 }
 
 .i_edu {
@@ -167,11 +214,21 @@
 }
 
 .i_edu_img {
-  margin-bottom: 10px;
+  margin: 0 0 20px 0;
+  justify-content: space-around;
+  align-items: center;
+  height: auto;
+  width: 90%;
 }
 
   .i_edu h1 {
     text-align: center;
+  }
+
+  .i_edu_img img {
+    height: auto;
+    max-width: 43%;
+    margin: 0;
   }
 
   .i_edu p {
@@ -179,12 +236,17 @@
   }
 
 .i_donate {
-  padding: 40px 10px;
+  padding: 40px 20px;
 }
 
 .i_donate h2 {
   text-align: center;
   margin-top: 0;
+  font-size: 24px;
+}
+
+.i_donate > button {
+  margin-top: 5px;
 }
 
 .i_boter {
@@ -195,15 +257,15 @@
   width: 90%;
 }
 
-.social_buttons {
+/* .social_buttons {
   justify-content: center;
 }
 
   .social_buttons i {
     margin: 0 15px;
-  }
+  } */
 
-.i_footer {
+/* .i_footer {
   padding: 40px 0;
 }
 
@@ -215,7 +277,31 @@
   .i_footer > .container > div {
     width: 90%;
     text-align: center;
-  }
+  } */
+
+.i_signature > .container {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.i_signature {
+  height: auto;
+  line-height: 20px;
+  padding: 15px 5px;
+}
+
+.signature_divider {
+  margin: 0 3px;
+}
+
+ .signature_divider {
+  display: none;
+}
+
 /* END INDEX PAGE */
 
 
@@ -806,4 +892,10 @@
   }  */
 
 
+}
+
+@media all and (max-width: 640px) {
+  .i_muca_img {
+    min-height: 240px;
+  }
 }

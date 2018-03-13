@@ -42,7 +42,7 @@ p {
     border-right: 1px solid rgba(0, 0, 0, 0.1);
   }
 
-    .navbar > .logo > img {
+    .navbar > .logo img {
       height: 75px;
     }
 
@@ -124,6 +124,7 @@ p {
     .stellarnav .fa-bars {
       font-size: 42px;
       margin-left: 10px;
+      margin-right: 10px;
       color: #343a40;
     }
 
@@ -285,7 +286,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
   .i_jumbo_text {
     font-family: 'Roboto Slab', serif;
     color: #fff;
-    margin: 70px 0 0 60px;
+    margin: 3% 0 0 3%;
   }
 
     .i_jumbo_title {
@@ -349,7 +350,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
   flex-direction: column;
   color: #fff;
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
 
   .i_dohodnina > p {
@@ -420,11 +421,14 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
       .i_muca_img {
         position: relative;
         overflow: hidden;
-        height: 270px;
+        min-height: 270px;
+        max-height: 350px;
         width: 360px;
         margin: 20px 20px 0 20px;
         border-top-left-radius: 10px;
         border-top-right-radius: 10px;
+        border: 1px solid #3f3f3f;
+        border-bottom: none;
       }
 
         .i_muca_img a img {
@@ -443,10 +447,11 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
 
       .i_muca_txt {
         padding: 10px 20px;
-        width: calc(100% - 80px);
+        width: calc(100% - 82px);
         text-align: center;
         border-bottom-left-radius: 5px;
         border-bottom-right-radius: 5px;
+        border: 1px solid #3f3f3f;
         background: #3f3f3f;
      }
 
@@ -457,8 +462,10 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
 
         .i_muca_txt a {
           font-weight: 500;
-          color: rgba(255, 255, 255, 0.8);
-          font-size: 18px;
+          color: rgba(255, 255, 255, 0.9);
+
+          font-size: 20px;
+          letter-spacing: 1px;
         }
 
   .i_muce > button {
@@ -609,6 +616,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
 
 /* IZOBRAZEVANJE */
 .i_edu {
+  display: flex;
   flex-direction: column;
   align-items: center;
   padding: 60px 0;
@@ -626,6 +634,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
     flex-direction: row;
     justify-content: space-between;
     height: 260px;
+    margin-bottom: 10px;
+
   }
 
     .i_edu_img img {
@@ -633,7 +643,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
       align-self: center;
       margin: 0 0 25px 0;
       border: 1px solid rgba(0,0,0,0.2);
-
+      margin-left: 20px;
     }
 
   .i_edu p {
@@ -647,7 +657,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
     background: rgba(0,0,0,0.1);
     font-size: 18px;
     align-self: center;
-    border: none;
+    border: 1px solid #3f3f3f;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Roboto Slab', serif;
@@ -719,7 +729,7 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
     background: rgba(0,0,0,0.1);
     font-size: 18px;
     align-self: center;
-    border: none;
+    border: 1px solid #3f3f3f;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Roboto Slab', serif;

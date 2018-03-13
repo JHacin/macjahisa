@@ -23,7 +23,7 @@
   }
 
   .stellarnav li li a {
-    padding-left: 35px;
+    padding-left: 25px;
     letter-spacing: 1px;
     font-weight: 300;
   }
@@ -136,7 +136,39 @@
       margin-right: 5px;
     }
   /* END MENU */
+  .i_muca {
+    max-width: 70%;
+  }
 
+  .help_reel {
+    width: 95%;
+  }
+
+  .help_item {
+    width: 33%;
+  }
+
+  .i_footer {
+    padding: 40px 0;
+  }
+
+  .i_footer > .container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .social_buttons {
+    justify-content: center;
+  }
+
+    .social_buttons i {
+      margin: 0 15px;
+    }
+
+    .i_footer > .container > div {
+      width: 90%;
+      text-align: center;
+    }
 }
 
 @media all and (max-width: 1050px) {
