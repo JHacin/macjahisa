@@ -156,6 +156,6 @@ app.use("/novice/", novice);
 app.use("/v_novem_domu/", v_novem_domu);
 
 // app listen config
-app.listen(process.env.PORT || 3001, process.env.IP, function(){
+app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("Starting.");
 });
