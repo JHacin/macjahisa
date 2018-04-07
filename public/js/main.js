@@ -51,9 +51,10 @@ $(document).ready( function() {
 
   // dropdown menu
   $(".stellarnav").stellarNav({
-    position: "left",
+    position: "static",
     breakpoint: 1350,
-    showArrows: false
+    showArrows: false,
+    sticky: true;
   });
 
   // MUCE LIST

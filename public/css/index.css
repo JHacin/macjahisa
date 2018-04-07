@@ -34,6 +34,11 @@ button a:hover {
   height: 95px;
   background: #fff;
   align-items: center;
+  top: 0;
+  z-index: 99999;
+  width: 100%;
+  border-bottom: 1px solid #3f3f3f61;
+  position: sticky;
 }
 
 .navbar > div {
