@@ -30,7 +30,7 @@
     <link rel="stylesheet" href="/css/header.css" />
     <link rel="stylesheet" href="/css/footer.css" />
     <link rel="stylesheet" href="/css/main.css" />
-    <link rel="stylesheet" href="/css/flex_sm.css" />
+
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -51,7 +51,9 @@
     </style>
     <link rel="stylesheet" type="text/css" href="/slick/slick.css"/>
     <link rel="stylesheet" type="text/css" href="/slick/slick-theme.css" />
-    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/index_yellow.css" />
+    <link rel="stylesheet" href="/css/flex_md.css" />
+    <link rel="stylesheet" href="/css/flex_sm.css" />
   </head>
   <body>
     <!-- FACEBOOK JAVASCRIPT SDK -->
@@ -78,33 +80,81 @@
     <!-- END FACEBOOK JAVASCRIPT SDK -->
     <div class="navbar">
       <div class="logo">
-        <img src="/files/page/logo.png" />
+        <a href="/"><img src="/files/page/logo.png" /></a>
       </div>
       <div class="nav_menu">
-        <div class="menu_primary">
-          <ul>
-            <li>Posvojitev</li>
-            <li>Vaša pomoč</li>
-            <li>Izobraževanje</li>
-          </ul>
-        </div>
 
+        <div class="stellarnav">
+
+          <!-- PRIMARY MENU -->
+          <ul>
+
+            <li class="menu_primary">
+
+              <a href="/posvojitev/muce" class="kat_toggle">Posvojitev</a>
+              <ul>
+                <li><a href="/posvojitev/pogoji_in_postopek">Pogoji za posvojitev</a></li>
+                <li><a href="/posvojitev/pogoji_in_postopek">Postopek posvojitve</a></li>
+                <li><a href="/posvojitev/muce">Muce, ki iščejo dom</a></li>
+                <li><a href="/v_novem_domu/1">V novem domu</a></li>
+              </ul>
+            </li>
+            <li class="menu_primary">
+              <a href="#" class="kat_toggle">Vaša pomoč</a>
+              <ul>
+                <li><a href="/pomoc/nacini_pomoci">Načini pomoči</a></li>
+                <li><a href="/pomoc/donacije">Donacije</a></li>
+                <li><a href="/pomoc/dohodnina">Dohodnina</a></li>
+                <li><a href="http://www.macjiboter.si/">Posvojitev na daljavo</a></li>
+                <li><a href="/projekt_vita/predstavitev">Projekt Vita</a></li>
+              </ul>
+            </li>
+            <li class="menu_primary">
+              <a href="#" class="kat_toggle">Izobraževanje</a>
+              <ul>
+                <li><a href="/dobro_je_vedeti/izobrazevalne_vsebine">Izobraževalne vsebine MH</a></li>
+                <li><a href="/dobro_je_vedeti/koristne_informacije">Prispevki</a></li>
+                <li><a href="#">Kotiček za otroke</a></li>
+              </ul>
+            </li>
+            <li class="menu_secondary_mobile">
+              <li><a href="/o_nas/kdo_smo">Naše delo</a></li>
+              <li><a href="/o_nas/zavetisce_mh">Zavetišče MH</a></li>
+              <li><a href="/novice">Novice</a></li>
+            </li>
+            <li class="nav_search_mobile">
+              <form action="/search">
+                <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
+                 <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+              </form>
+            </li>
+
+          </ul>
+          <!-- END PRIMARY MENU -->
+
+        </div><!-- END STELLARNAV -->
+
+        <!-- SECONDARY MENU -->
         <div class="menu_secondary">
           <ul>
-            <li>O nas</li>
-            <li>Zavetišče MH</li>
-            <li>V novem domu</li>
-            <li>Projekt Vita</li>
+            <li><a href="/o_nas/kdo_smo">Naše delo</a></li>
+            <li><a href="/o_nas/zavetisce_mh">Zavetišče MH</a></li>
+            <li><a href="/novice">Novice</a></li>
           </ul>
-          <div class="nav_search">
-            <form action="/search">
-              <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
-               <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-            </form>
-          </div>
         </div>
 
-      </div>
+        <!-- SEARCH FORM -->
+        <div class="nav_search">
+          <form action="/search">
+            <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
+             <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+          </form>
+        </div>
+
+
+
+      </div><!-- END NAV_MENU -->
+
       <div class="nav_donate">
         <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
           <input type="hidden" name="cmd" value="_s-xclick">
@@ -112,27 +162,30 @@
           <button type="submit"  border="0" alt="PayPal donacije">DONIRAJ</button>
         </form>
       </div>
+
+
     </div>
+
     <div class="i_jumbo">
       <div class="i_jumbo_1">
         <div class="i_jumbo_text">
           <h1 class="i_jumbo_title">Posvojitev muce</h1>
-          <h2 class="i_jumbo_subtitle">Muce lahko pri nas posvojite fizično ali na daljavo.</h2>
-          <button class="i_jumbo_button">Muce, ki iščejo dom</button>
+          <h2 class="i_jumbo_subtitle">Na čisto svoj dom čaka kar <strong><%= steviloMucKiIscejoDom %></strong> muc.</h2>
+          <button class="i_jumbo_button"><a href="/posvojitev/muce">Muce, ki iščejo dom</a></button>
         </div>
       </div>
       <div class="i_jumbo_2">
         <div class="i_jumbo_text">
-          <h1 class="i_jumbo_title">Donacije</h1>
-          <h2 class="i_jumbo_subtitle">Pomagajte nam oskrbeti še večje število muc.</h2>
-          <button class="i_jumbo_button">Doniraj</button>
+          <h1 class="i_jumbo_title">Postanite mačji boter</h1>
+          <h2 class="i_jumbo_subtitle">Pokažite, da vam ni vseeno.</h2>
+          <button class="i_jumbo_button"><a href="http://www.macjiboter.si/">Muce, ki iščejo botra</a></button>
         </div>
       </div>
     </div>
     <div class="i_dohodnina">
       <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>
       <p>Vas ne stane nič, nam pa veliko pomeni.</p>
-      <button>Namenite nam del dohodnine</button>
+      <button><a href="/pomoc/dohodnina">Namenite nam del dohodnine</a></button>
     </div>
     <div class="i_muce">
       <div class="i_muce_head">
@@ -150,7 +203,7 @@
           </div>
         <% }); %>
       </div>
-      <button>Vse muce za posvojitev</button>
+      <button><a href="/posvojitev/muce">Vse muce za posvojitev</a></button>
     </div>
     <div class="divider">
       <i class="fa fa-ellipsis-h"></i>
@@ -202,11 +255,11 @@
       <p>Predstavljamo novost - <strong>izobraževalne vsebine</strong> Mačje hiše.</p>
       <p>Članke in letake lahko v PDF formatu shranite na svoj računalnik, jih preberete in natisnete.</p>
       <p>Zelo veseli bomo tudi, če jih boste delili s prijatelji.</p>
-      <button>Preberi več</button>
+      <button><a href="/dobro_je_vedeti/izobrazevalne_vsebine">Preberi več</a></button>
     </div>
     <div class="i_donate">
       <h2>Podprite naše delo in nam pomagajte oskrbeti številne brezdomne muce.</h2>
-      <button>DONIRAJ</button>
+      <button><a href="/pomoc/donacije">DONIRAJ</a></button>
     </div>
     <div class="i_boter">
       <h1>Mačji boter</h1>
@@ -214,7 +267,7 @@
       <div class="i_boter_txt">
         Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>. Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck. Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.
       </div>
-      <button>Posvoji muco na daljavo</button>
+      <button><a href="http://www.macjiboter.si/">Posvoji muco na daljavo</a></button>
     </div>
     <!-- Kasneje prestavi v partial in spremeni classe -->
     <div class="i_footer">
@@ -262,7 +315,13 @@
     </div>
     <div class="i_signature">
       <div class="container">
-        Zavod Mačja hiša © 2018<i class="fa fa-square signature_divider" aria-hidden="true"></i>Vse pravice pridržane<i class="fa fa-square signature_divider" aria-hidden="true"></i>Izdelava: <a href="mailto:jan.hacin@gmail.com">Jan Hacin</a></div>
+        <span>Zavod Mačja hiša © 2018.</span>
+        <i class="fa fa-square signature_divider" aria-hidden="true"></i>
+        <span>Vse pravice pridržane.</span>
+        <i class="fa fa-square signature_divider" aria-hidden="true"></i>
+        <span>Izdelava:
+          <a href="mailto:jan.hacin@gmail.com">Jan Hacin</a>
+        </span>
       </div>
     </div>
     <!-- BACK TO TOP BUTTON -->
@@ -272,35 +331,44 @@
       src="https://code.jquery.com/jquery-2.2.4.min.js"
       integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
       crossorigin="anonymous"></script>
+    <script type="text/javascript" src="/js/stellarnav.min.js"></script>
     <script type="text/javascript" src="/slick/slick.min.js"></script>
+    <!-- <script src="/js/main.js"></script> -->
     <script type="text/javascript">
-        $(document).on('ready', function () {
-            $(".i_jumbo").slick({
-              dots: true,
-              arrows: false,
-              slidesToShow: 1,
-              autoplay: true,
-              autoplaySpeed: 4000,
-              pauseOnFocus: false,
-              pauseOnHover: false,
-              pauseOnDotsHover: false,
-              speed: 700
-            });
+              $(document).on('ready', function () {
 
-            $(window).scroll(function(){
-              if($(this).scrollTop() > 100) {
-                $(".i_scrollToTop").fadeIn();
-              } else {
-                $(".i_scrollToTop").fadeOut();
-              }
-            });
+                $(window).scroll(function(){
+                  if($(this).scrollTop() > 100) {
+                    $(".i_scrollToTop").fadeIn();
+                  } else {
+                    $(".i_scrollToTop").fadeOut();
+                  }
+                });
 
-            // scroll to top on btn click
-            $(".i_scrollToTop").click(function(){
-              $("html, body").animate({scrollTop: 0}, 600);
-              return false;
-            });
-        });
+                $(".stellarnav").stellarNav({
+                  position: "left",
+                  breakpoint: 1350,
+                  showArrows: false
+                });
+
+                  $(".i_jumbo").slick({
+                    dots: true,
+                    arrows: false,
+                    slidesToShow: 1,
+                    autoplay: true,
+                    autoplaySpeed: 15000,
+                    infinite: true
+                  });
+
+
+
+                // scroll to top on btn click
+                $(".i_scrollToTop").click(function(){
+                  $("html, body").animate({scrollTop: 0}, 600);
+                  return false;
+                });
+              });
     </script>
+
 </body>
 </html>
