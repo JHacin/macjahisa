@@ -785,6 +785,15 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
           color: rgba(255, 255, 255, 0.8);
         }
 
+        .i_footer > .container > div > ul > li a {
+          color: rgba(255, 255, 255, 0.8);
+          transition: all 0.4s ease;
+        }
+
+        .i_footer > .container > div > ul > li .fa {
+          margin-right: 4px;
+        }
+
         .social_buttons {
           display: flex;
           flex-direction: row;
@@ -799,7 +808,8 @@ background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0
             transition: all 0.4s ease;
           }
 
-          .social_buttons a .fa:hover {
+          .social_buttons a .fa:hover,
+          .i_footer > .container > div > ul > li a:hover {
             color: rgba(255, 203, 0, 0.9);
           }
 
