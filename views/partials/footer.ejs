@@ -1,4 +1,4 @@
-</div>
+<!-- </div>
 <div class="related_links">
   <div class="container">
     <div class="related_div">
@@ -76,6 +76,113 @@
 <script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
 <script src="/js/jplist.filter-toggle-bundle.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
+<script src="/js/main.js"></script>
+</body>
+</html> -->
+<!-- Kasneje prestavi v partial in spremeni classe -->
+<div class="i_footer">
+  <div class="container">
+    <div>
+      <h3>Hitre povezave</h3>
+      <ul>
+        <li><a href="/o_nas/zavetisce_mh">Zavetišče MH</a></li>
+        <li><a href="/posvojitev/muce">Muce, ki iščejo dom</a></li>
+        <li><a href="http://www.macjiboter.si/" target="_blank">Posvojitev na daljavo</a></li>
+        <li><a href="/dobro_je_vedeti/izobrazevalne_vsebine">Izobraževanje</a></li>
+        <li><a href="/projekt_vita/predstavitev">Projekt Vita</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Obiščite tudi</h3>
+      <ul>
+        <li><a href="http://www.macjahisa-vet.si/" target="_blank">Veterina MH</a></li>
+        <li><a href="http://www.macjiboter.si/" target="_blank">Mačji boter</a></li>
+        <li><a href="https://www.supercombe.si/" target="_blank">Trgovina Super čombe</a></li>
+        <li><a href="http://www.pomagamo-zivalim.si/index.php" target="_blank">Forum Pomagamo živalim</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Kontakt</h3>
+      <ul>
+        <li>Zavod Mačja hiša</li>
+        <li><i class="fa fa-home" aria-hidden="true"></i> Groharjeva ulica 8, 3000 Celje</li>
+        <li><i class="fa fa-envelope" aria-hidden="true"></i> info@macjahisa.si</li>
+        <li><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</li>
+      </ul>
+    </div>
+    <div>
+      <div class="social_buttons">
+        <a href="https://twitter.com/MacjaHisa" target="_blank"><i class="fa fa-twitter" aria-hidden="true"></i></a>
+        <a href="http://www.youtube.com/channel/UC_Gq4voyvfoOCafJMNY0oHg" target="_blank"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+        <a href="http://instagram.com/macjahisa" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+        <a href="https://plus.google.com/+macjahisa" target="_blank"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+      </div>
+      <div class="fb_banner">
+        <div class="fb-page" data-href="https://www.facebook.com/macjahisa" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/macjahisa" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/macjahisa">Mačja hiša</a></blockquote></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="i_signature">
+  <div class="container">
+    <span>Zavod Mačja hiša © 2018.</span>
+    <i class="fa fa-square signature_divider" aria-hidden="true"></i>
+    <span>Vse pravice pridržane.</span>
+    <i class="fa fa-square signature_divider" aria-hidden="true"></i>
+    <span>Izdelava:
+      <a href="mailto:jan.hacin@gmail.com">Jan Hacin</a>
+    </span>
+  </div>
+</div>
+<!-- BACK TO TOP BUTTON -->
+<a href="#" class="i_scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
+<!-- SCRIPTS -->
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script type="text/javascript" src="/js/stellarnav.min.js"></script>
+<script type="text/javascript" src="/slick/slick.min.js"></script>
+<!-- <script src="/js/main.js"></script> -->
+<script type="text/javascript">
+          $(document).on('ready', function () {
+
+            $(window).scroll(function(){
+              if($(this).scrollTop() > 100) {
+                $(".i_scrollToTop").fadeIn();
+              } else {
+                $(".i_scrollToTop").fadeOut();
+              }
+            });
+
+            $(".stellarnav").stellarNav({
+              position: "left",
+              breakpoint: 1350,
+              showArrows: false
+            });
+
+              $(".i_jumbo").slick({
+                dots: true,
+                arrows: false,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 15000,
+                infinite: true
+              });
+
+            // scroll to top on btn click
+            $(".i_scrollToTop").click(function(){
+              $("html, body").animate({scrollTop: 0}, 600);
+              return false;
+            });
+          });
+</script>
+<script src="/js/jquery.pajinate.min.js"></script>
+<script src="/js/jplist.core.min.js"></script>
+<script src="/js/jplist.textbox-filter.min.js"></script>
+<script src="/js/jplist.pagination-bundle.min.js"></script>
+<script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
+<script src="/js/jplist.filter-toggle-bundle.min.js"></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

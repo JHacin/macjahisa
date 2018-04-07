@@ -168,3 +168,25 @@
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   font-size: 24px;
 }
+
+.sidebar_img {
+  margin-top: 1rem;
+}
+
+.sidebar_img img {
+  width: 100%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+.sidebar_social {
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  text-align: center;
+  margin-top: 1rem;
+}
+
+  .sidebar_social h3 {
+    margin: 0;
+    color: #000;
+    font-weight: bold;
+  }

@@ -78,6 +78,13 @@ button a:hover {
 /* STELLARNAV OVERRIDE FOR LARGE SCREENS */
 @media all and (min-width: 1350px) {
 
+.stellarnav > ul {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+}
+
 .stellarnav>ul>li>a {
     padding: 0;
     color: #343a40;
@@ -97,13 +104,16 @@ button a:hover {
   }
 
     .stellarnav > ul > .menu_primary:hover {
-      /* background-color: #f2f2f2; */
       background-color: #3f3f3f;
       background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23bdbdbd' fill-opacity='0.23' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E");
     }
 
     .stellarnav > ul > .menu_primary:hover > a {
       color: #ffcb00;
+    }
+
+    .menu_primary > a:hover {
+      cursor: default;
     }
 
     /* Posvojitev, Vaša pomoč, Izobraževanje */

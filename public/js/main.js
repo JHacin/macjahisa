@@ -1,62 +1,5 @@
 $(document).ready( function() {
 
-  $(".i_jumbo").slick({
-    dots: true,
-    arrows: false,
-    slidesToShow: 1,
-    autoplay: true,
-    autoplaySpeed: 150000,
-    pauseOnFocus: false,
-    pauseOnHover: false,
-    pauseOnDotsHover: false,
-    speed: 700
-  });
-
-  $(window).scroll(function(){
-    if($(this).scrollTop() > 100) {
-      $(".i_scrollToTop").fadeIn();
-    } else {
-      $(".i_scrollToTop").fadeOut();
-    }
-  });
-
-  // scroll to top on btn click
-  $(".i_scrollToTop").click(function(){
-    $("html, body").animate({scrollTop: 0}, 600);
-    return false;
-  });
-
-  // check if window is top - if not, display nav_button
-  $(window).scroll(function(){
-    if($(this).scrollTop() > 100) {
-      $(".scrollToTop").fadeIn();
-      $(".i_scrollToTop").fadeIn();
-    } else {
-      $(".scrollToTop").fadeOut();
-      $(".i_scrollToTop").fadeOut();
-    }
-  });
-
-  // scroll to top on btn click
-  $(".scrollToTop").click(function(){
-    $("html, body").animate({scrollTop: 0}, 600);
-    return false;
-  });
-
-  // scroll to top on btn click
-  $(".i_scrollToTop").click(function(){
-    $("html, body").animate({scrollTop: 0}, 600);
-    return false;
-  });
-
-  // dropdown menu
-  $(".stellarnav").stellarNav({
-    position: "static",
-    breakpoint: 1350,
-    showArrows: false,
-    sticky: true;
-  });
-
   // MUCE LIST
   $('.muce_seznam').jplist({
     itemsBox: '.list',
@@ -98,29 +41,5 @@ $(document).ready( function() {
        }
      ]
    });
-
-   // indexpage - change top bar background on scroll
-   var scroll_pos = 0;
-  $(document).scroll(function() {
-      scroll_pos = $(this).scrollTop();
-      // desktop
-      if(scroll_pos > 210) {
-          $(".top_bar_index").css('background', '#343a40');
-      } else {
-          $(".top_bar_index").css('background', 'none');
-      }
-      // mobile
-      if(scroll_pos > 150) {
-        $(".mobile_logo_index").css({'visibility': 'visible', 'opacity': '1'});
-        $(".mobile_top_contact_index").css({'visibility': 'visible', 'opacity': '1'});
-        $(".stellar_index .fa-bars").css('color', '#343a40');
-        $(".nav_index").css('background', 'rgba(230, 230, 230,1)');
-      } else {
-        $(".mobile_logo_index").css({'visibility': 'hidden', 'opacity': '0'});
-        $(".mobile_top_contact_index").css({'visibility': 'hidden', 'opacity': '0'});
-        $(".stellar_index .fa-bars").css('color', 'rgba(230, 230, 230,0.8)');
-        $(".nav_index").css('background', 'none');
-      }
-  });
 
 });
