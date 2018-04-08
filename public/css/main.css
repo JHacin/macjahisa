@@ -12,19 +12,6 @@ body > div > .container {
   margin: 0 auto;
 }
 
-.social_buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  width: 100%;
-  margin-top: 1em;
-}
-
-  .social_buttons > div {
-    margin-right: 5px;
-  }
-
 .content .novica_datum {
   font-weight: 400;
 }
@@ -57,6 +44,8 @@ a {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  width: 75%!important;
+  max-width: 75%!important;
 }
 
 .content {
@@ -74,18 +63,29 @@ a {
 
 .content h2 {
   font-weight: 500;
-  color: #e18a07;
+  color: #ffcb00;
 }
 
 .content h3 {
-  color: #e18a07;
-  font-weight: 500;
+  color: #3f3f3f;
+  font-weight: 700;
+  margin-top: 0;
+  font-size: 22px;
+  letter-spacing: 1px;
 }
 
 .content p {
   margin: 0 0 1.2em 0;
-  line-height: 20px;
+  line-height: 24px;
   text-align: justify;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.content ul li {
+  line-height: 26px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .content_title_subhr {
@@ -108,7 +108,7 @@ a {
 }
 
   .content a:hover {
-    color: #e18a07;
+    color: #ffcb00;
   }
 
 .seznam_novic {
@@ -181,7 +181,7 @@ a {
   .novica_naslov_title {
     font-size: 16px;
     font-weight: 500;
-    color: #e18a07;
+    color: #ffcb00;
   }
 
 
@@ -224,7 +224,7 @@ a {
 
 .novica_txt a i {
   font-size: 12px;
-  color: #e18a07;
+  color: #ffcb00;
 }
 
 .novica_txt a i,
@@ -253,5 +253,5 @@ a {
 }
 
 .jplist-panel .text-filter-box .jplist-icon:hover {
-    color: #e18a07;
+    color: #ffcb00;
 }

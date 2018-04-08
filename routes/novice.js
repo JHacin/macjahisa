@@ -7,6 +7,7 @@ router.get("/", function(req, res){
   Novica.find().where("objava").equals("1").sort({datum: -1}).exec(function(err, novice){
     res.render("novice/index",
     { novice: novice,
+      podstran: {naslov: "Novice"},
       sidebar_novice: req.sidebar_novice,
       sidebar_muce: req.sidebar_muce,
       nav_kategorije: req.nav_kategorije,
@@ -20,6 +21,7 @@ router.get("/:id", function(req, res){
   Novica.findOne({dbid: req.params.id}, function(err, novica){
     res.render("novice/show", {
       novica: novica,
+      podstran: novica,
       sidebar_novice: req.sidebar_novice,
       sidebar_muce: req.sidebar_muce,
       nav_kategorije: req.nav_kategorije,

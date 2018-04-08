@@ -1,5 +1,10 @@
 @media all and (max-width: 1350px) {
 
+  .stellarnav.mobile.left>ul {
+    min-height: 100vh;
+    padding-bottom: 100px;
+  }
+
   /* MENU */
   .nav_menu {
     justify-content: flex-end;

@@ -1,9 +1,6 @@
 <% include ../partials/header %>
-<div class="nonindex">
-  <div class="container">
-    <div class="content">
-    <h1 class="content_heading"><%= novica.naslov %></h1>
-    <hr class="content_title_subhr" />
+<% include ../partials/nonindex %>
+
     <h3 class="novica_datum"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></h3>
 
     <%- novica.vsebina %>

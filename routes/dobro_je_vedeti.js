@@ -39,7 +39,7 @@ router.get("/koristne_informacije/:id", function(req, res){
 
     if(clanek.tip == "besedilo") {
 
-      res.render("dobro_je_vedeti/clanek", {clanek: clanek,
+      res.render("dobro_je_vedeti/clanek", {podstran: clanek,
         nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
         sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce,
         title: clanek.naslov + " | Mačja hiša", social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),

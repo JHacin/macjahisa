@@ -24,6 +24,7 @@ router.get("/muce/:id", function(req, res){
     if(err) return console.log(err);
     res.render("posvojitev/prikaz", {
       muca: muca,
+      podstran: {naslov: muca.ime},
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
       sidebar_novice: req.sidebar_novice,

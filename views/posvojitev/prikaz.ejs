@@ -1,9 +1,6 @@
 <% include ../partials/header %>
+<% include ../partials/nonindex %>
 <% include ../partials/functions/muce %>
-<div class="nonindex">
-  <div class="container">
-    <div class="content">
-
 <!-- združi vse slike -->
 <%
   var slike = [];
@@ -23,10 +20,14 @@
   if(muca.file_name4 != undefined && muca.file_name4 != "" && muca.file_name4 != "NULL") {
     slike.push(muca.file_name4);
   }
+
 %>
+<!-- <div class="nonindex">
+  <div class="container">
+    <div class="content">
 
 <h1 class="content_heading" id="muca_name"><%= muca.ime %></h1>
-<hr class="content_title_subhr" id="name_hr" />
+<hr class="content_title_subhr" id="name_hr" /> -->
 <p class="muce_back"><a href="/posvojitev/muce"><i class="fa fa-backward" aria-hidden="true"></i> nazaj na seznam muc</a></p>
 <div class="cat_full">
   <div class="photos">
