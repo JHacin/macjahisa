@@ -7,7 +7,8 @@
 }
 
 .sidebar {
-  width: 25%;
+  width: 350px;
+  margin-left: 2rem;
 }
 
 .side_header {
@@ -62,7 +63,8 @@
 
 .side_cats,
 .side_news {
-  width: 100%;
+  width: 350px;
+  margin-bottom: 1rem;
 }
 
 .side_news {
@@ -177,10 +179,6 @@
   letter-spacing: 1px;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
   font-size: 28px;
-}
-
-.sidebar_img {
-  margin-top: 1rem;
 }
 
 .sidebar_img img {
