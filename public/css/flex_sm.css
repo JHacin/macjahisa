@@ -18,8 +18,60 @@
     font-weight: 500;
 }
 
+.muca {
+  width: 100%;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.muca_infoandmore {
+  width: 100%;
+}
+
+.muca_infoandmore p {
+  text-align: center;
+  margin: 0.5rem 0;
+}
+
+.muce_seznam > .list {
+  flex-direction: column;
+  align-items: center;
+}
+
+.muce_filtri {
+  flex-direction: column;
+  align-items: center;
+}
+
+.jplist-panel .text-filter-box,
+.jplist-panel .jplist-group,
+.muce_seznam .jplist-label {
+  margin: 7.5px auto;
+}
+
+.starost_filter {
+  display: none;
+}
+
+.muca_img {
+  height: 200px;
+  width: 100%;
+}
+
+.jplist-panel .text-filter-box {
+  margin-bottom: 15px;
+}
+
+.muce_seznam .jplist-label {
+  margin-right: auto;
+}
+
+.muca_ime {
+  width: calc(100% - 1.3rem);
+}
+
 .sidebar {
-  width: 85%;
+  width: 90%;
 }
 
 .side_cat {
@@ -32,13 +84,14 @@
 
 .sidebar_img {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
 .sidebar_img img {
-  width: 80%;
-  align-self: center;
+  width: 100%;
 }
 
 .content h3 {
@@ -64,7 +117,7 @@
   }
 
   .page_header {
-    height: 180px;
+    height: 260px;
     border-bottom: none;
 
   }
@@ -995,5 +1048,9 @@
 @media all and (max-width: 640px) {
   .i_muca_img {
     min-height: 240px;
+  }
+
+  .page_header {
+    height: 190px;
   }
 }

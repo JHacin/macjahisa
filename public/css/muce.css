@@ -39,6 +39,14 @@
   padding: 18px;
 }
 
+.jplist-panel.muce_filtri {
+  padding: 0 0.5rem 0 1rem;
+}
+
+.muce_seznam .jplist-label {
+  margin-left: auto;
+}
+
 .muce_filter_group {
   width: 30%;
   text-align: left;
@@ -79,8 +87,24 @@
   align-items: center;
 }
 
+.muca_ime {
+  background: #3f3f3f;
+  width: calc(90% - 1.3rem);
+  padding: 0.65rem;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  border: 1px solid #3f3f3f;
+  border-bottom: none;
+}
+
 .muca h2 {
-  margin: 0 0 0.3em 0;
+  margin: 0;
+  font-size: 20px;
+}
+
+.muca h2 a {
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 500;
 }
 
 .muca_img {
@@ -88,6 +112,8 @@
   height: 200px;
   overflow: hidden;
   position: relative;
+  border: 1px solid #3f3f3f;
+  border-bottom: none;
 }
 
 .muca_img img {
@@ -107,17 +133,33 @@
 .vet_status img {
   width: 40px;
   margin: 0.5em 0.3em 0 0.3em;
+  display: none;
+}
+
+.muca_infoandmore {
+  border: 1px solid #3f3f3f;
+  border-top: 4px solid #ffcb00;
+  padding: 0.2rem 0;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  width: 90%;
+}
+
+.muca_infoandmore p:first-of-type {
+  font-size: 14px;
+  color: #131313db;
 }
 
 .muca p {
   text-align: center;
-  margin: 0.5em 0 0 0;
+  margin: 0.3em 0;
+  letter-spacing: 0.5px;
 }
 
 .cat_more,
 .cat_more a {
-  color: #e59400;
-  font-weight: normal;
+
+  font-weight: bold;
   transition: all 0.2s ease;
 }
 
@@ -292,7 +334,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background: rgba(240, 240, 240, 0.7);
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
 
   }
 
@@ -306,7 +348,7 @@
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
     background: rgba(240, 240, 240, 0.7);
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     margin: 0;
   }
 
@@ -403,17 +445,18 @@
     height: 35px;
     width: 200px;
     outline: none;
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
     border: 1px solid #DDDDDD;
     webkit-transition: all 0.30s ease-in-out;
     -moz-transition: all 0.30s ease-in-out;
     -ms-transition: all 0.30s ease-in-out;
     -o-transition: all 0.30s ease-in-out;
+    padding: 0 0.4rem;
   }
 
   .jplist-panel input[type=text]:focus {
-    border: 1px solid rgba(229, 148, 0, 0.7);
-    box-shadow: 0 0 3px rgba(229, 148, 0,0.7);
+    border: 0.5px solid rgba(2255, 203, 0, 0.9);
+    box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
   }
 
   .jplist-panel .jplist-group {
@@ -426,7 +469,7 @@
   .jplist-panel .jplist-group input, .jplist-panel .jplist-group label {
     height: 35px;
     line-height: 35px;
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
   }
 
   .jplist-panel .jplist-pagination {
@@ -441,24 +484,25 @@
   .jplist-panel .jplist-pagination .jplist-pagingprev button, .jplist-panel .jplist-pagination .jplist-pagingnext button {
     font-size: 24px;
     line-height: 24px;
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
   }
 
   .jplist-panel .jplist-pagination button {
+    font-family: "Roboto Slab", sans-serif;
     display: inline-block;
-    color: #343a40;
+    color: #343a40b0;
     height: 35px;
     line-height: 35px;
     padding: 0 13px;
   }
 
 .jplist-panel button:hover {
-  color: #e18a07;
   cursor: pointer;
-  background: #f2f2f2;
+  color: #343a40;
+  /* background: #f2f2f2;
   background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fafafa),color-stop(100%,#ededed));
   background: -webkit-linear-gradient(top,#fafafa 0,#ededed 100%);
-  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%);
+  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%); */
 }
 
 .jplist-panel button {
@@ -468,15 +512,15 @@
 }
 
 .jplist-panel .jplist-pagination .jplist-current {
-  font-weight: normal;
-  color: #e18a07;
+  font-weight: bold;
+  color: #343a40;
 }
 
 .jplist-label {
     font-size: 14px;
     height: 35px;
     line-height: 35px;
-    font-family: "Raleway", sans-serif;
+    font-family: "Roboto Slab", sans-serif;
 }
 
 
@@ -525,8 +569,8 @@
 }
 
 .paginator_page:hover {
-  background: #f2f2f2;
+  /* background: #f2f2f2;
   background: -webkit-gradient(linear,left top,left bottom,color-stop(0,#fafafa),color-stop(100%,#ededed));
   background: -webkit-linear-gradient(top,#fafafa 0,#ededed 100%);
-  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%);
+  background: linear-gradient(to bottom,#fafafa 0,#ededed 100%); */
 }

@@ -39,7 +39,7 @@
                  checked
                />
 
-               <label for="do1">Do 1. leta starosti</label>
+               <label for="do1">Do 1. leta <span class="starost_filter">starosti</span></label>
 
                <input
                  data-path=".nad1"
@@ -48,34 +48,7 @@
                  checked
                />
 
-               <label for="nad1">Od 1. leta dalje</label>
-            </div>
-
-            <!-- checkbox način posvojitev -->
-
-            <div
-               class="jplist-group"
-               data-control-type="checkbox-group-filter"
-               data-control-action="filter"
-               data-control-name="themes">
-
-               <input
-                 data-path=".posebej"
-                 id="posebej"
-                 type="checkbox"
-                 checked
-               />
-
-               <label for="posebej">Posebej</label>
-
-               <input
-                 data-path=".par"
-                 id="par"
-                 type="checkbox"
-                 checked
-               />
-
-               <label for="par">V paru</label>
+               <label for="nad1">Od 1. leta <span class="starost_filter">dalje</span></label>
             </div>
 
             <div
@@ -92,16 +65,30 @@
           <div class="list">
             <% muce.forEach(function(muca){ %>
               <div class="list-item muca <%= starostNum(muca.mesec_rojstva) >= 12 ? 'nad1' : 'do1' %> <%= muca.nacin_posvojitve == 'v_paru' || muca.ime.toLowerCase().includes(' in ') ? 'par' : 'posebej' %>">
-                <h2 class="ime"><a href="/posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %> <i class="fa fa-<%= spolSimbol(muca.spol) %>" aria-hidden="true"></i></a></h2>
+                <!-- ime -->
+                <div class="muca_ime">
+                  <h2 class="ime">
+                    <a href="/posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %>
+                      <!-- simbol za spol -->
+                      <i class="fa fa-<%= spolSimbol(muca.spol) %>" aria-hidden="true"></i>
+                    </a>
+                  </h2>
+                </div>
+                <!-- slika -->
                 <div class="muca_img"><a href="/posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></div>
+                <!-- ikone za vet status -->
                 <div class="vet_status">
                   <img src="/images/<%= muca.vet.felv == true ? "felvplus" : "felvminus" %>.png" />
                   <img src="/images/<%= muca.vet.fiv == true ? "fivplus" : "fivminus" %>.png" />
                 </div>
-                <p><strong>Starost:</strong> <%= starostVMesecih(muca.mesec_rojstva) %></p>
-                <p class="cat_more"><a href="/posvojitev/muce/<%= muca.dbid %>">
-                  Več <i class="fa fa-caret-right" aria-hidden="true"></i>
-                </a></p>
+                <div class="muca_infoandmore">
+                  <!-- starost -->
+                  <p><strong>Starost:</strong> <%= starostVMesecih(muca.mesec_rojstva) %></p>
+                  <!-- link do individualne strani -->
+                  <!-- <p class="cat_more"><a href="/posvojitev/muce/<%= muca.dbid %>">
+                    Več <i class="fa fa-caret-right" aria-hidden="true"></i>
+                  </a></p> -->
+                </div>
               </div>
             <% }); %>
 

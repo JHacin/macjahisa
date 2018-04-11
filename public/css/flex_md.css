@@ -10,6 +10,10 @@
     align-items: center;
   }
 
+  .jplist-panel .jplist-pagination {
+    margin-bottom: 2rem;
+  }
+
   .content {
     width: 90%;
     margin-right: 0;
@@ -250,5 +254,15 @@
     margin-left: auto;
   }
   /* END MENU */
+
+  /* MUCE */
+  .muca {
+    width: 50%;
+  }
+
+  .muca_img {
+    height: 250px;
+  }
+  /* END MUCE */
 
 }
