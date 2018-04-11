@@ -1064,6 +1064,10 @@
     height: 190px;
   }
 
+
+}
+
+@media all and (max-width: 360px) {
   .nav_donate > form > button {
     font-size: 22px;
     height: 65px;
@@ -1080,14 +1084,12 @@
   .stellarnav .fa-bars {
     font-size: 36px;
   }
-}
 
-@media all and (max-width: 360px) {
   .side_cat {
     height: 190px;
   }
 
-  .i_muc {
+  .i_muca {
     margin-bottom: 10px;
   }
 
