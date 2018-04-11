@@ -19,7 +19,9 @@
 }
 
 .jplist-panel {
-  display: block;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
 }
 
 .jplist-panel .jplist-pagination {
