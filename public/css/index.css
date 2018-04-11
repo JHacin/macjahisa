@@ -48,7 +48,7 @@ button a:hover {
 
   .navbar > .logo {
     padding: 10px 20px;
-
+    align-items: center;
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -1063,4 +1063,35 @@
   .page_header {
     height: 190px;
   }
+
+  .nav_donate > form > button {
+    font-size: 22px;
+    height: 65px;
+  }
+
+  .navbar {
+    height: 65px;
+  }
+
+  .navbar .logo img {
+    height: 55px;
+  }
+
+  .stellarnav .fa-bars {
+    font-size: 36px;
+  }
+}
+
+@media all and (max-width: 360px) {
+  .side_cat {
+    height: 190px;
+  }
+
+  .i_muc {
+    margin-bottom: 10px;
+  }
+
+  .i_muca_img {
+    min-height: 190px;
+  }
 }
