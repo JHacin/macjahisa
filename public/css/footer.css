@@ -6,13 +6,6 @@
   font-size: 0.8em;
 }
 
-.fb-page,
-.fb-page span,
-.fb-page span iframe[style] {
-    width: 100% !important;
-}
-
-
 .scrollToTop {
   position: fixed;
   padding: 0.6em 0.9em;
