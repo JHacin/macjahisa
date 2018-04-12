@@ -1,5 +1,9 @@
 @media all and (max-width: 768px) {
 
+  #v_novem_domu_container > .content > li {
+    width: 100%;
+  }
+
   .content ul {
     padding-left: 1.6em;
   }
@@ -64,8 +68,12 @@
 }
 
 .muca_img {
-  height: 200px;
+  height: 260px;
   width: 100%;
+}
+
+.v_novem_domu_muca .muca_img {
+  height: 320px;
 }
 
 .jplist-panel .text-filter-box {
@@ -1060,6 +1068,14 @@
     min-height: 240px;
   }
 
+  .v_novem_domu_muca .muca_img {
+    height: 220px;
+  }
+
+  .muca_img {
+    height: 190px;
+  }
+
   .page_header {
     height: 190px;
   }
@@ -1100,4 +1116,13 @@
   .i_muca_img {
     min-height: 190px;
   }
+
+  .muca_img {
+    height: 170px;
+  }
+
+  .v_novem_domu_muca .muca_img {
+    height: 170px;
+  }
+
 }

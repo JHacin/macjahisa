@@ -114,11 +114,11 @@ a {
 .content a {
   color: #343a40;
   font-weight: 700;
-  transition: all 0.2s ease;
 }
 
   .content a:hover {
-    color: #ffcb00;
+    color: #343a40;
+    font-weight: 500;
   }
 
 .seznam_novic {

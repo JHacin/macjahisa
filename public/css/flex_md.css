@@ -10,6 +10,10 @@
     align-items: center;
   }
 
+  .v_novem_domu_muca .muca_img {
+    height:  280px;
+  }
+
   .jplist-panel .jplist-pagination {
     margin-bottom: 2rem;
   }
@@ -260,9 +264,12 @@
     width: 50%;
   }
 
-  .muca_img {
+  .muca_img,
+  .v_novem_domu_muca .muca_img {
     height: 250px;
   }
+
+
   /* END MUCE */
 
 }
