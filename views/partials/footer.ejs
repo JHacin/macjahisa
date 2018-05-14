@@ -1,85 +1,3 @@
-<!-- </div>
-<div class="related_links">
-  <div class="container">
-    <div class="related_div">
-      <a href="http://www.macjiboter.si/" target="_blank">
-      <img src="/files/page/macji-boter.png" />
-      </a>
-    </div>
-    <div class="related_div">
-      <a href="http://www.macjahisa-vet.si/" target="_blank">
-      <img src="/files/page/veterina.png" />
-      </a>
-    </div>
-    <div class="related_div">
-      <a href="http://www.supercombe.si/" target="_blank">
-      <img src="/files/page/super-combe.png" />
-      </a>
-    </div>
-    <div class="related_div">
-      <a href="http://www.pomagamo-zivalim.si/index.php" target="_blank">
-      <img src="/files/page/pomagamo-zivalim.png" />
-      </a>
-    </div>
-  </div>
-</div>
-<div class="footer">
-  <div class="container">
-    <div class="footer_nav">
-      <h3>Hitre povezave</h3>
-      <ul class="footer_nav_list">
-        <li><a href="/posvojitev/muce">Muce za posvojitev</a></li>
-        <li><a href="http://www.macjiboter.si/" target="_blank">Posvojitev na daljavo</a></li>
-        <li><a href="/dobro_je_vedeti/izobrazevalne_vsebine">Izobraževanje</a></li>
-        <li><a href="http://www.macjahisa-vet.si/" target="_blank">Veterina MH</a></li>
-        <li><a href="http://www.macjahisa-vet.si/mackam-prijazna-klinika/" target="_blank">Mačkam prijazna klinika</a></li>
-        <li><a href="http://www.supercombe.si/" target="_blank">Trgovina Super Čombe</a></li>
-      </ul>
-    </div>
-    <div class="footer_contact">
-      <h3>Kontakt</h3>
-      <p><em>Zavod Mačja hiša</em></p>
-      <p><i class="fa fa-home" aria-hidden="true"></i> Groharjeva ulica 8, 3000 Celje</p>
-      <p><a href="mailto:info@macjahisa.si"><i class="fa fa-envelope" aria-hidden="true"></i> info@macjahisa.si</a></p>
-      <p><a href="tel:040 937 959"><i class="fa fa-phone" aria-hidden="true"></i> 040 937 959</a></p>
-    </div>
-    <div class="footer_links">
-      <div class="social">
-        <a href="https://twitter.com/MacjaHisa" target="_blank"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
-        <a href="http://www.youtube.com/channel/UC_Gq4voyvfoOCafJMNY0oHg" target="_blank"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
-        <a href="http://instagram.com/macjahisa" target="_blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
-        <a href="https://plus.google.com/+macjahisa" target="_blank"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
-      </div>
-      <div class="fb_link">
-        <div class="fb-page" data-href="https://www.facebook.com/MacjaHisa/" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/MacjaHisa/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/MacjaHisa/">Mačja hiša</a></blockquote></div>
-      </div>
-    </div>
-  </div>
-</div>
-<div class="signature">
-  <div class="container">
-    <div>Zavod Mačja hiša © 2018. Vse pravice pridržane.</div>
-    <div>Izdelava in oblikovanje strani: <a href="mailto:jan.hacin@gmail.com">Jan Hacin</a></div>
-  </div>
-</div>
-<a href="#" class="scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
-
-<script
-  src="https://code.jquery.com/jquery-2.2.4.min.js"
-  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-  crossorigin="anonymous"></script>
-<script type="text/javascript" src="/js/stellarnav.min.js"></script>
-<script src="/js/jquery.pajinate.min.js"></script>
-<script src="/js/jplist.core.min.js"></script>
-<script src="/js/jplist.textbox-filter.min.js"></script>
-<script src="/js/jplist.pagination-bundle.min.js"></script>
-<script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
-<script src="/js/jplist.filter-toggle-bundle.min.js"></script>
-<script type="text/javascript" src="/slick/slick.min.js"></script>
-<script src="/js/main.js"></script>
-</body>
-</html> -->
-<!-- Kasneje prestavi v partial in spremeni classe -->
 <div class="i_footer">
   <div class="container">
     <div>
@@ -134,8 +52,6 @@
     </span>
   </div>
 </div>
-<!-- BACK TO TOP BUTTON -->
-<a href="#" class="i_scrollToTop"><i class="fa fa-arrow-up" aria-hidden="true"></i></a>
 <!-- SCRIPTS -->
 <script
   src="https://code.jquery.com/jquery-2.2.4.min.js"
@@ -146,15 +62,6 @@
 <!-- <script src="/js/main.js"></script> -->
 <script type="text/javascript">
           $(document).on('ready', function () {
-
-            $(window).scroll(function(){
-              if($(this).scrollTop() > 100) {
-                $(".i_scrollToTop").fadeIn();
-              } else {
-                $(".i_scrollToTop").fadeOut();
-              }
-            });
-
             $(".stellarnav").stellarNav({
               position: "left",
               breakpoint: 1425,
@@ -167,22 +74,16 @@
                 slidesToShow: 1,
                 autoplay: true,
                 autoplaySpeed: 15000,
-                infinite: true
+                infinite: false
               });
-
-            // scroll to top on btn click
-            $(".i_scrollToTop").click(function(){
-              $("html, body").animate({scrollTop: 0}, 600);
-              return false;
-            });
           });
 </script>
-<script src="/js/jquery.pajinate.min.js"></script>
+<script src="/js/jquery.pajinate.min.js" async></script>
 <script src="/js/jplist.core.min.js"></script>
-<script src="/js/jplist.textbox-filter.min.js"></script>
-<script src="/js/jplist.pagination-bundle.min.js"></script>
-<script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
-<script src="/js/jplist.filter-toggle-bundle.min.js"></script>
+<script src="/js/jplist.textbox-filter.min.js" async></script>
+<script src="/js/jplist.pagination-bundle.min.js" async></script>
+<script src="/js/jplist.filter-dropdown-bundle.min.js" async></script>
+<script src="/js/jplist.filter-toggle-bundle.min.js" async></script>
 <script src="/js/main.js"></script>
 </body>
 </html>

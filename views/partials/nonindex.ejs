@@ -1,11 +1,15 @@
+<% if (typeof bannerIsHidden == "undefined") { %>
 <div class="page_header">
   <div class="container">
     <h1 class="content_heading"><%= podstran.naslov %></h1>
   </div>
 </div>
+<% } %>
   <div class="nonindex">
+  <% if (typeof bannerIsHidden == "undefined") { %>
   <div class="header_mobile">
     <h1 class="content_heading"><%= podstran.naslov %></h1>
   </div>
+  <% } %>
     <div class="container">
       <div class="content">

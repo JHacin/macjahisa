@@ -9,6 +9,10 @@ body {
   display: none;
 }
 
+input.paypal_btn {
+  padding-bottom: 1rem;
+}
+
 #disabled_link {
   color: gray;
   font-size: 16px;

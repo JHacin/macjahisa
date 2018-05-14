@@ -7,6 +7,7 @@ router.get("/", function(req, res){
   res.redirect("/posvojitev/muce");
 });
 
+// Seznam muc
 router.get("/muce", function(req, res){
   Podstran.findOne({naslov: "Muce, ki iščejo dom"}, function(err, podstran){
     Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce){
@@ -19,6 +20,7 @@ router.get("/muce", function(req, res){
   });
 });
 
+// Individualna muca
 router.get("/muce/:id", function(req, res){
   Muca.findOne({dbid: req.params.id}, function (err, muca){
     if(err) return console.log(err);
@@ -31,11 +33,13 @@ router.get("/muce/:id", function(req, res){
       sidebar_muce: req.sidebar_muce,
       title: muca.ime + " | Mačja hiša",
       social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
-      social_image: "http://" + req.headers.host + "/files/oglasi_muce/" + muca.file_name1
+      social_image: "http://" + req.headers.host + "/files/oglasi_muce/" + muca.file_name1,
+      bannerIsHidden: true
     });
   });
 });
 
+// Pogoji in postopki etc.
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
     if(err) return console.log(err);

@@ -177,6 +177,15 @@
 }
 
 /* FULL PAGE */
+#muca_title_ime {
+  margin: 0;
+  color: #343a40;
+  letter-spacing: 2px;
+  font-size: 3em;
+  padding-bottom: 0.5rem;
+  font-weight: 500;
+}
+
 .cat_full {
   display: flex;
   flex-direction: row;
@@ -186,7 +195,6 @@
 
 .photos {
   width: 100%;
-
 }
 
   .photos img {
@@ -224,11 +232,13 @@
     background: #b2d1a7;
   }
 
-    .data_header h3 {
+    .data_header h3,
+    .desc h2 {
       margin: 0;
       font-weight: 600;
       color: #343a40;
       letter-spacing: 1px;
+      font-size: 20px;
     }
 
   .data_title_row {
@@ -254,7 +264,6 @@
 
   .row_def {
     width: 55%;
-    color: black;
   }
 
   .row_val {
@@ -284,6 +293,7 @@
 .desc {
   width: 58%;
   padding-right: 1em;
+  padding-top: 2em;
 }
 
   .cat_full h2 {
@@ -291,8 +301,13 @@
     margin-top: 0.5em;
     letter-spacing: 1px;
     padding-left: 0.5em;
-    font-weight: 500;
+    font-weight: 600;
     font-size: 20px;
+    color: #131313d6;
+  }
+
+  .cat_full p {
+    font-size: 14px;
   }
 
   .desc > h2:first-of-type {

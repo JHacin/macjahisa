@@ -16,28 +16,26 @@ $(document).ready( function() {
 
    // MUCA IMAGE SLIDER
    $('.photos').slick({
-     dots: true,
-     arrows: false,
-     infinite: true,
-     speed: 400,
+     dots: false,
+     arrows: true,
+     // infinite: true,
+     speed: 700,
      autoplay: true,
-     autoplaySpeed: 2500,
+     autoplaySpeed: 4500,
      slidesToShow: 1,
      centerMode: true,
      variableWidth: true,
+     adaptiveHeight: false,
      responsive: [
        {
          breakpoint: 600,
          settings: {
-           dots: true,
-           arrows: true,
-           infinite: true,
-           speed: 400,
-           adaptiveHeight: true,
-           variableWidth: false,
-           centerMode: false,
-           slidesToShow: 1
-         }
+          adaptiveHeight: true,
+          variableWidth: false,
+          centerMode: false,
+          slidesToShow: 1,
+          autoplay: false
+        }
        }
      ]
    });
