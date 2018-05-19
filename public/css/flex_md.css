@@ -261,6 +261,16 @@
     display: block;
   }
 
+  .novice_seznam .jplist-panel {
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  .novice_seznam .jplist-panel .jplist-pagination {
+    margin-bottom: 0;
+  }
+
   .cat_full {
     flex-direction: column;
     align-items: center;

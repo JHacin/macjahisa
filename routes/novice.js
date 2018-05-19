@@ -28,7 +28,8 @@ router.get("/:id", function(req, res){
       nav_podstrani: req.nav_podstrani,
       title: novica.naslov + " | Mačja hiša",
       social_description: novica.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
-      social_image: "http://" + req.headers.host + "/files/" + novica.naslovna_slika
+      social_image: "http://" + req.headers.host + "/files/" + novica.naslovna_slika,
+      titleIsHidden: true
     });
   });
 });

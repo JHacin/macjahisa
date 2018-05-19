@@ -32,7 +32,9 @@
         <link rel="stylesheet" href="/css/main.css" />
         <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
-        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> -->
+        <% if (typeof searchPageRender !== "undefined") { %>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <% }; %>
         <link rel="stylesheet" href="/tipuesearch/css/tipuesearch.css">
         <link rel="stylesheet" href="/tipuesearch/css/normalize.css">
         <script src="/tipuesearch/tipuesearch_content.js" async></script>

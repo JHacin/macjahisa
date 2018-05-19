@@ -42,7 +42,7 @@
   }
 
 .side_btn {
-  background: #3f3f3f;
+  background: #3f3f3f26;
   padding: 0.8rem;
   float: none;
   display: flex;
@@ -50,16 +50,25 @@
   justify-content: center;
   text-align: center;
   letter-spacing: 1px;
+  border: 1px solid #3f3f3f;
+  border-top: none;
   border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
     text-align: center;
 }
 
   .side_btn a {
-    color: rgba(255, 255, 255, 0.9);
+    /* color: rgba(255, 255, 255, 0.9); */
     font-size: 18px;
     font-weight: 500;
+    text-decoration: none;
   }
+
+
+    .side_btn a:visited,
+    .side_btn a:hover {
+      color: #3f3f3f;
+    }
 
 .side_cats,
 .side_news {

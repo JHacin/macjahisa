@@ -1,7 +1,7 @@
 body {
   margin: 0;
   /* font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol"; */
-  font-family: "Raleway", sans-serif;
+
   color: #131313d6;
 }
 
@@ -11,6 +11,11 @@ body {
 
 input.paypal_btn {
   padding-bottom: 1rem;
+}
+
+.tipue_search_content_title a:hover {
+  font-family: 'Roboto Slab', serif;
+  color: #343a40!important;
 }
 
 #disabled_link {
@@ -26,7 +31,8 @@ body > div > .container {
 }
 
 .content .novica_datum {
-  font-weight: 400;
+  font-weight: 300;
+  font-size: 18px;
 }
 
 h3 {
@@ -76,8 +82,7 @@ a {
 }
 
 .content h2 {
-  font-weight: 500;
-  color: #ffcb00;
+  font-weight: 600;
 }
 
 .content h3 {
@@ -113,16 +118,26 @@ a {
 
 .content img {
   margin-bottom: 1em;
+  max-width: 95%;
+  height: auto;
+}
+
+.content .novica_naslov  {
+  margin-top: 0;
+}
+
+.content .clanek_link {
+  font-weight: 400;
 }
 
 .content a {
   color: #343a40;
-  font-weight: 700;
+  font-weight: 600;
 }
 
   .content a:hover {
     color: #343a40;
-    font-weight: 500;
+    font-weight: 800;
   }
 
 .seznam_novic {
@@ -166,14 +181,14 @@ a {
 }
 
   .vsebina h3 {
-    font-weight: 500;
+    font-weight: 600;
+    color: #3f3f3f;
     margin: 0.5em 0;
-    color: #e59400;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.23px;
   }
 
   .vsebina a {
-    font-weight: 600;
+    font-weight: 400;
     letter-spacing: 0.5px;
   }
 
@@ -195,7 +210,6 @@ a {
   .novica_naslov_title {
     font-size: 16px;
     font-weight: 500;
-    color: #ffcb00;
   }
 
 
@@ -211,6 +225,7 @@ a {
 
   .novice_seznam h4 {
     margin: 0 0 0.2em 0;
+    font-weight: 600;
   }
 
   .novice_seznam .novica_txt {
@@ -238,7 +253,6 @@ a {
 
 .novica_txt a i {
   font-size: 12px;
-  color: #ffcb00;
 }
 
 .novica_txt a i,
@@ -264,8 +278,4 @@ a {
 
 .jplist-panel .text-filter-box .jplist-icon {
   transition: all 0.2s ease;
-}
-
-.jplist-panel .text-filter-box .jplist-icon:hover {
-    color: #ffcb00;
 }

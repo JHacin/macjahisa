@@ -1,24 +1,12 @@
 <% include ../partials/header %>
 <% include ../partials/nonindex %>
 
+    <h2 class="novica_naslov"><%= novica.naslov %></h2>
     <h3 class="novica_datum"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></h3>
 
     <%- novica.vsebina %>
-    <div class="social_buttons">
-      <div class="fb-like"
-        data-href="<%= social_url %>"
-        data-layout="button"
-        data-action="like"
-        data-show-faces="true">
-      </div>
-      <div class="fb-share-button"
-        data-href="<%= social_url %>"
-        data-layout="button">
-      </div>
-      <a class="twitter-share-button"
-        href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
-        data-text="<%= social_description %>">
-      <i class="fa fa-twitter"></i> Tweet</a>
-    </div>
+
+    <%= titleIsHidden %>
+
 <% include ../partials/sidebar %>
 <% include ../partials/footer %>

@@ -107,6 +107,11 @@
   font-weight: 500;
 }
 
+  .muca h2 a:hover {
+    color: #ffcb00;
+    font-weight: 500;
+  }
+
 .muca_img {
   width: 90%;
   height: 200px;
@@ -483,6 +488,8 @@
 
   .jplist-panel .text-filter-box .jplist-icon {
     background: rgba(230, 230, 230,1);
+    line-height: 35px;
+    height: 35px;
   }
 
   .jplist-panel input[type=text] {

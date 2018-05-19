@@ -1,14 +1,18 @@
 <% if (typeof bannerIsHidden == "undefined") { %>
 <div class="page_header">
   <div class="container">
+    <% if (typeof titleIsHidden == "undefined" && typeof searchPageRender == "undefined") { %>
     <h1 class="content_heading"><%= podstran.naslov %></h1>
+    <% } %>
   </div>
 </div>
 <% } %>
   <div class="nonindex">
-  <% if (typeof bannerIsHidden == "undefined") { %>
+  <% if (typeof bannerIsHidden == "undefined" && typeof searchPageRender == "undefined") { %>
   <div class="header_mobile">
+    <% if (typeof titleIsHidden == "undefined") { %>
     <h1 class="content_heading"><%= podstran.naslov %></h1>
+    <% } %>
   </div>
   <% } %>
     <div class="container">

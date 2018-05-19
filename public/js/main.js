@@ -28,7 +28,7 @@ $(document).ready( function() {
      adaptiveHeight: false,
      responsive: [
        {
-         breakpoint: 600,
+         breakpoint: 640,
          settings: {
           adaptiveHeight: true,
           variableWidth: false,
