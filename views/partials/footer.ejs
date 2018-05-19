@@ -53,18 +53,11 @@
   </div>
 </div>
 <!-- SCRIPTS -->
-<% if (typeof searchPageRender == "undefined") { %>
-  <script
-    src="https://code.jquery.com/jquery-2.2.4.min.js"
-    integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
-    crossorigin="anonymous">
-  </script>
-<% }; %>
 <script type="text/javascript" src="/js/stellarnav.min.js"></script>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
-<!-- <script src="/js/main.js"></script> -->
 <script type="text/javascript">
-          $(document).on('ready', function () {
+          $(document).ready(function() {
+            $('#tipue_search_input').tipuesearch();
             $(".stellarnav").stellarNav({
               position: "left",
               breakpoint: 1425,
@@ -88,12 +81,5 @@
 <script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
 <script src="/js/jplist.filter-toggle-bundle.min.js"></script>
 <script src="/js/main.js"></script>
-<% if (typeof searchPageRender !== "undefined") { %>
-  <script>
-  $(document).ready(function() {
-       $('#tipue_search_input').tipuesearch();
-  });
-  </script>
-<% }; %>
 </body>
 </html>

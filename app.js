@@ -125,7 +125,7 @@ app.get("/", function(req, res){
 });
 
 app.get("/search", function(req, res){
-  res.render("search", {searchPageRender: true, podstran: {naslov: "Rezultati iskanja"}, title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
+  res.render("search", {podstran: {naslov: "Rezultati iskanja"}, title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
   nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
   sidebar_muce: req.sidebar_muce});
 });
