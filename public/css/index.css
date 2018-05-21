@@ -181,7 +181,6 @@ button a {
           -webkit-transition: all 0.2s ease-out;
           -o-transition: all 0.2s ease-out;
           transition: all 0.2s ease-out;
-
         }
 
       .i_muca_txt {
@@ -236,7 +235,6 @@ button a {
 }
 
 .clear input#mc-embedded-subscribe {
-  margin-left: 3px;
   transition: all 0.2s ease;
 }
 
@@ -312,7 +310,6 @@ input[type=email]:focus {
   margin: 5px 1px 3px 0px;
   border: 10px solid #ffcb00;
 }
-/* END MAILING */
 
 /* HELP */
 .i_help {
@@ -565,145 +562,3 @@ input[type=email]:focus {
     letter-spacing: 0.5px;
     margin-top: 20px;
   }
-/* END BOTER */
-
-/* FOOTER */
-.i_footer {
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  background: #3f3f3f;
-  padding: 60px 0;
-
-}
-
-    .i_footer > .container > div {
-      width: 25%;
-    }
-
-      .i_footer h3 {
-        text-transform: uppercase;
-        font-weight: 300;
-        letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.5);
-      }
-
-
-      .i_footer > .container > div > ul {
-        list-style: none;
-        padding-left: 0;
-        font-weight: 300;
-      }
-
-        .i_footer > .container > div > ul > li {
-          font-weight: 300;
-          line-height: 34px;
-          color: rgba(255, 255, 255, 0.8);
-        }
-
-        .i_footer > .container > div > ul > li a {
-          color: rgba(255, 255, 255, 0.8);
-          -webkit-transition: all 0.4s ease;
-          -o-transition: all 0.4s ease;
-          transition: all 0.4s ease;
-        }
-
-        .i_footer > .container > div > ul > li .fa {
-          margin-right: 4px;
-        }
-
-        .social_buttons {
-          display: -webkit-box;
-          display: -ms-flexbox;
-          display: flex;
-          -webkit-box-orient: horizontal;
-          -webkit-box-direction: normal;
-              -ms-flex-direction: row;
-                  flex-direction: row;
-          -ms-flex-pack: distribute;
-              justify-content: space-around;
-        }
-
-          .social_buttons a .fa {
-            color: rgba(255, 255, 255, 0.5);
-            font-size: 32px;
-            vertical-align: middle;
-            padding-bottom: 18.72px;
-            -webkit-transition: all 0.4s ease;
-            -o-transition: all 0.4s ease;
-            transition: all 0.4s ease;
-          }
-
-          .social_buttons a .fa:hover,
-          .i_footer > .container > div > ul > li a:hover {
-            color: rgba(255, 203, 0, 0.9);
-          }
-
-        .fb-page {
-          border: 1px solid rgba(255,255,255,0.3);
-        }
-
-.i_signature {
-  background: #232323;
-  color: rgba(255,255,255,0.6);
-  letter-spacing: 1px;
-  font-size: 13px;
-  height: 30px;
-  line-height: 30px;
-  padding: 6px 0;
-  font-weight: 300;
-}
-
-  .i_signature > .container {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: row;
-            flex-direction: row;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-  }
-
-  .i_signature a {
-    color: rgba(255,255,255,0.7);
-    margin-left: 2px;
-    font-weight: 500;
-  }
-
-  .signature_divider {
-    -ms-flex-item-align: center;
-        -ms-grid-row-align: center;
-        align-self: center;
-    color: rgba(255,255,255,0.8);
-    margin: 0 8px;
-    font-size: 0.5rem;
-  }
-
-  .i_scrollToTop {
-    position: fixed;
-    padding: 0.7em 1em;
-    bottom: 1em;
-    right: 1.3em;
-    background-color: rgba(255, 203, 0, 0.8);
-    color: white;
-    font-size: 1em;
-    opacity: 0.6;
-    border-radius: 14%;
-    display: none;
-    -webkit-transition: none;
-    -o-transition: none;
-    transition: none;
-    color: #343a40;
-  }
-
-  .i_scrollToTop:hover {
-    opacity: 1;
-  }
-
-/* END FOOTER */
