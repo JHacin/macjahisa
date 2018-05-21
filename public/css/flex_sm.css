@@ -254,7 +254,8 @@
   }
 
     .navbar .logo img {
-      height: 65px;
+      height: 60px;
+      vertical-align: middle;
     }
 
   .stellarnav > ul > li:nth-of-type(n+4),

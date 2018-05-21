@@ -3,6 +3,7 @@ body {
 }
 
 body > div > .container {
+  width: 1250px;
   max-width: 1300px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -29,6 +30,11 @@ h3 {
 .content .novica_datum {
   font-weight: 300;
   font-size: 18px;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 0.5em;
 }
 
 a {
@@ -300,4 +306,33 @@ input.paypal_btn,
 /* SLICK */
 .slick-prev:before, .slick-next:before {
     color: #343a40 !important;
+}
+
+.slick-slide:focus {
+  outline: none;
+}
+
+.i_jumbo .slick-dots {
+  bottom: 10%;
+}
+
+.slick-dotted.slick-slider {
+  margin-bottom: 0;
+}
+
+.slick-dots li {
+  margin-right: 15px;
+}
+
+.slick-dots li button:before {
+    font-size: 20px;
+    line-height: 20px;
+    color: #fff;
+    opacity: 1;
+    margin-right: 50px;
+}
+
+.i_jumbo .slick-dots li.slick-active button:before {
+  opacity: 1;
+  color: #ffcb00;
 }
