@@ -5,9 +5,16 @@
 }
 
 .nonindex > .container_full {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .container_full > .content {
@@ -19,21 +26,21 @@
   text-align: center;
 }
 
-.container_full > .content .content_title_subhr {
-  margin: 0.5em auto;
-  margin-bottom: 1.5em;
-  background-image: linear-gradient(to right, rgba(229, 148, 0, 0), rgba(229, 148, 0, 0.8), rgba(0,0, 0, 0));
-  width: 270px;
-}
-
 .container_full > .content .intro p {
   text-align: center;
 }
 
 .muce_filter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   border-top: 1px solid rgba(0,0,0,0.2);
   border-bottom: 1px solid rgba(0,0,0,0.2);
   padding: 18px;
@@ -50,9 +57,16 @@
 .muce_filter_group {
   width: 30%;
   text-align: left;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   text-align: center;
 }
 
@@ -70,10 +84,18 @@
 
 .muce_seznam > .list {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   padding: 0;
 }
@@ -82,9 +104,16 @@
   width: 33.33333333%;
   text-align: center;
   margin-top: 2em;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 .muca_ime {
@@ -105,6 +134,7 @@
 .muca h2 a {
   color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
+  text-decoration: none;
 }
 
   .muca h2 a:hover {
@@ -165,6 +195,8 @@
 .cat_more a {
 
   font-weight: bold;
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
 }
 
@@ -192,10 +224,18 @@
 }
 
 .cat_full {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
 }
 
 .photos {
@@ -210,10 +250,18 @@
 
 .data {
   width: 40%;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  align-self: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   margin-top: 27px;
 }
 
@@ -248,16 +296,26 @@
 
   .data_title_row {
     padding: 8px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     background: #e8e8e8;
     border-top: 1px solid rgba(0,0,0,0.2);
   }
 
   .data_row {
     padding: 8px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
     background: #f8f8f8;
     border-top: 1px solid rgba(0,0,0,0.2);
   }
@@ -392,10 +450,18 @@
 
   list-style: none;
   padding: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: space-between;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
   width: 100%;
   margin: 0;
 }
@@ -407,8 +473,13 @@
 }
 
 .v_novem_domu_muca {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
   margin-bottom: 1em;
   width: 100%;
 
@@ -473,14 +544,22 @@
 
 /* JPLIST */
 .muce_filtri {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
   .muce_filtri .jplist-icon {
     height: 35px;
-    box-shadow: none;
+    -webkit-box-shadow: none;
+            box-shadow: none;
     color: #343a40;
     line-height: 35px;
     padding: 0 12px;
@@ -507,7 +586,8 @@
 
   .jplist-panel input[type=text]:focus {
     border: 0.5px solid rgba(2255, 203, 0, 0.9);
-    box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
+    -webkit-box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
+            box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
   }
 
   .jplist-panel .jplist-group {
@@ -526,9 +606,16 @@
   .jplist-panel .jplist-pagination {
     float: none;
     cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     margin-top: 1em;
   }
 
@@ -579,9 +666,16 @@
 /* PAGINATOR */
 .paginator {
   list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding: 0;
 }
 
@@ -593,16 +687,27 @@
   font-size: 14px;
   height: 35px;
   line-height: 35px;
+  -webkit-transition: none;
+  -o-transition: none;
   transition: none;
   padding: 0;
   font-weight: 500;
   margin: 10px 10px 0 0;
   border-radius: 3px;
   background: rgba(230, 230, 230,0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 
 
@@ -611,6 +716,8 @@
 }
 
 .paginator a li {
+  -webkit-transition: all 0.2s ease;
+  -o-transition: all 0.2s ease;
   transition: all 0.2s ease;
   font-weight: 300;
 }

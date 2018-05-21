@@ -1,7 +1,5 @@
 @media all and (max-width: 1425px) {
 
-
-
   .photos {
     width: 88vw;
   }
@@ -12,8 +10,16 @@
 
   .nonindex > .container {
 
-    flex-direction: column!important;
-    align-items: center;
+    -webkit-box-orient: vertical!important;
+
+    -webkit-box-direction: normal!important;
+
+        -ms-flex-direction: column!important;
+
+            flex-direction: column!important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .v_novem_domu_muca .muca_img {
@@ -32,7 +38,9 @@
   .sidebar {
     width: 90%;
     margin-left: 0;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-top: 1rem;
   }
 
@@ -47,7 +55,9 @@
 
   .cat_full {
     margin-bottom: 2rem;
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
   .side_cat {
@@ -84,7 +94,9 @@
 
   /* MENU */
   .nav_menu {
-    justify-content: flex-end;
+    -webkit-box-pack: end;
+        -ms-flex-pack: end;
+            justify-content: flex-end;
   }
 
   .nav_search {
@@ -141,16 +153,25 @@
 
   .stellarnav.mobile > ul > .mobile_nav_logo {
     border-bottom: 1px solid rgba(0,0,0,0.2);
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     padding: 15px 0;
   }
 
     .mobile_nav_logo img {
       width: 80px;
       margin: 0 auto;
-      align-self: center;
+      -ms-flex-item-align: center;
+          -ms-grid-row-align: center;
+          align-self: center;
     }
 
   .stellarnav.mobile li.has-sub {
@@ -187,18 +208,32 @@
     }
 
   .stellarnav > ul > .nav_search_mobile {
+    display: -webkit-box;
+    display: -ms-flexbox;
     display: flex;
-    flex-direction: row;
-    justify-content: center;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
     border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
     .stellarnav > ul > .nav_search_mobile > form {
       border: 1px solid rgba(0, 0, 0, 0.2);
       width: 200px;
+      display: -webkit-box;
+      display: -ms-flexbox;
       display: flex;
-      flex-direction: row;
-      justify-content: space-between;
+      -webkit-box-orient: horizontal;
+      -webkit-box-direction: normal;
+          -ms-flex-direction: row;
+              flex-direction: row;
+      -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+              justify-content: space-between;
     }
 
     .stellarnav > ul > .nav_search_mobile > form > input[type="text"] {
@@ -235,12 +270,19 @@
   }
 
   .i_footer > .container {
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .social_buttons {
-    justify-content: center;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
   }
 
     .social_buttons i {
@@ -262,8 +304,13 @@
   }
 
   .novice_seznam .jplist-panel {
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
     margin-bottom: 1.5rem;
   }
 
@@ -272,8 +319,13 @@
   }
 
   .cat_full {
-    flex-direction: column;
-    align-items: center;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
     .cat_full .data h3 {
@@ -282,7 +334,9 @@
 
   .data {
     width: 100%;
-    align-items: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .data_vet {
