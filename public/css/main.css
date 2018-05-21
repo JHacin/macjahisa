@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+.stellarnav.mobile.left>ul {
+  z-index: 9999;
+}
+
 body > div > .container {
   width: 1250px;
   max-width: 1300px;
