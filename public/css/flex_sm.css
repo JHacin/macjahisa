@@ -239,7 +239,7 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    width: 85px;
+    width: 75px;
     padding: 0;
     margin: 0;
   }
@@ -273,8 +273,11 @@
   .stellarnav.mobile.left>ul {
     min-height: 100vh;
     padding-bottom: 100px;
+    -webkit-transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
     z-index: 99999;
     -webkit-transform: translate3d(0,0,0);
+    -webkit-transform-style: preserve-3d;
   }
 
   .stellarnav > ul > li:nth-of-type(n+4) {
@@ -300,7 +303,7 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    height: 85px;
+    height: 75px;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;

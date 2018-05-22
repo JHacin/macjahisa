@@ -2,9 +2,16 @@ body {
   margin: 0;
 }
 
+body, html {
+  overflow-x: hidden;
+}
+
 .stellarnav.mobile.left>ul {
+  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-style: preserve-3d;
   z-index: 99999;
   -webkit-transform: translate3d(0,0,0);
+  -webkit-transform-style: preserve-3d;
 }
 
 body > div > .container {
