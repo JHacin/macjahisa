@@ -2,10 +2,6 @@ body {
   margin: 0;
 }
 
-body, html {
-  overflow-x: hidden;
-}
-
 .notVisible {
   visibility: hidden;
 }
