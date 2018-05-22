@@ -294,6 +294,7 @@
         -ms-flex-align: center;
             align-items: center;
     padding: 0 13px;
+    position: relative;
     z-index: 998;
     -webkit-transform: translate3d(0,0,0);
   }
@@ -301,6 +302,8 @@
     .nav_donate > form {
       right: 16px;
       z-index: 97;
+      position: absolute;
+      top: -10px;
       -webkit-transform: translate3d(0,0,0);
     }
 
@@ -313,6 +316,8 @@
         border-radius: 10px;
         letter-spacing: 1px;
         font-size: 34px;
+        position: -webkit-sticky;
+        position: sticky;
         font-weight: 700;
         font-family: 'Roboto Slab', serif;
         z-index: 998;

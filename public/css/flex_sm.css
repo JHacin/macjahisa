@@ -315,12 +315,16 @@
     -webkit-box-ordinal-group: 3;
         -ms-flex-order: 2;
             order: 2;
+    position: relative;
     padding: 0;
     height: 75px;
   }
 
     .nav_donate > form {
       width: 100%;
+      position: relative;
+      top: 0;
+      right: 0;
     }
 
       .nav_donate > form > button {
@@ -331,6 +335,7 @@
         border-radius: 0;
         font-size: 30px;
         font-weight: 700;
+        position: relative;
       }
 /* END MENU */
 
