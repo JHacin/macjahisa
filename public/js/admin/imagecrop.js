@@ -84,7 +84,7 @@ $(document).ready( function() {
         canvas = cropper.getCroppedCanvas();
         $modal.modal('hide');
         initialAvatarURL = $(oldImage).attr("src");
-        var dataURL = canvas.toDataURL("image/jpeg", 1);
+        var dataURL = canvas.toDataURL();
         $(oldImage).attr('src', dataURL);
         var xyz = "#" + inputName + "_crop";
         $(xyz).val(dataURL);

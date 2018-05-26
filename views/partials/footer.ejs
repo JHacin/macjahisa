@@ -65,14 +65,20 @@
               showArrows: false
             });
 
+            if($(".i_jumbo").length) {
               $(".i_jumbo").slick({
                 dots: true,
                 arrows: false,
                 slidesToShow: 1,
                 autoplay: true,
                 autoplaySpeed: 15000,
-                infinite: false
+                infinite: true,
+                fade: true,
+                cssEase: "linear"
               });
+            }
+
+
 
 
           });

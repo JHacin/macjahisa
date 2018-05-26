@@ -211,7 +211,7 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
 
     var base64_string = req.body.dataURL.replace(/^data:image\/\w+;base64,/, "");
     var imageBuffer = Buffer.from(base64_string, 'base64');
-    var imageName = muca.dbid + "_" + num + "_nova.jpeg";
+    var imageName = muca.dbid + "_" + num + ".png";
     var fileLocation = "public/files/oglasi_muce/" + imageName;
 
     try {

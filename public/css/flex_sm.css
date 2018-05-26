@@ -1,5 +1,10 @@
 @media all and (max-width: 768px) {
 
+  .cat_full .photos div img {
+    height: auto;
+    max-height: 300px;
+  }
+
   .jplist-panel .jplist-label {
     margin: 1rem 0;
   }
