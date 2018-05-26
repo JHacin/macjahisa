@@ -32,7 +32,7 @@ $(document).ready( function() {
    $('.photos').slick({
      dots: false,
      arrows: true,
-     // infinite: true,
+     infinite: true,
      speed: 700,
      autoplay: true,
      autoplaySpeed: 4500,

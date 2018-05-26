@@ -558,8 +558,6 @@
   display: none;
 }
 
-/* END INDEX PAGE */
-
 }
 
 @media all and (max-width: 640px) {
@@ -614,7 +612,6 @@
 
   .photos .photo {
     margin: 0 2px;
-
   }
 
   .photos img {
@@ -650,8 +647,6 @@
 }
 
 @media all and (max-width: 360px) {
-
-
 
   .fb-page, .fb-page iframe[style], .fb-page span {
       width: 100% !important;

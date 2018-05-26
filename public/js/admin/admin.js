@@ -1,6 +1,6 @@
 $(document).ready( function() {
 
-// set default value of date input to today
+  // set default value of date input to today
   Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
     local.setMinutes(this.getMinutes() - this.getTimezoneOffset());
@@ -9,7 +9,7 @@ $(document).ready( function() {
 
   $('#nova_datum').val(new Date().toDateInputValue());
 
-// dataTables
+  // dataTables
   $('#tabela').DataTable({
     "order": [[ 0, 'desc' ]]
   });
@@ -17,6 +17,5 @@ $(document).ready( function() {
   $('#summernote').summernote({
     minHeight: 500
   });
-
 
 });

@@ -15,6 +15,7 @@ var middleware = require("../middleware");
 const nodemailer = require("nodemailer");
 var crypto = require("crypto");
 var async = require("async");
+const fs = require("fs");
 
 // MULTER
 var multer = require("multer");
@@ -54,10 +55,10 @@ var storage_novice = multer.diskStorage({
   }
 })
 
-var upload_muce = multer({ storage: storage_muce });
-var upload_clanki = multer({ storage: storage_clanki });
-var upload_izobrazevanje = multer({ storage: storage_izobrazevanje });
-var upload_novice = multer({ storage: storage_novice });
+var upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
+var upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
+var upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
+var upload_novice = multer({ storage: storage_novice, limits: { fieldSize: 25 * 1024 * 10240 } });
 // END MULTER
 
 // INDEX ADMIN
@@ -197,12 +198,58 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
   });
 });
 
+router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
+  Muca.findById(req.params.id, function(err, muca){
+
+    if(err) {
+      console.log(err);
+      return res.redirect("/admin");
+    }
+
+    // številka slike (1-4)
+    var num = req.body.fileName[6];
+
+    var base64_string = req.body.dataURL.replace(/^data:image\/\w+;base64,/, "");
+    var imageBuffer = Buffer.from(base64_string, 'base64');
+    var imageName = muca.dbid + "_" + num + "_nova.jpeg";
+    var fileLocation = "public/files/oglasi_muce/" + imageName;
+
+    try {
+      fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+    } catch (e) {
+      console.error(e);
+    }
+
+    // povezava med novo sliko in muco
+    switch(num) {
+      case "1":
+        muca.file_name1 = imageName;
+        console.log("saved " + imageName);
+        break;
+      case "2":
+        muca.file_name2 = imageName;
+        console.log("saved " + imageName);
+        break;
+      case "3":
+        muca.file_name3 = imageName;
+        console.log("saved " + imageName);
+        break;
+      case "4":
+        muca.file_name4 = imageName;
+        console.log("saved " + imageName);
+        break;
+    }
+
+    muca.save();
+
+  });
+});
+
 router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
   ]), (req, res) => {
 
     var gre_v_nov_dom = false;
-
     // če gre muca v nov dom, pripravi za pošiljanje maila
     Muca.findById(req.params.id, function(err, muca){
       if(err) {
@@ -227,20 +274,6 @@ router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
       for(var key in req.body.vet) {
          muca.vet[key] = true;
       }
-
-      // posodobi slike
-      if(req.files.slika1) {
-        muca.file_name1 = req.files.slika1[0].filename;
-      };
-      if(req.files.slika2) {
-        muca.file_name2 = req.files.slika2[0].filename;
-      };
-      if(req.files.slika3) {
-        muca.file_name3 = req.files.slika3[0].filename;
-      };
-      if(req.files.slika4) {
-        muca.file_name4 = req.files.slika4[0].filename;
-      };
 
       // spremeni datum sprejema / odhoda v nov dom če se status spremeni
       if(gre_v_nov_dom || (req.body.muca.status != 4 && muca.status == 4)) {

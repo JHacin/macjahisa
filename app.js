@@ -34,8 +34,8 @@ mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
 app.use(methodOverride("_method"));
-app.use(bodyParser.json({limit: "50mb"}));
-app.use(bodyParser.urlencoded({limit: "50mb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({limit: "1tb"}));
+app.use(bodyParser.urlencoded({limit: "1tb", extended: true, parameterLimit:50000}));
 app.use(flash());
 app.locals.moment = require('moment');
 

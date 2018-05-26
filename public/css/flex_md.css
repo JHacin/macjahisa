@@ -9,13 +9,9 @@
   }
 
   .nonindex > .container {
-
     -webkit-box-orient: vertical!important;
-
     -webkit-box-direction: normal!important;
-
         -ms-flex-direction: column!important;
-
             flex-direction: column!important;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -92,7 +88,6 @@
     width: 385px;
   }
 
-  /* MENU */
   .nav_menu {
     -webkit-box-pack: end;
         -ms-flex-pack: end;
@@ -145,11 +140,6 @@
       font-weight: 700;
 
     }
-
-  /* .stellarnav.mobile.left>ul, .stellarnav.mobile.right>ul {
-    max-width: 280px;
-
-  } */
 
   .stellarnav.mobile > ul > .mobile_nav_logo {
     border-bottom: 1px solid rgba(0,0,0,0.2);
@@ -297,7 +287,6 @@
 
 @media all and (max-width: 1050px) {
 
-  /* MENU */
   .stellarnav > ul > li:nth-of-type(n+4),
   .stellarnav > ul > .nav_search_mobile {
     display: block;
@@ -372,9 +361,7 @@
   .nav_search {
     margin-left: auto;
   }
-  /* END MENU */
 
-  /* MUCE */
   .muca {
     width: 50%;
   }
@@ -383,8 +370,5 @@
   .v_novem_domu_muca .muca_img {
     height: 250px;
   }
-
-
-  /* END MUCE */
 
 }
