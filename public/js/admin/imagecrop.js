@@ -25,7 +25,7 @@ $(document).ready( function() {
         input.addEventListener('change', function (e) {
           var files = e.target.files;
           oldImage = $(this).siblings(".slika");
-          entityId = $(this).siblings(".slika").attr("id");
+
           inputName = $(this).attr("name");
           var done = function (url) {
             input.value = '';
@@ -78,26 +78,59 @@ $(document).ready( function() {
   for (i = 0; i < getConfirmButtons.length; i++) {
     cropButton = getConfirmButtons[i];
     cropButton.addEventListener('click', function () {
+
       var initialAvatarURL;
       var canvas;
       if (cropper) {
         canvas = cropper.getCroppedCanvas();
         $modal.modal('hide');
         initialAvatarURL = $(oldImage).attr("src");
-        var dataURL = canvas.toDataURL();
+        var dataURL = canvas.toDataURL("image/jpeg");
         $(oldImage).attr('src', dataURL);
         var xyz = "#" + inputName + "_crop";
         $(xyz).val(dataURL);
-
-          var postURL = "/admin/muce/" + entityId + "/crop?_method=PUT";
-          $.ajax({
-              type: "POST",
-              url: postURL,
-              data: {fileName: xyz, dataURL: dataURL}
-          }).done(function(o) {
-              console.log('all_saved');
-          });
       }
     });
+  }
+
+  $(".cmsForm").submit(function() {
+    entityId = $(".slika").attr("id");
+    var data = getFormData();
+    var postURL = "/admin/muce/" + entityId + "/crop?_method=PUT";
+      $.ajax({
+          type: "POST",
+          url: postURL,
+          data: data,
+          success: function (data, textStatus, jqXHR) {
+            if (typeof data.redirect == 'string') {
+              window.location.replace(data.redirect);
+            }
+          }
+      })
+  });
+
+  function getFormData() {
+    var formData = {
+      ime: $("#ime").val(),
+      datum: $("#datum").val(),
+      status: $("#status").val(),
+      mesec_rojstva: $("#mesec_rojstva").val(),
+      spol: $("#spol").val(),
+      summernote: $("#summernote").val(),
+      posvojitev_na_daljavo: $("#posvojitev_na_daljavo").val(),
+      vet: {
+        s_k: document.getElementById("vet[s_k]").checked,
+        cipiranje: document.getElementById("vet[cipiranje]").checked,
+        cepljenje: document.getElementById("vet[cepljenje]").checked,
+        razparazit: document.getElementById("vet[razparazit]").checked,
+        felv: document.getElementById("vet[felv]").checked,
+        fiv: document.getElementById("vet[fiv]").checked
+      },
+      slika1_crop: $("#slika1_crop").val(),
+      slika2_crop: $("#slika2_crop").val(),
+      slika3_crop: $("#slika3_crop").val(),
+      slika4_crop: $("#slika4_crop").val()
+    }
+    return formData;
   }
 });

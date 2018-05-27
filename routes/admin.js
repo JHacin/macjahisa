@@ -200,169 +200,293 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
 
 router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
   Muca.findById(req.params.id, function(err, muca){
+    var gre_v_nov_dom = false;
 
     if(err) {
-      console.log(err);
-      return res.redirect("/admin");
+      req.flash("error", "Muce ne najdem v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+    if (req.body.status == 4 && muca.status != 4) {
+      gre_v_nov_dom = true;
     }
 
-    // številka slike (1-4)
-    var num = req.body.fileName[6];
+    // popravi ime (velike začetnice)
+    var ime = req.body.ime;
+    ime = ime.toLowerCase();
+    ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+    if(ime.indexOf(" in ") != -1) {
+      var index = ime.indexOf(" in ");
+      ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+    };
 
-    var base64_string = req.body.dataURL.replace(/^data:image\/\w+;base64,/, "");
-    var imageBuffer = Buffer.from(base64_string, 'base64');
-    var imageName = muca.dbid + "_" + num + ".png";
-    var fileLocation = "public/files/oglasi_muce/" + imageName;
+    // // posodobi podatke
+    muca.ime = ime;
+    muca.datum = req.body.datum;
+    muca.status = req.body.status;
+    muca.mesec_rojstva = req.body.mesec_rojstva;
+    muca.spol = req.body.spol;
+    muca.summernote = req.body.summernote;
+    muca.posvojitev_na_daljavo = req.body.posvojitev_na_daljavo;
 
-    try {
-      fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-    } catch (e) {
-      console.error(e);
-    }
-
-    // povezava med novo sliko in muco
-    switch(num) {
-      case "1":
-        muca.file_name1 = imageName;
-        console.log("saved " + imageName);
-        break;
-      case "2":
-        muca.file_name2 = imageName;
-        console.log("saved " + imageName);
-        break;
-      case "3":
-        muca.file_name3 = imageName;
-        console.log("saved " + imageName);
-        break;
-      case "4":
-        muca.file_name4 = imageName;
-        console.log("saved " + imageName);
-        break;
-    }
-
-    muca.save();
-
-  });
-});
-
-router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
-    {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
-  ]), (req, res) => {
-
-    var gre_v_nov_dom = false;
-    // če gre muca v nov dom, pripravi za pošiljanje maila
-    Muca.findById(req.params.id, function(err, muca){
-      if(err) {
-        req.flash("error", "Muce ne najdem v bazi podatkov.");
-        return res.redirect("/admin/login");
-      }
-      if (req.body.muca.status == 4 && muca.status != 4) {
-        gre_v_nov_dom = true;
-      }
-    });
-
-    Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
-      if(err) {
-        req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
-        return res.redirect("/admin/login");
-      }
       // resetiraj vet status pri muci
       muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
                    razparazit: false, felv: false, fiv: false };
 
       // ponovno nastavi
       for(var key in req.body.vet) {
-         muca.vet[key] = true;
+        muca.vet[key] = req.body.vet[key];
       }
 
-      // spremeni datum sprejema / odhoda v nov dom če se status spremeni
-      if(gre_v_nov_dom || (req.body.muca.status != 4 && muca.status == 4)) {
+      // spremeni datum 'sprejema' pri muci ki gre v nov dom (ali je prišla nazaj)
+      if(gre_v_nov_dom || (req.body.status != 4 && muca.status == 4)) {
         muca.datum = moment();
       }
 
-      // poprava imen (ki vključejejo nepotreben CAPS LOCK)
-      var ime = req.body.ime;
-      ime = ime.toLowerCase();
-      ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-      if(ime.indexOf(" in ") != -1) {
-        var index = ime.indexOf(" in ");
-        ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-      };
-      muca.ime = ime;
+      if(req.body.slika1_crop) {
+        var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_1" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name1 = imageName;
+      }
 
-      // shrani
-      muca.save();
+      if(req.body.slika2_crop) {
+        var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_2" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name2 = imageName;
+      }
+
+      if(req.body.slika3_crop) {
+        var base64_string = req.body.slika3_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_3" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name3 = imageName;
+      }
+
+      if(req.body.slika4_crop) {
+        var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_4" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name4 = imageName;
+      }
+
+    muca.save();
+
+    // če gre v nov dom
+    if(gre_v_nov_dom) {
+      Oskrbnica.find({}, function(err, oskrbnice){
+        if(err) {
+          req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+          return res.redirect("/admin/muce/iscejo");
+        }
+        // create reusable transporter object using the default SMTP transport
+        let transporter = nodemailer.createTransport({
+            host: 'mail.macjahisa.si',
+            port: 26,
+            secure: false,
+            tls: {
+              rejectUnauthorized:false
+            },
+            auth: {
+                user: process.env.NOTIF_MAIL,
+                pass: process.env.NOTIF_MAIL_PW
+            }
+        });
+
+        // create array with email addresses
+        var mailing_seznam = [];
+        oskrbnice.forEach(function(oskrbnica){
+          mailing_seznam.push(oskrbnica.email);
+        });
+
+        // gre/gresta
+        var subject_stevilo = "gre";
+        if(muca.nacin_posvojitve == "v_paru") {
+          subject_stevilo = "gresta";
+        }
+
+        // html zapis
+        var html_zapis = "";
+        html_zapis += "<h3>" + muca.ime + " ";
+        if(muca.nacin_posvojitve == "v_paru") {
+          html_zapis += "gresta ";
+        } else {
+          html_zapis += "gre ";
+        }
+        html_zapis += "v nov dom.";
+        html_zapis += "</h3><p>";
+        html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
+        html_zapis += "</p>";
+        html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>"
+
+        // setup email data with unicode symbols
+        let mailOptions = {
+            from: process.env.NOTIF_MAIL, // sender address
+            to: mailing_seznam, // list of receivers
+            subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
+            text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
+            html: html_zapis // html body
+        };
+
+        // send mail with defined transport object
+        transporter.sendMail(mailOptions, (error, info) => {
+            if(error) {
+              req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+              return res.redirect("/admin/muce/iscejo");
+            }
+            console.log('Message sent: %s', info.messageId);
+        });
+      });
+    };
+      // muca.save();
+      req.flash("success", "Podatki muce posodobljeni.");
+      res.send({redirect: '/admin/muce/iscejo'});
+  });
+});
+
+
+// router.put("/muce/:id", middleware.isLoggedIn, upload_muce.fields([
+//     {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
+//   ]), (req, res) => {
+
+    // var gre_v_nov_dom = false;
+    // // če gre muca v nov dom, pripravi za pošiljanje maila
+    // Muca.findById(req.params.id, function(err, muca){
+    //   if(err) {
+    //     req.flash("error", "Muce ne najdem v bazi podatkov.");
+    //     return res.redirect("/admin/login");
+    //   }
+    //   if (req.body.muca.status == 4 && muca.status != 4) {
+    //     gre_v_nov_dom = true;
+    //   }
+    // });
+
+    // Muca.findByIdAndUpdate(req.params.id, req.body.muca, function(err, muca){
+    //   if(err) {
+    //     req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
+    //     return res.redirect("/admin/login");
+    //   }
+      // // resetiraj vet status pri muci
+      // muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
+      //              razparazit: false, felv: false, fiv: false };
+      //
+      // // ponovno nastavi
+      // for(var key in req.body.vet) {
+      //    muca.vet[key] = true;
+      // }
+
+      // spremeni datum sprejema / odhoda v nov dom če se status spremeni
+      // if(gre_v_nov_dom || (req.body.muca.status != 4 && muca.status == 4)) {
+      //   muca.datum = moment();
+      // }
+
+      // poprava imen (ki vključejejo nepotreben CAPS LOCK)
+      // var ime = req.body.ime;
+      // ime = ime.toLowerCase();
+      // ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+      // if(ime.indexOf(" in ") != -1) {
+      //   var index = ime.indexOf(" in ");
+      //   ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+      // };
+      // muca.ime = ime;
+      //
+      // // shrani
+      // muca.save();
 
       // če gre v nov dom pošlji maile ostalim oskrbrnicam
-      if(gre_v_nov_dom) {
-        Oskrbnica.find({}, function(err, oskrbnice){
-          if(err) {
-            req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
-            return res.redirect("/admin/muce/iscejo");
-          }
-          // create reusable transporter object using the default SMTP transport
-          let transporter = nodemailer.createTransport({
-              host: 'mail.macjahisa.si',
-              port: 26,
-              secure: false,
-              tls: {
-                rejectUnauthorized:false
-              },
-              auth: {
-                  user: process.env.NOTIF_MAIL,
-                  pass: process.env.NOTIF_MAIL_PW
-              }
-          });
-
-          // create array with email addresses
-          var mailing_seznam = [];
-          oskrbnice.forEach(function(oskrbnica){
-            mailing_seznam.push(oskrbnica.email);
-          });
-
-          // gre/gresta
-          var subject_stevilo = "gre";
-          if(muca.nacin_posvojitve == "v_paru") {
-            subject_stevilo = "gresta";
-          }
-
-          // html zapis
-          var html_zapis = "";
-          html_zapis += "<h3>" + muca.ime + " ";
-          if(muca.nacin_posvojitve == "v_paru") {
-            html_zapis += "gresta ";
-          } else {
-            html_zapis += "gre ";
-          }
-          html_zapis += "v nov dom.";
-          html_zapis += "</h3><p>";
-          html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
-          html_zapis += "</p>";
-          html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>"
-
-          // setup email data with unicode symbols
-          let mailOptions = {
-              from: process.env.NOTIF_MAIL, // sender address
-              to: mailing_seznam, // list of receivers
-              subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
-              text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
-              html: html_zapis // html body
-          };
-
-          // send mail with defined transport object
-          transporter.sendMail(mailOptions, (error, info) => {
-              if(error) {
-                req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
-                return res.redirect("/admin/muce/iscejo");
-              }
-              console.log('Message sent: %s', info.messageId);
-          });
-        });
-      }
-      req.flash("success", "Podatki muce posodobljeni.");
-      res.redirect("/admin/muce/iscejo");
-    });
-});
+//       if(gre_v_nov_dom) {
+//         Oskrbnica.find({}, function(err, oskrbnice){
+//           if(err) {
+//             req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+//             return res.redirect("/admin/muce/iscejo");
+//           }
+//           // create reusable transporter object using the default SMTP transport
+//           let transporter = nodemailer.createTransport({
+//               host: 'mail.macjahisa.si',
+//               port: 26,
+//               secure: false,
+//               tls: {
+//                 rejectUnauthorized:false
+//               },
+//               auth: {
+//                   user: process.env.NOTIF_MAIL,
+//                   pass: process.env.NOTIF_MAIL_PW
+//               }
+//           });
+//
+//           // create array with email addresses
+//           var mailing_seznam = [];
+//           oskrbnice.forEach(function(oskrbnica){
+//             mailing_seznam.push(oskrbnica.email);
+//           });
+//
+//           // gre/gresta
+//           var subject_stevilo = "gre";
+//           if(muca.nacin_posvojitve == "v_paru") {
+//             subject_stevilo = "gresta";
+//           }
+//
+//           // html zapis
+//           var html_zapis = "";
+//           html_zapis += "<h3>" + muca.ime + " ";
+//           if(muca.nacin_posvojitve == "v_paru") {
+//             html_zapis += "gresta ";
+//           } else {
+//             html_zapis += "gre ";
+//           }
+//           html_zapis += "v nov dom.";
+//           html_zapis += "</h3><p>";
+//           html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
+//           html_zapis += "</p>";
+//           html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>"
+//
+//           // setup email data with unicode symbols
+//           let mailOptions = {
+//               from: process.env.NOTIF_MAIL, // sender address
+//               to: mailing_seznam, // list of receivers
+//               subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
+//               text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
+//               html: html_zapis // html body
+//           };
+//
+//           // send mail with defined transport object
+//           transporter.sendMail(mailOptions, (error, info) => {
+//               if(error) {
+//                 req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
+//                 return res.redirect("/admin/muce/iscejo");
+//               }
+//               console.log('Message sent: %s', info.messageId);
+//           });
+//         });
+//       }
+//       req.flash("success", "Podatki muce posodobljeni.");
+//       res.redirect("/admin/muce/iscejo");
+//     });
+// });
 // END muce
 
 // NOVICE
