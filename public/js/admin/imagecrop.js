@@ -93,7 +93,7 @@ $(document).ready( function() {
     });
   }
 
-  $(".cmsForm").submit(function() {
+  $("#formSubmit").click(function() {
     entityId = $(".slika").attr("id");
     var data = getFormData();
     var postURL = "/admin/muce/" + entityId + "?_method=PUT";
