@@ -96,18 +96,22 @@ $(document).ready( function() {
   $(".cmsForm").submit(function() {
     entityId = $(".slika").attr("id");
     var data = getFormData();
-    var postURL = "/admin/muce/" + entityId + "/crop?_method=PUT";
+    var postURL = "/admin/muce/" + entityId + "?_method=PUT";
       $.ajax({
           type: "POST",
           url: postURL,
           data: JSON.stringify(data),
           dataType: "json",
           contentType: "application/json",
-          success: function (data, textStatus, jqXHR) {
-            if (typeof data.redirect == 'string') {
-              window.location.replace(data.redirect);
-            }
-          },
+          processData: false,
+          // success: function (data, textStatus, jqXHR) {
+          //   if (typeof data.redirect == 'string') {
+          //     window.location.replace(data.redirect);
+          //   }
+          // },
+          // succes: function(data) {
+          //   alert("Updated!");
+          // }
           error: function(e) {
             console.log(e);
           }
@@ -121,7 +125,8 @@ $(document).ready( function() {
       status: $("#status").val(),
       mesec_rojstva: $("#mesec_rojstva").val(),
       spol: $("#spol").val(),
-      summernote: $("#summernote").val(),
+      opis: $("textarea#summernote").val(),
+      kontakt: $("#kontakt").val(),
       posvojitev_na_daljavo: $("#posvojitev_na_daljavo").val(),
       vet: {
         s_k: document.getElementById("vet[s_k]").checked,
@@ -135,7 +140,7 @@ $(document).ready( function() {
       slika2_crop: $("#slika2_crop").val(),
       slika3_crop: $("#slika3_crop").val(),
       slika4_crop: $("#slika4_crop").val()
-    }
+    };
     return formData;
   }
 });

@@ -198,8 +198,9 @@ router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
   });
 });
 
-router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
+router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
   Muca.findById(req.params.id, function(err, muca){
+    console.log(req.body.opis);
     var gre_v_nov_dom = false;
 
     if(err) {
@@ -221,12 +222,48 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
 
     // // posodobi podatke
     muca.ime = ime;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
     muca.datum = req.body.datum;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
     muca.status = req.body.status;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
     muca.mesec_rojstva = req.body.mesec_rojstva;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
     muca.spol = req.body.spol;
-    muca.summernote = req.body.summernote;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
+
+    muca.opis = req.body.opis;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
+
+    muca.kontakt = req.body.kontakt;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
+
     muca.posvojitev_na_daljavo = req.body.posvojitev_na_daljavo;
+    muca.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
 
       // resetiraj vet status pri muci
       muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
@@ -237,10 +274,20 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
         muca.vet[key] = req.body.vet[key];
       }
 
+      muca.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+
       // spremeni datum 'sprejema' pri muci ki gre v nov dom (ali je prišla nazaj)
       if(gre_v_nov_dom || (req.body.status != 4 && muca.status == 4)) {
         muca.datum = moment();
       }
+
+      muca.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
 
       if(req.body.slika1_crop) {
         var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
@@ -253,6 +300,10 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
           console.error(e);
         }
         muca.file_name1 = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
       }
 
       if(req.body.slika2_crop) {
@@ -266,6 +317,10 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
           console.error(e);
         }
         muca.file_name2 = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
       }
 
       if(req.body.slika3_crop) {
@@ -279,6 +334,10 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
           console.error(e);
         }
         muca.file_name3 = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
       }
 
       if(req.body.slika4_crop) {
@@ -292,9 +351,13 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
           console.error(e);
         }
         muca.file_name4 = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
       }
 
-    muca.save();
+    // muca.save();
 
     // če gre v nov dom
     if(gre_v_nov_dom) {
@@ -364,7 +427,7 @@ router.put("/muce/:id/crop", middleware.isLoggedIn, function(req, res){
     };
       // muca.save();
       req.flash("success", "Podatki muce posodobljeni.");
-      res.send({redirect: '/admin/muce/iscejo'});
+      // res.send({redirect: '/admin/muce/iscejo'});
   });
 });
 
