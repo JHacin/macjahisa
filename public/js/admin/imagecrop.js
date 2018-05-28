@@ -145,9 +145,6 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
               window.location.replace(data.redirect);
             }
           },
-          // succes: function(data) {
-          //   alert("Updated!");
-          // }
           error: function(e) {
             console.log(e);
           }
