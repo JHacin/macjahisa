@@ -100,11 +100,16 @@ $(document).ready( function() {
       $.ajax({
           type: "POST",
           url: postURL,
-          data: data,
+          data: JSON.stringify(data),
+          dataType: "json",
+          contentType: "application/json",
           success: function (data, textStatus, jqXHR) {
             if (typeof data.redirect == 'string') {
               window.location.replace(data.redirect);
             }
+          },
+          error: function(e) {
+            console.log(e);
           }
       })
   });
