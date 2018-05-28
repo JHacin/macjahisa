@@ -427,7 +427,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
     };
       // muca.save();
       req.flash("success", "Podatki muce posodobljeni.");
-      // res.send({redirect: '/admin/muce/iscejo'});
+      res.send({redirect: '/admin/muce/iscejo'});
   });
 });
 

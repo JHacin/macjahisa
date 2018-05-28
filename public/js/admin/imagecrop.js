@@ -104,11 +104,11 @@ $(document).ready( function() {
           dataType: "json",
           contentType: "application/json",
           processData: false,
-          // success: function (data, textStatus, jqXHR) {
-          //   if (typeof data.redirect == 'string') {
-          //     window.location.replace(data.redirect);
-          //   }
-          // },
+          success: function (data, textStatus, jqXHR) {
+            if (typeof data.redirect == 'string') {
+              window.location.replace(data.redirect);
+            }
+          },
           // succes: function(data) {
           //   alert("Updated!");
           // }
