@@ -102,9 +102,9 @@ slika = images[i];
         <label for="<%= slika %>">Izberi novo sliko:</label>
       <% }; %>
         <input class="catImgUploadInput" type="file" name="<%= slika %>" />
-        <input type="hidden" id="<%= slika %>_crop" name="<%= slika %>_crop" />
+        <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
       <% if(file != "NULL") { %>
-        <button type="button" class="btn btn-success imageCropButton">
+        <button type="button" class="btn btn-outline-dark currentImageCropButton">
           Obreži trenutno sliko
         </button>
       <% }; %>
@@ -123,15 +123,14 @@ slika = images[i];
       </div>
       <div class="modal-footer" style="border-top: none;">
         <button type="button" class="btn btn-danger imageCropConfirm">Potrdi (<strong>pozor: slika v bazi bo takoj spremenjena</strong>)</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Prekliči</button>
+        <button type="button" class="btn btn-secondary imageCropCancel" data-dismiss="modal">Prekliči</button>
       </div>
     </div>
   </div>
 </div>
 <!-- END MODAL -->
-  <input type="submit" value="Potrdi spremembe" />
 </form>
-<button id="formSubmit">Submit</button>
+<button type="button" class="btn btn-secondary" id="formSubmit">Potrdi spremembe</button>
 </div>
 
 <% include ../../partials/admin/footer %>

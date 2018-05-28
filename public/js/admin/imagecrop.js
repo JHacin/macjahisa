@@ -1,10 +1,10 @@
 $(document).ready( function() {
 
   var cropper;//the cropper object
-  var input;// the image upload button
-  var inputName;// name of the input field (to make POST request)
-  var newImage;// the image being cropped
-  var oldImage;// the image saved in DB
+  var input;// the image upload button (def. "choose file")
+  var inputName;// name of the input field (to make POST request) e.g. #slika1_crop
+  var newImage;// the new image that's also being cropped
+  var oldImage;// the image saved until now in DB
   var entityId;// ID of the cat (to make POST request)
   var $modal = $('#imageCropModal');
 
@@ -15,22 +15,32 @@ $(document).ready( function() {
     }
   });
 
-  // on selecting new image
-  var getInputs = document.getElementsByClassName('catImgUploadInput');
+  // clear file input whenever the cancel button in modal is clicked
+  $('.imageCropCancel').on('click', function() {
+    input.val("");
+  });
 
-  for (i = 0; i < getInputs.length; i++) {
-    input = getInputs[i];
-    newImage = $(input).siblings("img");
-
+  // on selecting new image in file input
+    // get all file input fields by class
+    var getInputs = document.getElementsByClassName('catImgUploadInput');
+    for (i = 0; i < getInputs.length; i++) {
+      input = getInputs[i];
+      // the image to be displayed in the modal
+      newImage = $(input).siblings("img");
         input.addEventListener('change', function (e) {
           var files = e.target.files;
+          // grab current input field in case we need to clear it
+          input = $(this);
+          // grab current cat pic in case we need to reset it
           oldImage = $(this).siblings(".slika");
+          // e.g. slika1
+          inputName = $(this).siblings(".hiddenImgUploadInput").attr("id");
 
-          inputName = $(this).attr("name");
           var done = function (url) {
-            input.value = '';
+            // input.value = '';
             newImage.src = url;
             $modal.modal('show');
+            // show new image in modal
             $('.imagepreview').attr('src', newImage.src);
             cropper = new Cropper(document.querySelector('.imagepreview'), {
               aspectRatio: 450 / 280,
@@ -38,10 +48,10 @@ $(document).ready( function() {
             });
           };
 
+          // handle dataurl creation
           var reader;
           var file;
           var url;
-
           if (files && files.length > 0) {
             file = files[0];
             if (URL) {
@@ -57,20 +67,48 @@ $(document).ready( function() {
         });
       };
 
-  // on button click open modal with corresponding image
-  $('.imageCropButton').on('click', function() {
-    $('.imagepreview').attr('src', $(this).siblings("img").attr('src'));
-    $modal.modal('show');
-    newImage = document.querySelector('.imagepreview');
-    // init cropper
-    cropper = new Cropper(newImage, {
-      aspectRatio: 450 / 280,
-      viewMode: 1
-    });
 
-  });
+  // on button click open modal with current image
+var thisButton;
+var currentImage;
+var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCropButton');
+  for (i = 0; i < getCurrentImageCropButtons.length; i++) {
+    imageCropButton = getCurrentImageCropButtons[i];
 
-  // TO-DO: CLEAR FILE INPUT OR REPLACE IT WITH OLD PICTURE ON PRESSING CANCEL BUTTON
+      imageCropButton.addEventListener('click', function () {
+
+        thisButton = $(this);
+        currentImage = $(this).siblings("img").attr('src');
+        inputName = $(this).siblings(".hiddenImgUploadInput").attr("id");
+        oldImage = $(this).siblings(".slika");
+
+          getDataUriOfCurrentImage(currentImage, function(dataUri) {
+            $('.imagepreview').attr('src', dataUri);
+            $modal.modal('show');
+            // init cropper
+            cropper = new Cropper(document.querySelector('.imagepreview'), {
+              aspectRatio: 450 / 280,
+              viewMode: 1
+            });
+
+          }); // end getDataUriOfCurrentImage
+      });
+
+  }
+
+    // create DATA URI from current image function
+    function getDataUriOfCurrentImage(url, callback) {
+      var image = new Image();
+      var result;
+      image.onload = function () {
+          var canvas = document.createElement('canvas');
+          canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
+          canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
+          canvas.getContext('2d').drawImage(this, 0, 0);
+          callback(canvas.toDataURL('image/png'));
+      };
+      image.src = url;
+    }
 
   // confirm crop
   var cropButton;
@@ -78,17 +116,15 @@ $(document).ready( function() {
   for (i = 0; i < getConfirmButtons.length; i++) {
     cropButton = getConfirmButtons[i];
     cropButton.addEventListener('click', function () {
-
-      var initialAvatarURL;
+      // var initialAvatarURL;
       var canvas;
       if (cropper) {
         canvas = cropper.getCroppedCanvas();
         $modal.modal('hide');
-        initialAvatarURL = $(oldImage).attr("src");
         var dataURL = canvas.toDataURL("image/jpeg");
         $(oldImage).attr('src', dataURL);
-        var xyz = "#" + inputName + "_crop";
-        $(xyz).val(dataURL);
+        console.log();
+        $("#" + inputName).val(dataURL);
       }
     });
   }
