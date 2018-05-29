@@ -7,7 +7,9 @@ $(document).ready( function() {
     return local.toJSON().slice(0,10);
   });
 
-  $('#nova_datum').val(new Date().toDateInputValue());
+  if ($('#datum').val() == "") {
+    $('#datum').val(new Date().toDateInputValue());
+  }
 
   // dataTables
   $('#tabela').DataTable({

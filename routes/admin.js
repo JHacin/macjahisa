@@ -146,61 +146,116 @@ router.get("/muce/add", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.post("/muce", middleware.isLoggedIn, upload_muce.fields([
-    {name: "slika1"}, {name: "slika2"}, {name: "slika3"}, {name: "slika4"}
-  ]), (req, res) => {
+router.post("/muce", middleware.isLoggedIn, function(req, res) {
+    Muca.count({}, function(err, count){
+      // dodaj novo muco
+      Muca.create(req.body, function(err, novaMuca) {
+        if(err) {
+          req.flash("error", "Prišlo je do napake.");
+          return res.redirect("/admin/login");
+        }
 
-  Muca.count({}, function(err, count){
-    // dodaj novo muco
-    Muca.create(req.body.muca, function(err, novaMuca) {
-      if(err) {
-        req.flash("error", "Prišlo je do napake, muce trenutno ne morem dodati.");
-        return res.redirect("/admin/login");
-      }
+          novaMuca.dbid = count + 1;
 
-      // VET STATUS
-      for(var key in req.body.vet) {
-          novaMuca.vet[key] = true;
-      }
+          // VET STATUS
+          for(var key in req.body.vet) {
+            novaMuca.vet[key] = req.body.vet[key];
+          }
 
-      // dodeli povezave do slik (če so)
-      if(req.files.slika1) {
-        novaMuca.file_name1 = req.files.slika1[0].filename;
-      };
-      if(req.files.slika2) {
-        novaMuca.file_name2 = req.files.slika2[0].filename;
-      };
-      if(req.files.slika3) {
-        novaMuca.file_name3 = req.files.slika3[0].filename;
-      };
-      if(req.files.slika4) {
-        novaMuca.file_name4 = req.files.slika4[0].filename;
-      };
+          // slike
+          if(req.body.slika1_crop) {
+            var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_1" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name1 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
 
-      novaMuca.dbid = count + 1;
+          if(req.body.slika2_crop) {
+            var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_2" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name2 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
 
-      // poprava imen (ki vključejejo nepotreben CAPS LOCK)
-      var ime = req.body.ime;
-      ime = ime.toLowerCase();
-      ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-      if(ime.indexOf(" in ") != -1) {
-        var index = ime.indexOf(" in ");
-        ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-      };
-      novaMuca.ime = ime;
+          if(req.body.slika3_crop) {
+            var base64_string = req.body.slika3_crop.replace(/^data:image\/\w+;base64,/, "");
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_3" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name3 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
 
-      // shrani
-      novaMuca.save();
+          if(req.body.slika4_crop) {
+            var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_4" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name4 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
 
-      req.flash("success", "Nova muca dodana.");
-      res.redirect("/admin/muce/iscejo");
+          // poprava imen (ki vključejejo nepotreben CAPS LOCK)
+          var ime = req.body.ime;
+          ime = ime.toLowerCase();
+          ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+          if(ime.indexOf(" in ") != -1) {
+            var index = ime.indexOf(" in ");
+            ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+          };
+
+          novaMuca.ime = ime;
+
+          // shrani
+          novaMuca.save(function (err) {
+            if (err) return handleError(err);
+            // saved!
+          });
+
+          req.flash("success", "Nova muca dodana.");
+          res.send({redirect: '/admin/muce/iscejo'});
+      });
     });
-  });
 });
 
 router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
   Muca.findById(req.params.id, function(err, muca){
-    console.log(req.body.opis);
     var gre_v_nov_dom = false;
 
     if(err) {

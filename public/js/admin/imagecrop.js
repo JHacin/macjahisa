@@ -123,16 +123,20 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
         $modal.modal('hide');
         var dataURL = canvas.toDataURL("image/jpeg");
         $(oldImage).attr('src', dataURL);
-        console.log();
         $("#" + inputName).val(dataURL);
       }
     });
   }
 
   $("#formSubmit").click(function() {
-    entityId = $(".slika").attr("id");
+    var postURL;
+    if($(".slika").attr("id")) {
+      entityId = $(".slika").attr("id");
+      postURL = "/admin/muce/" + entityId + "?_method=PUT";
+    } else {
+      postURL = "/admin/muce/";
+    }
     var data = getFormData();
-    var postURL = "/admin/muce/" + entityId + "?_method=PUT";
       $.ajax({
           type: "POST",
           url: postURL,

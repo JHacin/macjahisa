@@ -4,14 +4,18 @@
 
 <h3>Vnesi novo muco</h3>
 
-<form action="/admin/muce" method="POST" enctype="multipart/form-data">
+<form class="cmsForm">
+  <div>
+    <label for="ime">ime:</label>
+    <input type="text" id="ime" autofocus name="ime" required/>
+  </div>
   <div>
     <label for="datum">datum sprejema:</label>
-    <input type="date" id="nova_datum" name="muca[datum]" value="" required/>
+    <input type="date" id="datum" name="datum" value="" required/>
   </div>
   <div>
     <label for="status">stanje:</label>
-    <select id="nova_status" name="muca[status]">
+    <select id="status" name="status">
       <option selected disabled></option>
       <option value="1">oddaja se prvič</option>
       <option value="2">oddaja se ponovno</option>
@@ -20,17 +24,14 @@
       <option value="5">R.I.P.</option>
     </select>
   </div>
-  <div>
-    <label for="ime">ime:</label>
-    <input type="text" id="nova_ime" autofocus name="ime" required/>
-  </div>
+
   <div>
     <label for="mesec_rojstva">mesec rojstva:</label>
-    <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" required/>
+    <input type="month" id="mesec_rojstva" name="mesec_rojstva" required/>
   </div>
   <div>
     <label for="spol">spol:</label>
-    <select id="nova_spol" name="muca[spol]">
+    <select id="spol" name="spol">
       <option selected disabled>--</option>
       <option value="1">samček</option>
       <option value="2">samička</option>
@@ -40,24 +41,20 @@
   </div>
   <div>
     <label for="opis">opis:</label>
-    <textarea id="summernote" name="muca[opis]" required></textarea>
+    <textarea id="summernote" name="opis" required></textarea>
   </div>
   <div>
     <label for="kontakt">kontakt:</label>
-    <select id="nova_kontakt" name="muca[kontakt]">
+    <select id="kontakt" name="kontakt">
       <% kontakti.forEach(function(kontakt){ %>
         <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
         <option value="<%= k %>" <%= kontakt.email == "info@macjahisa.si" ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
       <% }); %>
     </select>
   </div>
-  <!-- <div>
-    <label for="kontakt">kontakt:</label>
-    <input type="text" id="nova_kontakt" name="muca[kontakt]" required/>
-  </div> -->
   <div>
     <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
-    <select id="nova_posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
+    <select id="posvojitev_na_daljavo" name="posvojitev_na_daljavo">
       <option selected disabled>--</option>
       <option value="0">ne</option>
       <option value="1">da</option>
@@ -82,32 +79,52 @@
     </div>
     <hr />
   </div>
+  <!-- GROUPING VARIABLES FOR CAT PICTURES -->
+  <%
+  var images = ["slika1", "slika2", "slika3", "slika4"];
+  var count = images.length;
+  %>
+
+  <% for (var i = 0; i < count; i++) {
+
+  slika = images[i];
+
+  %>
+
   <div>
-    <label for="slika1">Slika 1:</label>
-    <input type="file" id="slika1" name="slika1" required/>
+    <img class="slika" style="width: 150px;" src="" />
+    <label for="<%= slika %>">Slika <%= i+1 %>:</label>
+    <input type="file" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>" required/>
+    <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
   </div>
-  <div>
-    <label for="slika2">Slika 2:</label>
-    <input type="file" id="slika2" name="slika2" />
+
+<% }; %>
+
+<!-- MODAL -->
+<div class="modal" id="imageCropModal" tabindex="-1" role="dialog" data-backdrop="static">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-body">
+        <div class="img-container">
+          <img src="" class="imagepreview" style="max-width: 100%;" >
+        </div>
+      </div>
+      <div class="modal-footer" style="border-top: none;">
+        <button type="button" class="btn btn-danger imageCropConfirm">Potrdi</button>
+        <button type="button" class="btn btn-secondary imageCropCancel" data-dismiss="modal">Prekliči</button>
+      </div>
+    </div>
   </div>
-  <div>
-    <label for="slika3">Slika 3:</label>
-    <input type="file" id="slika3" name="slika3" />
-  </div>
-  <div>
-    <label for="slika4">Slika 4:</label>
-    <input type="file" id="slika4" name="slika4" />
-  </div>
-  <div class="button">
-    <button type="submit">Potrdi</button>
-  </div>
+</div>
+<!-- END MODAL -->
 </form>
+<button type="button" class="btn btn-secondary" id="formSubmit">Potrdi</button>
 
 <style>
 form {
   /* Just to center the form on the page */
-  margin: 0 auto;
-  width: 600px;
+  margin: 0 auto 0 0;
+  width: 100%;
   /* To see the outline of the form */
   padding: 1em;
   border: 1px solid #CCC;
