@@ -130,3 +130,16 @@ img {
 .modal-content {
   align-items: center!important;
 }
+
+/* NASLOVNICE */
+#aktiviraneNaslovnice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  width: 100%;
+}
+
+#aktiviraneNaslovnice > div {
+  padding: 1rem 2rem;
+  max-width: 33%;
+}

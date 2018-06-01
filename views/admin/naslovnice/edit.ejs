@@ -1,0 +1,26 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/naslovnice"><< Nazaj</a></p>
+<h3>Urejanje naslovnice</h3>
+
+<form action="/admin/naslovnice/<%= naslovnica._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="naslovnica[ozadje]">Ozadje:</label>
+    <input type="file" name="naslovnica[ozadje]" id="ozadje" size="70" value="<%= naslovnica.ozadje %>"/>
+  </div>
+  <div>
+    <label for="naslovnica[naslov]">Naslov:</label>
+    <input type="text" name="naslovnica[naslov]" id="naslov" size="70" value="<%= naslovnica.naslov %>" autofocus required/>
+  </div>
+  <div>
+    <label for="naslovnica[podnaslov]">Podnaslov:</label>
+    <input type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70" value="<%= naslovnica.podnaslov %>" />
+  </div>
+  <div>
+    <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
+    <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" value="<%= naslovnica.napisNaGumbu %>" required/>
+  </div>
+  <input type="submit" value="Potrdi spremembe">
+</form>
+<button>Pokaži predogled</button>
+<div id="naslovnicaPreview"></div>
+<% include ../../partials/admin/footer %>

@@ -4,6 +4,7 @@ var Muca = require("../models/muca");
 var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
+var Naslovnica = require("../models/naslovnica");
 var Kategorija = require("../models/kategorija");
 var Kontakt = require("../models/kontakt");
 var Oskrbnica = require("../models/oskrbnica");
@@ -55,10 +56,20 @@ var storage_novice = multer.diskStorage({
   }
 })
 
+var storage_naslovnice = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/files/naslovnice')
+  },
+  filename: function (req, file, cb) {
+    cb(null, Date.now() + file.originalname)
+  }
+})
+
 var upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_novice = multer({ storage: storage_novice, limits: { fieldSize: 25 * 1024 * 10240 } });
+var upload_naslovnice = multer({ storage: storage_naslovnice, limits: { fieldSize: 25 * 1024 * 10240 } });
 // END MULTER
 
 // INDEX ADMIN
@@ -1250,5 +1261,155 @@ router.post('/reset/:token', function(req, res) {
   });
 });
 // END SPREMEMBA POZABLJENEGA GESLA
+
+// NASLOVNICE
+router.get("/naslovnice", middleware.isLoggedIn, function(req, res){
+  // prikaži vse vsebine po vrsti od nazadnje spremenjene
+  Naslovnica.find({}, function(err, naslovnice) {
+    console.log(naslovnice);
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+    // preglej katere so aktivne
+    var prva;
+    var druga;
+    var tretja;
+
+    naslovnice.map(function(naslovnica){
+      if(naslovnica.pozicija === 1) {
+        prva = naslovnica;
+      };
+      if(naslovnica.pozicija === 2) {
+        druga = naslovnica;
+      };
+      if(naslovnica.pozicija === 3) {
+        tretja = naslovnica;
+      };
+    });
+
+    console.log(prva);
+
+    res.render("admin/naslovnice/index",
+      {
+        naslovnice: naslovnice,
+        prva: prva,
+        druga: druga,
+        tretja: tretja
+      }
+    );
+  })
+});
+
+router.get("/naslovnice/add", middleware.isLoggedIn, function(req, res){
+  res.render("admin/naslovnice/add");
+});
+
+router.get("/naslovnice/:id/edit", middleware.isLoggedIn, function(req, res){
+  Naslovnica.findById(req.params.id, function(err, naslovnica){
+    if(err) {
+      req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
+      return res.redirect("/admin/naslovnice");
+    }
+    res.render("admin/naslovnice/edit", {naslovnica: naslovnica})
+  });
+});
+
+router.post("/naslovnice", middleware.isLoggedIn, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
+  Naslovnica.count({}, function(err, count){
+    console.log("Count: " + count);
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
+      return res.redirect("/admin/naslovnice");
+    }
+    Naslovnica.create(req.body.naslovnica, function(err, naslovnica){
+      if(err) {
+        req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
+        return res.redirect("/admin/naslovnice");
+      }
+
+      var dbid = count + 1;
+      naslovnica.dbid = dbid;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+
+      if(req.file) {
+        // var ozadje = "naslovnica_" + dbid + "." + req.file.mimetype.split("/")[1];
+        naslovnica.ozadje = req.file.filename;
+        naslovnica.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+      req.flash("success", "Naslovnica dodana.");
+      res.redirect("/admin/naslovnice");
+    });
+  });
+});
+
+router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
+  Naslovnica.findByIdAndUpdate(req.params.id, req.body.naslovnica, function(err, naslovnica){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
+      return res.redirect("/admin/naslovnice");
+    }
+
+    if(req.file) {
+      var ozadje = req.file.filename;
+      naslovnica.ozadje = ozadje;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+    }
+
+      naslovnica.datum = Date.now();
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+      req.flash("success", "Naslovnica posodobljena.");
+      res.redirect("/admin/naslovnice/");
+  });
+});
+
+router.post("/naslovnice/:pozicija/:id", middleware.isLoggedIn, function(req, res, next){
+  Naslovnica.find({}, function(err, naslovnice) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+
+    // umakni pozicijo pri dosedanji naslovnici
+    naslovnice.map(function(dosedanja_naslovnica){
+      if(dosedanja_naslovnica.pozicija === Number(req.params.pozicija)) {
+        dosedanja_naslovnica.pozicija = 0;
+        dosedanja_naslovnica.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+    });
+
+    // najdi novo in dodeli pozicijo
+    Naslovnica.findById(req.params.id, function(err, nova_naslovnica) {
+      nova_naslovnica.pozicija = Number(req.params.pozicija);
+      nova_naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+      req.flash("success", "Naslovnice na prvi strani posodobljene.");
+      res.send({redirect: '/admin/naslovnice'});
+    });
+  });
+});
+// END NASLOVNICE
 
 module.exports = router;

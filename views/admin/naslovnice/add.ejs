@@ -1,0 +1,27 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/naslovnice"><< Nazaj</a></p>
+<h3>Nova naslovnica</h3>
+
+<form action="/admin/naslovnice" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="naslovnica[ozadje]">Ozadje:</label>
+    <input type="file" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
+    <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.
+  </div>
+  <div>
+    <label for="naslovnica[naslov]">Naslov:</label>
+    <input type="text" name="naslovnica[naslov]" id="naslov" size="70" autofocus required/>
+  </div>
+  <div>
+    <label for="naslovnica[podnaslov]">Podnaslov:</label>
+    <input type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70"/>
+  </div>
+  <div>
+    <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
+    <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" required/>
+  </div>
+  <input type="submit" value="Dodaj">
+</form>
+<button>Pokaži predogled</button>
+<div id="naslovnicaPreview"></div>
+<% include ../../partials/admin/footer %>

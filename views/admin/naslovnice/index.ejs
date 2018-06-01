@@ -1,0 +1,66 @@
+<% include ../../partials/admin/header %>
+
+<h3>Naslovnice</h3>
+<p><a href="/admin/naslovnice/add">+ Dodaj novo</a></p>
+
+<div id="aktiviraneNaslovnice">
+  <%
+  var aktivirane = [];
+  if(prva) {aktivirane.push(prva)};
+  if(druga) {aktivirane.push(druga)};
+  if(tretja) {aktivirane.push(tretja)};
+  %>
+
+  <% if (aktivirane.length === 0) { %>
+    <p>Aktivirana ni nobena naslovnica.</p>
+  <% }; %>
+
+  <% aktivirane.forEach(function(naslovnica) { %>
+  <div id="naslovnica<%= naslovnica.pozicija%>">
+    <h4>Naslovnica <%= naslovnica.pozicija %></h4>
+    <img src="/files/naslovnice/<%= naslovnica.ozadje %>" style="height: 250px;"/>
+    <p><strong>Naslov</strong>: <%- naslovnica.naslov %></p>
+    <p><strong>Podnaslov</strong>: <%- naslovnica.podnaslov %></p>
+    <p><strong>Napis na gumbu</strong>: <%- naslovnica.napisNaGumbu %></p>
+  </div>
+  <% }); %>
+
+</div>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Zadnja sprememba</th>
+            <th>Ozadje</th>
+            <th>Naslov</th>
+            <th>Podnaslov</th>
+            <th>Napis na gumbu</th>
+            <th>Uredi</th>
+            <th>Označi kot</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% naslovnice.forEach(function(naslovnica) { %>
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(naslovnica.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(naslovnica.datum).format("DD[.]MM[.]YYYY") %>
+              </td>
+              <td><a href="/files/naslovnice/<%= naslovnica.ozadje %>" target="_blank"><img class="thumb" src="/files/naslovnice/<%= naslovnica.ozadje %>" /></a></td>
+              <td><%- naslovnica.naslov %></td>
+              <td><%= naslovnica.podnaslov %></td>
+              <td><%= naslovnica.napisNaGumbu %></td>
+              <td><a href="/admin/naslovnice/<%= naslovnica._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+              <td>
+                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_1">Prva naslovnica</button><br />
+                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_2">Druga naslovnica</button><br />
+                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_3">Tretja naslovnica</button>
+              </td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+<% include ../../partials/admin/footer %>
