@@ -89,7 +89,7 @@
           align-items: center;
 }
 
-.muce_filtri {
+.muce_seznam .muce_filtri {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -119,7 +119,7 @@
 }
 
 .jplist-panel .text-filter-box {
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 
 .muce_seznam .jplist-label {
