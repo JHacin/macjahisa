@@ -55,10 +55,6 @@
   padding: 0 0.5rem 0 1rem;
 }
 
-.muce_seznam .jplist-label {
-  margin-left: auto;
-}
-
 .text-filter-box input {
   margin: 0;
 }
@@ -82,7 +78,7 @@
 }
 
 .muca {
-  width: 33.33333333%;
+  width: 25%;
   text-align: center;
   margin-top: 2em;
   display: -webkit-box;
@@ -471,7 +467,18 @@
 }
 
 /* JPLIST */
-.muce_filtri {
+.muce_seznam .jplist-panel {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.jplist-panel .text-filter-box {
+  height: 35px;
+}
+
+.muce_seznam .muce_filtri {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -482,6 +489,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  align-items: center;
 }
 
   .muce_filtri .jplist-icon {
@@ -521,7 +529,7 @@
   .jplist-panel .jplist-group {
     height: 35px;
     color: #27252a;
-    margin: 10px 10px 0 0;
+    margin: 10px 10px 0 5px;
     padding: 0 5px 0 10px;
   }
 
@@ -630,11 +638,13 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  text-decoration: none;
 }
 
 
 .paginator a i {
   vertical-align: middle;
+
 }
 
 .paginator a li {

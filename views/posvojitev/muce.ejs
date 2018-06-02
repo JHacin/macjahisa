@@ -1,11 +1,20 @@
 <% include ../partials/header %>
-<% include ../partials/nonindex %>
 <% include ../partials/functions/muce %>
+<div class="page_header">
+  <div class="container">
+    <h1 class="content_heading"><%= podstran.naslov %></h1>
+  </div>
+</div>
+  <div class="nonindex">
+    <div class="header_mobile">
+      <h1 class="content_heading"><%= podstran.naslov %></h1>
+    </div>
+    <div class="container" id="muca_container_div">
+      <div class="content" id="muca_content_div">
 
-          <div class="intro">
-            <%- podstran.vsebina %>
-          </div>
-
+        <div class="intro">
+          <%- podstran.vsebina %>
+        </div>
         <!-- main div -->
         <div class="muce_seznam">
           <!-- panel -->
@@ -51,13 +60,7 @@
                <label for="nad1">Od 1. leta <span class="starost_filter">dalje</span></label>
             </div>
 
-            <div
-               class="jplist-label"
-               data-type="Stran {current} od {pages}"
-               data-control-type="pagination-info"
-               data-control-name="paging"
-               data-control-action="paging">
-            </div>
+
 
           </div>
 
@@ -101,11 +104,21 @@
              data-control-type="pagination"
              data-control-name="paging"
              data-control-action="paging"
-             data-items-per-page="6">
+             data-items-per-page="20">
+          </div>
+
+          <div
+             class="jplist-label"
+             data-type="Stran {current} od {pages}"
+             data-control-type="pagination-info"
+             data-control-name="paging"
+             data-control-action="paging">
           </div>
 
         </div>
       </div><!-- end main -->
+    </div>
+  </div>
+</div>
 
-<% include ../partials/sidebar_nocats %>
 <% include ../partials/footer %>
