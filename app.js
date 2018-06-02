@@ -113,18 +113,23 @@ app.get("/", function(req, res){
           if(err) return console.log(err);
           Naslovnica.find().where("pozicija").in([1, 2, 3]).exec(function(err, naslovnice){
             if(err) return console.log(err);
-            var prva;
-            var druga;
-            var tretja;
+
+            var aktiviraneNaslovnice = [];
               naslovnice.map(function(naslovnica){
                 if(naslovnica.pozicija === 1) {
-                  prva = naslovnica;
+                  aktiviraneNaslovnice.push(naslovnica);
                 };
+              });
+
+              naslovnice.map(function(naslovnica){
                 if(naslovnica.pozicija === 2) {
-                  druga = naslovnica;
-                };
+                  aktiviraneNaslovnice.push(naslovnica);
+                  };
+              });
+
+              naslovnice.map(function(naslovnica){
                 if(naslovnica.pozicija === 3) {
-                  tretja = naslovnica;
+                  aktiviraneNaslovnice.push(naslovnica);
                 };
               });
             res.render("index",
@@ -135,7 +140,7 @@ app.get("/", function(req, res){
               novice: novice,
               muce: muce,
               steviloMucKiIscejoDom: steviloMuc,
-              naslovnice: [prva, druga, tretja]
+              naslovnice: aktiviraneNaslovnice
             });
           });
         });

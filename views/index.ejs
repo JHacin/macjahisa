@@ -2,6 +2,7 @@
 
     <div class="i_jumbo">
       <% naslovnice.forEach(function(naslovnica) { %>
+      <%   console.log(naslovnica); %>
         <div class="naslovnica" style="background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>)!important;">
           <div class="i_jumbo_text">
             <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
