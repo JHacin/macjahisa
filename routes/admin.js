@@ -1266,7 +1266,6 @@ router.post('/reset/:token', function(req, res) {
 router.get("/naslovnice", middleware.isLoggedIn, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Naslovnica.find({}, function(err, naslovnice) {
-    console.log(naslovnice);
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -1287,8 +1286,6 @@ router.get("/naslovnice", middleware.isLoggedIn, function(req, res){
         tretja = naslovnica;
       };
     });
-
-    console.log(prva);
 
     res.render("admin/naslovnice/index",
       {
@@ -1312,6 +1309,22 @@ router.get("/naslovnice/:id/edit", middleware.isLoggedIn, function(req, res){
       return res.redirect("/admin/naslovnice");
     }
     res.render("admin/naslovnice/edit", {naslovnica: naslovnica})
+  });
+});
+
+router.post("/naslovnice/:id/deactivate", middleware.isLoggedIn, function(req, res){
+  Naslovnica.findById(req.params.id, function(err, naslovnica){
+    if(err) {
+      req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
+      return res.redirect("/admin/naslovnice");
+    }
+    naslovnica.pozicija = 0;
+    naslovnica.save(function (err) {
+      if (err) return handleError(err);
+      // saved!
+    });
+    req.flash("success", "Naslovnica deaktivirana.");
+    return res.redirect("/admin/naslovnice");
   });
 });
 
@@ -1362,6 +1375,7 @@ router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("n
     }
 
     if(req.file) {
+      console.log("File: " + req.file.filename);
       var ozadje = req.file.filename;
       naslovnica.ozadje = ozadje;
       naslovnica.save(function (err) {
@@ -1410,6 +1424,27 @@ router.post("/naslovnice/:pozicija/:id", middleware.isLoggedIn, function(req, re
     });
   });
 });
+
+// router.post("/naslovnice/uploadpreview", middleware.isLoggedIn, upload_naslovnice_preview.single("novica[naslovna_slika]"), function(req, res, next){
+//   Novica.count({}, function(err, count){
+//     Novica.create(req.body.novica, function(err, novica){
+//       if(err) {
+//         req.flash("error", "Prišlo je do napake pri kreiranju novice.");
+//         return res.redirect("/admin/novice");
+//       }
+//       if(req.file) {
+//         novica.naslovna_slika = req.file.originalname;
+//       } else {
+//         novica.naslovna_slika = "default.png";
+//       }
+//       novica.dbid = count + 1;
+//       novica.user_id = req.user._id;
+//       novica.save();
+//       req.flash("success", "Novica dodana.");
+//       res.redirect("/admin/novice");
+//     });
+//   })
+// });
 // END NASLOVNICE
 
 module.exports = router;

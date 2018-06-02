@@ -6,6 +6,7 @@ var naslovnicaSchema = new mongoose.Schema({
   naslov: String,
   podnaslov: String,
   napisNaGumbu: String,
+  povezava: String,
   pozicija: {type: Number, default: 0},
   dbid: Number
 });

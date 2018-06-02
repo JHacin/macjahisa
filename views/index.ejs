@@ -1,20 +1,16 @@
 <% include ./partials/header %>
 
     <div class="i_jumbo">
-      <div class="i_jumbo_1">
-        <div class="i_jumbo_text">
-          <h1 class="i_jumbo_title">Posvojitev muce</h1>
-          <h2 class="i_jumbo_subtitle">Na čisto svoj dom čaka kar <strong><%= steviloMucKiIscejoDom %></strong> muc.</h2>
-          <button class="i_jumbo_button"><a href="/posvojitev/muce">Muce, ki iščejo dom</a></button>
+      <% naslovnice.forEach(function(naslovnica) { %>
+      <%   console.log(naslovnica.ozadje);  %>
+        <div class="naslovnica" style="background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>)!important;">
+          <div class="i_jumbo_text">
+            <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
+            <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov %></h2>
+            <button class="i_jumbo_button"><a href="<%= naslovnica.povezava %>"><%- naslovnica.napisNaGumbu %></a></button>
+          </div>
         </div>
-      </div>
-      <div class="i_jumbo_2">
-        <div class="i_jumbo_text">
-          <h1 class="i_jumbo_title">Postanite mačji boter</h1>
-          <h2 class="i_jumbo_subtitle">Pokažite, da vam ni vseeno.</h2>
-          <button class="i_jumbo_button"><a href="http://www.macjiboter.si/">Muce, ki iščejo botra</a></button>
-        </div>
-      </div>
+      <% }); %>
     </div>
     <div class="i_dohodnina">
       <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>

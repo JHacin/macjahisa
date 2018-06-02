@@ -22,11 +22,14 @@
     <p><strong>Naslov</strong>: <%- naslovnica.naslov %></p>
     <p><strong>Podnaslov</strong>: <%- naslovnica.podnaslov %></p>
     <p><strong>Napis na gumbu</strong>: <%- naslovnica.napisNaGumbu %></p>
+    <form action="/admin/naslovnice/<%= naslovnica._id %>/deactivate" method="POST">
+      <input type="submit" value="Deaktiviraj"/>
+    </form>
   </div>
   <% }); %>
 
 </div>
-
+<hr />
 <table id="tabela" class="display">
     <thead>
         <tr>
@@ -35,6 +38,7 @@
             <th>Naslov</th>
             <th>Podnaslov</th>
             <th>Napis na gumbu</th>
+            <th>Povezava</th>
             <th>Uredi</th>
             <th>Označi kot</th>
         </tr>
@@ -52,11 +56,12 @@
               <td><%- naslovnica.naslov %></td>
               <td><%= naslovnica.podnaslov %></td>
               <td><%= naslovnica.napisNaGumbu %></td>
+              <td><a href="<%= naslovnica.povezava %>" target="_blank"><%= naslovnica.povezava %></a></td>
               <td><a href="/admin/naslovnice/<%= naslovnica._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
               <td>
-                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_1">Prva naslovnica</button><br />
-                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_2">Druga naslovnica</button><br />
-                <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_3">Tretja naslovnica</button>
+                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_1" <%= naslovnica.pozicija === 1 ? "disabled": "" %>>Prva naslovnica</button><br />
+                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_2" <%= naslovnica.pozicija === 2 ? "disabled": "" %>>Druga naslovnica</button><br />
+                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_3" <%= naslovnica.pozicija === 3 ? "disabled": "" %>>Tretja naslovnica</button>
               </td>
           </tr>
         <% }) %>

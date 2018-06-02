@@ -6,7 +6,7 @@
   <div>
     <label for="naslovnica[ozadje]">Ozadje:</label>
     <input type="file" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
-    <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.
+    <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>. <strong>Ime slike naj ne vsebuje simbolov (%, /, (, ), itd.)</strong>
   </div>
   <div>
     <label for="naslovnica[naslov]">Naslov:</label>
@@ -20,8 +20,24 @@
     <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
     <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" required/>
   </div>
-  <input type="submit" value="Dodaj">
+  <div>
+    <label for="naslovnica[povezava]">Povezava:</label>
+    <input type="text" name="naslovnica[povezava]" id="povezava" size="70" required/>
+  </div>  
+  <input type="submit" class="btn btn-success" value="Dodaj">
 </form>
-<button>Pokaži predogled</button>
-<div id="naslovnicaPreview"></div>
+<button class="btn btn-warning" id="naslovnicaPreviewLoadButton"><i class="far fa-eye"></i> Pokaži predogled</button>
+<button class="btn btn-info" id="naslovnicaPreviewReloadButton"> <i class="fa fa-sync"></i> Osveži predogled</button>
+<p></p>
+<div id="naslovnicaPreview">
+  <div class="i_jumbo">
+    <div id="naslovnica">
+      <div class="i_jumbo_text">
+        <h1 class="i_jumbo_title"></h1>
+        <h2 class="i_jumbo_subtitle"></h2>
+        <a class="jumbo_povezava" href="" target="_blank"><button class="i_jumbo_button"></button></a>
+      </div>
+    </div>
+  </div>
+</div>
 <% include ../../partials/admin/footer %>

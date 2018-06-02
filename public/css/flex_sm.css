@@ -344,9 +344,7 @@
 /* INDEX PAGE */
 
 
-.i_jumbo > div,
-.i_jumbo_1,
-.i_jumbo_2 {
+.i_jumbo > div {
   height: calc(70vh - 50px);
   display: -webkit-box;
   display: -ms-flexbox;

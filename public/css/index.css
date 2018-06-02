@@ -23,24 +23,13 @@ button a {
 }
 
 /* JUMBO */
-.i_jumbo > div {
+.naslovnica {
   background: #3f3f3f;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: calc(60vh - 95px);
 }
-  .i_jumbo_1 {
-    background-image: url(/files/index/8.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: calc(60vh - 95px);
-  }
-
-  .i_jumbo_2 {
-    background-image: url(/files/index/5.jpg);
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    height: calc(60vh - 95px);
-  }
 
   .i_jumbo_text {
     color: #fff;
@@ -52,12 +41,14 @@ button a {
       font-weight: 700;
       letter-spacing: 1px;
       margin: 0;
+      text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     }
 
     .i_jumbo_subtitle {
       font-size: 24px;
       font-weight: 500;
       margin: 15px 0 23px 0;
+      text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     }
 
     .i_jumbo_button {

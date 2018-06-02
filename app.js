@@ -18,6 +18,7 @@ var Novica              = require("./models/novica"),
     Clanek              = require("./models/clanek"),
     Podstran            = require("./models/podstran"),
     User                = require("./models/user");
+    Naslovnica          = require("./models/naslovnica");
 
 // Route handling vars
 var o_nas = require("./routes/o_nas.js");
@@ -110,19 +111,37 @@ app.get("/", function(req, res){
       Muca.where("status").in([1, 2]).count().exec(function(err, count){
           var steviloMuc = count;
           if(err) return console.log(err);
-          res.render("index",
-          {
-            nav_kategorije: req.nav_kategorije,
-            nav_podstrani: req.nav_podstrani,
-            title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
-            novice: novice,
-            muce: muce,
-            steviloMucKiIscejoDom: steviloMuc
+          Naslovnica.find().where("pozicija").in([1, 2, 3]).exec(function(err, naslovnice){
+            if(err) return console.log(err);
+            var prva;
+            var druga;
+            var tretja;
+              naslovnice.map(function(naslovnica){
+                if(naslovnica.pozicija === 1) {
+                  prva = naslovnica;
+                };
+                if(naslovnica.pozicija === 2) {
+                  druga = naslovnica;
+                };
+                if(naslovnica.pozicija === 3) {
+                  tretja = naslovnica;
+                };
+              });
+            res.render("index",
+            {
+              nav_kategorije: req.nav_kategorije,
+              nav_podstrani: req.nav_podstrani,
+              title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
+              novice: novice,
+              muce: muce,
+              steviloMucKiIscejoDom: steviloMuc,
+              naslovnice: [prva, druga, tretja]
+            });
           });
+        });
       });
     });
   });
-});
 
 app.get("/search", function(req, res){
   res.render("search", {searchPageRender: true, podstran: {naslov: "Rezultati iskanja"}, title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
