@@ -44,6 +44,10 @@
     width: auto;
   }
 
+  #muca_content_div {
+    width: 90%;
+  }
+
   .side_cats {
     margin-bottom: 2.5rem;
     width: 100%;
@@ -306,6 +310,32 @@
   .novice_seznam .jplist-panel .jplist-pagination {
     margin-bottom: 0;
   }
+
+  #back_to_cats_list {
+    text-align: center;
+  }
+
+  .cat_top {
+    justify-content: center;
+  }
+
+  #muca_title_ime {
+    text-align: center;
+  }
+
+  .cat_social_desktop {
+    display: none;
+  }
+
+  .cat_social_mobile {
+    display: flex;
+    margin: 0.5rem 0 1rem 0;
+  }
+
+    .cat_social_mobile > div,
+    #twitter-widget-1 {
+      margin: 0 5px;
+    }
 
   .cat_full {
     -webkit-box-orient: vertical;

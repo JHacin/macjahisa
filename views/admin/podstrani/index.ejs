@@ -31,8 +31,8 @@
               <td><%= podstran.kategorija.naslov %></td>
               <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
               <td><%= podstran.objava %></td>
-              <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-              <td><a href="/admin/podstrani/<%= podstran._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+              <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/podstrani/<%= podstran._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
           </tr>
         <% }) %>
     </tbody>

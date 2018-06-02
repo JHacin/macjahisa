@@ -31,7 +31,7 @@
     <ul class="paginator">
       <!-- link do prve strani -->
       <% if (current != 1) { %>
-        <a href="/v_novem_domu/1"><li class="paginator_end paginator_page"><i class="fa fa-angle-double-left"></i></li></a>
+        <a href="/v_novem_domu/1"><li class="paginator_end paginator_page"><i class="fas fa-angle-double-left"></i></li></a>
       <% } %>
 
       <!-- glede na trenutno stran določi linki do katerih strani so prikazani (najbližjih nekaj) -->
@@ -39,7 +39,7 @@
       <% var i = (Number(current) > 3 ? Number(current) - 2 : 1) %>
       <!-- če smo na strani > 5 se na začetek dodajo tri pikce -->
       <% if (i !== 1) { %>
-        <a href="/v_novem_domu/<%= Number(current) - 1 %>"><li class="paginator_page"><i class="fa fa-angle-left"></i></li></a>
+        <a href="/v_novem_domu/<%= Number(current) - 1 %>"><li class="paginator_page"><i class="fas fa-angle-left"></i></li></a>
       <% } %>
       <!-- linki od 4 strani pred "var i" do 4 strani za "var i"; i<= pages čekira da ne prikaže več linkov kot je strani -->
       <% for (; i <= (Number(current) + 2) && i <= pages; i++) { %>
@@ -52,14 +52,14 @@
         <% } %>
         <!-- zadnje tri pikce -->
         <% if (i == Number(current) + 2 && i < pages) { %>
-          <a href="/v_novem_domu/<%= Number(current) + 1 %>"><li class="paginator_page"><i class="fa fa-angle-right"></i></li></a>
+          <a href="/v_novem_domu/<%= Number(current) + 1 %>"><li class="paginator_page"><i class="fas fa-angle-right"></i></li></a>
         <% } %>
       <% } %>
       <!-- link do zadnje strani -->
       <% if (current == pages) { %>
-        <a><li class="paginator_disabled paginator_end"><i class="fa fa-angle-double-right"></i></li></a>
+        <a><li class="paginator_disabled paginator_end"><i class="fas fa-angle-double-right"></i></li></a>
       <% } else { %>
-        <a href="/v_novem_domu/<%= pages %>"><li class="paginator_end paginator_page"><i class="fa fa-angle-double-right"></i></li></a>
+        <a href="/v_novem_domu/<%= pages %>"><li class="paginator_end paginator_page"><i class="fas fa-angle-double-right"></i></li></a>
       <% } %>
     </ul>
   <% } %>

@@ -7,7 +7,7 @@
   <% kategorije.forEach(function(kategorija) { %>
     <div class="kategorija">
       <strong><%= kategorija.naslov %>
-        <a href="/admin/menu/<%= kategorija._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></strong>
+        <a href="/admin/menu/<%= kategorija._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></strong>
       <ul>
         <% podstrani.forEach(function(podstran){ %>
           <% if (podstran.kategorija.equals(kategorija._id)) { %>

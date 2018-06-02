@@ -331,58 +331,6 @@
   font-size: 16px;
 }
 
-.top_bar {
-  height: 40px;
-  line-height: 40px;
-  font-size: 0.9em;
-  -webkit-transition: background-color 0.7s ease;
-  -o-transition: background-color 0.7s ease;
-  transition: background-color 0.7s ease;
-  position: fixed;
-  top: 0;
-  background: #343a40;
-  text-align: center;
-  width: 100%;
-  color: #e8e8e8;
-  z-index: 98;
-}
-
-
-  .top_bar > .container {
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-  }
-
-  .top_bar_contact a {
-    color: #e8e8e8;
-    margin-right: 5px;
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-  }
-
-  .top_bar_social a {
-    color: #e8e8e8;
-    margin: 0 5px;
-    -webkit-transition: all 0.2s ease;
-    -o-transition: all 0.2s ease;
-    transition: all 0.2s ease;
-  }
-
-  .top_bar_contact a i {
-    color: #ffcb00;
-  }
-
-
-    .top_bar a:hover {
-      color: #ffcb00;
-    }
-
-  .top_bar_social a .fa {
-    font-size: 2em;
-    vertical-align: middle;
-  }
 
 
 .mobile_logo,

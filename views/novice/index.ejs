@@ -14,7 +14,7 @@
                 <p class="novica_naslov_datum"><%= moment(novica.datum).format("DD[.]MM[.]YYYY") %></p>
             <p class="novica_txt"><%- novica.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,250) + "..." %>
               <a href="/novice/<%= novica.dbid %>">
-                <i class="fa fa-forward" aria-hidden="true"></i></p>
+                <i class="fas fa-forward" aria-hidden="true"></i></p>
               </a>
           </div>
 
@@ -47,7 +47,7 @@
       </div>
       <!-- text filter box -->
       <div class="text-filter-box">
-         <i class="fa fa-search  jplist-icon"></i>
+         <i class="fas fa-search  jplist-icon"></i>
          <input
             data-path=".novica_naslov"
             type="text"
@@ -76,7 +76,7 @@
         <% }) %>
       </div>
       <div class="side_more">
-        <div class="side_btn"><a href="/posvojitev/muce">Vse muce <i class="fa fa-caret-right" aria-hidden="true"></i></a></div>
+        <div class="side_btn"><a href="/posvojitev/muce">Vse muce <i class="fas fa-caret-right" aria-hidden="true"></i></a></div>
       </div>
     </div>
   </div>

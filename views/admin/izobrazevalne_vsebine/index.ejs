@@ -27,8 +27,8 @@
               <td><a href="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" target="_blank"><img class="thumb" src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" /></a></td>
               <td><%- vsebina.datoteka %></td>
               <td><%= vsebina.objava == "1" ? "Da" : "Ne" %></td>
-              <td><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank"><i class="fa fa-eye" aria-hidden="true"></i></a></td>
-              <td><a href="/admin/izobrazevalne_vsebine/<%= vsebina._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+              <td><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/izobrazevalne_vsebine/<%= vsebina._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
           </tr>
         <% }) %>
     </tbody>

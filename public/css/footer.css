@@ -41,7 +41,7 @@
           transition: all 0.4s ease;
         }
 
-        .i_footer > .container > div > ul > li .fa {
+        .i_footer > .container > div > ul > li i {
           margin-right: 4px;
         }
 
@@ -57,7 +57,7 @@
               justify-content: space-around;
         }
 
-          .social_buttons a .fa {
+          .social_buttons a .fab {
             color: rgba(255, 255, 255, 0.5);
             font-size: 32px;
             vertical-align: middle;
@@ -67,7 +67,7 @@
             transition: all 0.4s ease;
           }
 
-          .social_buttons a .fa:hover,
+          .social_buttons a .fab:hover,
           .i_footer > .container > div > ul > li a:hover {
             color: rgba(255, 203, 0, 0.9);
           }

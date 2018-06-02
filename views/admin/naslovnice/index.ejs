@@ -57,7 +57,7 @@
               <td><%= naslovnica.podnaslov %></td>
               <td><%= naslovnica.napisNaGumbu %></td>
               <td><a href="<%= naslovnica.povezava %>" target="_blank"><%= naslovnica.povezava %></a></td>
-              <td><a href="/admin/naslovnice/<%= naslovnica._id %>/edit"><i class="fa fa-pencil-square-o" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/naslovnice/<%= naslovnica._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
               <td>
                   <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_1" <%= naslovnica.pozicija === 1 ? "disabled": "" %>>Prva naslovnica</button><br />
                   <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_2" <%= naslovnica.pozicija === 2 ? "disabled": "" %>>Druga naslovnica</button><br />

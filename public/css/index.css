@@ -208,7 +208,7 @@ button a {
           justify-content: center;
 }
 
-  .divider .fa {
+  .divider .fas {
     font-size: 3rem;
     color: rgba(0,0,0,0.14);
   }
@@ -361,8 +361,8 @@ input[type=email]:focus {
       border-radius: 10px;
     }
 
-      .help_item .fa {
-        font-size: 3em;
+      .help_item .fas {
+        font-size: 2.5em;
         border: 1px solid #fff;
         padding: 15px;
         border-radius: 50%;

@@ -1,8 +1,16 @@
 @media all and (max-width: 768px) {
 
+  #muca_container_div {
+    width: 100%;
+  }
+
   .cat_full .photos div img {
     height: auto;
     max-height: 300px;
+  }
+
+  .cat_full {
+    margin-bottom: 0;
   }
 
   .jplist-panel .jplist-label {
@@ -344,7 +352,7 @@
 /* INDEX PAGE */
 
 
-.i_jumbo > div {
+.naslovnica {
   height: calc(70vh - 50px);
   display: -webkit-box;
   display: -ms-flexbox;
@@ -626,10 +634,6 @@
   .data > div {
     height: auto;
     width: 100%;
-  }
-
-  .desc {
-    margin-top: 1rem;
   }
 
 }

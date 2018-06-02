@@ -17,6 +17,36 @@
           justify-content: space-between;
 }
 
+#muca_container_div {
+  width: 1420px;
+}
+
+#muca_content_div {
+  width: 100%;
+}
+
+.cat_top,
+.cat_social_desktop {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cat_social_mobile {
+  display: none;
+}
+
+.cat_social_desktop h3 {
+  margin-bottom: 0;
+  font-size: 20px;
+}
+
+.cat_social_desktop > div,
+#twitter-widget-0 {
+  margin-left: 10px;
+}
+
 .cat_full .photos div img {
   height: 300px;
 }
@@ -131,7 +161,7 @@
 }
 
 .muca_infoandmore p:first-of-type {
-  font-size: 14px;
+  font-size: 16px;
   color: #131313db;
 }
 
@@ -142,13 +172,20 @@
 }
 
 /* FULL PAGE */
+#back_to_cats_list_link {
+  color: #939393;
+  font-weight: 400;
+  text-decoration: none;
+}
+
 #muca_title_ime {
   margin: 0;
   color: #343a40;
   letter-spacing: 2px;
-  font-size: 3em;
+  font-size: 3.6em;
   padding-bottom: 0.5rem;
   font-weight: 500;
+
 }
 
 .cat_full {
@@ -190,6 +227,7 @@
   -ms-flex-item-align: start;
       align-self: flex-start;
   margin-top: 27px;
+  font-size: 16px;
 }
 
   .data_basic {
@@ -245,7 +283,7 @@
     border-top: 1px solid rgba(0,0,0,0.2);
   }
 
-    .data_row .fa {
+    .data_row .fas {
       margin: 0 5px;
       font-weight: bold;
     }
@@ -275,7 +313,7 @@
   }
 
   .cat_full p {
-    font-size: 14px;
+    font-size: 16px;
   }
 
   .desc > h2:first-of-type {
@@ -310,7 +348,7 @@
 }
 
   .contact_info {
-    font-size: 14px;
+    font-size: 16px;
     font-weight: 600;
     padding: 0.5em 1em;
     border: 1px solid rgba(0, 0, 0, 0.1);
@@ -324,7 +362,7 @@
   }
 
   .boter_true {
-    font-size: 14px;
+    font-size: 16px;
     padding: 0.5em 1em;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
