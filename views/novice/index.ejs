@@ -60,27 +60,5 @@
       </div>
     </div>
 </div>
-<!-- SIDEBAR -->
-  </div>
-  <div class="sidebar">
-    <div class="side_cats">
-      <div class="side_header">Iščejo dom</div>
-      <div class="side_cats_list">
-        <% sidebar_muce.forEach(function(sidebar_muca) { %>
-          <div class="side_cat">
-            <a href="/posvojitev/muce/<%= sidebar_muca.dbid %>">
-              <img src="/files/oglasi_muce/<%= sidebar_muca.file_name1 %>" />
-              <h5 class="side_cat_name"><%= sidebar_muca.ime %></h5>
-            </a>
-          </div>
-        <% }) %>
-      </div>
-      <div class="side_more">
-        <div class="side_btn"><a href="/posvojitev/muce">Vse muce <i class="fas fa-caret-right" aria-hidden="true"></i></a></div>
-      </div>
-    </div>
-  </div>
-</div>
-</div>
-
+<% include ../partials/sidebar_justcats %>
 <% include ../partials/footer %>
