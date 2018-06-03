@@ -263,6 +263,8 @@
             order: 1;
     border-right: none;
     height: 55px;
+    padding-top: 5px;
+    padding-bottom: 5px;
   }
 
     .navbar .logo img {
