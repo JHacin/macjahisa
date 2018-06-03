@@ -628,6 +628,7 @@
     height: auto;
     width: 100%;
     border-right: 10px solid white;
+    margin-bottom: 0;
   }
 
   .data > div {
