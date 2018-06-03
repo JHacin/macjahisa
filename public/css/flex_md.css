@@ -296,6 +296,10 @@
     margin-bottom: 0.5em;
   }
 
+  #imageZoom:hover {
+    color: #131313c2;
+  }
+
 
 
   .stellarnav > ul > li:nth-of-type(n+4),

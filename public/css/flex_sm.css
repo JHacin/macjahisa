@@ -6,7 +6,6 @@
 
   .cat_full .photos div img {
     height: auto;
-    max-height: 300px;
   }
 
   .cat_full {
@@ -628,7 +627,7 @@
   .photos img {
     height: auto;
     width: 100%;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+    border-right: 10px solid white;
   }
 
   .data > div {
