@@ -229,7 +229,7 @@
 
   /* MENU */
   .navbar {
-    height: 75px;
+    height: 65px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -262,11 +262,11 @@
         -ms-flex-order: 1;
             order: 1;
     border-right: none;
-    height: 65px;
+    height: 55px;
   }
 
     .navbar .logo img {
-      height: 60px;
+      height: 50px;
       vertical-align: middle;
     }
 
@@ -290,14 +290,8 @@
     -webkit-transform-style: preserve-3d;
   }
 
-  .stellarnav > ul > li:nth-of-type(n+4) {
-    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  }
 
-    .stellarnav > ul > li:nth-of-type(7) {
-      border-bottom: none;
 
-    }
 
   .stellarnav > ul > .nav_search_mobile {
     padding: 20px 0 20px 0!important;
@@ -339,11 +333,11 @@
 
       .nav_donate > form > button {
         border: none;
-        height: 75px;
+        height: 65px;
         width: 100%;
         padding: 0;
         border-radius: 0;
-        font-size: 30px;
+        font-size: 26px;
         font-weight: 700;
       }
 /* END MENU */
@@ -659,21 +653,25 @@
       width: 100% !important;
   }
 
+  a.menu-toggle.full {
+    height: 55px;
+}
+
   .nav_donate > form > button {
-    font-size: 22px;
-    height: 65px;
-  }
-
-  .navbar {
-    height: 65px;
-  }
-
-  .navbar .logo img {
+    font-size: 21px;
     height: 55px;
   }
 
+  .navbar {
+    height: 55px;
+  }
+
+  .navbar .logo img {
+    height: 45px;
+  }
+
   .stellarnav .fa-bars {
-    font-size: 36px;
+    font-size: 29px;
   }
 
   .side_cat {

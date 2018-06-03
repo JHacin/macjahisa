@@ -1,4 +1,4 @@
-@media all and (max-width: 1425px) {
+@media all and (max-width: 1515px) {
 
   .photos {
     width: 88vw;
@@ -230,6 +230,35 @@
               justify-content: space-between;
     }
 
+
+      .stellarnav > ul > li:nth-of-type(n+4),
+      .stellarnav > ul > .nav_search_mobile {
+        display: block;
+      }
+
+      .stellarnav > ul > li:nth-of-type(n+4) {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+}
+
+
+.stellarnav > ul > li.nav_search_mobile {
+  border-bottom: none;
+  border-top: none;
+}
+
+
+      .stellarnav > ul > li.nav_search_mobile {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+                flex-direction: row;
+        padding: 20px 0;
+      }
+
+
     .stellarnav > ul > .nav_search_mobile > form > input[type="text"] {
       font-family: "Roboto Slab", serif!important;
       max-width: 150px!important;
@@ -289,7 +318,7 @@
     }
 }
 
-@media all and (max-width: 1050px) {
+@media all and (max-width: 1140px) {
 
   #imageZoomDiv {
     text-align: center;
@@ -305,11 +334,6 @@
   }
 
 
-
-  .stellarnav > ul > li:nth-of-type(n+4),
-  .stellarnav > ul > .nav_search_mobile {
-    display: block;
-  }
 
   .novice_seznam .jplist-panel {
     -webkit-box-orient: vertical;

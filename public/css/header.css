@@ -79,7 +79,7 @@
   }
 
 /* STELLARNAV OVERRIDE FOR LARGE SCREENS */
-@media all and (min-width: 1425px) {
+@media all and (min-width: 1515px) {
 
 .stellarnav > ul {
   display: -webkit-box;
@@ -174,7 +174,7 @@
 /* END STELLARNAV OVERRIDE FOR LARGE SCREENS */
 
     .stellarnav .fa-bars {
-      font-size: 38px;
+      font-size: 32px;
       margin-left: 10px;
       margin-right: 10px;
       color: #343a40;
