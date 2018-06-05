@@ -1,5 +1,9 @@
 $(document).ready( function() {
 
+  $('#gsc-i-id1').on('focus', function() {
+      document.body.scrollTop = $(this).offset().top;
+  });
+
 
   // SAFARI TEMPORARY FIX: prevents donate button from showing above mobile navbar
   $(window).on('resize', function(){
