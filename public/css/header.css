@@ -610,7 +610,28 @@ div#___gcse_1 {
 }
 
 div#___gcse_0 {
-  width: 90%;
+  width: 100%;
+}
+
+div#___gcse_0 .gsc-control-wrapper-cse {
+  width: 70%!important;
+  margin: 0 auto;
+  padding: 0 0 1px 0;
+}
+
+div#___gcse_0 .gsc-search-button-v2 {
+  background: rgb(124, 123, 123)!important;
+}
+
+
+div#___gcse_0 .gsc-search-button-v2 svg {
+  fill: white!important;
+}
+
+div#___gcse_0 .gsc-control-cse {
+  background: rgb(124, 123, 123);
+  border: none!important;
+  padding: 0.4em 0!important;
 }
 
 div#___gcse_0 .gsc-input-box {
@@ -654,10 +675,18 @@ input#gsc-i-id1 {
   background: none!important;
 }
 
+input#gsc-i-id1 {
+  color: white!important;
+}
+
 input#gsc-i-id2::placeholder,
 input#gsc-i-id1::placeholder {
   font: 300 16px 'Roboto Slab', serif!important;
   line-height: 16px!important;
+}
+
+input#gsc-i-id1::placeholder {
+  color: white!important;
 }
 
 button.gsc-search-button.gsc-search-button-v2 {
@@ -667,13 +696,13 @@ button.gsc-search-button.gsc-search-button-v2 {
   padding: 0!important;
 }
 
-#___gcse_0 .gsc-control-wrapper-cse {
-  border-bottom: 1px solid rgba(0,0,0,0.2);
-  padding: 0 0 1px 0;
+#___gcse_0 button.gsc-search-button.gsc-search-button-v2 {
+  padding-top: 3px!important;
 }
 
 #___gcse_0 a.gsst_a {
-  padding: 5px 10px 0px 10px!important;
+  padding: 12px 10px 0px 10px!important;
+  color: white!important;
 }
 
 td.gsc-search-button {
@@ -736,6 +765,10 @@ td#gs_tti51 {
 
 .gsst_a .gscb_a {
   color: #333!important;
+}
+
+#___gcse_0 .gsst_a .gscb_a {
+  color: white!important;
 }
 
 #___gcse_0 .gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
