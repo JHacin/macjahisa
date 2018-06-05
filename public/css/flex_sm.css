@@ -1,5 +1,9 @@
 @media all and (max-width: 768px) {
 
+  .stellarnav.mobile.left>ul {
+    max-width: 100vw;
+  }
+
   #muca_container_div {
     width: 100%;
   }

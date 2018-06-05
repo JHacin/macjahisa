@@ -84,6 +84,7 @@
              js.src = "https://connect.facebook.net/en_US/sdk.js";
              fjs.parentNode.insertBefore(js, fjs);
            }(document, 'script', 'facebook-jssdk'));
+
         </script>
         <!-- END FACEBOOK JAVASCRIPT SDK -->
         <div class="navbar">
@@ -132,12 +133,20 @@
                   <li><a href="/o_nas/eu_dog_and_cat_alliance">EU Dog & Cat Alliance</a></li>
                   <li><a href="/novice">Novice</a></li>
                 </li>
-                <li class="nav_search_mobile">
-                  <form action="/search">
-                    <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
-                     <button type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
-                  </form>
-                </li>
+                
+                <div class="nav_search_mobile">
+                  <script>
+  (function() {
+    var cx = '001736101284721641425:w8gp2vqwk54';
+    var gcse = document.createElement('script');
+    gcse.type = 'text/javascript';
+    gcse.async = true;
+    gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
+    var s = document.getElementsByTagName('script')[0];
+    s.parentNode.insertBefore(gcse, s);
+  })();
+  </script>
+  <gcse:search></gcse:search></div>
 
               </ul>
               <!-- END PRIMARY MENU -->
@@ -156,10 +165,26 @@
 
             <!-- SEARCH FORM -->
             <div class="nav_search">
-              <form action="/search">
+              <script>
+                (function() {
+                  var cx2 = '001736101284721641425:w8gp2vqwk54';
+                  var gcse2 = document.createElement('script');
+                  gcse2.type = 'text/javascript';
+                  gcse2.async = true;
+                  gcse2.src = 'https://cse.google.com/cse.js?cx=' + cx2;
+                  var s = document.getElementsByTagName('script')[0];
+                  s.parentNode.insertBefore(gcse2, s);
+                })();
+                window.onload = function(){
+                 document.getElementById('gsc-i-id2').placeholder = 'Išči...';
+                 document.getElementById('gsc-i-id1').placeholder = 'Išči...';
+                 };
+              </script>
+              <gcse:search></gcse:search>
+              <!-- <form action="/search">
                 <input type="text" placeholder="Išči..." name="q" id="tipue_search_input" pattern=".{3,}" title="At least 3 characters" required oninvalid="this.setCustomValidity('Prosimo, vnesite iskalno zahtevo.')" oninput="setCustomValidity('')"/>
                  <button type="submit"><i class="fas fa-search" aria-hidden="true"></i></button>
-              </form>
+              </form> -->
             </div>
 
           </div><!-- END NAV_MENU -->

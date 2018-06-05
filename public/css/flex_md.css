@@ -81,6 +81,7 @@
   .stellarnav.mobile.left>ul {
     min-height: 100vh;
     padding-bottom: 100px;
+    max-width: 380px;
   }
 
   .i_muca_img {
@@ -212,7 +213,6 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border-top: 1px solid rgba(0, 0, 0, 0.2);
   }
 
     .stellarnav > ul > .nav_search_mobile > form {
