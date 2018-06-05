@@ -621,6 +621,7 @@ div#___gcse_0 .gsc-control-wrapper-cse {
 
 div#___gcse_0 .gsc-search-button-v2 {
   background: rgb(124, 123, 123)!important;
+  padding: 15px 35px 10px 22px!important;
 }
 
 
@@ -696,10 +697,6 @@ button.gsc-search-button.gsc-search-button-v2 {
   padding: 0!important;
 }
 
-#___gcse_0 button.gsc-search-button.gsc-search-button-v2 {
-  padding-top: 3px!important;
-}
-
 #___gcse_0 a.gsst_a {
   padding: 12px 10px 0px 10px!important;
   color: white!important;
@@ -769,6 +766,17 @@ td#gs_tti51 {
 
 #___gcse_0 .gsst_a .gscb_a {
   color: white!important;
+  display: none!important;
+  /* visibility: hidden!important; */
+}
+
+#___gcse_0 input#gsc-i-id1:hover {
+  cursor: default;
+}
+
+#___gcse_0 a.gsst_a {
+  display: none!important;
+  /* visibility: hidden!important; */
 }
 
 #___gcse_0 .gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
