@@ -58,6 +58,14 @@
 
 <script type="text/javascript">
           $(document).ready(function() {
+
+            $('.lazy').Lazy({
+              afterLoad: function(element) {
+            // called after an element was successfully handled
+              console.log("loaded");
+              }
+            });
+
             $(".stellarnav").stellarNav({
               position: "left",
               breakpoint: 1515,

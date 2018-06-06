@@ -2,7 +2,8 @@
 
     <div class="i_jumbo">
       <% naslovnice.forEach(function(naslovnica) { %>
-        <div class="naslovnica" style="background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>)!important;">
+        <div class="naslovnica lazy" data-src="/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>">
+        <!-- <div class="naslovnica" style="background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>)!important;"> -->
           <div class="i_jumbo_text">
             <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
             <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov %></h2>
@@ -24,7 +25,7 @@
         <% muce.forEach(function(muca){ %>
           <div class="i_muca">
             <div class="i_muca_img">
-              <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
+              <a href="posvojitev/muce/<%= muca.dbid %>"><img class="lazy" data-src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a>
             </div>
             <div class="i_muca_txt">
               <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
@@ -36,7 +37,6 @@
     </div>
     <div class="divider">
       <i class="fas fa-ellipsis-h"></i>
-      <!-- <img src="/files/page/section_divider.jpg" /> -->
     </div>
     <div class="i_mailing">
       <h2>Naroči se na e-novice</h2>
@@ -78,8 +78,8 @@
     <div class="i_edu">
       <h1>Več znaš, več veljaš</h1>
       <div class="i_edu_img">
-        <img src="/files/index/edu1.jpg" />
-        <img src="/files/index/edu2.jpg" />
+        <img class="lazy" data-src="/files/index/edu1.jpg" />
+        <img class="lazy" data-src="/files/index/edu2.jpg" />
       </div>
       <p>Predstavljamo novost - <strong>izobraževalne vsebine</strong> Mačje hiše.</p>
       <p>Članke in letake lahko v PDF formatu shranite na svoj računalnik, jih preberete in natisnete.</p>
@@ -92,7 +92,7 @@
     </div>
     <div class="i_boter">
       <h1>Mačji boter</h1>
-      <img src="/files/index/boter.png" />
+      <img class="lazy" data-src="/files/index/boter.png" />
       <div class="i_boter_txt">
         Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>. Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck. Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.
       </div>

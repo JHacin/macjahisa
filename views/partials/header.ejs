@@ -29,7 +29,7 @@
 
         <% if (typeof isIndexPage != "undefined") { %>
           <% naslovnice.forEach(function(naslovnica) { %>
-            <link rel="preload" href="/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>" as="image">
+            <link rel="prefetch" href="/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>">
           <% }); %>
         <% } %>
 
@@ -38,6 +38,7 @@
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js" integrity="sha256-7PSmF2ojY04Z7YCwG5wwvH+bdUxV1PPCIORvvTYHo7M=" crossorigin="anonymous"></script>
         <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav/stellarnav.min.css">
         <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400,700&amp;subset=latin-ext" rel="stylesheet">
         <link href="//cdn-images.mailchimp.com/embedcode/horizontal-slim-10_7.css" rel="stylesheet" type="text/css">
