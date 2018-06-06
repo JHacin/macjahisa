@@ -655,13 +655,20 @@ router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
 
 router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, req.body.clanek, function(err, clanek){
-    console.log(req.params.id);
+    console.log(clanek.kategorija);
+    console.log(req.body.clanek.kategorija);
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
       return res.redirect("/admin/clanki");
     }
+
     if (req.body.clanek.nova_vsebina != undefined && req.body.clanek.nova_vsebina != "") {
       clanek.vsebina = req.body.clanek.nova_vsebina;
+      clanek.save();
+    }
+    // posodobi kategorijo
+    if (!clanek.kategorija || (clanek.kategorija !== req.body.clanek.kategorija)) {
+      clanek.kategorija = req.body.clanek.kategorija;
       clanek.save();
     }
     req.flash("success", "Prispevek posodobljen.");
