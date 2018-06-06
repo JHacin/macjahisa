@@ -552,7 +552,6 @@ router.put("/novice/:id", middleware.isLoggedIn, upload_novice.single("novica[no
       req.flash("error", "Prišlo je do napake pri posodabljanju novice.");
       return res.redirect("/admin/novice");
     }
-    console.log(req.file);
       if (req.file) {
         novica.naslovna_slika = req.file.originalname;
         novica.save();
@@ -656,6 +655,7 @@ router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
 
 router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
   Clanek.findOne({dbid: req.params.id}, req.body.clanek, function(err, clanek){
+    console.log(req.params.id);
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
       return res.redirect("/admin/clanki");
@@ -1330,7 +1330,6 @@ router.post("/naslovnice/:id/deactivate", middleware.isLoggedIn, function(req, r
 
 router.post("/naslovnice", middleware.isLoggedIn, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
   Naslovnica.count({}, function(err, count){
-    console.log("Count: " + count);
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
       return res.redirect("/admin/naslovnice");
@@ -1375,7 +1374,6 @@ router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("n
     }
 
     if(req.file) {
-      console.log("File: " + req.file.filename);
       var ozadje = req.file.filename;
       naslovnica.ozadje = ozadje;
       naslovnica.save(function (err) {

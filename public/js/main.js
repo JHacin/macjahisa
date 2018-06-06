@@ -1,8 +1,5 @@
 $(document).ready( function() {
 
-  $(svg).attr("width");
-
-
   // SAFARI TEMPORARY FIX: prevents donate button from showing above mobile navbar
   $(window).on('resize', function(){
       var win = $(this); //this = window

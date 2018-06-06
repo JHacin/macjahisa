@@ -102,6 +102,18 @@ app.use("*", function(req, res, next) {
 //   });
 // });
 
+// poprava člankov brez tipov/kategorij
+Clanek.find({}, function(err, clanki) {
+  clanki.forEach(function(clanek) {
+    if (!clanek.tip) {
+      clanek.tip = "besedilo";
+      clanek.save(function(err, shranjenClanek){
+        if(err) return console.log(err);
+      });
+    }
+  });
+});
+
 // INDEX ROUTE
 app.get("/", function(req, res){
   Novica.find().where("objava").equals("1").sort({datum: -1}).limit(4).exec(function(err, novice) {
