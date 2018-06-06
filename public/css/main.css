@@ -289,10 +289,11 @@ a {
 }
 
 .content .back_to_articles_list_link {
-  color: #939393;
+  font-size: 15px;
+  letter-spacing: 0.3px;
   font-weight: 400;
   text-decoration: none;
-
+  color: #707070;
 }
 
   .content .clanek_link i {
