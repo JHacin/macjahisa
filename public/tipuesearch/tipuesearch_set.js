@@ -23,7 +23,7 @@ var tipuesearch_pages = [
   "http://207.154.195.5:3000/o_nas/kontakt",
   "http://207.154.195.5:3000/o_nas/v_medijih",
   "http://207.154.195.5:3000/posvojitev/pogoji_in_postopek",
-  "http://207.154.195.5:3000/dobro_je_vedeti/koristne_informacije",
+  "http://207.154.195.5:3000/dobro_je_vedeti/prispevki",
   "http://207.154.195.5:3000/dobro_je_vedeti/izobrazevalne_vsebine",
   "http://207.154.195.5:3000/pomoc/nacini_pomoci",
   "http://207.154.195.5:3000/pomoc/dohodnina",

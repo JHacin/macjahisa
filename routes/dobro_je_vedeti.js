@@ -20,12 +20,12 @@ router.get("/izobrazevalne_vsebine", function(req, res){
   });
 });
 
-router.get("/koristne_informacije", function(req, res){
-  Podstran.findOne({naslov: "Koristne informacije"}, function(err, podstran){
+router.get("/prispevki", function(req, res){
+  Podstran.findOne({naslov: "Prispevki"}, function(err, podstran){
     if(err) return console.log(err);
     Clanek.find({}, function(err, clanki) {
       if(err) return console.log(err);
-      res.render("dobro_je_vedeti/koristne_informacije", {nav_kategorije: req.nav_kategorije,
+      res.render("dobro_je_vedeti/prispevki", {nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
       sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
       podstran: podstran, clanki: clanki})
@@ -33,7 +33,7 @@ router.get("/koristne_informacije", function(req, res){
   });
 });
 
-router.get("/koristne_informacije/:id", function(req, res){
+router.get("/prispevki/:id", function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
     if(err) return console.log(err);
 
