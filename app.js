@@ -103,16 +103,16 @@ app.use("*", function(req, res, next) {
 // });
 
 // poprava člankov brez tipov/kategorij
-Clanek.find({}, function(err, clanki) {
-  clanki.forEach(function(clanek) {
-    if (!clanek.tip) {
-      clanek.tip = "besedilo";
-      clanek.save(function(err, shranjenClanek){
-        if(err) return console.log(err);
-      });
-    }
-  });
-});
+// Clanek.find({}, function(err, clanki) {
+//   clanki.forEach(function(clanek) {
+//     if (!clanek.tip) {
+//       clanek.tip = "besedilo";
+//       clanek.save(function(err, shranjenClanek){
+//         if(err) return console.log(err);
+//       });
+//     }
+//   });
+// });
 
 // INDEX ROUTE
 app.get("/", function(req, res){
