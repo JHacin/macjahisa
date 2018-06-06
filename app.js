@@ -12,8 +12,7 @@ var express             = require("express"),
     flash               = require("connect-flash"),
     methodOverride      = require("method-override");
 
-var Novica              = require("./models/novica"),
-    Muca                = require("./models/muca"),
+var Muca                = require("./models/muca"),
     Kategorija          = require("./models/kategorija"),
     Clanek              = require("./models/clanek"),
     Podstran            = require("./models/podstran"),
@@ -27,7 +26,6 @@ var dobro_je_vedeti = require("./routes/dobro_je_vedeti.js");
 var pomoc = require("./routes/pomoc.js");
 var projekt_vita = require("./routes/projekt_vita.js");
 var admin = require("./routes/admin.js");
-var novice = require("./routes/novice.js");
 var v_novem_domu = require("./routes/v_novem_domu.js");
 
 // CONFIG
@@ -71,15 +69,11 @@ app.use("*", function(req, res, next) {
       if(err) return console.log(err);
       Muca.find().where("status").in([1, 2]).sort({datum: -1}).random(3, true, function(err, sidebar_muce) {
         if(err) return console.log(err);
-        Novica.find().where("objava").equals("1").sort({datum: -1}).limit(3).exec(function(err, sidebar_novice) {
             if(err) return console.log(err);
             req.nav_kategorije = kategorije;
             req.nav_podstrani = podstrani;
             req.sidebar_muce = sidebar_muce;
-            req.sidebar_novice = sidebar_novice;
-            search = podstrani;
             next();
-        });
       });
     });
   });
@@ -116,55 +110,45 @@ app.use("*", function(req, res, next) {
 
 // INDEX ROUTE
 app.get("/", function(req, res){
-  Novica.find().where("objava").equals("1").sort({datum: -1}).limit(4).exec(function(err, novice) {
+  Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
     if(err) return console.log(err);
-    Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
-      if(err) return console.log(err);
-      Muca.where("status").in([1, 2]).count().exec(function(err, count){
-          var steviloMuc = count;
+    Muca.where("status").in([1, 2]).count().exec(function(err, count){
+        var steviloMuc = count;
+        if(err) return console.log(err);
+        Naslovnica.find().where("pozicija").in([1, 2, 3]).exec(function(err, naslovnice){
           if(err) return console.log(err);
-          Naslovnica.find().where("pozicija").in([1, 2, 3]).exec(function(err, naslovnice){
-            if(err) return console.log(err);
 
-            var aktiviraneNaslovnice = [];
-              naslovnice.map(function(naslovnica){
-                if(naslovnica.pozicija === 1) {
-                  aktiviraneNaslovnice.push(naslovnica);
-                };
-              });
-
-              naslovnice.map(function(naslovnica){
-                if(naslovnica.pozicija === 2) {
-                  aktiviraneNaslovnice.push(naslovnica);
-                  };
-              });
-
-              naslovnice.map(function(naslovnica){
-                if(naslovnica.pozicija === 3) {
-                  aktiviraneNaslovnice.push(naslovnica);
-                };
-              });
-            res.render("index",
-            {
-              nav_kategorije: req.nav_kategorije,
-              nav_podstrani: req.nav_podstrani,
-              title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
-              novice: novice,
-              muce: muce,
-              steviloMucKiIscejoDom: steviloMuc,
-              naslovnice: aktiviraneNaslovnice
+          var aktiviraneNaslovnice = [];
+            naslovnice.map(function(naslovnica){
+              if(naslovnica.pozicija === 1) {
+                aktiviraneNaslovnice.push(naslovnica);
+              };
             });
+
+            naslovnice.map(function(naslovnica){
+              if(naslovnica.pozicija === 2) {
+                aktiviraneNaslovnice.push(naslovnica);
+                };
+            });
+
+            naslovnice.map(function(naslovnica){
+              if(naslovnica.pozicija === 3) {
+                aktiviraneNaslovnice.push(naslovnica);
+              };
+            });
+          res.render("index",
+          {
+            nav_kategorije: req.nav_kategorije,
+            nav_podstrani: req.nav_podstrani,
+            title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
+            muce: muce,
+            steviloMucKiIscejoDom: steviloMuc,
+            naslovnice: aktiviraneNaslovnice
           });
         });
       });
     });
   });
-
-app.get("/search", function(req, res){
-  res.render("search", {searchPageRender: true, podstran: {naslov: "Rezultati iskanja"}, title: "Rezultati iskanja | Mačja hiša", nav_kategorije: req.nav_kategorije,
-  nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-  sidebar_muce: req.sidebar_muce});
-});
 
 // Muca.find({}, function(err, clanki){
 //   if(err) console.log(err);
@@ -188,7 +172,6 @@ app.use("/dobro_je_vedeti/", dobro_je_vedeti);
 app.use("/pomoc/", pomoc);
 app.use("/projekt_vita/", projekt_vita);
 app.use("/admin/", admin);
-app.use("/novice/", novice);
 app.use("/v_novem_domu/", v_novem_domu);
 
 // app listen config

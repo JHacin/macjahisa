@@ -13,7 +13,7 @@ router.get("/muce", function(req, res){
     Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce){
       if(err) return console.log(err);
       res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
+      nav_podstrani: req.nav_podstrani,
       sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša",
       muce: muce})
     });
@@ -29,7 +29,7 @@ router.get("/muce/:id", function(req, res){
       podstran: {naslov: muca.ime},
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      sidebar_novice: req.sidebar_novice,
+      
       sidebar_muce: req.sidebar_muce,
       title: muca.ime + " | Mačja hiša",
       social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
@@ -48,7 +48,7 @@ router.get("/:podstran", function(req, res){
       podstran: podstran,
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      sidebar_novice: req.sidebar_novice,
+
       sidebar_muce: req.sidebar_muce,
       title: podstran.naslov + " | Mačja hiša"
     });

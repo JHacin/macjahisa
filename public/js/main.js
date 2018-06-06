@@ -21,13 +21,6 @@ $(document).ready( function() {
     panelPath: '.jplist-panel'
    });
 
-   // NOVICE LIST
-   $('.novice_seznam').jplist({
-     itemsBox: '.list',
-     itemPath: '.list-item',
-     panelPath: '.jplist-panel'
-    });
-
    // MUCA IMAGE SLIDER
    $('.photos').slick({
      dots: false,

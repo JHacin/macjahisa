@@ -1,7 +1,6 @@
 var express = require("express");
 var router = express.Router({mergeParams: true});
 var Muca = require("../models/muca");
-var Novica = require("../models/novica");
 var Clanek = require("../models/clanek");
 var Podstran = require("../models/podstran");
 var Naslovnica = require("../models/naslovnica");
@@ -47,15 +46,6 @@ var storage_izobrazevanje = multer.diskStorage({
   }
 })
 
-var storage_novice = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files')
-  },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname)
-  }
-})
-
 var storage_naslovnice = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/files/naslovnice')
@@ -68,7 +58,6 @@ var storage_naslovnice = multer.diskStorage({
 var upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
-var upload_novice = multer({ storage: storage_novice, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_naslovnice = multer({ storage: storage_naslovnice, limits: { fieldSize: 25 * 1024 * 10240 } });
 // END MULTER
 
@@ -497,71 +486,6 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
   });
 });
 // END MUCE
-
-// NOVICE
-router.get("/novice", middleware.isLoggedIn, function(req, res){
-  Novica.find({}, function(err, novice){
-    if(err) {
-      req.flash("error", "Prišlo je do napake v bazi podatkov.");
-      return res.redirect("/admin/login");
-    }
-    res.render("admin/novice/index", {novice: novice});
-  })
-});
-
-router.get("/novice/:id/edit", middleware.isLoggedIn, function(req, res){
-  Novica.findOne({dbid: req.params.id}, function(err, novica){
-    if(err) {
-      req.flash("error", "Novice ne najdem v bazi podatkov.");
-      return res.redirect("/admin/novice");
-    }
-    res.render("admin/novice/edit", {novica: novica});
-  })
-});
-
-router.get("/novice/add", middleware.isLoggedIn, function(req, res){
-  res.render("admin/novice/add");
-});
-
-
-
-router.post("/novice", middleware.isLoggedIn, upload_novice.single("novica[naslovna_slika]"), function(req, res, next){
-  Novica.count({}, function(err, count){
-    Novica.create(req.body.novica, function(err, novica){
-      if(err) {
-        req.flash("error", "Prišlo je do napake pri kreiranju novice.");
-        return res.redirect("/admin/novice");
-      }
-      if(req.file) {
-        novica.naslovna_slika = req.file.originalname;
-      } else {
-        novica.naslovna_slika = "default.png";
-      }
-      novica.dbid = count + 1;
-      novica.user_id = req.user._id;
-      novica.save();
-      req.flash("success", "Novica dodana.");
-      res.redirect("/admin/novice");
-    });
-  })
-});
-
-router.put("/novice/:id", middleware.isLoggedIn, upload_novice.single("novica[nova_naslovna_slika]"), function(req, res, next){
-  Novica.findByIdAndUpdate(req.params.id, req.body.novica, function(err, novica){
-    if(err) {
-      req.flash("error", "Prišlo je do napake pri posodabljanju novice.");
-      return res.redirect("/admin/novice");
-    }
-      if (req.file) {
-        novica.naslovna_slika = req.file.originalname;
-        novica.save();
-      }
-    req.flash("success", "Novica posodobljena.");
-    res.redirect("/admin/novice/");
-  });
-});
-
-// END NOVICE
 
 // ČLANKI
 router.get("/clanki", middleware.isLoggedIn, function(req, res){
@@ -1430,26 +1354,6 @@ router.post("/naslovnice/:pozicija/:id", middleware.isLoggedIn, function(req, re
   });
 });
 
-// router.post("/naslovnice/uploadpreview", middleware.isLoggedIn, upload_naslovnice_preview.single("novica[naslovna_slika]"), function(req, res, next){
-//   Novica.count({}, function(err, count){
-//     Novica.create(req.body.novica, function(err, novica){
-//       if(err) {
-//         req.flash("error", "Prišlo je do napake pri kreiranju novice.");
-//         return res.redirect("/admin/novice");
-//       }
-//       if(req.file) {
-//         novica.naslovna_slika = req.file.originalname;
-//       } else {
-//         novica.naslovna_slika = "default.png";
-//       }
-//       novica.dbid = count + 1;
-//       novica.user_id = req.user._id;
-//       novica.save();
-//       req.flash("success", "Novica dodana.");
-//       res.redirect("/admin/novice");
-//     });
-//   })
-// });
 // END NASLOVNICE
 
 module.exports = router;

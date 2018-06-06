@@ -13,8 +13,7 @@ router.get("/izobrazevalne_vsebine", function(req, res){
     if(err) return console.log(err);
     Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine){
       res.render("dobro_je_vedeti/izobrazevalne_vsebine", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-      sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša",
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });
   });
@@ -26,8 +25,7 @@ router.get("/prispevki", function(req, res){
     Clanek.find({}, function(err, clanki) {
       if(err) return console.log(err);
       res.render("dobro_je_vedeti/prispevki", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_novice: req.sidebar_novice,
-      sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
       podstran: podstran, clanki: clanki})
     });
   });
@@ -41,7 +39,7 @@ router.get("/prispevki/:id", function(req, res){
 
       res.render("dobro_je_vedeti/clanek", {podstran: clanek,
         nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
-        sidebar_novice: req.sidebar_novice, sidebar_muce: req.sidebar_muce,
+        sidebar_muce: req.sidebar_muce,
         title: clanek.naslov + " | Mačja hiša", social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
         social_image: "http://" + req.headers.host + "/files/page/article_default.png"});
 
@@ -61,7 +59,6 @@ router.get("/:podstran", function(req, res){
       podstran: podstran,
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      sidebar_novice: req.sidebar_novice,
       sidebar_muce: req.sidebar_muce,
       title: podstran.naslov + " | Mačja hiša"
     });

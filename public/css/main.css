@@ -39,11 +39,6 @@ h3 {
   font-size: 22px;
 }
 
-.content .novica_datum {
-  font-weight: 300;
-  font-size: 18px;
-}
-
 p {
   margin-top: 0;
   margin-bottom: 0.5em;
@@ -142,91 +137,10 @@ a {
   line-height: 35px;
 }
 
-.novice_seznam .jplist-panel .jplist-pagination {
-    -webkit-box-pack: start;
-        -ms-flex-pack: start;
-            justify-content: flex-start;
-    margin-top: 0;
-}
-
-  .novice_seznam h4 {
-    margin: 0 0 0.2em 0;
-    font-weight: 600;
-    font-size: 18px;
-  }
-
-  .novice_seznam .novica_txt {
-    margin: 0;
-  }
-
-  .list-item .novica_naslov_datum {
-    font-weight: 500;
-    font-size: 13px;
-    margin-bottom: 0.2em;
-    color: rgb(52, 58, 64); color: rgba(52, 58, 64, 0.65);
-  }
-
-  .list-item a {
-    text-decoration: none;
-  }
-
-.novice_seznam .list-item {
-  padding-top: 1em;
-  padding-bottom: 1em;
-  border-top: 1px solid #ddd; border-top: 1px solid rgba(0,0,0,0.1);
-}
-
-.novice_seznam .list-item:first-child {
-  border-top: none;
-  padding-top: 0;
-}
-
-.novica_txt a i {
-  font-size: 12px;
-}
-
-.novice_seznam .jplist-panel {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-pack: justify;
-      -ms-flex-pack: justify;
-          justify-content: space-between;
-}
-
 .jplist-panel .jplist-pagination button:focus,
 .jplist-panel .jplist-pagination button:active {
   outline: 0;
 }
-
-/* NOVICE */
-.content .novica_naslov  {
-  margin-top: 0;
-}
-
-.novice_seznam {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-}
-
-  .novice_seznam .list {
-    margin-top: 0;
-  }
-
-  .novica_naslov_title {
-    font-size: 16px;
-    font-weight: 500;
-    text-decoration: none;
-  }
 
 /* IZOBRAŽEVANJE */
 .izobrazevalne_vsebine {
@@ -321,12 +235,6 @@ a {
 .vita_category_box .fa {
   font-size: 14px;
   margin-left: 0.2rem;
-}
-
-/* TIPUE SEARCH */
-.tipue_search_content_title a:hover {
-  font-family: 'Roboto Slab', serif;
-  color: #343a40!important;
 }
 
 /* PAYPAL */
