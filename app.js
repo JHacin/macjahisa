@@ -97,16 +97,27 @@ app.use("*", function(req, res, next) {
 // });
 
 // poprava člankov brez tipov/kategorij
-// Clanek.find({}, function(err, clanki) {
-//   clanki.forEach(function(clanek) {
+Clanek.find({}, function(err, clanki) {
+  var count = 0;
+  clanki.forEach(function(clanek) {
+    count++;
+    clanek.dbid = count;
+
+    clanek.save(function(err, shranjenClanek){
+            if(err) return console.log(err);
+
+          });
 //     if (!clanek.tip) {
 //       clanek.tip = "besedilo";
 //       clanek.save(function(err, shranjenClanek){
 //         if(err) return console.log(err);
 //       });
 //     }
-//   });
-// });
+  });
+  // Clanek.count({}, function(err, count){
+  //
+  // });
+});
 
 // INDEX ROUTE
 app.get("/", function(req, res){
