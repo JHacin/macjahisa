@@ -284,6 +284,17 @@ a {
   color: #131313c2;
 }
 
+.content .back_to_articles_list {
+  margin: 1rem 0;
+}
+
+.content .back_to_articles_list_link {
+  color: #939393;
+  font-weight: 400;
+  text-decoration: none;
+
+}
+
   .content .clanek_link i {
     margin-left: 2px;
     color: #3f3f3f;
