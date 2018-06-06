@@ -105,7 +105,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
           canvas.width = this.naturalWidth; // or 'width' if you want a special/scaled size
           canvas.height = this.naturalHeight; // or 'height' if you want a special/scaled size
           canvas.getContext('2d').drawImage(this, 0, 0);
-          callback(canvas.toDataURL('image/png'));
+          callback(canvas.toDataURL('image/jpeg'));
       };
       image.src = url;
     }

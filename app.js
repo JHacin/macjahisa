@@ -143,7 +143,8 @@ app.get("/", function(req, res){
             title: "Mačja hiša - skupaj pomagamo brezdomnim mucam",
             muce: muce,
             steviloMucKiIscejoDom: steviloMuc,
-            naslovnice: aktiviraneNaslovnice
+            naslovnice: aktiviraneNaslovnice,
+            isIndexPage: true
           });
         });
       });
