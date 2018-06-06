@@ -22,14 +22,34 @@ clanki.forEach(function(clanek){
 <h2>Prispevki</h2>
 <ul>
   <% prispevki.forEach(function(clanek){ %>
-    <li><a class="clanek_link" href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %></a></li>
+    <li><a class="clanek_link" href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %>
+    <% if (clanek.tip === "besedilo") { %>
+      <i class="fab fa-readme"></i>
+    <% } %>
+    <% if (clanek.tip === "datoteka") { %>
+      <i class="far fa-file-pdf"></i>
+    <% } %>
+    <% if (clanek.tip === "povezava") { %>
+      <i class="fas fa-external-link-alt"></i>
+    <% } %>
+    </a></li>
   <% }); %>
 </ul>
 
 <h2>Nasveti</h2>
 <ul>
   <% nasveti.forEach(function(clanek){ %>
-    <li><a  class="clanek_link"href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %></a></li>
+    <li><a  class="clanek_link"href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %>
+      <% if (clanek.tip === "besedilo") { %>
+        <i class="fab fa-readme"></i>
+      <% } %>
+      <% if (clanek.tip === "datoteka") { %>
+        <i class="far fa-file-pdf"></i>
+      <% } %>
+      <% if (clanek.tip === "povezava") { %>
+        <i class="fas fa-external-link-alt"></i>
+      <% } %>
+    </a></li>
   <% }); %>
 </ul>
 
@@ -43,7 +63,17 @@ clanki.forEach(function(clanek){
 <h2>Zakonodaja</h2>
 <ul>
   <% zakonodaja.forEach(function(clanek){ %>
-    <li><a class="clanek_link" href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %></a></li>
+    <li><a class="clanek_link" href="/dobro_je_vedeti/koristne_informacije/<%= clanek.dbid %>" target="_blank"><%= clanek.naslov %>
+      <% if (clanek.tip === "besedilo") { %>
+        <i class="fab fa-readme"></i>
+      <% } %>
+      <% if (clanek.tip === "datoteka") { %>
+        <i class="far fa-file-pdf"></i>
+      <% } %>
+      <% if (clanek.tip === "povezava") { %>
+        <i class="fas fa-external-link-alt"></i>
+      <% } %>
+    </a></li>
   <% }); %>
 </ul>
 

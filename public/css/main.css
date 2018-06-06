@@ -281,10 +281,18 @@ a {
 .content .clanek_link {
   font-weight: 400;
   text-decoration: none;
+  color: #131313c2;
 }
+
+  .content .clanek_link i {
+    margin-left: 2px;
+    color: #3f3f3f;
+    vertical-align: middle;
+  }
 
   .content .clanek_link:hover {
     font-weight: 400;
+    color: #b7b7b7;
   }
 
 /* VITA */
