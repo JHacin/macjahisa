@@ -192,7 +192,7 @@ button a {
 
         .i_muca_txt a {
           font-weight: 500;
-          color: rgba(255, 255, 255, 0.9);
+          color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
           font-size: 20px;
           letter-spacing: 1px;
         }
@@ -210,7 +210,7 @@ button a {
 
   .divider .fas {
     font-size: 3rem;
-    color: rgba(0,0,0,0.14);
+    color: #ddd; color: rgba(0,0,0,0.14);
   }
 
 /* MAILING */
@@ -230,7 +230,7 @@ button a {
 }
 
 .clear input#mc-embedded-subscribe:hover {
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
 }
 
   .i_mailing > h2 {
@@ -357,7 +357,7 @@ input[type=email]:focus {
           -ms-flex-align: center;
               align-items: center;
       text-align: center;
-      background-color: rgba(140, 140, 140, 0.6);
+      background-color: rgb(140, 140, 140); background-color: rgba(140, 140, 140, 0.6);
       border-radius: 10px;
     }
 
@@ -443,7 +443,7 @@ input[type=email]:focus {
           -ms-grid-row-align: center;
           align-self: center;
       margin: 0 0 25px 0;
-      border: 1px solid rgba(0,0,0,0.2);
+      border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
       margin-left: 20px;
     }
 
@@ -455,7 +455,7 @@ input[type=email]:focus {
   .i_edu button,
   .i_muce button {
     color: #000;
-    background: rgba(0,0,0,0.1);
+    background: #ddd; background: rgba(0,0,0,0.1);
     font-size: 18px;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -539,7 +539,7 @@ input[type=email]:focus {
 
   .i_boter button {
     color: #000;
-    background: rgba(0,0,0,0.1);
+    background: #ddd; background: rgba(0,0,0,0.1);
     font-size: 18px;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;

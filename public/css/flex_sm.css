@@ -482,7 +482,7 @@
 .help_item {
   margin: 0 0 40px 0;
   margin-bottom: 40px;
-  background-color: rgba(140, 140, 140, 0.9);
+  background-color: rgb(140, 140, 140); background-color: rgba(140, 140, 140, 0.9);
   width: 70%;
 }
 

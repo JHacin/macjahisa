@@ -128,7 +128,7 @@
 }
 
 .muca h2 a {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
   font-weight: 500;
   text-decoration: none;
 }
@@ -148,7 +148,7 @@
 }
 
 .muca_img img {
-  border: 1px solid rgba(0,0,0,0.1);
+  border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.1);
   position: absolute;
   margin: auto;
   min-height: 100%;
@@ -246,12 +246,12 @@
 }
 
   .data_basic {
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
   }
 
   .data_vet {
     margin-top: 20px;
-    border: 1px solid rgba(0,0,0,0.2);
+    border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
   }
 
   .data_header {
@@ -282,7 +282,7 @@
         -ms-flex-direction: row;
             flex-direction: row;
     background: #e8e8e8;
-    border-top: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid #ddd; border-top: 1px solid rgba(0,0,0,0.2);
   }
 
   .data_row {
@@ -295,7 +295,7 @@
         -ms-flex-direction: row;
             flex-direction: row;
     background: #f8f8f8;
-    border-top: 1px solid rgba(0,0,0,0.2);
+    border-top: 1px solid #ddd; border-top: 1px solid rgba(0,0,0,0.2);
   }
 
     .data_row .fas {
@@ -347,9 +347,9 @@
   }
 
 .full_desc {
-  background: rgba(240, 240, 240, 0.7);
+  background: rgb(240, 240, 240); background: rgba(240, 240, 240, 0.7);
   padding: 1em;
-  border: 1px solid rgba(0, 0, 0, 0.1);
+  border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
 }
 
@@ -366,9 +366,9 @@
     font-size: 16px;
     font-weight: 600;
     padding: 0.5em 1em;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    background: rgba(240, 240, 240, 0.7);
+    background: rgb(240, 240, 240); background: rgba(240, 240, 240, 0.7);
     font-family: "Roboto Slab", sans-serif;
   }
 
@@ -379,9 +379,9 @@
   .boter_true {
     font-size: 16px;
     padding: 0.5em 1em;
-    border: 1px solid rgba(0, 0, 0, 0.1);
+    border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 4px;
-    background: rgba(240, 240, 240, 0.7);
+    background: rgb(240, 240, 240); background: rgba(240, 240, 240, 0.7);
     font-family: "Roboto Slab", sans-serif;
     margin: 0;
   }
@@ -469,7 +469,7 @@
   margin: 0;
   font-weight: 600;
   letter-spacing: 1px;
-  color: rgba(255, 255, 255, 0.9);
+  color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
   font-size: 22px;
 }
@@ -521,7 +521,7 @@
   }
 
   .jplist-panel .text-filter-box .jplist-icon {
-    background: rgba(230, 230, 230,1);
+    background: rgb(230, 230, 230); background: rgba(230, 230, 230,1);
     line-height: 35px;
     height: 35px;
   }
@@ -540,9 +540,9 @@
   }
 
   .jplist-panel input[type=text]:focus {
-    border: 0.5px solid rgba(2255, 203, 0, 0.9);
-    -webkit-box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
-            box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
+    border: 0.5px solid rgb(255, 203, 0); border: 0.5px solid rgba(255, 203, 0, 0.9);
+    -webkit-box-shadow: 0 0 3px rgb(255, 203, 0); -webkit-box-shadow: 0 0 3px rgb(255, 203, 0); box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
+            box-shadow: 0 0 3px rgb(255, 203, 0); box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
   }
 
   .jplist-panel .jplist-group {
@@ -596,7 +596,7 @@
 
 .jplist-panel button {
   color: #343a40;
-  background: rgba(230, 230, 230,0.4);
+  background: rgb(230, 230, 230); background: rgba(230, 230, 230,0.4);
   margin: 10px 10px 0 0;
 }
 
@@ -630,7 +630,7 @@
 
 .paginator a {
   text-align: center;
-  border: 1px solid rgba(0,0,0,0.2);
+  border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
   font-family: "Roboto Slab", sans-serif;
   width: 35px;
   font-size: 14px;
@@ -643,7 +643,7 @@
   font-weight: 500;
   margin: 10px 10px 0 0;
   border-radius: 3px;
-  background: rgba(230, 230, 230,0.4);
+  background: rgb(230, 230, 230); background: rgba(230, 230, 230,0.4);
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;

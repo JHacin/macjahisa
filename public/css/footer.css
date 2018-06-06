@@ -18,7 +18,7 @@
         text-transform: uppercase;
         font-weight: 300;
         letter-spacing: 2px;
-        color: rgba(255, 255, 255, 0.5);
+        color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.5);
       }
 
 
@@ -31,11 +31,11 @@
         .i_footer > .container > div > ul > li {
           font-weight: 300;
           line-height: 34px;
-          color: rgba(255, 255, 255, 0.8);
+          color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
         }
 
         .i_footer > .container > div > ul > li a {
-          color: rgba(255, 255, 255, 0.8);
+          color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
           -webkit-transition: all 0.4s ease;
           -o-transition: all 0.4s ease;
           transition: all 0.4s ease;
@@ -58,7 +58,7 @@
         }
 
           .social_buttons a .fab {
-            color: rgba(255, 255, 255, 0.5);
+            color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.5);
             font-size: 32px;
             vertical-align: middle;
             padding-bottom: 18.72px;
@@ -69,16 +69,16 @@
 
           .social_buttons a .fab:hover,
           .i_footer > .container > div > ul > li a:hover {
-            color: rgba(255, 203, 0, 0.9);
+            color: rgb(255, 203, 0); color: rgba(255, 203, 0, 0.9);
           }
 
         .fb-page {
-          border: 1px solid rgba(255,255,255,0.3);
+          border: 1px solid rgb(255,255,255); border: 1px solid rgba(255,255,255,0.3);
         }
 
 .i_signature {
   background: #232323;
-  color: rgba(255,255,255,0.6);
+  color: rgb(255,255,255); color: rgba(255,255,255,0.6);
   letter-spacing: 1px;
   font-size: 13px;
   height: 30px;
@@ -101,7 +101,7 @@
   }
 
   .i_signature a {
-    color: rgba(255,255,255,0.7);
+    color: rgb(255,255,255); color: rgba(255,255,255,0.7);
     margin-left: 2px;
     font-weight: 500;
   }
@@ -110,7 +110,7 @@
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    color: rgba(255,255,255,0.8);
+    color: rgb(255,255,255); color: rgba(255,255,255,0.8);
     margin: 0 8px;
     font-size: 0.5rem;
   }
