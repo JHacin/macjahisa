@@ -108,6 +108,11 @@
   bottom: -100%;
 }
 
+.side_cat a:focus {
+  outline: none !important;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
+}
+
 .side_cat h5 a,
 .side_cat_name {
   position: absolute;
