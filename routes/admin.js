@@ -578,9 +578,7 @@ router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
 });
 
 router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
-  Clanek.findOne({dbid: req.params.id}, req.body.clanek, function(err, clanek){
-    console.log(clanek.kategorija);
-    console.log(req.body.clanek.kategorija);
+  Clanek.findOneAndUpdate({dbid: req.params.id}, req.body.clanek, function(err, clanek){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
       return res.redirect("/admin/clanki");

@@ -26,13 +26,6 @@
         <meta property="og:image" content="<%= social_image_default %>" />
         <meta name="twitter:image" content="<%= social_image_default %>">
         <% } %>
-
-        <% if (typeof isIndexPage != "undefined") { %>
-          <% naslovnice.forEach(function(naslovnica) { %>
-            <link rel="prefetch" href="/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>">
-          <% }); %>
-        <% } %>
-
         <link rel="icon" href="/images/favicon.ico">
 
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
