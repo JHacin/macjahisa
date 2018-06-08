@@ -193,10 +193,10 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
     if(data.spol === null) { alert("Vnesi spol."); return false; }
     if(data.opis === "") { alert("Vnesi opis."); return false; }
     if(data.posvojitev_na_daljavo === "") { alert("Označi, ali je muca na voljo za posvojitev na daljavo."); return false; }
-    if(data.slika1_crop === "" && data.slika2_crop === "" && data.slika3_crop === "" && data.slika4_crop === "") {
-      alert("Treba je dodati vsaj eno sliko.");
-      return false;
-    }
+    // if(data.slika1_crop === "" && data.slika2_crop === "" && data.slika3_crop === "" && data.slika4_crop === "") {
+    //   alert("Treba je dodati vsaj eno sliko.");
+    //   return false;
+    // }
 
     return isValid;
   }
