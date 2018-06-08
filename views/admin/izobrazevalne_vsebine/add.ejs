@@ -3,17 +3,17 @@
 <h3>Nova izobraževalna vsebina</h3>
 
 <form action="/admin/izobrazevalne_vsebine" method="POST" enctype="multipart/form-data">
-  <div>
+  <div class="required">
     <label for="vsebina[naslov]">Naslov:</label>
     <input type="text" name="vsebina[naslov]" id="naslov" size="70" autofocus required/>
   </div>
-  <div>
+  <div class="required">
     <label for="vsebina[datoteka]">Datoteka:</label>
-    <input type="file" name="vsebina[datoteka]" id="datoteka" size="70" required/>
+    <input type="file" accept="application/msword application/pdf" name="vsebina[datoteka]" id="datoteka" size="70" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="vsebina[naslovna_slika]">Naslovna slika:</label>
-    <input type="file" name="vsebina[naslovna_slika]" id="naslovna_slika" size="70" required/>
+    <input type="file" accept="image/*" name="vsebina[naslovna_slika]" id="naslovna_slika" size="70" required/>
   </div>
   <div>
     <label for="vsebina[objava]">Objava:</label>

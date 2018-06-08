@@ -4,7 +4,7 @@
 <h3>Uredi besedilo</h3>
 
 <form action="/admin/clanki/<%= clanek.dbid %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
   </div>
@@ -24,7 +24,7 @@
       <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
     </select>
   </div>
-  <div>
+  <div class="required">
     <label for="clanek[vsebina]">Vsebina:</label>
     <textarea name="clanek[vsebina]" id="summernote" required><%- clanek.vsebina %></textarea>
   </div>

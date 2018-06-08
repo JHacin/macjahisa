@@ -6,11 +6,11 @@
   <form class="cmsForm">
   <!-- <form class="cmsForm" action="/admin/muce/<%= muca._id %>?_method=PUT" method="POST" enctype="multipart/form-data"> -->
     <div class="cms_muca_row">
-      <div class="cms_attr">Ime</div>
+      <div class="cms_attr" class="required">Ime</div>
       <input type="text" id="ime" name="ime" value="<%= muca.ime %>" required/>
     </div>
     <div class="cms_muca_row">
-      <div class="cms_attr">Datum prihoda</div>
+      <div class="cms_attr" class="required">Datum prihoda</div>
       <input type="date" id="datum" name="muca[datum]" value="<%= moment(muca.datum).format("YYYY-MM-DD") %>" required/>
     </div>
     <div class="cms_muca_row">
@@ -24,7 +24,7 @@
       </select>
     </div>
     <div class="cms_muca_row">
-      <div class="cms_attr">Mesec rojstva</div>
+      <div class="cms_attr" class="required">Mesec rojstva</div>
       <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" value="<%= moment(muca.mesec_rojstva).format("YYYY-MM") %>" required/>
     </div>
     <div class="cms_muca_row">
@@ -37,7 +37,7 @@
       </select>
     </div>
     <div class="cms_muca_row">
-      <div class="cms_attr">Opis</div>
+      <div class="cms_attr" class="required">Opis</div>
       <textarea id="summernote" name="muca[opis]" required><%- muca.opis %></textarea>
     </div>
     <div class="cms_muca_row">

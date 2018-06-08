@@ -3,12 +3,12 @@
 <h3>Nova naslovnica</h3>
 
 <form action="/admin/naslovnice" method="POST" enctype="multipart/form-data">
-  <div>
+  <div class="required">
     <label for="naslovnica[ozadje]">Ozadje:</label>
-    <input type="file" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
+    <input type="file" accept="image/*" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
     <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>. <strong>Ime slike naj ne vsebuje simbolov (%, /, (, ), itd.)</strong>
   </div>
-  <div>
+  <div class="required">
     <label for="naslovnica[naslov]">Naslov:</label>
     <input type="text" name="naslovnica[naslov]" id="naslov" size="70" autofocus required/>
   </div>
@@ -16,14 +16,18 @@
     <label for="naslovnica[podnaslov]">Podnaslov:</label>
     <input type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70"/>
   </div>
-  <div>
+  <div class="required">
     <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
     <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="naslovnica[povezava]">Povezava:</label>
-    <input type="text" name="naslovnica[povezava]" id="povezava" size="70" required/>
-  </div>  
+    <input type="url" name="naslovnica[povezava]" id="povezava" size="70" required/>
+    <input type="checkbox" name="externalURL">
+    <label class="form-check-label" for="externalURL">
+      Povezava na zunanjo stran (odprta bo v novem zavihku)
+    </label>
+  </div>
   <input type="submit" class="btn btn-success" value="Dodaj">
 </form>
 <button class="btn btn-warning" id="naslovnicaPreviewLoadButton"><i class="far fa-eye"></i> Pokaži predogled</button>

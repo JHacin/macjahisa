@@ -78,11 +78,11 @@
                   </h2>
                 </div>
                 <!-- slika -->
-                <div class="muca_img"><a href="/posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></div>
+                <div class="muca_img"><a href="/posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" alt="<%= muca.ime %>"/></a></div>
                 <!-- ikone za vet status -->
                 <div class="vet_status">
-                  <img src="/images/<%= muca.vet.felv == true ? "felvplus" : "felvminus" %>.png" />
-                  <img src="/images/<%= muca.vet.fiv == true ? "fivplus" : "fivminus" %>.png" />
+                  <img src="/images/<%= muca.vet.felv == true ? "felvplus" : "felvminus" %>.png" alt="Felv"/>
+                  <img src="/images/<%= muca.vet.fiv == true ? "fivplus" : "fivminus" %>.png" alt="Fiv"/>
                 </div>
                 <div class="muca_infoandmore">
                   <!-- starost -->

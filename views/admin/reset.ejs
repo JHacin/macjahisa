@@ -13,11 +13,11 @@
 <h1>Mačja hiša CMS</h1>
 <h3>Ponastavitev gesla</h3>
 <form action="/admin/reset/<%= token %>" method="POST">
-  <div>
+  <div class="required">
      <label for="password">Novo geslo:</label>
      <input type="password" name="password" autofocus required>
   </div>
-  <div>
+  <div class="required">
      <label for="confirm">Potrdi novo geslo:</label>
      <input type="password" name="confirm" autofocus required>
   </div>

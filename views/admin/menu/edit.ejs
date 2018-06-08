@@ -3,10 +3,10 @@
 <h3>Uredi kategorijo</h3>
 
 <form action="/admin/menu/<%= kategorija._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     Naslov: <input type="text" name="naslov" id="naslov" value="<%= kategorija.naslov %>" required/>
   </div>
-  <div>
+  <div class="required">
     URL: <input type="text" name="url" id="url" value="<%= kategorija.url %>" required/>
   </div>
   <input type="submit" value="Potrdi spremembe">

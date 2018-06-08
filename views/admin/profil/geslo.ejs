@@ -2,15 +2,15 @@
 <h3>Spremeni geslo</h3>
 <h5><%= user.username %></h5>
 <form action="/admin/profil/geslo/<%= user._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="oldPassword">Staro geslo:</label>
     <input type="password" name="oldPassword" id="oldPassword" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="newPassword">Novo geslo:</label>
     <input type="password" name="newPassword" id="newPassword" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="confirm">Ponovi novo geslo:</label>
     <input type="password" name="confirm" id="confirm" required/>
   </div>

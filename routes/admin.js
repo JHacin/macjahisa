@@ -1311,6 +1311,20 @@ router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("n
       });
     }
 
+    if(req.body.externalURL === "on") {
+      naslovnica.externalURL = true;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+    } else {
+      naslovnica.externalURL = false;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+    }
+
       naslovnica.datum = Date.now();
       naslovnica.save(function (err) {
         if (err) return handleError(err);

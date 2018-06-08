@@ -3,11 +3,11 @@
 <h3>Uredi mail</h3>
 
 <form action="/admin/oskrbnice/<%= oskrbnica._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="oskrbnica[ime]">Ime:</label>
     <input type="text" name="oskrbnica[ime]" id="ime" value="<%= oskrbnica.ime %>" autofocus required/>
   </div>
-  <div>
+  <div class="required">
     <label for="oskrbnica[email]">E-mail:</label>
     <input type="text" name="oskrbnica[email]" id="email" value="<%= oskrbnica.email %>" required/>
   </div>

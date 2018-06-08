@@ -4,7 +4,7 @@
 <h3>Uredi povezavo</h3>
 
 <form action="/admin/clanki/<%= clanek._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
   </div>
@@ -17,10 +17,9 @@
       <option value="zdravje" <%= clanek.kategorija == "zdravje" ? "selected" : "" %>>zdravje</option>
     </select>
   </div>
-  <div>
+  <div class="required">
     <label for="clanek[vsebina]">Povezava:</label>
-    <input type="text" name="clanek[vsebina]" id="vsebina" size="70" value="<%= clanek.vsebina %>" autofocus required/>
-    <span style="color: red;">- URL mora biti cel, npr. <strong>https://www.macjahisa.si</strong></em></span>
+    <input type="url" name="clanek[vsebina]" id="vsebina" size="70" value="<%= clanek.vsebina %>" autofocus required/>
   </div>
   <div>
     <label for="clanek[objava]">Objava:</label>

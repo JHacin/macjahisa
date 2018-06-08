@@ -3,7 +3,7 @@
 <h3>Novo besedilo</h3>
 
 <form action="/admin/clanki" method="POST">
-  <div>
+  <div class="required">
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
   </div>
@@ -23,7 +23,7 @@
       <option value="0">Ne</option>
     </select>
   </div>
-  <div>
+  <div class="required">
     <label for="clanek[vsebina]">Vsebina:</label>
     <textarea name="clanek[vsebina]" id="summernote" required></textarea>
   </div>

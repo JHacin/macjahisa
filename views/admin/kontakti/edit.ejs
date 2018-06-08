@@ -7,9 +7,9 @@
     <label for="kontakt[ime]">Ime:</label>
     <input type="text" name="kontakt[ime]" id="ime" value="<%= kontakt.ime %>"/>
   </div>
-  <div>
+  <div class="required">
     <label for="kontakt[email]">E-mail:</label>
-    <input type="text" name="kontakt[email]" id="email" value="<%= kontakt.email %>"/>
+    <input type="text" name="kontakt[email]" id="email" value="<%= kontakt.email %>" required/>
   </div>
   <div>
     <label for="kontakt[tel]">Telefonska številka:</label>

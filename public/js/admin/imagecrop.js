@@ -137,6 +137,8 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
       postURL = "/admin/muce/";
     }
     var data = getFormData();
+
+    if(dataisValid(data)) {
       $.ajax({
           type: "POST",
           url: postURL,
@@ -152,7 +154,8 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
           error: function(e) {
             console.log(e);
           }
-      })
+      });
+    }
   });
 
   function getFormData() {
@@ -180,4 +183,22 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
     };
     return formData;
   }
+
+  function dataisValid(data) {
+    var isValid = true;
+    if(data.ime === "") { alert("Vnesi ime."); return false; }
+    if(data.datum === "") { alert("Vnesi datum sprejema."); return false; }
+    if(data.status === null) { alert("Vnesi status muce."); return false; }
+    if(data.mesec_rojstva === "") { alert("Vnesi mesec rojstva."); return false; }
+    if(data.spol === null) { alert("Vnesi spol."); return false; }
+    if(data.opis === "") { alert("Vnesi opis."); return false; }
+    if(data.posvojitev_na_daljavo === "") { alert("Označi, ali je muca na voljo za posvojitev na daljavo."); return false; }
+    if(data.slika1_crop === "" && data.slika2_crop === "" && data.slika3_crop === "" && data.slika4_crop === "") {
+      alert("Treba je dodati vsaj eno sliko.");
+      return false;
+    }
+
+    return isValid;
+  }
+
 });

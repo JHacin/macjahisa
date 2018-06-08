@@ -3,27 +3,27 @@
 <h3>Nov uporabnik</h3>
 
 <form action="/admin/users" method="POST">
-  <div>
+  <div class="required">
     <label for="username">Uporabniško ime:</label>
     <input type="text" name="username" id="username" autofocus required/>
   </div>
-  <div>
+  <div class="required">
     <label for="password">Začetno geslo (uporabnik si ga lahko po prijavi spremeni):</label>
     <input type="text" name="password" id="password" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="firstName">Ime:</label>
     <input type="text" name="firstName" id="firstName" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="lastName">Priimek:</label>
     <input type="text" name="lastName" id="lastName" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="email">E-mail naslov:</label>
     <input type="email" name="email" id="email" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="adminLevel">Stopnja pravic:</label>
     <select id="adminLevel" name="adminLevel">
       <option value="editor" selected>Urednik</option>

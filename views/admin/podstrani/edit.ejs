@@ -3,11 +3,11 @@
 <h3>Uredi podstran</h3>
 
 <form action="/admin/podstrani/<%= podstran._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="podstran[naslov]">Naslov:</label>
     <input type="text" name="podstran[naslov]" id="naslov" value="<%= podstran.naslov %>" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="podstran[url]">URL:</label>
     <input type="text" name="podstran[url]" id="url" value="<%= podstran.url %>" required/>
   </div>

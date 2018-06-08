@@ -3,19 +3,19 @@
 <h3>Uredi uporabnika</h3>
 
 <form action="/admin/users/<%= user._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="required">
     <label for="username">Uporabniško ime:</label>
     <input type="text" name="username" id="username" value="<%= user.username %>" autofocus required/>
   </div>
-  <div>
+  <div class="required">
     <label for="firstName">Ime:</label>
     <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="lastName">Priimek:</label>
     <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="email">E-mail naslov:</label>
     <input type="email" name="email" id="email" value="<%= user.email %>" required/>
   </div>

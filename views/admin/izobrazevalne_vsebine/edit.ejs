@@ -3,7 +3,7 @@
 <h3>Urejanje izobraževalne vsebine</h3>
 
 <form action="/admin/izobrazevalne_vsebine/<%= vsebina._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-  <div>
+  <div class="required">
     <label for="vsebina[naslov]">Naslov:</label>
     <input type="text" name="vsebina[naslov]" id="naslov" size="70" value="<%= vsebina.naslov %>" autofocus required/>
   </div>
@@ -13,7 +13,7 @@
   </div>
   <div>
     <label for="vsebina[nova_datoteka]">Nova datoteka:</label>
-    <input type="file" name="vsebina[nova_datoteka]" id="nova_datoteka" size="70"/>
+    <input type="file" accept="application/msword application/pdf" name="vsebina[nova_datoteka]" id="nova_datoteka" size="70"/>
   </div>
   <div>
     <label for="vsebina[naslovna_slika]">Naslovna slika:</label>
@@ -21,7 +21,7 @@
   </div>
   <div>
     <label for="vsebina[nova_naslovna_slika]">Nova naslovna slika:</label>
-    <input type="file" name="vsebina[nova_naslovna_slika]" id="nova_naslovna_slika" size="70"/>
+    <input type="file" accept="image/*" name="vsebina[nova_naslovna_slika]" id="nova_naslovna_slika" size="70"/>
   </div>
   <div>
     <label for="vsebina[objava]">Objava:</label>

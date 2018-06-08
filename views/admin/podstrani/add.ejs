@@ -3,12 +3,12 @@
 <h3>Nova podstran</h3>
 
 <form action="/admin/podstrani" method="POST">
-  <div>
+  <div class="required">
     <label for="podstran[naslov]">Naslov:</label>
     <input type="text" name="podstran[naslov]" id="naslov" autofocus required/>
     <em>(prikazano v meniju, na vrhu podstrani in kot naslov zavihka)</em>
   </div>
-  <div>
+  <div class="required">
     <label for="podstran[url]">URL:</label>
     <input type="text" name="podstran[url]" id="url" required/>
     (zapiši v formatu <em><span style="color: red;">naslov_strani_in_tako_dalje</span></em> - <strong>brez presledkov, šumnikov ali posebnih simbolov</strong>)
@@ -36,7 +36,7 @@
     </select>
     <em>(zaenkrat pusti)</em>
   </div>
-  <div>
+  <div class="required">
     <label for="podstran[vsebina]">Vsebina:</label>
     <textarea name="podstran[vsebina]" id="summernote" required></textarea>
   </div>

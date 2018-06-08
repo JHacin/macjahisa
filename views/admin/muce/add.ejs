@@ -5,15 +5,15 @@
 <h3>Vnesi novo muco</h3>
 
 <form class="cmsForm">
-  <div>
+  <div class="required">
     <label for="ime">ime:</label>
     <input type="text" id="ime" autofocus name="ime" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="datum">datum sprejema:</label>
     <input type="date" id="datum" name="datum" value="" required/>
   </div>
-  <div>
+  <div class="required">
     <label for="status">stanje:</label>
     <select id="status" name="status">
       <option selected disabled></option>
@@ -25,7 +25,7 @@
     </select>
   </div>
 
-  <div>
+  <div class="required">
     <label for="mesec_rojstva">mesec rojstva:</label>
     <input type="month" id="mesec_rojstva" name="mesec_rojstva" required/>
   </div>
@@ -94,7 +94,7 @@
   <div>
     <img class="slika" style="width: 150px;" src="" />
     <label for="<%= slika %>">Slika <%= i+1 %>:</label>
-    <input type="file" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>" required/>
+    <input type="file" accept="image/*" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>" required/>
     <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
   </div>
 
