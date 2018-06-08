@@ -646,7 +646,7 @@ div#gs_st51 {
 input#gsc-i-id2,
 input#gsc-i-id1 {
   font-size: 16px!important;
-  font-family: 'Roboto Slab', serif!important;
+  font-family: 'Open Sans', serif!important;
   font-weight: 300!important;
   border: none!important;
   margin: 0 0 1px 0!important;
@@ -662,7 +662,7 @@ input#gsc-i-id1 {
 
 input#gsc-i-id2::placeholder,
 input#gsc-i-id1::placeholder {
-  font: 300 16px 'Roboto Slab', serif!important;
+  font: 300 16px 'Open Sans', serif!important;
   line-height: 16px!important;
 }
 
@@ -737,7 +737,7 @@ div#gsc-iw-id2 {
 }
 
 td#gs_tti51 {
-  font-family: 'Roboto Slab', serif!important;
+  font-family: 'Open Sans', serif!important;
   font-weight: 300!important;
   font-size: 18px!important;
 }

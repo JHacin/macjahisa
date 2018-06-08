@@ -55,6 +55,7 @@
                   flex-direction: row;
           -ms-flex-pack: distribute;
               justify-content: space-around;
+              margin-top: 22px;
         }
 
           .social_buttons a .fab {

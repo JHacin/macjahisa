@@ -83,17 +83,15 @@
       </div>
 
       <div class="desc">
-        <h2>O <%= muca.spol == 3 ? "nama" : "meni" %>:</h2>
-        <div class="full_desc">
+        <h2><i class="fas fa-paw"></i> O <%= muca.spol == 3 ? "nama" : "meni" %>:</h2>
           <%- muca.opis %>
-        </div>
         <div class="contact">
-          <h2>Kontakt:</h2>
-          <p class="contact_info"><%= muca.kontakt %></p>
+          <h2><i class="fas fa-envelope"></i> Kontakt:</h2>
+          <%= muca.kontakt %>
         </div>
         <% if(muca.posvojitev_na_daljavo == 1) { %>
-          <h2>Posvojitev na daljavo:</h2>
           <div class="boter_true">
+            <h2><i class="fas fa-hand-holding-heart"></i> Posvojitev na daljavo:</h2>
             <p>Muca je na voljo za posvojitev na daljavo. Če jo želite posvojiti na daljavo, lahko to storite preko <a onclick="this.target='_blank'" href="http://www.macjiboter.si/posvojitev_na_daljavo_obrazec.php?id=1637">spletnega obrazca</a> in postanete mačji boter. Preberite si več o <a onclick="this.target='_blank'" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
           </p></div>
         <% }; %>
@@ -105,20 +103,15 @@
           <div class="data_header"><h3>Osnovni podatki</h3></div>
           <div class="data_row">
             <!-- SPOL -->
-            <div class="row_def">Spol</div>
-            <div class="row_val">
-              <i class="fas fa-<%= spolSimbol(muca.spol) %>" aria-hidden="true"></i> <%= spolMuce(muca.spol) %>
-            </div>
+            <strong>Spol</strong>: <%= spolMuce(muca.spol) %>
           </div>
           <div class="data_row">
             <!-- STAROST -->
-            <div class="row_def">Starost</div>
-            <div class="row_val"><i class="fas fa-paw" aria-hidden="true"></i> <%= starostVMesecih(muca.mesec_rojstva) %></div>
+            <strong>Starost</strong>: <%= starostVMesecih(muca.mesec_rojstva) %>
           </div>
           <div class="data_row">
             <!-- DATUM SPREJEMA -->
-            <div class="row_def">Datum sprejema</div>
-            <div class="row_val"><i class="fas fa-calendar" aria-hidden="true"></i> <%= moment(muca.datum).format("D[. ]M[. ]YYYY") %></div>
+            <strong>Datum sprejema</strong>: <%= moment(muca.datum).format("D[. ]M[. ]YYYY") %>
           </div>
         </div>
         <div class="data_vet">
@@ -126,29 +119,25 @@
           <div class="data_header"><h3>Veterinarski status</h3></div>
           <div class="data_title_row">Opravljeni posegi:</div>
           <div class="data_row">
-            <div class="row_def">Sterilizacija / kastracija</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.s_k == true ? "check" : "times" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.s_k == true ? "check" : "times" %>" aria-hidden="true"></i> Sterilizacija / kastracija
           </div>
           <div class="data_row">
-            <div class="row_def">Čipiranje</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.cipiranje == true ? "check" : "times" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.cipiranje == true ? "check" : "times" %>" aria-hidden="true"></i> Čipiranje
           </div>
           <div class="data_row">
-            <div class="row_def">Cepljenje</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.cepljenje == true ? "check" : "times" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.cepljenje == true ? "check" : "times" %>" aria-hidden="true"></i> Cepljenje
           </div>
           <div class="data_row">
-            <div class="row_def">Razparazitenje</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.razparazit == true ? "check" : "times" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.razparazit == true ? "check" : "times" %>" aria-hidden="true"></i> Razparazitenje
           </div>
           <div class="data_title_row">Zdravstveno stanje:</div>
           <div class="data_row">
-            <div class="row_def">FeLV</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.felv == true ? "plus" : "minus" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.felv == true ? "plus" : "minus" %>" aria-hidden="true"></i> FeLV
+            <div class="row_def"></div>
+            <div class="row_val"></div>
           </div>
           <div class="data_row">
-            <div class="row_def">FIV</div>
-            <div class="row_val"><i class="fas fa-<%= muca.vet.fiv == true ? "plus" : "minus" %>" aria-hidden="true"></i></div>
+            <i class="fas fa-<%= muca.vet.fiv == true ? "plus" : "minus" %>" aria-hidden="true"></i> FIV
           </div>
           <!-- END VET STATUS -->
         </div>

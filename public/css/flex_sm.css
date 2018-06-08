@@ -1,5 +1,26 @@
 @media all and (max-width: 768px) {
 
+  .social_buttons {
+    margin: 16px 0;
+  }
+
+  .desc {
+    width: 100%;
+    margin-top: 0.5rem;
+  }
+
+  .desc h2 {
+    text-align: left;
+  }
+
+  .data {
+    width: 100%;
+  }
+
+  .content .data_header h3 {
+    text-align: left;
+  }
+
   .stellarnav.mobile.left>ul {
     max-width: 80vw;
   }
@@ -618,7 +639,7 @@
   }
 
   .photos {
-    width: 74vw;
+    width: 85vw;
   }
 
   .photos .photo {

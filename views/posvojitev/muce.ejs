@@ -68,6 +68,9 @@
           <div class="list">
             <% muce.forEach(function(muca){ %>
               <div class="list-item muca <%= starostNum(muca.mesec_rojstva) >= 12 ? 'nad1' : 'do1' %> <%= muca.nacin_posvojitve == 'v_paru' || muca.ime.toLowerCase().includes(' in ') ? 'par' : 'posebej' %>">
+
+                <!-- slika -->
+                <div class="muca_img"><a href="/posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" alt="<%= muca.ime %>"/></a></div>
                 <!-- ime -->
                 <div class="muca_ime">
                   <h2 class="ime">
@@ -77,16 +80,9 @@
                     </a>
                   </h2>
                 </div>
-                <!-- slika -->
-                <div class="muca_img"><a href="/posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" alt="<%= muca.ime %>"/></a></div>
-                <!-- ikone za vet status -->
-                <div class="vet_status">
-                  <img src="/images/<%= muca.vet.felv == true ? "felvplus" : "felvminus" %>.png" alt="Felv"/>
-                  <img src="/images/<%= muca.vet.fiv == true ? "fivplus" : "fivminus" %>.png" alt="Fiv"/>
-                </div>
                 <div class="muca_infoandmore">
                   <!-- starost -->
-                  <p><strong>Starost:</strong> <%= starostVMesecih(muca.mesec_rojstva) %></p>
+                  <p><em>Starost: <%= starostVMesecih(muca.mesec_rojstva) %></em></p>
                 </div>
               </div>
             <% }); %>

@@ -66,8 +66,11 @@
 
   .sidebar_social {
     width: 100%;
-    border: none;
-    padding-bottom: 0;
+    padding: 1rem 0;
+  }
+
+  #twitter-widget-0 {
+    margin-left: 0.3em;
   }
 
   .side_cat h5 a {
@@ -261,13 +264,13 @@
 
 
     .stellarnav > ul > .nav_search_mobile > form > input[type="text"] {
-      font-family: "Roboto Slab", serif!important;
+      font-family: "Open Sans", serif!important;
       max-width: 150px!important;
       border: none!important;
       margin: 0!important;
       padding: 20px 0 20px 10px!important;
       font-weight: 300!important;
-      font-family: 'Roboto Slab', serif!important;
+      font-family: 'Open Sans', serif!important;
       font-size: 16px!important;
     }
 
@@ -375,7 +378,8 @@
     }
 
   .data {
-    width: 100%;
+    width: 400px;
+    align-self: center;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -390,8 +394,10 @@
     }
 
   .desc {
-    width: 100%;
+    width:400px;
     padding: 0;
+    align-self: center;
+    margin-right: 0;
   }
 
     .desc h2,
