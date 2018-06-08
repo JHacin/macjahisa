@@ -124,7 +124,7 @@
     }
 
     .stellarnav > ul > .menu_primary:hover > a {
-      color: #ffcb00;
+      color: #e5e5e5;
     }
 
     .menu_primary > a:hover {
@@ -156,7 +156,7 @@
       .stellarnav > ul > .menu_primary > ul > li:hover {
         /* background-color: #ffcb00;
         background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%237c7b79' fill-opacity='0.23' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
-        background-color: #c5c5c5;
+        background-color: #e5e5e5;
         /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233f3f3f' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
       }
 
@@ -281,13 +281,13 @@
       .nav_donate > form > button {
         color: #343a40;
         border: none;
-        height: 65px;
+        height: 115px;
         width: 200px;
         padding: 0;
         border-radius: 10px;
         letter-spacing: 1px;
-        font-size: 26px;
-        font-weight: 500;
+        font-size: 33px;
+        font-weight: 700;
         font-family: 'Roboto Slab', serif;
         z-index: 998;
         /* -webkit-transform: translate3d(0,0,0); */
@@ -543,12 +543,12 @@ display: none;
 
 /*  */
 .page_header {
-  background-image: url(/files/page/header_bg.jpg);
+  background-image: url(/files/page/head2.jpg);
   background-size: cover;
-  background-position: center;
+  background-position: 50% 70%;
   background-repeat: no-repeat;
-  height: 240px;
-  border-bottom: 6px solid #ffcb00;
+  height: 280px;
+  border-bottom: 4px solid #ffcb00;
 }
 
   .page_header > .container {
@@ -562,14 +562,14 @@ display: none;
     -webkit-box-pack: end;
         -ms-flex-pack: end;
             justify-content: flex-end;
-    padding: 2em 0;
+    padding: 2em 0 1em 0;
     width: 1250px;
   }
 
   .page_header h1 {
     font-family: 'Roboto Slab', serif;
     color: #fff;
-    font-size: 55px;
+    font-size: 45px;
     font-weight: 700;
     letter-spacing: 1px;
     margin: 0;
