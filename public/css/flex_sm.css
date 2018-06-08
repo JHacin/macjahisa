@@ -1,5 +1,9 @@
 @media all and (max-width: 768px) {
 
+  .muca_infoandmore p {
+    margin-bottom: 0;
+  }
+
   .social_buttons {
     margin: 16px 0;
   }
@@ -627,7 +631,7 @@
   }
 
   .muca_img {
-    height: 190px;
+    height: 260px;
   }
 
   .page_header {
@@ -672,6 +676,10 @@
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
+  }
+
+  .muca_img {
+    height: 240px!important;
   }
 }
 
