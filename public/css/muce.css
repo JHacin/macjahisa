@@ -17,8 +17,12 @@
           justify-content: space-between;
 }
 
-#muca_container_div {
+/* #muca_container_div {
   width: 1420px;
+} */
+
+#muca_container_div > .content {
+  margin: 0;
 }
 
 #muca_content_div {
@@ -593,7 +597,7 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    margin-top: 1em;
+    margin-top: 3em;
   }
 
   .jplist-panel .jplist-pagination .jplist-pagingprev button, .jplist-panel .jplist-pagination .jplist-pagingnext button {
