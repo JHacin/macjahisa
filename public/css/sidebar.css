@@ -14,7 +14,7 @@
 
 .sidebar {
   width: 310px;
-  margin-left: 0;
+  margin-left: 1.5rem;
 }
 
 .side_header {
@@ -135,7 +135,7 @@
   margin: 0;
   padding: 0.3em 0;
   font-size: 18px;
-  font-weight: 400;
+  font-weight: 600;
 }
 
   .side_cat_ime h5 a {
