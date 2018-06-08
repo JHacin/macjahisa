@@ -75,7 +75,8 @@
   }
 
   .page_header {
-    text-align: center;
+    text-align: left;
+    padding-left: 5%;
   }
 
   .stellarnav.mobile.left>ul {

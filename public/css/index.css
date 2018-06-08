@@ -6,7 +6,7 @@ body > div {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
-  font-family: 'Roboto Slab', serif;
+  font-family: 'Open Sans', sans-serif;
 }
 
 button a {
@@ -53,7 +53,7 @@ button a {
 
     .i_jumbo_button {
       border: none;
-      font-family: 'Roboto Slab', serif;
+      font-family: 'Open Sans', sans-serif;
       font-size: 24px;
       letter-spacing: 1px;
       padding: 12px 30px;
@@ -86,7 +86,7 @@ button a {
     border: none;
     padding: 15px 30px;
     border-radius: 5px;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 20px;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -259,7 +259,7 @@ button a {
   }
 
   #mc_embed_signup input.email {
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     font-weight: 300;
     color: #333;
@@ -274,7 +274,7 @@ button a {
 
   #mc_embed_signup .button {
     font-weight: 500;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
     font-size: 16px;
     border: none;
     letter-spacing: .03em;
@@ -468,7 +468,7 @@ input[type=email]:focus {
     border: 1px solid #3f3f3f;
     padding: 10px 20px;
     border-radius: 5px;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.5px;
@@ -552,7 +552,7 @@ input[type=email]:focus {
     border: 1px solid #3f3f3f;
     padding: 10px 20px;
     border-radius: 5px;
-    font-family: 'Roboto Slab', serif;
+    font-family: 'Open Sans', sans-serif;
     font-weight: 500;
     line-height: 20px;
     letter-spacing: 0.5px;
