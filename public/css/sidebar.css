@@ -13,8 +13,8 @@
 }
 
 .sidebar {
-  width: 350px;
-  margin-left: 2rem;
+  width: 310px;
+  margin-left: 0;
 }
 
 .side_header {
@@ -72,12 +72,12 @@
     }
 
 .side_cats {
-  width: 350px;
-  margin-bottom: 1.5rem;
+  width: 310px;
+  margin-bottom: 1rem;
 }
 
 .side_cats_list {
-  border: 1px solid #3f3f3f;
+  /* border: 1px solid #3f3f3f; */
 }
 
 .side_cat {
@@ -85,10 +85,11 @@
   position: relative;
   overflow: hidden;
   height: 200px;
+  /* margin-bottom: 0.5rem; */
 }
 
   .side_cat:nth-of-type(2) {
-    margin: 0.2rem 0;
+    /* margin: 0.2rem 0; */
   }
 
   .side_cat:last-of-type {
@@ -115,27 +116,51 @@
 
 .side_cat h5 a,
 .side_cat_name {
-  position: absolute;
+  /* position: absolute;
   bottom: 0.4em;
   right: 0.5em;
   color: #fff;
   letter-spacing: 1px;
   text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  font-size: 28px;
+  font-size: 28px; */
 }
+
+.side_cat_ime {
+  text-align: center;
+  margin-bottom: 0.75rem;
+  background: #dbdbdb;
+}
+
+.side_cat_ime h5 {
+  margin: 0;
+  padding: 0.3em 0;
+  font-size: 18px;
+  font-weight: 400;
+}
+
+  .side_cat_ime h5 a {
+    text-decoration: none;
+    letter-spacing: 1px;
+    color: #3f3f3f;
+  }
+
+  .side_cat_ime h5 a:visited {
+    color: #3f3f3f;
+  }
 
 .sidebar_img img {
   width: 100%;
-  border: 1px solid #3f3f3f;
-  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+  /* border-radius: 10px; */
 }
 
 .sidebar_social {
-  border: 1px solid #3f3f3f;
-  border-radius: 10px;
+  border: 1px solid #dbdbdb;
+  /* border-radius: 10px; */
   padding: 1.5rem 1rem;
   text-align: center;
   margin-top: 1rem;
+  background: #f2f2f2;
 }
 
   .share_buttons {
@@ -161,8 +186,8 @@
 
   .sidebar_social h3 {
     margin: 0 0 0.3em 0;
-    color: #000;
-    font-weight: 700;
-    font-size: 22px;
+    color: #343a40;
+    font-weight: 400;
+    font-size: 18px;
     letter-spacing: 1px;
   }

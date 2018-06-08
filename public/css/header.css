@@ -545,9 +545,9 @@ display: none;
 .page_header {
   background-image: url(/files/page/head2.jpg);
   background-size: cover;
-  background-position: 50% 60%;
+  background-position: 50% 55%;
   background-repeat: no-repeat;
-  height: 300px;
+  height: 320px;
   border-bottom: 4px solid #ffcb00;
 }
 
