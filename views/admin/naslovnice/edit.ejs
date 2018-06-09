@@ -28,6 +28,11 @@
       Povezava na zunanjo stran (odprta bo v novem zavihku)
     </label>
   </div>
+  <div class="naslovnicaRange">
+    <label for="formControlRange">Izrez ozadja po višini (% od vrha)</label>
+    <input type="range" name="rangeInput" id="naslovnicaRangeInput" min="0" max="100" value="<%= naslovnica.cssBackgroundPositionVertical %>">
+    <span id="naslovnicaRangeValue"><%= naslovnica.cssBackgroundPositionVertical %>%</span>
+  </div>
   <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Potrdi spremembe</button>
 </form>
 <button class="btn btn-warning" id="naslovnicaPreviewLoadButton"><i class="far fa-eye"></i> Pokaži predogled</button>
@@ -35,7 +40,7 @@
 <p></p>
 <div id="naslovnicaPreview">
   <div class="i_jumbo">
-    <div id="naslovnica" style="background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>);">
+    <div id="naslovnica" style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>);">
       <div class="i_jumbo_text">
         <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
         <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov %></h2>

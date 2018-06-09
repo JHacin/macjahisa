@@ -1276,6 +1276,13 @@ router.post("/naslovnice", middleware.isLoggedIn, upload_naslovnice.single("nasl
         // saved!
       });
 
+      naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+
+
       if(req.file) {
         // var ozadje = "naslovnica_" + dbid + "." + req.file.mimetype.split("/")[1];
         naslovnica.ozadje = req.file.filename;
@@ -1324,6 +1331,12 @@ router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("n
         // saved!
       });
     }
+
+      naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
+      naslovnica.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
 
       naslovnica.datum = Date.now();
       naslovnica.save(function (err) {

@@ -162,7 +162,6 @@ img {
 #naslovnica {
   background: #3f3f3f;
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
   height: calc(60vh - 95px);
 }
@@ -201,3 +200,13 @@ img {
     .i_jumbo_button:hover {
       cursor: pointer;
     }
+
+.naslovnicaRange {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.naslovnicaRange input {
+  margin: 0 0.5rem 0.5rem 0.5rem;
+}

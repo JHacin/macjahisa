@@ -20,4 +20,17 @@ $(document).ready( function() {
     minHeight: 500
   });
 
+  $("#naslovnicaRangeInput").on("input", function() {
+    $("#naslovnicaRangeValue").html($(this).val() + "%");
+    var pos = "50% " + $(this).val() + "%";
+    console.log(pos);
+    $("#naslovnica").css("background-position", pos);
+  })
+
+  $("#naslovnicaRangeInput").on("change", function() {
+    $("#naslovnicaRangeValue").html($(this).val() + "%");
+    var pos = "50% " + $(this).val() + "%";
+    $("#naslovnica").css("background-position", pos);
+  })
+
 });

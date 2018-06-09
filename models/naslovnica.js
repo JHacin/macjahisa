@@ -9,6 +9,7 @@ var naslovnicaSchema = new mongoose.Schema({
   povezava: String,
   externalURL: Boolean,
   pozicija: {type: Number, default: 0},
+  cssBackgroundPositionVertical: {type: String, default: "50"},
   dbid: Number
 });
 
