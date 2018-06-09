@@ -5,7 +5,7 @@
   }
 
   .nonindex {
-    padding: 2.5rem 0;
+    padding: 40px 0;
   }
 
   .nonindex > .container {
@@ -49,7 +49,7 @@
   }
 
   .side_cats {
-    margin-bottom: 2.5rem;
+    margin-bottom: 32px;
     width: 100%;
   }
 
@@ -385,12 +385,8 @@
             align-items: center;
   }
 
-  .data_vet {
-    margin-top: 27px;
-  }
-
     .data > div {
-      width: 400px;
+      width: 100%;
     }
 
   .desc {
@@ -402,7 +398,7 @@
 
     .desc h2,
     .desc .contact p {
-      text-align: center;
+      text-align: left;
     }
 
     .desc p {

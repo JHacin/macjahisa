@@ -543,12 +543,12 @@ display: none;
 
 /*  */
 .page_header {
-  background-image: url(/files/page/head2.jpg);
+  background-image: url(/files/page/head3.jpg);
   background-size: cover;
-  background-position: 50% 55%;
+  background-position: 50% 76%;
   background-repeat: no-repeat;
-  height: 320px;
-  border-bottom: 4px solid #ffcb00;
+  height: 340px;
+  border-bottom: 5px solid #ffcb00;
 }
 
   .page_header > .container {

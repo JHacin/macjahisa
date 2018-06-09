@@ -73,7 +73,7 @@
 
 .side_cats {
   width: 310px;
-  margin-bottom: 1rem;
+  margin-bottom: 32px;
 }
 
 .side_cats_list {
@@ -159,7 +159,7 @@
   /* border-radius: 10px; */
   padding: 1.5rem 1rem;
   text-align: center;
-  margin-top: 1rem;
+  margin-top: 32px;
   background: #f2f2f2;
 }
 

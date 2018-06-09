@@ -35,7 +35,7 @@ $(document).ready( function() {
      adaptiveHeight: false,
      responsive: [
        {
-         breakpoint: 640,
+         breakpoint: 768,
          settings: {
           adaptiveHeight: true,
           variableWidth: false,
