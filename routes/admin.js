@@ -148,6 +148,7 @@ router.get("/muce/add", middleware.isLoggedIn, function(req, res){
 
 router.post("/muce", middleware.isLoggedIn, function(req, res) {
     Muca.count({}, function(err, count){
+      console.log(req.body);
       // dodaj novo muco
       Muca.create(req.body, function(err, novaMuca) {
         if(err) {
@@ -241,6 +242,12 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           };
 
           novaMuca.ime = ime;
+          novaMuca.SEOmetaTitle = req.body.SEOmetaTitle;
+          novaMuca.SEOmetaDescription = req.body.SEOmetaDescription;
+          novaMuca.SEOfbTitle = req.body.SEOfbTitle;
+          novaMuca.SEOfbDescription = req.body.SEOfbDescription;
+          novaMuca.SEOtwitterTitle = req.body.SEOtwitterTitle;
+          novaMuca.SEOtwitterDescription = req.body.SEOtwitterDescription;
 
           // shrani
           novaMuca.save(function (err) {
@@ -277,6 +284,12 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
     // // posodobi podatke
     muca.ime = ime;
+    muca.SEOmetaTitle = req.body.SEOmetaTitle;
+    muca.SEOmetaDescription = req.body.SEOmetaDescription;
+    muca.SEOfbTitle = req.body.SEOfbTitle;
+    muca.SEOfbDescription = req.body.SEOfbDescription;
+    muca.SEOtwitterTitle = req.body.SEOtwitterTitle;
+    muca.SEOtwitterDescription = req.body.SEOtwitterDescription;
     muca.save(function (err) {
       if (err) return handleError(err);
       // saved!

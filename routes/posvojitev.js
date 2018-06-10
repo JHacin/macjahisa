@@ -26,10 +26,10 @@ router.get("/muce/:id", function(req, res){
     if(err) return console.log(err);
     res.render("posvojitev/prikaz", {
       muca: muca,
-      podstran: {naslov: muca.ime},
+      // podstran: {naslov: muca.ime},
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      
+
       sidebar_muce: req.sidebar_muce,
       title: muca.ime + " | Mačja hiša",
       social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),

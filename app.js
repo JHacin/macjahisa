@@ -155,7 +155,8 @@ app.get("/", function(req, res){
             muce: muce,
             steviloMucKiIscejoDom: steviloMuc,
             naslovnice: aktiviraneNaslovnice,
-            isIndexPage: true
+            isIndexPage: true,
+            hasCustomMetaData: false
           });
         });
       });

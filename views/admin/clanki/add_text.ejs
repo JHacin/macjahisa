@@ -28,7 +28,48 @@
     <textarea name="clanek[vsebina]" id="summernote" required></textarea>
   </div>
   <input type="hidden" name="clanek[tip]" value="besedilo" />
-  <input type="submit" value="Dodaj">
+
+
+  <!-- METADATA -->
+  <hr />
+  <h4>Metapodatki:</h4>
+  <button type="button" id="generateArticleMetaDataButton" class="btn btn-warning">Generiraj iz opisa / besedila</button>
+    <!-- Default SEO -->
+    <div>
+      <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOmetaTitle" name="clanek[SEOmetaTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOmetaDescription">SEO meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="clanek[SEOmetaDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
+    </div>
+    <!-- Facebook -->
+    <div>
+      <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOfbTitle" name="clanek[SEOfbTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOfbDescription">Facebook meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="clanek[SEOfbDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
+    </div>
+    <!-- Twitter -->
+    <div>
+      <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOtwitterTitle" name="clanek[SEOtwitterTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="clanek[SEOtwitterDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+    </div>
+  <hr />
+
+    <input type="submit" value="Dodaj">
 </form>
 
 <% include ../../partials/admin/footer %>

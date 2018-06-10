@@ -129,6 +129,46 @@ slika = images[i];
   </div>
 </div>
 <!-- END MODAL -->
+
+<!-- METADATA -->
+<hr />
+<h4>Metapodatki:</h4>
+<button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
+  <!-- Default SEO -->
+  <div>
+    <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+    <input class="SEOinputField" value="<%= muca.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOmetaDescription">SEO meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="muca[SEOmetaDescription]"><%= muca.SEOmetaDescription %></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= muca.SEOmetaDescription.length %></span> znakov</span>
+  </div>
+  <!-- Facebook -->
+  <div>
+    <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+    <input class="SEOinputField" value="<%= muca.SEOfbTitle %>" type="text" id="SEOfbTitle" name="muca[SEOfbTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOfbDescription">Facebook meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="muca[SEOfbDescription]"><%= muca.SEOfbDescription %></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= muca.SEOfbDescription.length %></span> znakov</span>
+  </div>
+  <!-- Twitter -->
+  <div>
+    <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+    <input class="SEOinputField" value="<%= muca.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="muca[SEOtwitterTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"><%= muca.SEOtwitterDescription %></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= muca.SEOtwitterDescription.length %></span> znakov</span>
+  </div>
+</form>
+<hr />
 </form>
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi spremembe</button>
 </div>

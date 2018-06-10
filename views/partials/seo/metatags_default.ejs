@@ -1,0 +1,11 @@
+        <% if (locals.social_description) { %>
+        <meta name="description" content="<%= social_description %>" />
+        <meta property="og:description" content="<%= social_description %>" />
+        <meta name="twitter:description" content="<%= social_description %>">
+        <% } else { %>
+        <meta name="description" content="Mačja hiša je projekt Društva za pomoč živalim v stiski Slovenija, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo Cats Protection ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk." />
+        <meta property="og:description" content="Mačja hiša je projekt Društva za pomoč živalim v stiski Slovenija, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo Cats Protection ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk." />
+        <% } %>
+        <title><%= title %></title>
+        <meta property="og:title" content="<%= title %>" />
+        <meta name="twitter:title" content="<%= title %>">

@@ -40,6 +40,46 @@
     <label for="podstran[vsebina]">Vsebina:</label>
     <textarea name="podstran[vsebina]" id="summernote" required></textarea>
   </div>
+
+  <!-- METADATA -->
+  <hr />
+  <h4>Metapodatki:</h4>
+  <button type="button" id="generatePageMetaDataButton" class="btn btn-warning">Generiraj iz opisa / besedila</button>
+    <!-- Default SEO -->
+    <div>
+      <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOmetaDescription">SEO meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="podstran[SEOmetaDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
+    </div>
+    <!-- Facebook -->
+    <div>
+      <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOfbTitle" name="podstran[SEOfbTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOfbDescription">Facebook meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="podstran[SEOfbDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
+    </div>
+    <!-- Twitter -->
+    <div>
+      <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOtwitterTitle" name="podstran[SEOtwitterTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+    </div>
+    <div >
+      <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="podstran[SEOtwitterDescription]"></textarea>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+    </div>
+  <hr />
+
   <input type="submit" value="Dodaj">
 </form>
 

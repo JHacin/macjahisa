@@ -16,7 +16,13 @@ var podstranSchema = new mongoose.Schema({
   kategorija: {
     type: mongoose.Schema.Types.ObjectId,
     ref: "Kategorija"
-  }
+  },
+  SEOmetaTitle: { type: String, default: "" },
+  SEOmetaDescription: { type: String, default: "" },
+  SEOfbTitle: { type: String, default: "" },
+  SEOfbDescription: { type: String, default: "" },
+  SEOtwitterTitle: { type: String, default: "" },
+  SEOtwitterDescription: { type: String, default: "" }  
 });
 
 module.exports = mongoose.model("Podstran", podstranSchema);

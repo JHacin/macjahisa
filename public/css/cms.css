@@ -210,3 +210,12 @@ img {
 .naslovnicaRange input {
   margin: 0 0.5rem 0.5rem 0.5rem;
 }
+
+.SEOtextlength {
+  font-size: 14px;
+  color: #686868;
+}
+
+textarea {
+  vertical-align: middle;
+}

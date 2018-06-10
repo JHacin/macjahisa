@@ -62,18 +62,18 @@
   </div>
   <div>
     <hr />
-    <h4>VET. STATUS:</h4>
+    <h4>Veterinarski status:</h4>
     <div>
       <label for="vet[s_k]">Sterilizirana / kastriran:</label>
-      <input type="checkbox" id="vet[s_k]" name="vet[s_k]" />
+      <input type="checkbox" id="vet[s_k]" name="vet[s_k]" /><br />
       <label for="vet[cipiranje]">Čipirana:</label>
-      <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" />
+      <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" /><br />
       <label for="vet[cepljenje]">Cepljena:</label>
-      <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" />
+      <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" /><br />
       <label for="vet[razparazit]">Razparazitena:</label>
-      <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" />
+      <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" /><br />
       <label for="vet[felv]">FeLV pozitivna:</label>
-      <input type="checkbox" id="vet[felv]" name="vet[felv]" />
+      <input type="checkbox" id="vet[felv]" name="vet[felv]" /><br />
       <label for="vet[fiv]">FIV pozitivna:</label>
       <input type="checkbox" id="vet[fiv]" name="vet[fiv]" />
     </div>
@@ -94,7 +94,7 @@
   <div>
     <img class="slika" style="width: 150px;" src="" />
     <label for="<%= slika %>">Slika <%= i+1 %>:</label>
-    <input type="file" accept="image/*" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>" required/>
+    <input type="file" accept="image/*" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>"/>
     <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
   </div>
 
@@ -117,66 +117,45 @@
   </div>
 </div>
 <!-- END MODAL -->
+
+<!-- METADATA -->
+<hr />
+<h4>Metapodatki:</h4>
+<button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
+  <!-- Default SEO -->
+  <div>
+    <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+    <input class="SEOinputField" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOmetaDescription">SEO meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="muca[SEOmetaDescription]"></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
+  </div>
+  <!-- Facebook -->
+  <div>
+    <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+    <input class="SEOinputField" type="text" id="SEOfbTitle" name="muca[SEOfbTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOfbDescription">Facebook meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="muca[SEOfbDescription]"></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
+  </div>
+  <!-- Twitter -->
+  <div>
+    <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+    <input class="SEOinputField" type="text" id="SEOtwitterTitle" name="muca[SEOtwitterTitle]" size="40"/>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+  </div>
+  <div >
+    <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+    <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"></textarea>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+  </div>
 </form>
+<hr />
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi</button>
-
-<style>
-form {
-  /* Just to center the form on the page */
-  margin: 0 auto 0 0;
-  width: 100%;
-  /* To see the outline of the form */
-  padding: 1em;
-  border: 1px solid #CCC;
-  border-radius: 1em;
-}
-
-form div + div {
-  margin-top: 1em;
-}
-
-label {
-  /* To make sure that all labels have the same size and are properly aligned */
-  display: inline-block;
-  width: 190px;
-  text-align: right;
-}
-
-input, textarea {
-  /* To make sure that all text fields have the same font settings
-     By default, textareas have a monospace font */
-  font: 1em sans-serif;
-
-  /* To give the same size to all text fields */
-  width: 300px;
-  box-sizing: border-box;
-
-  /* To harmonize the look & feel of text field border */
-  border: 1px solid #999;
-}
-
-input:focus, textarea:focus {
-  /* To give a little highlight on active elements */
-  border-color: #000;
-}
-
-textarea {
-  /* To properly align multiline text fields with their labels */
-  vertical-align: top;
-
-  /* To give enough room to type some text */
-  height: 5em;
-}
-
-.button {
-  /* To position the buttons to the same position of the text fields */
-  padding-left: 190px; /* same size as the label elements */
-}
-
-button {
-  /* This extra margin represent roughly the same space as the space
-     between the labels and their text fields */
-  margin-left: .5em;
-}
-</style>
 <% include ../../partials/admin/footer %>

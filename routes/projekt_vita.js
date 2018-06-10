@@ -14,7 +14,7 @@ router.get("/:podstran", function(req, res){
       podstran: podstran,
       nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
-      
+
       sidebar_muce: req.sidebar_muce,
       title: podstran.naslov + " | Mačja hiša"
     });

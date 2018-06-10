@@ -179,7 +179,13 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
       slika1_crop: $("#slika1_crop").val(),
       slika2_crop: $("#slika2_crop").val(),
       slika3_crop: $("#slika3_crop").val(),
-      slika4_crop: $("#slika4_crop").val()
+      slika4_crop: $("#slika4_crop").val(),
+      SEOmetaTitle: $("#SEOmetaTitle").val(),
+      SEOmetaDescription: $("#SEOmetaDescription").val(),
+      SEOfbTitle: $("#SEOfbTitle").val(),
+      SEOfbDescription: $("#SEOfbDescription").val(),
+      SEOtwitterTitle: $("#SEOtwitterTitle").val(),
+      SEOtwitterDescription: $("#SEOtwitterDescription").val()
     };
     return formData;
   }

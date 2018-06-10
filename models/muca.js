@@ -32,7 +32,13 @@ var mucaSchema = new mongoose.Schema({
     razparazit: { type: Boolean, default: true },
     felv: { type: Boolean, default: false },
     fiv: { type: Boolean, default: false }
-  }
+  },
+  SEOmetaTitle: { type: String, default: "" },
+  SEOmetaDescription: { type: String, default: "" },
+  SEOfbTitle: { type: String, default: "" },
+  SEOfbDescription: { type: String, default: "" },
+  SEOtwitterTitle: { type: String, default: "" },
+  SEOtwitterDescription: { type: String, default: "" }
 });
 
 module.exports = mongoose.model("Muca", mucaSchema);

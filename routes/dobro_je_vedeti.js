@@ -41,7 +41,8 @@ router.get("/prispevki/:id", function(req, res){
         nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
         sidebar_muce: req.sidebar_muce,
         title: clanek.naslov + " | Mačja hiša", social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
-        social_image: "http://" + req.headers.host + "/files/page/article_default.png"});
+        social_image: "http://" + req.headers.host + "/files/page/article_default.png"
+      });
 
     } else if(clanek.tip == "datoteka"){
       res.redirect("/files/clanki/" + clanek.vsebina);
