@@ -179,47 +179,45 @@ app.get("/", function(req, res){
 // });
 
 // Dodaj SEO podatke pri entitetah, ki jih imajo prazne
-Muca.find({}, function(err, muce) {
-  muce.forEach(function(muca) {
-    // if(muca.SEOmetaDescription == "") {
-      muca.SEOmetaDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      muca.SEOfbDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      muca.SEOtwitterDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      muca.SEOmetaTitle = muca.ime + " | Mačja hiša";
-      muca.SEOfbTitle = muca.ime + " | Mačja hiša";
-      muca.SEOtwitterTitle = muca.ime + " | Mačja hiša";
-      muca.save();
-    // }
-  });
-});
-
-Clanek.find({tip: "besedilo"}, function(err, clanki) {
-  clanki.forEach(function(clanek) {
-    // if(clanek.SEOmetaDescription == "") {
-      clanek.SEOmetaDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      clanek.SEOfbDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      clanek.SEOtwitterDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      clanek.SEOmetaTitle = clanek.naslov + " | Mačja hiša";
-      clanek.SEOfbTitle = clanek.naslov + " | Mačja hiša";
-      clanek.SEOtwitterTitle = clanek.naslov + " | Mačja hiša";
-      clanek.save();
-    // }
-  });
-});
-
-Podstran.find({}, function(err, podstrani) {
-  podstrani.forEach(function(podstran) {
-    // if(podstran.SEOmetaDescription == "") {
-      podstran.SEOmetaDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      podstran.SEOfbDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      podstran.SEOtwitterDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      podstran.SEOmetaTitle = podstran.naslov + " | Mačja hiša";
-      podstran.SEOfbTitle = podstran.naslov + " | Mačja hiša";
-      podstran.SEOtwitterTitle = podstran.naslov + " | Mačja hiša";
-      podstran.save();
-    // }
-  });
-});
+  // Muca.find({}, function(err, muce) {
+  //   muce.forEach(function(muca) {
+  //     // if(muca.SEOmetaDescription == "") {
+  //       muca.SEOmetaDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       muca.SEOfbDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       muca.SEOtwitterDescription = muca.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       muca.SEOmetaTitle = muca.ime + " | Mačja hiša";
+  //       muca.SEOfbTitle = muca.ime + " | Mačja hiša";
+  //       muca.SEOtwitterTitle = muca.ime + " | Mačja hiša";
+  //       muca.save();
+  //     // }
+  //   });
+  // });
+  // Clanek.find({tip: "besedilo"}, function(err, clanki) {
+  //   clanki.forEach(function(clanek) {
+  //     // if(clanek.SEOmetaDescription == "") {
+  //       clanek.SEOmetaDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       clanek.SEOfbDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       clanek.SEOtwitterDescription = clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       clanek.SEOmetaTitle = clanek.naslov + " | Mačja hiša";
+  //       clanek.SEOfbTitle = clanek.naslov + " | Mačja hiša";
+  //       clanek.SEOtwitterTitle = clanek.naslov + " | Mačja hiša";
+  //       clanek.save();
+  //     // }
+  //   });
+  // });
+  // Podstran.find({}, function(err, podstrani) {
+  //   podstrani.forEach(function(podstran) {
+  //     // if(podstran.SEOmetaDescription == "") {
+  //       podstran.SEOmetaDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       podstran.SEOfbDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       podstran.SEOtwitterDescription = podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+  //       podstran.SEOmetaTitle = podstran.naslov + " | Mačja hiša";
+  //       podstran.SEOfbTitle = podstran.naslov + " | Mačja hiša";
+  //       podstran.SEOtwitterTitle = podstran.naslov + " | Mačja hiša";
+  //       podstran.save();
+  //     // }
+  //   });
+  // });
 
 
 // OTHER routes
