@@ -38,34 +38,34 @@
     <!-- Default SEO -->
     <div>
       <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= podstran.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- podstran.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= podstran.SEOmetaTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOmetaDescription">SEO meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="podstran[SEOmetaDescription]"><%= podstran.SEOmetaDescription %></textarea>
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="podstran[SEOmetaDescription]"><%- podstran.SEOmetaDescription %></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= podstran.SEOmetaDescription.length %></span> znakov</span>
     </div>
     <!-- Facebook -->
     <div>
       <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= podstran.SEOfbTitle %>" type="text" id="SEOfbTitle" name="podstran[SEOfbTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- podstran.SEOfbTitle %>" type="text" id="SEOfbTitle" name="podstran[SEOfbTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= podstran.SEOfbTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOfbDescription">Facebook meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="podstran[SEOfbDescription]"><%= podstran.SEOfbDescription %></textarea>
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="podstran[SEOfbDescription]"><%- podstran.SEOfbDescription %></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= podstran.SEOfbDescription.length %></span> znakov</span>
     </div>
     <!-- Twitter -->
     <div>
       <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= podstran.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="podstran[SEOtwitterTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- podstran.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="podstran[SEOtwitterTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= podstran.SEOtwitterTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="podstran[SEOtwitterDescription]"><%= podstran.SEOtwitterDescription %></textarea>
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="podstran[SEOtwitterDescription]"><%- podstran.SEOtwitterDescription %></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= podstran.SEOtwitterDescription.length %></span> znakov</span>
     </div>
   <hr />

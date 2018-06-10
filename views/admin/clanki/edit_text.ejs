@@ -36,35 +36,35 @@
     <!-- Default SEO -->
     <div>
       <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= clanek.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="clanek[SEOmetaTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- clanek.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="clanek[SEOmetaTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= clanek.SEOmetaTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOmetaDescription">SEO meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="clanek[SEOmetaDescription]"><%= clanek.SEOmetaDescription %></textarea>
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="clanek[SEOmetaDescription]"><%- clanek.SEOmetaDescription %></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= clanek.SEOmetaDescription.length %></span> znakov</span>
     </div>
     <!-- Facebook -->
     <div>
       <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= clanek.SEOfbTitle %>" type="text" id="SEOfbTitle" name="clanek[SEOfbTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- clanek.SEOfbTitle %>" type="text" id="SEOfbTitle" name="clanek[SEOfbTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= clanek.SEOfbTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOfbDescription">Facebook meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="clanek[SEOfbDescription]"><%= clanek.SEOfbDescription %></textarea>
+      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="clanek[SEOfbDescription]"><%- clanek.SEOfbDescription %></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= clanek.SEOfbDescription.length %></span> znakov</span>
     </div>
     <!-- Twitter -->
     <div>
       <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-      <input class="SEOinputField" value="<%= clanek.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="clanek[SEOtwitterTitle]" size="40"/>
+      <input class="SEOinputField" value="<%- clanek.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="clanek[SEOtwitterTitle]" size="40"/>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= clanek.SEOtwitterTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
       <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="clanek[SEOtwitterDescription]"><%= clanek.SEOtwitterDescription %></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= clanek.SEOtwitterDescription.length %></span> znakov</span>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%- clanek.SEOtwitterDescription.length %></span> znakov</span>
     </div>
   <hr />
 
