@@ -138,7 +138,7 @@ slika = images[i];
   <div>
     <label for="SEOmetaTitle">SEO meta naziv:</label><br />
     <input class="SEOinputField" value="<%= muca.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= muca.SEOmetaTitle.length %></span> znakov</span>
   </div>
   <div >
     <label for="SEOmetaDescription">SEO meta opis:</label><br />
@@ -149,7 +149,7 @@ slika = images[i];
   <div>
     <label for="SEOfbTitle">Facebook meta naziv:</label><br />
     <input class="SEOinputField" value="<%= muca.SEOfbTitle %>" type="text" id="SEOfbTitle" name="muca[SEOfbTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= muca.SEOfbTitle.length %></span> znakov</span>
   </div>
   <div >
     <label for="SEOfbDescription">Facebook meta opis:</label><br />
@@ -160,7 +160,7 @@ slika = images[i];
   <div>
     <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
     <input class="SEOinputField" value="<%= muca.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="muca[SEOtwitterTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= muca.SEOtwitterTitle.length %></span> znakov</span>
   </div>
   <div >
     <label for="SEOtwitterDescription">Twitter meta opis:</label><br />

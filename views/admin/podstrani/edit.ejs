@@ -39,7 +39,7 @@
     <div>
       <label for="SEOmetaTitle">SEO meta naziv:</label><br />
       <input class="SEOinputField" value="<%= podstran.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= podstran.SEOmetaTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOmetaDescription">SEO meta opis:</label><br />
@@ -50,7 +50,7 @@
     <div>
       <label for="SEOfbTitle">Facebook meta naziv:</label><br />
       <input class="SEOinputField" value="<%= podstran.SEOfbTitle %>" type="text" id="SEOfbTitle" name="podstran[SEOfbTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= podstran.SEOfbTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOfbDescription">Facebook meta opis:</label><br />
@@ -61,7 +61,7 @@
     <div>
       <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
       <input class="SEOinputField" value="<%= podstran.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="podstran[SEOtwitterTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= podstran.SEOtwitterTitle.length %></span> znakov</span>
     </div>
     <div >
       <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
