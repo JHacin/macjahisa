@@ -3,7 +3,8 @@ body {
 }
 
 .notVisible {
-  visibility: hidden;
+  /* visibility: hidden; */
+  display: none;
 }
 
 .stellarnav.mobile.left>ul {
