@@ -696,7 +696,7 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazev
 // END IZOBRAŽEVANJE
 
 // PODSTRANI
-router.get("/podstrani", middleware.isAdmin, function(req, res){
+router.get("/podstrani", middleware.isLoggedIn, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
     if(err) {
@@ -707,7 +707,7 @@ router.get("/podstrani", middleware.isAdmin, function(req, res){
   })
 });
 
-router.post("/podstrani", middleware.isAdmin, function(req, res){
+router.post("/podstrani", middleware.isLoggedIn, function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
@@ -735,7 +735,7 @@ router.post("/podstrani", middleware.isAdmin, function(req, res){
   });
 });
 
-router.get("/podstrani/add", middleware.isAdmin, function(req, res){
+router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
   Kategorija.find({}, function(err, kategorije){
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -745,7 +745,7 @@ router.get("/podstrani/add", middleware.isAdmin, function(req, res){
   });
 });
 
-router.put("/podstrani/:id", middleware.isAdmin, function(req, res){
+router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
@@ -760,7 +760,7 @@ router.put("/podstrani/:id", middleware.isAdmin, function(req, res){
   });
 });
 
-router.get("/podstrani/:id/edit", middleware.isAdmin, function(req, res){
+router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
