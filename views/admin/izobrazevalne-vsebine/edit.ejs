@@ -1,8 +1,8 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/izobrazevalne_vsebine"><< Nazaj</a></p>
+<p><a href="/admin/izobrazevalne-vsebine"><< Nazaj</a></p>
 <h3>Urejanje izobraževalne vsebine</h3>
 
-<form action="/admin/izobrazevalne_vsebine/<%= vsebina._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
+<form action="/admin/izobrazevalne-vsebine/<%= vsebina._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
   <div class="required">
     <label for="vsebina[naslov]">Naslov:</label>
     <input type="text" name="vsebina[naslov]" id="naslov" size="70" value="<%= vsebina.naslov %>" autofocus required/>

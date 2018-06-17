@@ -1,7 +1,7 @@
 <% include ../../partials/admin/header %>
 
 <h3>Izobraževalne vsebine</h3>
-<p><a href="/admin/izobrazevalne_vsebine/add">+ Dodaj novo</a></p>
+<p><a href="/admin/izobrazevalne-vsebine/add">+ Dodaj novo</a></p>
 <table id="tabela" class="display">
     <thead>
         <tr>
@@ -28,7 +28,7 @@
               <td><%- vsebina.datoteka %></td>
               <td><%= vsebina.objava == "1" ? "Da" : "Ne" %></td>
               <td><a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
-              <td><a href="/admin/izobrazevalne_vsebine/<%= vsebina._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/izobrazevalne-vsebine/<%= vsebina._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
           </tr>
         <% }) %>
     </tbody>

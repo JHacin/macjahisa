@@ -5,14 +5,14 @@ var Clanek = require("../models/clanek");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 
 router.get("/", function(req, res){
-  res.redirect("/dobro-je-vedeti/izobrazevalne_vsebine");
+  res.redirect("/dobro-je-vedeti/izobrazevalne-vsebine");
 });
 
-router.get("/izobrazevalne_vsebine", function(req, res){
+router.get("/izobrazevalne-vsebine", function(req, res){
   Podstran.findOne({naslov: "Izobraževalne vsebine"}, function(err, podstran){
     if(err) return console.log(err);
     Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine){
-      res.render("dobro-je-vedeti/izobrazevalne_vsebine", {nav_kategorije: req.nav_kategorije,
+      res.render("dobro-je-vedeti/izobrazevalne-vsebine", {nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });

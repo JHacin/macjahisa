@@ -628,37 +628,37 @@ router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("
 // END ČLANKI
 
 // BEGIN IZOBRAŽEVANJE
-router.get("/izobrazevalne_vsebine", middleware.isPageEditor, function(req, res){
+router.get("/izobrazevalne-vsebine", middleware.isPageEditor, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    res.render("admin/izobrazevalne_vsebine/index", {vsebine: vsebine});
+    res.render("admin/izobrazevalne-vsebine/index", {vsebine: vsebine});
   })
 });
 
-router.get("/izobrazevalne_vsebine/add", middleware.isPageEditor, function(req, res){
-  res.render("admin/izobrazevalne_vsebine/add");
+router.get("/izobrazevalne-vsebine/add", middleware.isPageEditor, function(req, res){
+  res.render("admin/izobrazevalne-vsebine/add");
 });
 
-router.get("/izobrazevalne_vsebine/:id/edit", middleware.isPageEditor, function(req, res){
+router.get("/izobrazevalne-vsebine/:id/edit", middleware.isPageEditor, function(req, res){
   Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
     if(err) {
       req.flash("error", "Vsebine ne najdem v bazi podatkov.");
-      return res.redirect("/admin/izobrazevalne_vsebine");
+      return res.redirect("/admin/izobrazevalne-vsebine");
     }
-    res.render("admin/izobrazevalne_vsebine/edit", {vsebina: vsebina})
+    res.render("admin/izobrazevalne-vsebine/edit", {vsebina: vsebina})
   });
 });
 
-router.post("/izobrazevalne_vsebine", middleware.isPageEditor, upload_izobrazevanje.fields([
+router.post("/izobrazevalne-vsebine", middleware.isPageEditor, upload_izobrazevanje.fields([
     {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
     if(err) {
       req.flash("error", "Prišlo je do napake pri vnosu vsebine.");
-      return res.redirect("/admin/izobrazevalne_vsebine");
+      return res.redirect("/admin/izobrazevalne-vsebine");
     }
     if(req.files["vsebina[datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname;
@@ -670,16 +670,16 @@ router.post("/izobrazevalne_vsebine", middleware.isPageEditor, upload_izobrazeva
       vsebina.save();
     };
     req.flash("success", "Vsebina dodana.");
-    res.redirect("/admin/izobrazevalne_vsebine");
+    res.redirect("/admin/izobrazevalne-vsebine");
   });
 });
 
-router.put("/izobrazevalne_vsebine/:id", middleware.isPageEditor, upload_izobrazevanje.fields([
+router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobrazevanje.fields([
     {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju vsebine.");
-      return res.redirect("/admin/izobrazevalne_vsebine");
+      return res.redirect("/admin/izobrazevalne-vsebine");
     }
     if(req.files["vsebina[nova_datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname;
@@ -690,7 +690,7 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isPageEditor, upload_izobraz
       vsebina.save();
     };
     req.flash("success", "Vsebina posodobljena.");
-    res.redirect("/admin/izobrazevalne_vsebine");
+    res.redirect("/admin/izobrazevalne-vsebine");
   });
 });
 // END IZOBRAŽEVANJE

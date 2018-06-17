@@ -173,7 +173,7 @@ a {
 }
 
 /* IZOBRAŽEVANJE */
-.izobrazevalne_vsebine {
+.izobrazevalne-vsebine {
   margin-top: 2em;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -184,7 +184,7 @@ a {
           flex-direction: column;
 }
 
-.izobrazevalne_vsebine > .vnos {
+.izobrazevalne-vsebine > .vnos {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -194,7 +194,7 @@ a {
           flex-direction: row;
 }
 
-.izobrazevalne_vsebine > .vnos > .naslovna_slika {
+.izobrazevalne-vsebine > .vnos > .naslovna_slika {
   width: 20%;
 }
 
@@ -203,19 +203,19 @@ a {
     border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
   }
 
-.izobrazevalne_vsebine > .vnos > .vsebina {
+.izobrazevalne-vsebine > .vnos > .vsebina {
   width: 80%;
   padding: 0 1em;
 }
 
-  .izobrazevalne_vsebine .vsebina h3 {
+  .izobrazevalne-vsebine .vsebina h3 {
     font-weight: 600;
     color: #3f3f3f;
     margin: 0.5em 0;
     letter-spacing: 0.23px;
   }
 
-  .izobrazevalne_vsebine .vsebina a {
+  .izobrazevalne-vsebine .vsebina a {
     font-weight: 400;
     letter-spacing: 0.5px;
     text-decoration: none;
