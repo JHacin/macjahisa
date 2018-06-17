@@ -4,9 +4,9 @@ var Podstran = require("../models/podstran");
 var Muca = require("../models/muca");
 
 // router.get("/", function(req, res){
-//   Podstran.findOne({url: "v_novem_domu"}, function(err, podstran){
+//   Podstran.findOne({url: "v-novem-domu"}, function(err, podstran){
 //     Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce){
-//       res.render("v_novem_domu/index",
+//       res.render("v-novem-domu/index",
 //       {
 //         muce: muce,
 //         podstran: podstran,
@@ -36,7 +36,7 @@ router.get("/:page", function(req, res, next){
       .exec(function(err, muce){
         Muca.where("status").equals(4).count().exec(function(err, count){
           if(err) return next(err);
-          res.render("v_novem_domu/index", {
+          res.render("v-novem-domu/index", {
             podstran: podstran,
             title: podstran.naslov + " | Mačja hiša",
             nav_kategorije: req.nav_kategorije,

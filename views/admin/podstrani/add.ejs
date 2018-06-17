@@ -10,8 +10,8 @@
   </div>
   <div class="required">
     <label for="podstran[url]">URL:</label>
-    <input type="text" name="podstran[url]" id="url" required/>
-    (zapiši v formatu <em><span style="color: red;">naslov_strani_in_tako_dalje</span></em> - <strong>brez presledkov, šumnikov ali posebnih simbolov</strong>)
+    <input size="40" type="text" name="podstran[url]" id="url" required/>
+    (zapiši v formatu <em><span style="color: red;">naslov-strani-in-tako-dalje</span></em>, presledek nadomesti pomišljaj (-).<strong> Brez pravih presledkov, šumnikov ali posebnih simbolov</strong>)
   </div>
   <div>
     <label for="podstran[objava]">Vključena v menu:</label>
@@ -28,14 +28,14 @@
       <% }); %>
     </select>
   </div>
-  <div>
+  <!-- <div>
     <label for="podstran[portal]">Portal:</label>
     <select id="portal" name="podstran[portal]">
         <option value="M" selected>Mačja hiša</option>
         <option value="B" disabled>Mačji boter</option>
     </select>
     <em>(zaenkrat pusti)</em>
-  </div>
+  </div> -->
   <div class="required">
     <label for="podstran[vsebina]">Vsebina:</label>
     <textarea name="podstran[vsebina]" id="summernote" required></textarea>

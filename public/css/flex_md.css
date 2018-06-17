@@ -18,7 +18,7 @@
             align-items: center;
   }
 
-  .v_novem_domu_muca .muca_img {
+  .v-novem-domu_muca .muca_img {
     height:  280px;
   }
 
@@ -423,7 +423,7 @@
   }
 
   .muca_img,
-  .v_novem_domu_muca .muca_img {
+  .v-novem-domu_muca .muca_img {
     height: 250px;
   }
 

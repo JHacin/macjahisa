@@ -104,7 +104,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/muce/v_novem_domu", middleware.isLoggedIn, function(req, res){
+router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
   Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -585,7 +585,7 @@ router.get("/clanki/:id", middleware.isPageEditor, function(req, res){
     } else if(clanek.tip == "datoteka") {
       res.redirect("/files/clanki/" + clanek.vsebina);
     } else {
-      res.redirect("/dobro_je_vedeti/prispevki/" + clanek.dbid);
+      res.redirect("/dobro-je-vedeti/prispevki/" + clanek.dbid);
     }
   });
 });

@@ -20,13 +20,13 @@ var Muca                = require("./models/muca"),
     Naslovnica          = require("./models/naslovnica");
 
 // Route handling vars
-var o_nas = require("./routes/o_nas.js");
+var o_nas = require("./routes/o-nas.js");
 var posvojitev = require("./routes/posvojitev.js");
-var dobro_je_vedeti = require("./routes/dobro_je_vedeti.js");
+var dobro_je_vedeti = require("./routes/dobro-je-vedeti.js");
 var pomoc = require("./routes/pomoc.js");
-var projekt_vita = require("./routes/projekt_vita.js");
+var projekt_vita = require("./routes/projekt-vita.js");
 var admin = require("./routes/admin.js");
-var v_novem_domu = require("./routes/v_novem_domu.js");
+var v_novem_domu = require("./routes/v-novem-domu.js");
 
 // CONFIG
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
@@ -221,13 +221,13 @@ app.get("/", function(req, res){
 
 
 // OTHER routes
-app.use("/o_nas/", o_nas);
+app.use("/o-nas/", o_nas);
 app.use("/posvojitev/", posvojitev);
-app.use("/dobro_je_vedeti/", dobro_je_vedeti);
+app.use("/dobro-je-vedeti/", dobro_je_vedeti);
 app.use("/pomoc/", pomoc);
-app.use("/projekt_vita/", projekt_vita);
+app.use("/projekt-vita/", projekt_vita);
 app.use("/admin/", admin);
-app.use("/v_novem_domu/", v_novem_domu);
+app.use("/v-novem-domu/", v_novem_domu);
 
 // app listen config
 app.listen(process.env.PORT || 3000, process.env.IP, function(){

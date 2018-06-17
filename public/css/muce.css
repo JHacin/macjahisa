@@ -130,7 +130,7 @@
 }
 
 .muca h2 a,
-.v_novem_domu_muca h2 {
+.v-novem-domu_muca h2 {
   color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
   font-size: 22px;
   font-weight: 700;
@@ -422,11 +422,11 @@
   }
 
 /* V NOVEM DOMU */
-#v_novem_domu_container {
+#v-novem-domu_container {
   margin-top: 2rem;
 }
 
-#v_novem_domu_container > .content {
+#v-novem-domu_container > .content {
   list-style: none;
   padding: 0;
   display: -webkit-box;
@@ -445,13 +445,13 @@
   margin: 0;
 }
 
-#v_novem_domu_container > .content > li {
+#v-novem-domu_container > .content > li {
   width: calc(25% - 2em);
   padding: 0 1em;
   margin: 0 0 1em 0;
 }
 
-.v_novem_domu_muca {
+.v-novem-domu_muca {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -463,18 +463,18 @@
   width: 100%;
 }
 
-.v_novem_domu_muca .muca_ime {
+.v-novem-domu_muca .muca_ime {
   width: calc(100% - 1.3rem);
   text-align: center;
 }
 
-.v_novem_domu_muca .muca_img {
+.v-novem-domu_muca .muca_img {
   width: 100%;
   overflow: hidden;
   position: relative;
 }
 
-.v_novem_domu_muca .muca_img img {
+.v-novem-domu_muca .muca_img img {
   position: absolute;
   margin: auto;
   min-height: 100%;
@@ -486,7 +486,7 @@
   bottom: -100%;
 }
 
-.v_novem_domu_muca h2 {
+.v-novem-domu_muca h2 {
   margin: 0.2rem 0 0.5rem 0;
   /* font-weight: 600;
   letter-spacing: 1px;
@@ -496,7 +496,7 @@
   margin: 6px 0 3px 0; */
 }
 
-.v_novem_domu_muca .muca_odhod {
+.v-novem-domu_muca .muca_odhod {
   text-align: center;
   padding: 0 0.5em 0.5em 0.5em;
   background: #dbdbdb;
