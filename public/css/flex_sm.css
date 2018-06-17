@@ -4,6 +4,10 @@
     margin-bottom: 0;
   }
 
+  .sidebar_mailing {
+    width: 100%;
+  }
+
   .social_buttons {
     margin: 16px 0;
   }
