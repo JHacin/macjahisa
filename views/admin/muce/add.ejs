@@ -119,6 +119,7 @@
 <!-- END MODAL -->
 
 <!-- METADATA -->
+<% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
 <hr />
 <h4>Metapodatki:</h4>
 <button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
@@ -155,7 +156,9 @@
     <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"></textarea>
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
   </div>
+<% }; %>
 </form>
+
 <hr />
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi</button>
 <% include ../../partials/admin/footer %>

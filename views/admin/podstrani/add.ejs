@@ -42,6 +42,7 @@
   </div>
 
   <!-- METADATA -->
+  <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
   <hr />
   <h4>Metapodatki:</h4>
   <button type="button" id="generatePageMetaDataButton" class="btn btn-warning">Generiraj iz opisa / besedila</button>
@@ -78,6 +79,7 @@
       <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="podstran[SEOtwitterDescription]"></textarea>
       <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
     </div>
+  <% }; %>
   <hr />
 
   <input type="submit" value="Dodaj">

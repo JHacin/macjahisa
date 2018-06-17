@@ -131,6 +131,7 @@ slika = images[i];
 <!-- END MODAL -->
 
 <!-- METADATA -->
+<% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
 <hr />
 <h4>Metapodatki:</h4>
 <button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
@@ -167,9 +168,9 @@ slika = images[i];
     <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"><%- muca.SEOtwitterDescription %></textarea>
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= muca.SEOtwitterDescription.length %></span> znakov</span>
   </div>
+<% }; %>
 </form>
 <hr />
-</form>
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi spremembe</button>
 </div>
 
