@@ -163,11 +163,6 @@ app.get("/", function(req, res){
     });
   });
 
-  User.find({email: "jan.hacin@gmail.com"}, function(err, user) {
-    user.adminLevel = "owner";
-    user.save();
-  })
-
 // Muca.find({}, function(err, clanki){
 //   if(err) console.log(err);
 //   var id = 1;
