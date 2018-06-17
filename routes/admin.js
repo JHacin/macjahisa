@@ -501,7 +501,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 // END MUCE
 
 // ČLANKI
-router.get("/clanki", middleware.isLoggedIn, function(req, res){
+router.get("/clanki", middleware.isPageEditor, function(req, res){
   // prikaži vse članke po vrsti od nazadnje objavljenega
   Clanek.find({}).sort({datum: -1}).exec(function(err, clanki) {
     if(err) {
@@ -512,19 +512,19 @@ router.get("/clanki", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/clanki/add_text", middleware.isLoggedIn, function(req, res){
+router.get("/clanki/add_text", middleware.isPageEditor, function(req, res){
   res.render("admin/clanki/add_text");
 });
 
-router.get("/clanki/add_file", middleware.isLoggedIn, function(req, res){
+router.get("/clanki/add_file", middleware.isPageEditor, function(req, res){
   res.render("admin/clanki/add_file");
 });
 
-router.get("/clanki/add_link", middleware.isLoggedIn, function(req, res){
+router.get("/clanki/add_link", middleware.isPageEditor, function(req, res){
   res.render("admin/clanki/add_link");
 });
 
-router.get("/clanki/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/clanki/:id/edit", middleware.isPageEditor, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
     if(err) {
       req.flash("error", "Članka ne najdem v bazi podatkov.");
@@ -541,7 +541,7 @@ router.get("/clanki/:id/edit", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.post("/clanki_upload", middleware.isLoggedIn, upload_clanki.single("clanek[vsebina]"), function(req, res, next){
+router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("clanek[vsebina]"), function(req, res, next){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
       if(err) {
@@ -559,7 +559,7 @@ router.post("/clanki_upload", middleware.isLoggedIn, upload_clanki.single("clane
   });
 });
 
-router.post("/clanki", middleware.isLoggedIn, function(req, res){
+router.post("/clanki", middleware.isPageEditor, function(req, res){
   Clanek.count({}, function(err, count){
     Clanek.create(req.body.clanek, function(err, clanek){
       if(err) {
@@ -574,7 +574,7 @@ router.post("/clanki", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
+router.get("/clanki/:id", middleware.isPageEditor, function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek) {
     if(err) {
       req.flash("error", "Članka ne najdem v bazi podatkov.");
@@ -590,7 +590,7 @@ router.get("/clanki/:id", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
+router.put("/clanki/:id", middleware.isPageEditor, function(req, res){
   Clanek.findOneAndUpdate({dbid: req.params.id}, req.body.clanek, function(err, clanek){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
@@ -611,7 +611,7 @@ router.put("/clanki/:id", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/clanki_upload/:id", middleware.isLoggedIn, upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
+router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
   Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
@@ -628,7 +628,7 @@ router.put("/clanki_upload/:id", middleware.isLoggedIn, upload_clanki.single("cl
 // END ČLANKI
 
 // BEGIN IZOBRAŽEVANJE
-router.get("/izobrazevalne_vsebine", middleware.isLoggedIn, function(req, res){
+router.get("/izobrazevalne_vsebine", middleware.isPageEditor, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
     if(err) {
@@ -639,11 +639,11 @@ router.get("/izobrazevalne_vsebine", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/izobrazevalne_vsebine/add", middleware.isLoggedIn, function(req, res){
+router.get("/izobrazevalne_vsebine/add", middleware.isPageEditor, function(req, res){
   res.render("admin/izobrazevalne_vsebine/add");
 });
 
-router.get("/izobrazevalne_vsebine/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/izobrazevalne_vsebine/:id/edit", middleware.isPageEditor, function(req, res){
   Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
     if(err) {
       req.flash("error", "Vsebine ne najdem v bazi podatkov.");
@@ -653,7 +653,7 @@ router.get("/izobrazevalne_vsebine/:id/edit", middleware.isLoggedIn, function(re
   });
 });
 
-router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanje.fields([
+router.post("/izobrazevalne_vsebine", middleware.isPageEditor, upload_izobrazevanje.fields([
     {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
     if(err) {
@@ -674,7 +674,7 @@ router.post("/izobrazevalne_vsebine", middleware.isLoggedIn, upload_izobrazevanj
   });
 });
 
-router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazevanje.fields([
+router.put("/izobrazevalne_vsebine/:id", middleware.isPageEditor, upload_izobrazevanje.fields([
     {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
   Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
     if(err) {
@@ -696,7 +696,7 @@ router.put("/izobrazevalne_vsebine/:id", middleware.isLoggedIn, upload_izobrazev
 // END IZOBRAŽEVANJE
 
 // PODSTRANI
-router.get("/podstrani", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani", middleware.isPageEditor, function(req, res){
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
   Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
     if(err) {
@@ -707,7 +707,7 @@ router.get("/podstrani", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.post("/podstrani", middleware.isLoggedIn, function(req, res){
+router.post("/podstrani", middleware.isPageEditor, function(req, res){
   Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
@@ -735,7 +735,7 @@ router.post("/podstrani", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani/add", middleware.isPageEditor, function(req, res){
   Kategorija.find({}, function(err, kategorije){
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -745,7 +745,7 @@ router.get("/podstrani/add", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
+router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
   Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
@@ -760,7 +760,7 @@ router.put("/podstrani/:id", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.get("/podstrani/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/podstrani/:id/edit", middleware.isPageEditor, function(req, res){
   Podstran.findById(req.params.id, function(err, podstran) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -835,7 +835,7 @@ router.put("/menu/:id", middleware.isOwner, function(req, res){
 // END MENU
 
 // BEGIN CONTACTS
-router.get("/kontakti", middleware.isLoggedIn, function(req, res){
+router.get("/kontakti", middleware.isAdmin, function(req, res){
   Kontakt.find({}, function(err, kontakti) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -845,11 +845,11 @@ router.get("/kontakti", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/kontakti/add", middleware.isLoggedIn, function(req, res){
+router.get("/kontakti/add", middleware.isAdmin, function(req, res){
   res.render("admin/kontakti/add");
 });
 
-router.post("/kontakti", middleware.isLoggedIn, function(req, res){
+router.post("/kontakti", middleware.isAdmin, function(req, res){
   if(err) {
     req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
     return res.redirect("/admin/kontakti");
@@ -864,7 +864,7 @@ router.post("/kontakti", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/kontakti/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/kontakti/:id/edit", middleware.isAdmin, function(req, res){
   Kontakt.findById(req.params.id, function(err, kontakt){
     if(err) {
       req.flash("error", "Kontakta ne najdem v bazi podatkov.");
@@ -874,7 +874,7 @@ router.get("/kontakti/:id/edit", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/kontakti/:id", middleware.isLoggedIn, function(req, res){
+router.put("/kontakti/:id", middleware.isAdmin, function(req, res){
   Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, function(err, kontakt) {
       if(err) {
         req.flash("error", "Prišlo je do napake pri posodabljanju kontakta.");
@@ -887,7 +887,7 @@ router.put("/kontakti/:id", middleware.isLoggedIn, function(req, res){
 // END CONTACTS
 
 // OSKRBNICE
-router.get("/oskrbnice", middleware.isLoggedIn, function(req, res){
+router.get("/oskrbnice", middleware.isAdmin, function(req, res){
   Oskrbnica.find({}, function(err, oskrbnice) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -897,11 +897,11 @@ router.get("/oskrbnice", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/oskrbnice/add", middleware.isLoggedIn, function(req, res){
+router.get("/oskrbnice/add", middleware.isAdmin, function(req, res){
   res.render("admin/oskrbnice/add");
 });
 
-router.post("/oskrbnice", middleware.isLoggedIn, function(req, res){
+router.post("/oskrbnice", middleware.isAdmin, function(req, res){
   Oskrbnica.create(req.body.oskrbnica, function(err, oskrbnica){
     if(err) {
       req.flash("error", "Prišlo je do napake pri dodajanju.");
@@ -912,7 +912,7 @@ router.post("/oskrbnice", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/oskrbnice/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/oskrbnice/:id/edit", middleware.isAdmin, function(req, res){
   Oskrbnica.findById(req.params.id, function(err, oskrbnica){
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -922,7 +922,7 @@ router.get("/oskrbnice/:id/edit", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.put("/oskrbnice/:id", middleware.isLoggedIn, function(req, res){
+router.put("/oskrbnice/:id", middleware.isAdmin, function(req, res){
   Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, function(err, oskrbnica) {
       if(err) {
         req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
@@ -935,7 +935,7 @@ router.put("/oskrbnice/:id", middleware.isLoggedIn, function(req, res){
 // END OSKRBNICE
 
 // BEGIN USERS
-router.get("/users", middleware.isLoggedIn, function(req, res){
+router.get("/users", middleware.isAdmin, function(req, res){
   User.find({}, function(err, users) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
@@ -1205,7 +1205,7 @@ router.post('/reset/:token', function(req, res) {
 // END SPREMEMBA POZABLJENEGA GESLA
 
 // NASLOVNICE
-router.get("/naslovnice", middleware.isLoggedIn, function(req, res){
+router.get("/naslovnice", middleware.isPageEditor, function(req, res){
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
   Naslovnica.find({}, function(err, naslovnice) {
     if(err) {
@@ -1240,11 +1240,11 @@ router.get("/naslovnice", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/naslovnice/add", middleware.isLoggedIn, function(req, res){
+router.get("/naslovnice/add", middleware.isPageEditor, function(req, res){
   res.render("admin/naslovnice/add");
 });
 
-router.get("/naslovnice/:id/edit", middleware.isLoggedIn, function(req, res){
+router.get("/naslovnice/:id/edit", middleware.isPageEditor, function(req, res){
   Naslovnica.findById(req.params.id, function(err, naslovnica){
     if(err) {
       req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
@@ -1254,7 +1254,7 @@ router.get("/naslovnice/:id/edit", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.post("/naslovnice/:id/deactivate", middleware.isLoggedIn, function(req, res){
+router.post("/naslovnice/:id/deactivate", middleware.isPageEditor, function(req, res){
   Naslovnica.findById(req.params.id, function(err, naslovnica){
     if(err) {
       req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
@@ -1270,7 +1270,7 @@ router.post("/naslovnice/:id/deactivate", middleware.isLoggedIn, function(req, r
   });
 });
 
-router.post("/naslovnice", middleware.isLoggedIn, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
+router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
   Naslovnica.count({}, function(err, count){
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
@@ -1315,7 +1315,7 @@ router.post("/naslovnice", middleware.isLoggedIn, upload_naslovnice.single("nasl
   });
 });
 
-router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
+router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
   Naslovnica.findByIdAndUpdate(req.params.id, req.body.naslovnica, function(err, naslovnica){
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
@@ -1361,7 +1361,7 @@ router.put("/naslovnice/:id", middleware.isLoggedIn, upload_naslovnice.single("n
   });
 });
 
-router.post("/naslovnice/:pozicija/:id", middleware.isLoggedIn, function(req, res, next){
+router.post("/naslovnice/:pozicija/:id", middleware.isPageEditor, function(req, res, next){
   Naslovnica.find({}, function(err, naslovnice) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");

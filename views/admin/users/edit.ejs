@@ -22,7 +22,8 @@
   <div>
     <label for="adminLevel">Stopnja pravic:</label>
     <select id="adminLevel" name="adminLevel">
-      <option value="editor" <%= user.adminLevel == "editor" ? "selected" : "" %>>Urednik</option>
+      <option value="editor" <%= user.adminLevel == "cat_editor" ? "selected" : "" %>>Urednik oglasov za muce</option>
+      <option value="editor" <%= user.adminLevel == "page_editor" ? "selected" : "" %>>Urednik strani</option>
       <option value="admin" <%= user.adminLevel == "admin" ? "selected" : "" %>>Administrator</option>
       <!-- <option value="owner" <%= user.adminLevel == "owner" ? "selected" : "" %>> Lastnik</option> -->
       <option value="owner" <%= user.adminLevel == "owner" ? "selected" : "" %> <%= user.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>

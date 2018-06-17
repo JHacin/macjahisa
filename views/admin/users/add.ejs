@@ -26,7 +26,8 @@
   <div class="required">
     <label for="adminLevel">Stopnja pravic:</label>
     <select id="adminLevel" name="adminLevel">
-      <option value="editor" selected>Urednik</option>
+      <option value="cat_editor" selected>Urednik oglasov za muce</option>
+      <option value="page_editor">Urednik strani</option>
       <option value="admin">Administrator</option>
       <option value="owner" <%= currentUser.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>
     </select>

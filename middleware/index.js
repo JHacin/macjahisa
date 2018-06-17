@@ -8,6 +8,15 @@ middlewareObj.isLoggedIn = function(req, res, next){
     res.redirect("/admin/login");
 };
 
+middlewareObj.isPageEditor = function(req, res, next){
+
+    if(req.user && (req.user.adminLevel == "admin" || req.user.adminLevel == "owner" || req.user.adminLevel == "page_editor")){
+        return next();
+    }
+    req.flash("error", "Za to nimaš primernih administratorskih pravic.");
+    res.redirect("/admin");
+};
+
 middlewareObj.isAdmin = function(req, res, next){
 
     if(req.user && (req.user.adminLevel == "admin" || req.user.adminLevel == "owner")){
