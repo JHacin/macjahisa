@@ -145,10 +145,10 @@
   }
 
     .stellarnav > ul > .menu_primary > a {
-      text-transform: uppercase;
+      /* text-transform: uppercase; */
       letter-spacing: 1.3px;
       font-weight: 700;
-
+      font-size: 18px;
     }
 
   .stellarnav.mobile > ul > .mobile_nav_logo {
