@@ -73,12 +73,40 @@
 
 .side_cats {
   width: 310px;
-  margin-bottom: 32px;
 }
 
 .side_cats_list {
   /* border: 1px solid #3f3f3f; */
 }
+
+.sidebar_mailing {
+  /* align-self: center; */
+  margin-bottom: 32px;
+  margin-top: 0;
+}
+
+  .sidebar .sidebar_mailing .mailingButton {
+    color: #343a40;
+    width: 100%;
+    border-radius: 5px;
+    background: #f2f2f2;
+    border: 1px solid #ddd;
+    font-weight: 300;
+    font-size: 20px;
+    line-height: 26px;
+    letter-spacing: 1px;
+  }
+
+  /* #ffcb00 */
+
+  .sidebar_mailing .mailingButton i {
+    font-size: 36px;
+    line-height: 36px;
+    vertical-align: baseline;
+    color: #c8c8c8;
+    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+  }
+
 
 .side_cat {
   text-align: center;
@@ -155,12 +183,13 @@
 }
 
 .sidebar_social {
-  border: 1px solid #dbdbdb;
-  /* border-radius: 10px; */
-  padding: 1.5rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 1rem;
   text-align: center;
-  margin-top: 32px;
+  margin-top: 26px;
   background: #f2f2f2;
+  box-shadow: 1px 1px #d5d5d5;
 }
 
   .share_buttons {
@@ -187,7 +216,7 @@
   .sidebar_social h3 {
     margin: 0 0 0.3em 0;
     color: #343a40;
-    font-weight: 400;
-    font-size: 18px;
+    font-weight: 300;
+    font-size: 20px;
     letter-spacing: 1px;
   }

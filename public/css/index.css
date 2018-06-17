@@ -196,7 +196,7 @@ button a {
           letter-spacing: 1px;
         }
 
-  .i_muce > button {
+  .i_muce > a > button {
     margin-bottom: 25px;
   }
 /* END MUCE */
@@ -452,22 +452,33 @@ input[type=email]:focus {
   }
 
   .i_edu button,
-  .i_muce button {
-    color: #000;
+  .i_muce button,
+  .i_boter button
+   {
+    color: #414040;
     background: #ddd; background: rgba(0,0,0,0.1);
     font-size: 18px;
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
         align-self: center;
-    border: 1px solid #3f3f3f;
+    border: 1px solid #d1d1d1;
     padding: 10px 20px;
     border-radius: 5px;
     font-family: 'Open Sans', sans-serif;
-    font-weight: 500;
+    font-weight: 400;
     line-height: 20px;
     letter-spacing: 0.5px;
     margin-top: 20px;
+    box-shadow: 1px 1px #a5a5a5;
+    transition: all 0.15s ease;
   }
+
+    .i_edu button:hover,
+    .i_muce button:hover,
+    .i_boter button:hover {
+      cursor: pointer;
+    }
+
 /* END IZOBRAZEVANJE */
 
 
@@ -536,7 +547,7 @@ input[type=email]:focus {
     margin: 5px 0 5px 0;
   }
 
-  .i_boter button {
+  /* .i_boter button {
     color: #000;
     background: #ddd; background: rgba(0,0,0,0.1);
     font-size: 18px;
@@ -551,4 +562,4 @@ input[type=email]:focus {
     line-height: 20px;
     letter-spacing: 0.5px;
     margin-top: 20px;
-  }
+  } */

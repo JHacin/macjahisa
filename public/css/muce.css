@@ -129,7 +129,8 @@
   margin: 0;
 }
 
-.muca h2 a {
+.muca h2 a,
+.v_novem_domu_muca h2 {
   color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
   font-size: 22px;
   font-weight: 700;
@@ -445,7 +446,7 @@
 }
 
 #v_novem_domu_container > .content > li {
-  width: calc(50% - 2em);
+  width: calc(25% - 2em);
   padding: 0 1em;
   margin: 0 0 1em 0;
 }
@@ -469,7 +470,6 @@
 
 .v_novem_domu_muca .muca_img {
   width: 100%;
-  height: 270px;
   overflow: hidden;
   position: relative;
 }
@@ -487,22 +487,23 @@
 }
 
 .v_novem_domu_muca h2 {
-  /* margin: 0; */
-  font-weight: 600;
+  margin: 0.2rem 0 0.5rem 0;
+  /* font-weight: 600;
   letter-spacing: 1px;
   color: #3f3f3f;
   font-weight: 700;
   font-size: 26px;
-  margin: 6px 0 3px 0;
+  margin: 6px 0 3px 0; */
 }
 
 .v_novem_domu_muca .muca_odhod {
   text-align: center;
-  padding: 0.5em;
+  padding: 0 0.5em 0.5em 0.5em;
   background: #dbdbdb;
   border-top: none;
   width: calc(100% - 1em);
   font-style: italic;
+  font-size: 14px;
 }
 
 /* JPLIST */
@@ -601,8 +602,8 @@
   }
 
   .jplist-panel .jplist-pagination .jplist-pagingprev button, .jplist-panel .jplist-pagination .jplist-pagingnext button {
-    font-size: 24px;
-    line-height: 24px;
+    /* font-size: 24px; */
+    line-height: 24px!important;
     font-family: "Open Sans", sans-serif;
   }
 

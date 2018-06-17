@@ -12,7 +12,7 @@ var Muca = require("../models/muca");
 //         podstran: podstran,
 //         nav_kategorije: req.nav_kategorije,
 //         nav_podstrani: req.nav_podstrani,
-//         
+//
 //         sidebar_muce: req.sidebar_muce,
 //         title: podstran.naslov + " | Mačja hiša"
 //       });
@@ -21,7 +21,7 @@ var Muca = require("../models/muca");
 // });
 
 router.get("/:page", function(req, res, next){
-  var perPage = 8;
+  var perPage = 20;
   var page = req.params.page || 1;
 
   // najdi podstran
@@ -41,7 +41,7 @@ router.get("/:page", function(req, res, next){
             title: podstran.naslov + " | Mačja hiša",
             nav_kategorije: req.nav_kategorije,
             nav_podstrani: req.nav_podstrani,
-            
+
             sidebar_muce: req.sidebar_muce,
             muce: muce,
             current: page,
