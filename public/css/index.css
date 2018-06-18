@@ -13,6 +13,10 @@ button a {
   color: #3f3f3f;
 }
 
+button i {
+  vertical-align: bottom;
+}
+
 .nav_donate > form > button,
 .i_jumbo_button,
 .i_dohodnina > button,
