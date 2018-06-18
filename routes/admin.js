@@ -24,7 +24,7 @@ var storage_muce = multer.diskStorage({
     cb(null, 'public/files/oglasi_muce')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname)
+    cb(null, Date.now() + file.originalname.replace(/[- )(]/g,''))
   }
 })
 
@@ -33,7 +33,7 @@ var storage_clanki = multer.diskStorage({
     cb(null, 'public/files/clanki')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    cb(null, file.originalname.replace(/[- )(]/g,''))
   }
 })
 
@@ -42,7 +42,7 @@ var storage_izobrazevanje = multer.diskStorage({
     cb(null, 'public/files/izobrazevanje')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname)
+    cb(null, file.originalname.replace(/[- )(]/g,''))
   }
 })
 
@@ -51,7 +51,7 @@ var storage_naslovnice = multer.diskStorage({
     cb(null, 'public/files/naslovnice')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname)
+    cb(null, Date.now() + file.originalname.replace(/[- )(]/g,''))
   }
 })
 

@@ -2,7 +2,7 @@
 
     <div class="i_jumbo">
       <% naslovnice.forEach(function(naslovnica) { %>
-        <div class="naslovnica" style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje.split(" ").join("%20") %>)!important;">
+        <div class="naslovnica" style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje %>);">
           <div class="i_jumbo_text">
             <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
             <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov %></h2>
