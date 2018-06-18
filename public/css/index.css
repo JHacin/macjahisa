@@ -27,7 +27,9 @@ button a {
 .nav_donate > form > button:hover,
 .i_jumbo_button:hover,
 .i_dohodnina > button:hover,
-.i_donate > button:hover {
+.i_donate > button:hover,
+.mailingButton:hover {
+  cursor: pointer;
   background-color: #ebebeb;
   color: #1f1f1f;
   box-shadow: 1px 1px #a5a5a5;
@@ -527,6 +529,7 @@ input[type=email]:focus {
     text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
     font-size: 28px;
     letter-spacing: 2px;
+    text-align: center;
   }
 
   .i_donate button {
