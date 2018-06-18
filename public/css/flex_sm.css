@@ -31,6 +31,8 @@
 
   .stellarnav.mobile.left>ul {
     max-width: 80vw;
+    border-right: 1px solid #ddd;
+    border-right: 1px solid rgba(0,0,0,0.08);
   }
 
   #muca_container_div {

@@ -115,6 +115,7 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+          transition: filter 0.2s ease;
 }
 
 .muca_ime {
@@ -161,6 +162,7 @@
   right: -100%;
   top: -100%;
   bottom: -100%;
+  transition: filter 0.2s ease;
 }
 
 .muca_infoandmore {
@@ -175,6 +177,15 @@
   margin-top: 0;
 
 }
+
+.muca:hover .muca_img a img {
+  filter: sepia(40%);
+}
+
+.v-novem-domu_muca:hover .muca_img a img {
+  filter: sepia(40%);
+}
+
 
 .muca p {
   text-align: center;
@@ -461,6 +472,7 @@
           flex-direction: column;
   margin-bottom: 1em;
   width: 100%;
+
 }
 
 .v-novem-domu_muca .muca_ime {
@@ -484,6 +496,7 @@
   right: -100%;
   top: -100%;
   bottom: -100%;
+  transition: filter 0.2s ease;
 }
 
 .v-novem-domu_muca h2 {

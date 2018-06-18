@@ -17,6 +17,10 @@
   margin-left: 1.5rem;
 }
 
+.side_cat:hover {
+  filter: sepia(40%);
+}
+
 .side_header {
   color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
   padding: 0.8rem 1rem;
@@ -92,7 +96,7 @@
     background: #f2f2f2;
     border: 1px solid #ddd;
     font-weight: 300;
-    font-size: 20px;
+    font-size: 18px;
     line-height: 26px;
     letter-spacing: 1px;
   }
@@ -100,11 +104,11 @@
   /* #ffcb00 */
 
   .sidebar_mailing .mailingButton i {
-    font-size: 36px;
+    font-size: 34px;
     line-height: 36px;
     vertical-align: baseline;
-    color: #c8c8c8;
-    text-shadow: 0.5px 0 0 #000, 0 -0.5px 0 #000, 0 0.5px 0 #000, -0.5px 0 0 #000;
+    color: #ffcb00;
+    text-shadow: 0.5px 0 0 #343a40, 0 -0.5px 0 #343a40, 0 0.5px 0 #343a40, -0.5px 0 0 #343a40;
   }
 
 
@@ -113,6 +117,7 @@
   position: relative;
   overflow: hidden;
   height: 200px;
+  transition: filter 0.2s ease;
   /* margin-bottom: 0.5rem; */
 }
 

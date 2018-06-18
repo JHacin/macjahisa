@@ -80,7 +80,7 @@ a {
 }
 
 .mailingButton {
-  color: #414040;
+  color: #3f3f3f;
   background: #ffcb00;
   font-size: 18px;
   -ms-flex-item-align: center;
@@ -91,22 +91,23 @@ a {
   box-shadow: 1px 1px #d5d5d5;
   padding: 10px 20px;
   font-family: 'Open Sans', sans-serif;
-  font-weight: 500;
-  line-height: 20px;
+  font-weight: 400;
+
   letter-spacing: 0.5px;
   margin-top: 20px;
+  margin-bottom: 10px;
   transition: all 0.15s ease;
-  line-height: 24px;
 }
 
   .mailingButton i {
-    line-height: 24px;
-    font-size: 24px;
-    vertical-align: bottom;
+    vertical-align: middle;
+    margin: 5px 0 8px 0;
   }
 
-  .mailingButton:hover {
+  .sidebar .sidebar_mailing .mailingButton:hover {
     cursor: pointer;
+
+    background: #eaeaea;
   }
 
 .content {
