@@ -160,9 +160,17 @@ app.get("/", function(req, res){
 //     muca.save(function(err, muca){
 //       if(err) return console.log(err);
 //     });
+//     console.log(muca.SEOmetaTitle);
+//     muca.SEOmetaTitle = muca.ime + " | Mačja hiša";
+//     muca.SEOfbTitle = muca.ime + " | Mačja hiša";
+//     muca.SEOtwitterTitle = muca.ime + " | Mačja hiša";
+//     muca.save(function(err, muca){
+//       if(err) return console.log(err);
+//     });
 //   });
 // });
 
+// mucam potalaj dbIDje
 // Muca.find({}, function(err, muce){
 //   if(err) console.log(err);
 //   var id = 1;
