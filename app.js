@@ -79,23 +79,6 @@ app.use("*", function(req, res, next) {
   });
 });
 
-// poprava imen (ki vključejejo nepotreben CAPS LOCK)
-// Muca.find({}, function(err, muce){
-//   muce.forEach(function(muca){
-//     var ime = muca.ime;
-//     ime = ime.toLowerCase();
-//     ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-//     if(ime.indexOf(" in ") != -1) {
-//       var index = ime.indexOf(" in ");
-//       ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-//     };
-//     muca.ime = ime;
-//     muca.save(function(err, muca){
-//       if(err) return console.log(err);
-//     });
-//   });
-// });
-
 // poprava člankov brez tipov/kategorij
 // Clanek.find({}, function(err, clanki) {
 //   var count = 0;
@@ -163,12 +146,29 @@ app.get("/", function(req, res){
     });
   });
 
-// Muca.find({}, function(err, clanki){
+// poprava imen (ki vključejejo nepotreben CAPS LOCK)
+// Muca.find({}, function(err, muce){
+//   muce.forEach(function(muca){
+//     var ime = muca.ime;
+//     ime = ime.toLowerCase();
+//     ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+//     if(ime.indexOf(" in ") != -1) {
+//       var index = ime.indexOf(" in ");
+//       ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+//     };
+//     muca.ime = ime;
+//     muca.save(function(err, muca){
+//       if(err) return console.log(err);
+//     });
+//   });
+// });
+
+// Muca.find({}, function(err, muce){
 //   if(err) console.log(err);
 //   var id = 1;
-//   clanki.forEach(function(clanek){
-//     clanek.dbid = id;
-//     clanek.save().then(function (result) {
+//   muce.forEach(function(muca){
+//     muca.dbid = id;
+//     muca.save().then(function (result) {
 //   // promise was "resolved" successfully
 // }, function (err) {
 //   console.log(err);
