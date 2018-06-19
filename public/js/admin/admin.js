@@ -1,5 +1,7 @@
 $(document).ready( function() {
 
+
+
   // set default value of date input to today
   Date.prototype.toDateInputValue = (function() {
     var local = new Date(this);
@@ -16,9 +18,11 @@ $(document).ready( function() {
     "order": [[ 0, 'desc' ]]
   });
 
-  $('#summernote').summernote({
-    minHeight: 500
-  });
+  // $('#summernote').summernote({
+  //   minHeight: 500,
+  //   placeholder: 'Vnesi besedilo...',
+  //   fontNames: ['Open Sans']
+  // });
 
   $("#naslovnicaRangeInput").on("input", function() {
     $("#naslovnicaRangeValue").html($(this).val() + "%");
@@ -36,7 +40,7 @@ $(document).ready( function() {
   // muce metadata
   $("#generateCatMetaDataButton").click(function() {
     var ime = $("#ime").val();
-    var opis = $("#summernote").val();
+    var opis = myEditor.getData();
     if(ime == "" || opis == "") {
       alert("Manjka ime in/ali opis.");
     } else {
@@ -47,7 +51,8 @@ $(document).ready( function() {
   // članki metadata
   $("#generateArticleMetaDataButton").click(function() {
     var naslov = $("#naslov").val();
-    var besedilo = $("#summernote").val();
+    var besedilo = myEditor.getData();
+
     if(naslov == "" || besedilo == "") {
       alert("Manjka naslov in/ali besedilo.");
     } else {
@@ -58,7 +63,7 @@ $(document).ready( function() {
   // podstrani metadata
   $("#generatePageMetaDataButton").click(function() {
     var naslov = $("#naslov").val();
-    var vsebina = $("#summernote").val();
+    var vsebina = myEditor.getData();
     if(naslov == "" || vsebina == "") {
       alert("Manjka naslov in/ali besedilo.");
     } else {

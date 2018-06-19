@@ -226,3 +226,9 @@ img {
 textarea {
   vertical-align: middle;
 }
+
+.ck.ck-editor__main>.ck-editor__editable {
+  background: rgb(243, 243, 243);
+  min-height: 300px;
+  min-width: 800px;
+}

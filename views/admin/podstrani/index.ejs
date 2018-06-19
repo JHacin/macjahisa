@@ -7,7 +7,6 @@
     <thead>
         <tr>
             <th>Datum zadnje spremembe</th>
-            <th>Portal</th>
             <th>Naslov</th>
             <th>Kategorija</th>
             <th>Vsebina</th>
@@ -26,7 +25,6 @@
                 <!-- actual date format shown -->
                 <%= moment(podstran.zadnja_sprememba).format("DD[.]MM[.]YYYY") %>
               </td>
-              <td><%= podstran.portal %></td>
               <td><%= podstran.naslov %></td>
               <td><%= podstran.kategorija.naslov %></td>
               <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>

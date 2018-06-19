@@ -329,7 +329,7 @@
 @media all and (max-width: 1140px) {
 
   .i_signature {
-        padding: 6px 0 28px 0;
+    padding: 20px 0 28px 0;
   }
 
   #imageZoomDiv {

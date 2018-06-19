@@ -1,3 +1,30 @@
+<script>
+  if(document.querySelector('#summernote') !== null) {
+
+    var myEditor;
+
+    ClassicEditor
+    .create( document.querySelector( '#summernote' ), {
+      toolbar: [ 'heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'undo', 'redo']
+    } )
+    .then( editor => {
+        console.log( editor );
+        myEditor = editor;
+    } )
+    .catch( error => {
+        console.error( error );
+    } );
+
+    //
+    // var myEditor = ClassicEditor
+    //                 .create(editor, {
+    //
+    //                 })
+    //                 .catch( error => {
+    //                     console.error( error );
+    //                 } );
+  }
+</script>
 <script
   src="https://code.jquery.com/jquery-3.2.1.min.js"
   integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
