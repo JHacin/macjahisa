@@ -79,13 +79,8 @@
   width: 310px;
 }
 
-.side_cats_list {
-  /* border: 1px solid #3f3f3f; */
-}
-
 .sidebar_mailing {
-  /* align-self: center; */
-  margin-bottom: 32px;
+  margin-bottom: 24px;
   margin-top: 0;
 }
 
@@ -100,8 +95,6 @@
     line-height: 26px;
     letter-spacing: 1px;
   }
-
-  /* #ffcb00 */
 
   .sidebar_mailing .mailingButton i {
     font-size: 34px;

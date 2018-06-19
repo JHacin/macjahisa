@@ -115,3 +115,13 @@
     margin: 0 8px;
     font-size: 0.5rem;
   }
+
+  #zasebnostLink a {
+    color: #ffcb00;
+    color: rgba(255, 203, 0, 0.7);
+    transition: color 0.2s ease;
+  }
+
+    #zasebnostLink a:hover {
+      color: #ffcb00;
+    }

@@ -1,4 +1,4 @@
-// $(document).ready( function() {
+$(document).ready( function() {
 
   // SAFARI TEMPORARY FIX: prevents donate button from showing above mobile navbar
   $(window).on('resize', function(){
@@ -47,4 +47,4 @@
      ]
    });
 
-// });
+});

@@ -8,6 +8,7 @@ router.get("/", function(req, res){
 
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
+    console.log(podstran);
     res.render("o-nas/show",
     {
       podstran: podstran,

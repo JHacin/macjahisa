@@ -219,6 +219,9 @@ app.get("/", function(req, res){
   //   });
   // });
 
+app.get("/zasebnost", function(req, res) {
+  res.redirect("o-nas/zasebnost");
+});
 
 // OTHER routes
 app.use("/o-nas/", o_nas);
