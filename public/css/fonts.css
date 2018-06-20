@@ -187,3 +187,128 @@
 .izobrazevalne-vsebine .vsebina a {
   font-size: 15px;
 }
+
+@media all and (max-width: 768px) {
+  /* Menu */
+  .nav_donate > form > button {
+    font-size: 26px;
+  }
+
+  /* Naslovnice */
+  .i_jumbo_title {
+    font-size: 42px;
+    line-height: 48px;
+  }
+
+  .i_jumbo_subtitle {
+    font-size: 18px;
+  }
+
+  .i_jumbo_text {
+    margin: 0 3%;
+  }
+
+  /* Gumbi na prvi strani */
+  .i_jumbo_button,
+  .i_dohodnina > button,
+  .i_muce > a > button,
+  .i_mailing > a > .mailingButton,
+  .i_edu button,
+  .i_donate button,
+  .i_boter button {
+      font-size: 16px;
+      padding: 8px 18px;
+  }
+
+  /* Subtext na prvi strani */
+  .i_dohodnina > p,
+  .help_item p,
+  .i_boter_txt {
+    font-size: 14px;
+  }
+
+  /* Naslovi na prvi strani */
+  .i_muce > .i_muce_head > h1,
+  .i_help > h1,
+  .i_edu > h1,
+  .i_boter h1 {
+    font-size: 30px;
+  }
+
+  /* Ponovni poziv za doniranje */
+  .i_donate > h2 {
+    font-size: 22px;
+  }
+
+  /* Naslov na podstraneh */
+  .header_mobile h1 {
+    font-size: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .content h2 {
+    font-size: 20px;
+  }
+
+  .content h3 {
+    font-size: 16px;
+  }
+
+  .content h4 {
+    font-size: 14px;
+  }
+
+  .content ul li {
+    font-size: 14px;
+  }
+
+  .content p {
+    margin: 0 0 10px 0;
+    line-height: 20px;
+    font-size: 14px;
+  }
+
+  /* individualna stran */
+  .content #muca_title_ime {
+    font-size: 30px;
+    font-weight: 500;
+  }
+
+  .content .cat_full .desc h2 {
+    font-size: 17px;
+  }
+
+  .data_title_row {
+    font-size: 14px;
+  }
+
+  .data_row {
+    font-size: 13px;
+  }
+
+  /* IZOBRAŽEVANJE  */
+  .izobrazevalne-vsebine .vsebina h3 {
+    font-size: 16px;
+    text-align: center;
+  }
+
+  .izobrazevalne-vsebine .vsebina a {
+    font-size: 14px;
+  }
+
+  /* SIDEBAR */
+  .sidebar .sidebar_mailing .mailingButton {
+    font-size: 16px;
+  }
+
+  .sidebar_mailing .mailingButton i {
+    font-size: 30px;
+    line-height: 32px;
+  }
+
+  .side_cat_ime h5,
+  .sidebar_social h3 {
+    font-size: 16px;
+  }
+}

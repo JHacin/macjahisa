@@ -243,7 +243,7 @@
 
   .nonindex > .container {
     width: 90%;
-    padding-top: 1.5rem;
+    padding-top: 1.2rem;
     -webkit-box-orient: vertical!important;
     -webkit-box-direction: normal!important;
         -ms-flex-direction: column!important;
@@ -618,7 +618,7 @@
 .i_signature {
   height: auto;
   line-height: 20px;
-  padding: 15px 5px 40px 5px;
+  padding: 15px 5px 32px 5px;
 }
 
 .signature_divider {
