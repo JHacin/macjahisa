@@ -240,6 +240,17 @@ app.use("/projekt-vita/", projekt_vita);
 app.use("/admin/", admin);
 app.use("/v-novem-domu/", v_novem_domu);
 
+app.use(function(req, res) {
+    res.status(400);
+    res.render("404", {title: '404: Page not Found'});
+  });
+
+  // Handle 500
+  app.use(function(error, req, res, next) {
+     res.status(500);
+     res.render("500", {title: '500: Internal Server Error'});
+  });
+
 // app listen config
 app.listen(process.env.PORT || 3000, process.env.IP, function(){
     console.log("Starting.");

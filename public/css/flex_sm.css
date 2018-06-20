@@ -3,6 +3,10 @@
     margin-bottom: 0;
   }
 
+  .content {
+    width: 100%;
+  }
+
   .sidebar_mailing {
     width: 100%;
   }
@@ -164,7 +168,7 @@
 }
 
 .sidebar {
-  width: 90%;
+  width: 60%;
 }
 
 .side_cat {
@@ -198,9 +202,7 @@
 
 .content h3 {
     font-size: 22px;
-    text-align: center;
     margin: 1.5em 0;
-    padding: 0 0.5em;
 }
 
 
@@ -227,6 +229,13 @@
   .nonindex > .container {
     width: 100%;
     padding-top: 1.5rem;
+    -webkit-box-orient: vertical!important;
+    -webkit-box-direction: normal!important;
+        -ms-flex-direction: column!important;
+            flex-direction: column!important;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
   }
 
   .page_header {
@@ -609,6 +618,10 @@
 
 @media all and (max-width: 640px) {
 
+  .sidebar {
+    width: 80%;
+  }
+
   .i_muca_img {
     min-height: 240px;
   }
@@ -628,7 +641,6 @@
   }
 
   .vsebina h3 {
-    text-align: center;
     font-size: 16px;
   }
 
@@ -676,6 +688,11 @@
 }
 
 @media all and (max-width: 480px) {
+
+  .sidebar {
+    width: 90%;
+  }
+
   .jplist-panel .jplist-pagination {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -695,6 +712,10 @@
 }
 
 @media all and (max-width: 360px) {
+
+  .sidebar {
+    width: 100%;
+  }
 
   .fb-page, .fb-page iframe[style], .fb-page span {
       width: 100% !important;

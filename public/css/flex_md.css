@@ -13,13 +13,15 @@
   }
 
   .nonindex > .container {
-    -webkit-box-orient: vertical!important;
+    /* -webkit-box-orient: vertical!important;
     -webkit-box-direction: normal!important;
         -ms-flex-direction: column!important;
-            flex-direction: column!important;
-    -webkit-box-align: center;
+            flex-direction: column!important; */
+    /* -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center;
+            align-items: center; */
+   width: 100%;
+   max-width: 90%;
   }
 
   .v-novem-domu_muca .muca_img {
@@ -32,11 +34,16 @@
 
   .content {
     width: 90%;
-    margin-right: 0;
+    /* margin-right: 0; */
+
+      margin-right: 5%;
+
   }
 
   .sidebar {
-    width: 90%;
+    /* width: 90%; */
+    width: 410px;
+    min-width: 410px;
     margin-left: 0;
     -webkit-box-align: center;
         -ms-flex-align: center;
@@ -45,7 +52,11 @@
   }
 
   .sidebar_img img {
-    width: auto;
+    width: 100%;
+  }
+
+  .sidebar_mailing {
+    width: 100%;
   }
 
   #muca_content_div {
@@ -66,7 +77,8 @@
   }
 
   .side_cat {
-    height: 450px;
+    /* height: 450px; */
+    height: 240px;
   }
 
   .sidebar_social {
@@ -328,6 +340,16 @@
 
 @media all and (max-width: 1140px) {
 
+  .sidebar {
+    min-width: 310px;
+  }
+
+  .side_cat {
+    height: 200px;
+  }
+
+
+
   .i_signature {
     padding: 20px 0 28px 0;
   }
@@ -432,6 +454,17 @@
   .muca_img,
   .v-novem-domu_muca .muca_img {
     height: 250px;
+  }
+
+}
+
+@media all and (max-width: 900px) {
+  .sidebar {
+    min-width: 240px;
+  }
+
+  .side_cat {
+    height: 150px;
   }
 
 }
