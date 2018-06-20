@@ -7,8 +7,7 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
     <style>
       body {
-        /* text-align: center; */
-        height: 80vh;
+        min-height: 80vh;
         display: flex;
         flex-direction: column;
         justify-content: center;
@@ -40,6 +39,7 @@
         font-size: 62px;
         font-weight: 500;
         margin-bottom: 0;
+        margin-top: 0;
       }
 
       p {
@@ -71,9 +71,9 @@
     <progress value="0" max="5" id="progressBar"></progress>
     <a href="/"><button>Na prvo stran</button></a>
     <script>
-      window.setTimeout(function() {
-          window.location.href = "/";
-      }, 5000);
+      // window.setTimeout(function() {
+      //     window.location.href = "/";
+      // }, 5000);
       var timeleft = 5;
       var downloadTimer = setInterval(function(){
         document.getElementById("progressBar").value = 5 - --timeleft;
