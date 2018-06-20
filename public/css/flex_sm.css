@@ -3,6 +3,10 @@
     margin-bottom: 0;
   }
 
+  #muca_content_div {
+    width: 100%;
+  }
+
   .content {
     width: 100%;
     margin-right: 0;
