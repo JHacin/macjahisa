@@ -11,7 +11,10 @@
 .nav_donate > form > button {
   /* font-family: 'Arsenal', sans-serif; */
   font-family: 'Nunito', sans-serif;
-  font-size: 34px;
+  font-size: 32px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-weight: 800;
 }
 
 
@@ -45,7 +48,7 @@
 .i_boter button {
     font-size: 18px;
     padding: 10px 24px;
-    font-weight: 500;
+    font-weight: 600;
     font-family: 'Nunito', sans-serif;
 }
 
