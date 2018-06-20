@@ -1,0 +1,153 @@
+/* Naslovnica */
+.i_jumbo_title {
+  font-size: 60px;
+  font-weight: 600;
+}
+
+.i_jumbo_subtitle {
+  font-size: 20px;
+  margin: 10px 0 20px 0;
+}
+
+.naslovnica {
+  min-height: 400px;
+}
+
+/* Gumbi na prvi strani */
+.i_jumbo_button,
+.i_dohodnina > button,
+.i_muce > a > button,
+.i_mailing > a > .mailingButton,
+.i_edu button,
+.i_donate button,
+.i_boter button {
+    font-size: 18px;
+    padding: 10px 24px;
+}
+
+/* Subtext na prvi strani */
+.i_dohodnina > p,
+.help_item p,
+.i_boter_txt {
+  font-size: 16px;
+}
+
+/* Naslovi na prvi strani */
+.i_muce > .i_muce_head > h1,
+.i_help > h1,
+.i_edu > h1,
+.i_boter h1 {
+  font-size: 38px;
+}
+
+/* Kako lahko pomagate */
+.help_item .fas {
+  font-size: 28px;
+}
+
+.help_item h3 {
+  font-weight: 600;
+  font-size: 22px;
+}
+
+/* Ponovni poziv za doniranje */
+.i_donate > h2 {
+  font-size: 26px;
+}
+
+/* Footer */
+.i_footer h3 {
+  font-size: 20px;
+}
+
+#footer_links > div > ul > li {
+  font-size: 15px;
+}
+
+/* Nonindex banner */
+.page_header h1 {
+  font-size: 40px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* BESEDILO */
+.content h1, .content h2, .content h3, .content h4 {
+  margin-bottom: 4px;
+}
+
+.content h2 {
+  font-size: 22px;
+}
+
+.content h3 {
+  font-size: 18px;
+}
+
+.content h4 {
+  font-size: 16px;
+}
+
+.content p {
+    margin: 0 0 8px 0;
+    line-height: 22px;
+    font-size: 15px;
+}
+
+/* Bullet listi v besedilu */
+.content ul li {
+  font-size: 15px;
+}
+
+/* MUCE */
+
+  /* seznam */
+  .muca_infoandmore p:first-of-type,
+  .v-novem-domu_muca .muca_odhod {
+    font-size: 13px;
+  }
+
+  .muca h2 a,
+  .v-novem-domu_muca h2 {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 0;
+  }
+
+  /* individualna stran */
+  .content #muca_title_ime {
+    font-size: 40px;
+    font-weight: 500;
+  }
+
+  .content .cat_full .desc h2 {
+    font-weight: 600;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .content .data_header h3 {
+    font-size: 16px;
+  }
+
+  .data_title_row {
+    font-size: 15px;
+  }
+
+  .data_row {
+    font-size: 14px;
+  }
+
+/* VITA */
+.vita_category_box a {
+  font-size: 16px;
+}
+
+/* IZOBRAŽEVANJE  */
+.izobrazevalne-vsebine .vsebina h3 {
+  font-size: 17px;
+}
+
+.izobrazevalne-vsebine .vsebina a {
+  font-size: 15px;
+}

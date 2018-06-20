@@ -155,7 +155,6 @@ a {
 .content a {
   color: #343a40;
   font-weight: 600;
-  text-decoration: underline;
 }
 
   .content a:hover {

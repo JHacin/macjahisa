@@ -1,6 +1,6 @@
 /* NAVBAR */
 .navbar {
-  height: 95px;
+  height: 75px;
   background: #fff;
   -webkit-box-align: center;
       -ms-flex-align: center;
@@ -25,7 +25,7 @@
 }
 
   .navbar > .logo {
-    padding: 10px 20px;
+    padding: 10px 20px 5px 20px;
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
@@ -39,11 +39,11 @@
     -webkit-box-pack: center;
         -ms-flex-pack: center;
             justify-content: center;
-    border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.08);
   }
 
     .navbar > .logo img {
-      height: 75px;
+      height: 55px;
     }
 
   .nav_menu {
@@ -108,12 +108,12 @@
 
   .stellarnav > ul > .menu_primary {
     /* height: 95px; */
-    line-height: 95px;
+    line-height: 75px;
     font-weight: 600;
-    font-size: 21px;
+    font-size: 19px;
     /* color: #343a40; */
     /* font-family: 'Open Sans', sans-serif; */
-    border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.1);
+    border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
     /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23bdbdbd' fill-opacity='0.38' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
   }
@@ -131,6 +131,10 @@
       cursor: default;
     }
 
+    .stellarnav li a {
+      padding: 10px 15px;
+    }
+
     /* Posvojitev, Vaša pomoč, Izobraževanje */
     .stellarnav > ul > .menu_primary > a {
       margin: 0 20px;
@@ -142,15 +146,21 @@
       /* Pogoji za posvojitev, Seznam muc itd. */
       .stellarnav > ul > .menu_primary > ul > li {
         background: #fff;
-        width: 300px;
+        width: 245px;
         padding: 5px 0;
-        border-bottom: 1px solid #ddd; border-bottom: 1px solid rgba(0,0,0,0.2);
-        border-left: 1px solid #ddd; border-left: 1px solid rgba(0,0,0,0.2);
-        border-right: 1px solid #ddd; border-right: 1px solid rgba(0,0,0,0.2);
+        border-bottom: 1px solid #ddd; border-bottom: 1px solid rgba(0,0,0,0.08);
+        border-left: 1px solid #ddd; border-left: 1px solid rgba(0,0,0,0.08);
+        border-right: 1px solid #ddd; border-right: 1px solid rgba(0,0,0,0.08);
       }
 
       .stellarnav > ul > .menu_primary > ul > li:first-of-type {
-        border-top: 1px solid #ddd; border-top: 1px solid rgba(0,0,0,0.2);
+        border-top: 1px solid #ddd; border-top: 1px solid rgba(0,0,0,0.08);
+      }
+
+      .stellarnav > ul > .menu_primary > ul,
+      .stellarnav > ul > .menu_primary > ul > li:last-of-type {
+        border-bottom-left-radius: 5px;
+        border-bottom-right-radius: 5px;
       }
 
       .stellarnav > ul > .menu_primary > ul > li:hover {
@@ -167,7 +177,7 @@
 
         .stellarnav > ul > .menu_primary > ul > li > a {
           color: #1f1f1f;
-          font-size: 1.2rem;
+          font-size: 1rem;
           font-weight: 500;
         }
 
@@ -246,7 +256,7 @@
       }
 
         .nav_search > form {
-          border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.2);
+          border: 1px solid #ddd; border: 1px solid rgba(0, 0, 0, 0.08);
           width: 100%;
           display: -webkit-box;
           display: -ms-flexbox;
@@ -281,13 +291,13 @@
       .nav_donate > form > button {
         color: #343a40;
         border: none;
-        height: 115px;
+        height: 90px;
         width: 200px;
         padding: 0;
         border-radius: 10px;
-        letter-spacing: 1px;
-        font-size: 33px;
-        font-weight: 700;
+        letter-spacing: 1.5px;
+        font-size: 30px;
+        font-weight: 600;
         font-family: 'Open Sans', sans-serif;
         z-index: 998;
         /* -webkit-transform: translate3d(0,0,0); */
@@ -588,9 +598,9 @@ div#___gcse_1 {
 div#___gcse_0 {
   width: 100%;
   border-top: 1px solid #ddd;
-  border-top: 1px solid rgba(0,0,0,0.2);
+  border-top: 1px solid rgba(0,0,0,0.08);
   border-bottom: 1px solid #ddd;
-  border-bottom: 1px solid rgba(0,0,0,0.2);
+  border-bottom: 1px solid rgba(0,0,0,0.08);
 }
 
 div#___gcse_0 .gsc-control-wrapper-cse {
