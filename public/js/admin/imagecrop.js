@@ -168,6 +168,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
       opis: myEditor.getData(),
       kontakt: $("#kontakt").val(),
       posvojitev_na_daljavo: $("#posvojitev_na_daljavo").val(),
+      boter_povezava: $("#boter_povezava").val(),
       vet: {
         s_k: document.getElementById("vet[s_k]").checked,
         cipiranje: document.getElementById("vet[cipiranje]").checked,
@@ -199,6 +200,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
     if(data.spol === null) { alert("Vnesi spol."); return false; }
     if(data.opis === "") { alert("Vnesi opis."); return false; }
     if(data.posvojitev_na_daljavo === "") { alert("Označi, ali je muca na voljo za posvojitev na daljavo."); return false; }
+    if(data.boter_povezava === "" && $("#boter_povezava").prop("required")) { alert("Vnesi povezavo do zgodbe na Mačjem botru."); return false; }
     // if(data.slika1_crop === "" && data.slika2_crop === "" && data.slika3_crop === "" && data.slika4_crop === "") {
     //   alert("Treba je dodati vsaj eno sliko.");
     //   return false;

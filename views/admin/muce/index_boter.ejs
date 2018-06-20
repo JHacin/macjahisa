@@ -1,0 +1,44 @@
+<% include ../../partials/admin/header %>
+<% include ../../partials/functions/muce %>
+
+<h3>Muce za posvojitev</h3>
+<p><a href="/admin/muce/add">+ Dodaj novo</a></p>
+
+<table id="tabela" class="display">
+    <thead>
+        <tr>
+            <th>Datum sprejema</th>
+            <th>Status</th>
+            <th>Ime</th>
+            <th>Spol</th>
+            <th>Slika</th>
+            <th>Posvojitev na daljavo</th>
+            <th>Povezava do zgodbe je vnešena</th>
+            <th>Prikaži</th>
+            <th>Uredi</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% muce.forEach(function(muca) { %>
+          <tr>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(muca.datum).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(muca.datum).format("D[.]M[.]YYYY") %>
+              </td>
+              <td><%= stanjeMuce(muca.status) %></td>
+              <td><%= muca.ime %></td>
+              <td><%= spolMuce(muca.spol) %></td>
+              <td><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></td>
+              <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
+              <td><%= muca.boter_povezava == undefined ? "Ne" : "Da" %></td>
+              <td><a href="/posvojitev/muce/<%= muca.dbid %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
+              <td><a href="/admin/muce/<%= muca.dbid %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
+          </tr>
+        <% }) %>
+    </tbody>
+</table>
+
+
+<% include ../../partials/admin/footer %>

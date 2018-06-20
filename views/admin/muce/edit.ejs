@@ -73,6 +73,9 @@
           <option value="0" <%= muca.posvojitev_na_daljavo == 0 ? "selected" : "" %>>ne</option>
           <option value="1" <%= muca.posvojitev_na_daljavo == 1 ? "selected" : "" %>>da</option>
         </select>
+        <label for="boter_povezava" style="margin: 0 5px 0 15px;">URL povezava do zgodbe na Mačjem botru:</label>
+        <input type="url" size="50" id="boter_povezava" name="muca[boter_povezava]" value="<%= muca.boter_povezava %>" required/>
+        <a id="boter_povezava_search_google" class="btn btn-outline-info" style="font-size: 14px; align-self: center; margin-left: 10px" href="https://www.google.si/search?q=<%= muca.ime %>+ma%C4%8Dji+boter" target="_blank">Poišči stran na Botru prek Googla</a>
       </div>
 
 <!-- GROUPING VARIABLES FOR CAT PICTURES -->

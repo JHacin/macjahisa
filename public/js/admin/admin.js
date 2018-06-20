@@ -103,4 +103,32 @@ $(document).ready( function() {
     }
   });
 
+  // Muce - boter link
+  if ($("#posvojitev_na_daljavo").val() !== "1") {
+    $("#boter_povezava, label[for='boter_povezava']").hide();
+    $("#boter_povezava").prop("required", false);
+    $("#boter_povezava_search_google").hide()
+  }
+
+  $("#posvojitev_na_daljavo").on("change", function() {
+    if($(this).val() === "0") {
+      $("#boter_povezava, label[for='boter_povezava']").hide();
+      $("#boter_povezava").prop("required", false);
+      $("#boter_povezava_search_google").hide()
+    } else if($(this).val() === "1") {
+      $("#boter_povezava, label[for='boter_povezava']").show();
+      $("#boter_povezava").prop("required", true);
+      $("#boter_povezava_search_google").show()
+    }
+  })
+
+  $("#boter_povezava_search_google").click(function() {
+    var url = "https://www.google.si/search?q=" + $("#ime").val() + "+ma%C4%8Dji+boter";
+    if($("#ime").val() == "") {
+      alert("Najprej vnesi ime muce v polje.");
+      return false;
+    }
+    $(this).attr("href", url);
+  })
+
 });

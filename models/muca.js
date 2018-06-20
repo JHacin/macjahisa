@@ -17,6 +17,7 @@ var mucaSchema = new mongoose.Schema({
   file_name3: String,
   file_name4: String,
   posvojitev_na_daljavo: {type: Number, default: 0},
+  boter_povezava: String,
   // posvojitev_na_daljavo_zgodovina: Number,
   // objavi_zgodbo: Number,
   // zgodba: String,

@@ -2,6 +2,10 @@
   font-family: "Open Sans", sans-serif;
 }
 
+label, input, select {
+  align-self: center;
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -231,4 +235,14 @@ textarea {
   background: rgb(243, 243, 243);
   min-height: 300px;
   min-width: 800px;
+  max-width: 88%;
 }
+
+.ck.ck-reset.ck-editor.ck-rounded-corners,
+.ck.ck-toolbar {
+  max-width: 88%;
+}
+
+/* #boter_povezava, label[for='boter_povezava'] {
+  transition: all 0.2s ease;
+} */

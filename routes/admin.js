@@ -104,6 +104,17 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
   })
 });
 
+// MUCE KI IŠČEJO BOTRA
+router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
+  Muca.find().where("posvojitev_na_daljavo").equals(1).where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+    res.render("admin/muce/index_boter", {muce: muce});
+  })
+});
+
 router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
   Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
     if(err) {
