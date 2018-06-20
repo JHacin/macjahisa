@@ -50,7 +50,7 @@
     <select id="kontakt" name="kontakt">
       <% kontakti.forEach(function(kontakt){ %>
         <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
-        <option value="<%= k %>" <%= kontakt.email == "info@macjahisa.si" ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
+        <option value="<%= k %>" <%= kontakt.email == "posvojitev@macjahisa.si" ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
       <% }); %>
     </select>
   </div>
