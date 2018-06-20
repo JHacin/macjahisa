@@ -80,7 +80,7 @@
           }
 
           .social_buttons a .fab:hover,
-          .i_footer > .container > div > ul > li a:hover {
+          .i_footer > .container > #footer_links > div > ul > li a:hover {
             color: rgb(255, 203, 0); color: rgba(255, 203, 0, 0.9);
           }
 

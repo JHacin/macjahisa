@@ -10,6 +10,8 @@
 
 .nav_donate > form > button {
   /* font-family: 'Arsenal', sans-serif; */
+  font-family: 'Nunito', sans-serif;
+  font-size: 34px;
 }
 
 
@@ -17,8 +19,8 @@
 .i_jumbo_title {
   font-size: 60px;
   line-height: 60px;
-  font-weight: 500;
-  /* font-family: 'Coda', cursive; */
+  font-weight: 600;
+  font-family: 'Nunito', sans-serif;
   letter-spacing: 0;
 }
 
@@ -26,7 +28,7 @@
   font-size: 20px;
   /* font-weight: 300; */
   margin: 8px 0 20px 4px;
-  /* font-family: 'Coda', sans-serif; */
+  font-family: 'Nunito', sans-serif;
 }
 
 .naslovnica {
@@ -44,6 +46,12 @@
     font-size: 18px;
     padding: 10px 24px;
     font-weight: 500;
+    font-family: 'Nunito', sans-serif;
+}
+
+.i_muca_txt a {
+  /* font-family: 'Nunito', sans-serif; */
+  font-weight: 500;
 }
 
 /* Subtext na prvi strani */
@@ -59,6 +67,8 @@
 .i_edu > h1,
 .i_boter h1 {
   font-size: 38px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 300;
 }
 
 /* Kako lahko pomagate */
@@ -68,17 +78,20 @@
 
 .help_item h3 {
   font-weight: 600;
-  font-size: 22px;
+  font-size: 24px;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Ponovni poziv za doniranje */
 .i_donate > h2 {
   font-size: 26px;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* Footer */
 .i_footer h3 {
   font-size: 20px;
+  font-family: 'Nunito', sans-serif;
 }
 
 #footer_links > div > ul > li {
@@ -92,9 +105,23 @@
   letter-spacing: 1px;
 }
 
+/* font-family: 'Krona One', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'Quattrocento', serif;
+font-family: 'Quando', serif;
+font-family: 'Nunito', sans-serif;
+font-family: 'Poiret One', cursive; */
+
+/* Krona+One|Nunito:300,400,600,700,800,900|Poiret+One|Poppins:300,400,500,600,700,800,900|Quando|Quattrocento:400,700 */
+
 /* BESEDILO */
 .content h1, .content h2, .content h3, .content h4 {
   margin-bottom: 4px;
+}
+
+.page_header h1, .content h1, .content h2, .content h3, .content h4 {
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700!important;
 }
 
 .content h2 {
@@ -107,17 +134,18 @@
 
 .content h4 {
   font-size: 16px;
+  margin-top: 0;
 }
 
 .content p {
-    margin: 0 0 8px 0;
+    margin: 0 0 14px 0;
     line-height: 22px;
     font-size: 15px;
 }
 
 /* Bullet listi v besedilu */
 .content ul {
-  margin-bottom: 4px;
+  margin-bottom: 14px;
 }
 
 .content ul li {
@@ -165,7 +193,8 @@
 
 /* VITA */
 .vita_category_box a {
-  font-size: 16px;
+  font-size: 18px;
+  font-family: 'Nunito', sans-serif;
 }
 
 /* IZOBRAŽEVANJE  */

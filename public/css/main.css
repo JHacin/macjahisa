@@ -92,7 +92,7 @@ a {
   padding: 10px 20px;
   font-family: 'Open Sans', sans-serif;
   font-weight: 400;
-
+  line-height: 20px;
   letter-spacing: 0.5px;
   margin-top: 20px;
   margin-bottom: 10px;
@@ -100,7 +100,7 @@ a {
 }
 
   .mailingButton i {
-    vertical-align: middle;
+    vertical-align: bottom;
   }
 
   .sidebar .sidebar_mailing .mailingButton:hover {
@@ -211,8 +211,9 @@ a {
   .izobrazevalne-vsebine .vsebina h3 {
     font-weight: 600;
     color: #3f3f3f;
-    margin: 0.5em 0;
+    margin: 0 0 0.5em 0;
     letter-spacing: 0.23px;
+    font-family: 'Nunito', sans-serif;
   }
 
   .izobrazevalne-vsebine .vsebina a {

@@ -215,6 +215,7 @@ button i {
         .i_muca_txt h3 {
           margin: 0;
           letter-spacing: 1px;
+          line-height: 22px;
         }
 
         .i_muca_txt a {

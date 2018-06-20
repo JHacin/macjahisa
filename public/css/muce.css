@@ -130,6 +130,10 @@
   margin: 0;
 }
 
+.muca_ime h2 {
+  margin-bottom: 0;
+}
+
 .muca h2 a,
 .v-novem-domu_muca h2 {
   color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
@@ -174,7 +178,7 @@
 .muca_infoandmore p:first-of-type {
   color: #131313db;
   margin-top: 0;
-
+  margin-bottom: 4px;
 }
 
 .muca:hover .muca_img a img {
