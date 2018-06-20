@@ -71,9 +71,9 @@
     <progress value="0" max="5" id="progressBar"></progress>
     <a href="/"><button>Na prvo stran</button></a>
     <script>
-      // window.setTimeout(function() {
-      //     window.location.href = "/";
-      // }, 5000);
+      window.setTimeout(function() {
+          window.location.href = "/";
+      }, 5000);
       var timeleft = 5;
       var downloadTimer = setInterval(function(){
         document.getElementById("progressBar").value = 5 - --timeleft;
