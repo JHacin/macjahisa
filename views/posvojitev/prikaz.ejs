@@ -83,16 +83,21 @@
       </div>
 
       <div class="desc">
-        <h2><i class="fas fa-paw"></i> O <%= muca.spol == 3 ? "nama" : "meni" %>:</h2>
+        <h2><i class="fas fa-paw"></i> Predstavitev:</h2>
           <%- muca.opis %>
         <div class="contact">
           <h2><i class="fas fa-envelope"></i> Kontakt:</h2>
           <%= muca.kontakt %>
         </div>
         <% if(muca.posvojitev_na_daljavo == 1) { %>
+          <% console.log(muca.boter_povezava) %>
           <div class="boter_true">
             <h2><i class="fas fa-hand-holding-heart"></i> Posvojitev na daljavo:</h2>
-            <p>Muca je na voljo za posvojitev na daljavo. Če jo želite posvojiti na daljavo, lahko to storite preko <a onclick="this.target='_blank'" href="http://www.macjiboter.si/posvojitev_na_daljavo_obrazec.php?id=1637">spletnega obrazca</a> in postanete mačji boter. Preberite si več o <a onclick="this.target='_blank'" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
+            <p>Muca je na voljo za posvojitev na daljavo.
+              <% if(muca.boter_povezava !== undefined) { %>
+              Njeno zgodbo si lahko preberete <a href="<%= muca.boter_povezava %>" target="_blank">tukaj</a>. Prek te povezave lahko dostopate tudi do spletnega obrazca, s katerim jo lahko posvojite na daljavo.
+              <% }; %>
+              Preberite si več o <a target="_blank" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
           </p></div>
         <% }; %>
 

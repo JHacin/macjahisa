@@ -253,6 +253,7 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           };
 
           novaMuca.ime = ime;
+          novaMuca.boter_povezava = req.body.boter_povezava;
           novaMuca.SEOmetaTitle = req.body.SEOmetaTitle;
           novaMuca.SEOmetaDescription = req.body.SEOmetaDescription;
           novaMuca.SEOfbTitle = req.body.SEOfbTitle;
@@ -295,6 +296,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
     // // posodobi podatke
     muca.ime = ime;
+    muca.boter_povezava = req.body.boter_povezava;
     muca.SEOmetaTitle = req.body.SEOmetaTitle;
     muca.SEOmetaDescription = req.body.SEOmetaDescription;
     muca.SEOfbTitle = req.body.SEOfbTitle;
