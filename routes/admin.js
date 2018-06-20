@@ -95,7 +95,7 @@ router.get("/logout", function(req, res) {
 
 // MUCE
 router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
-  Muca.find().where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
+  Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
