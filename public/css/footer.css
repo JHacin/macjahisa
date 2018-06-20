@@ -10,8 +10,15 @@
 
 }
 
-    .i_footer > .container > div {
-      width: 25%;
+    #footer_links {
+      width: 75%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+
+    #footer_links > div {
+      width: 33%;
     }
 
       .i_footer h3 {
@@ -22,28 +29,32 @@
       }
 
 
-      .i_footer > .container > div > ul {
+      #footer_links > div > ul {
         list-style: none;
         padding-left: 0;
         font-weight: 300;
       }
 
-        .i_footer > .container > div > ul > li {
+        #footer_links > div > ul > li {
           font-weight: 300;
           line-height: 34px;
           color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
         }
 
-        .i_footer > .container > div > ul > li a {
+        #footer_links > div > ul > li a {
           color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.8);
           -webkit-transition: all 0.4s ease;
           -o-transition: all 0.4s ease;
           transition: all 0.4s ease;
         }
 
-        .i_footer > .container > div > ul > li i {
+        #footer_links > div > ul > li i {
           margin-right: 4px;
         }
+
+  #footer_social {
+    width: 25%;
+  }
 
         .social_buttons {
           display: -webkit-box;

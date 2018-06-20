@@ -1,5 +1,15 @@
 @media all and (max-width: 1515px) {
 
+  .fb-page, .fb-page iframe[style], .fb-page span {
+      width: 100% !important;
+  }
+
+  .fb_banner {
+    max-width: 340px;
+    text-align: center;
+    margin: 0 auto;
+  }
+
   .photos {
     width: 88vw;
   }
@@ -313,13 +323,15 @@
   }
 
   .i_footer > .container {
-    -webkit-box-orient: vertical;
+    /* -webkit-box-orient: vertical;
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
     -webkit-box-align: center;
         -ms-flex-align: center;
-            align-items: center;
+            align-items: center; */
+            width: 100%;
+            max-width: 95%;
   }
 
   .social_buttons {
@@ -334,11 +346,30 @@
 
     .i_footer > .container > div {
       width: 90%;
-      text-align: center;
+      /* text-align: center; */
     }
 }
 
 @media all and (max-width: 1140px) {
+
+
+
+  .i_footer > .container {
+    flex-wrap: wrap;
+  }
+
+    #footer_links {
+      width: 100%;
+      text-align: center;
+    }
+
+    #footer_social {
+      width: 100%;
+    }
+
+      .fb_banner {
+        text-align: center;
+      }
 
   .sidebar {
     min-width: 310px;
@@ -465,6 +496,16 @@
 
   .side_cat {
     height: 150px;
+  }
+
+  #footer_links {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  #footer_links > #footer_links_contact {
+    width: 100%;
+    text-align: center;
   }
 
 }
