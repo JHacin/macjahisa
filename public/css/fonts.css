@@ -6,7 +6,7 @@
 
 .i_jumbo_subtitle {
   font-size: 20px;
-  margin: 10px 0 20px 0;
+  margin: 4px 0 20px 0;
 }
 
 .naslovnica {
@@ -95,6 +95,10 @@
 }
 
 /* Bullet listi v besedilu */
+.content ul {
+  margin-bottom: 4px;
+}
+
 .content ul li {
   font-size: 15px;
 }
