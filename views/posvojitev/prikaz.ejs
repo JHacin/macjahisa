@@ -86,20 +86,24 @@
 
       var muc = "";
       var njegovo = "";
+      var njega = ""
 
       if(muca.spol === 1) {
         muc = "Muc je";
         njegovo = "Njegovo";
+        njega = "ga";
       }
 
       if(muca.spol === 2) {
         muc = "Muca je";
         njegovo = "Njeno";
+        njega = "jo";
       }
 
       if(muca.spol === 3) {
         muc = "Muci sta";
         njegovo = "Njuno";
+        njega = "ju";
       }
 
       %>
@@ -117,7 +121,7 @@
             <h2><i class="fas fa-hand-holding-heart"></i> Posvojitev na daljavo:</h2>
             <p><%= muc %> na voljo za posvojitev na daljavo.
               <% if(muca.boter_povezava !== undefined) { %>
-              <%= njegovo %> zgodbo si lahko preberete <a href="<%= muca.boter_povezava %>" target="_blank">tukaj</a>. Prek te povezave lahko dostopate tudi do spletnega obrazca, s katerim jo lahko posvojite na daljavo.
+              <%= njegovo %> zgodbo si lahko preberete <a href="<%= muca.boter_povezava %>" target="_blank">tukaj</a>. Prek te povezave lahko dostopate tudi do spletnega obrazca, s katerim <%= njega %> lahko posvojite na daljavo.
               <% }; %>
               Preberite si več o <a target="_blank" href="http://www.macjiboter.si/o_macjem_botru.php">projektu Mačji boter</a>.
           </p></div>
