@@ -70,6 +70,7 @@ starostVMesecih = function(mesec_rojstva) {
       return result + " mesecev";
     }
   } else if (result >= 12) {
+
     <!-- 1 leto in več -->
     var leta = Math.floor(result/12);
     var meseci = result%12;
@@ -91,6 +92,12 @@ starostVMesecih = function(mesec_rojstva) {
     } else if (meseci == 3 || meseci == 4) {
       meseci_str = "meseci";
     }
+
+    <!-- Da ne kaže npr. 3 leta in 0 mesecev -->
+    if(result >= 12 && result%12 == 0) {
+      return leta + " " + leta_str;
+    }
+
     return leta + " " + leta_str + " in " + meseci + " " + meseci_str;
   }
 }

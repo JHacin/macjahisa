@@ -1,22 +1,11 @@
 /* Menu */
-.stellarnav > ul > .menu_primary {
-  /* font-family: 'Arsenal', sans-serif; */
-}
-
-.menu_secondary > ul > li > a {
-  /* font-family: 'Arsenal', sans-serif; */
-  /* font-weight: 300; */
-}
-
 .nav_donate > form > button {
-  /* font-family: 'Arsenal', sans-serif; */
   font-family: 'Nunito', sans-serif;
   font-size: 32px;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 800;
 }
-
 
 /* Naslovnica */
 .i_jumbo_title {
@@ -29,7 +18,6 @@
 
 .i_jumbo_subtitle {
   font-size: 20px;
-  /* font-weight: 300; */
   margin: 8px 0 20px 4px;
   font-family: 'Nunito', sans-serif;
 }
@@ -53,7 +41,6 @@
 }
 
 .i_muca_txt a {
-  /* font-family: 'Nunito', sans-serif; */
   font-weight: 500;
 }
 
@@ -107,15 +94,6 @@
   font-weight: 600;
   letter-spacing: 1px;
 }
-
-/* font-family: 'Krona One', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'Quattrocento', serif;
-font-family: 'Quando', serif;
-font-family: 'Nunito', sans-serif;
-font-family: 'Poiret One', cursive; */
-
-/* Krona+One|Nunito:300,400,600,700,800,900|Poiret+One|Poppins:300,400,500,600,700,800,900|Quando|Quattrocento:400,700 */
 
 /* BESEDILO */
 .content h1, .content h2, .content h3, .content h4 {
@@ -184,6 +162,7 @@ font-family: 'Poiret One', cursive; */
 
   .content .data_header h3 {
     font-size: 16px;
+    margin: 0;
   }
 
   .data_title_row {
