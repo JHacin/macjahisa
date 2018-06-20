@@ -489,7 +489,16 @@
 
 }
 
-@media all and (max-width: 900px) {
+@media all and (max-width: 960px) {
+
+  .i_boter_txt {
+    width: 90%;
+  }
+
+    .i_boter img {
+      width: 120px;
+    }
+
   .sidebar {
     min-width: 240px;
   }
@@ -506,6 +515,15 @@
   #footer_links > #footer_links_contact {
     width: 100%;
     text-align: center;
+  }
+
+  .i_muca_img {
+    width: 325px;
+    min-height: 240px;
+  }
+
+  .i_muca_txt {
+    width: 285px;
   }
 
 }
