@@ -5,6 +5,7 @@
 
   .content {
     width: 100%;
+    margin-right: 0;
   }
 
   .sidebar_mailing {
@@ -227,7 +228,7 @@
   }
 
   .nonindex > .container {
-    width: 100%;
+    width: 90%;
     padding-top: 1.5rem;
     -webkit-box-orient: vertical!important;
     -webkit-box-direction: normal!important;
@@ -714,7 +715,7 @@
 @media all and (max-width: 360px) {
 
   .sidebar {
-    width: 100%;
+    width: 90%;
   }
 
   .fb-page, .fb-page iframe[style], .fb-page span {
