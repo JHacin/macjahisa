@@ -1,26 +1,32 @@
 /* Menu */
 .stellarnav > ul > .menu_primary {
-  font-family: 'Arsenal', sans-serif;
+  /* font-family: 'Arsenal', sans-serif; */
 }
 
 .menu_secondary > ul > li > a {
-  font-family: 'Arsenal', sans-serif;
+  /* font-family: 'Arsenal', sans-serif; */
   /* font-weight: 300; */
 }
 
 .nav_donate > form > button {
-  font-family: 'Arsenal', sans-serif;
+  /* font-family: 'Arsenal', sans-serif; */
 }
+
 
 /* Naslovnica */
 .i_jumbo_title {
   font-size: 60px;
-  font-weight: 600;
+  line-height: 60px;
+  font-weight: 500;
+  /* font-family: 'Coda', cursive; */
+  letter-spacing: 0;
 }
 
 .i_jumbo_subtitle {
   font-size: 20px;
-  margin: 4px 0 20px 0;
+  /* font-weight: 300; */
+  margin: 8px 0 20px 4px;
+  /* font-family: 'Coda', sans-serif; */
 }
 
 .naslovnica {
