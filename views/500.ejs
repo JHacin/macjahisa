@@ -1,1 +1,100 @@
-<h1>500: Internal Server Error</h1>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Prišlo je do napake | Mačja hiša</title>
+    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
+    <style>
+      body {
+        /* text-align: center; */
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-family: "Open Sans", sans-serif;
+        color: #3f3f3f;
+      }
+
+      img {
+        width: 400px;
+      }
+
+      button {
+        font-family: "Open Sans", sans-serif;
+        background: none;
+        border: 0.5px solid #7e7e7e;
+        color: #474545;
+        border-radius: 5px;
+        padding: 6px 20px;
+        font-size: 16px;
+        font-weight: 300;
+        transition: all 0.2s ease;
+        margin-top: 2rem;
+      }
+
+      button:hover {
+        background: #3f3f3f;
+        color: #dedede;
+        cursor: pointer;
+      }
+
+      a {
+        color: #474545; 
+      }
+
+      h1 {
+        font-size: 62px;
+        font-weight: 500;
+        margin-bottom: 0;
+        margin-top: 0.5rem;
+      }
+
+      p {
+        font-size: 20px;
+        font-weight: 300;
+        margin-bottom: 0;
+      }
+
+      progress#progressBar {
+        margin-top: 1.5rem;
+      }
+
+      @media all and (max-width: 1000px) {
+        h1 {
+          font-size: 42px;
+        }
+        p {
+          font-size: 16px;
+          text-align: center;
+        }
+        button {
+          font-size: 14px;
+        }
+        img {
+          width: 240px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <img src="/files/page/500.jpg" />
+    <h1>Ti šment :(</h1>
+    <p>Prišlo je do notranje napake na strežniku.</p>
+    <p>Če se napaka ponovi, nas o tem prosim obvestite na <strong><a href="mailto:info@macjahisa.si">info@macjahisa.si</a></strong>. Preusmerjam...</p>
+    <progress value="0" max="5" id="progressBar"></progress>
+    <a href="/"><button>Na prvo stran</button></a>
+    <script>
+      // window.setTimeout(function() {
+      //     window.location.href = "/";
+      // }, 5000);
+      var timeleft = 5;
+      var downloadTimer = setInterval(function(){
+        document.getElementById("progressBar").value = 5 - --timeleft;
+        if(timeleft <= 0)
+          clearInterval(downloadTimer);
+      }, 1000);
+
+    </script>
+  </body>
+</html>

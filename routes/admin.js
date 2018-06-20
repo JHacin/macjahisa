@@ -159,7 +159,6 @@ router.get("/muce/add", middleware.isLoggedIn, function(req, res){
 
 router.post("/muce", middleware.isLoggedIn, function(req, res) {
     Muca.count({}, function(err, count){
-      console.log(req.body);
       // dodaj novo muco
       Muca.create(req.body, function(err, novaMuca) {
         if(err) {
