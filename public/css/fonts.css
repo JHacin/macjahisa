@@ -1,3 +1,17 @@
+/* Menu */
+.stellarnav > ul > .menu_primary {
+  font-family: 'Arsenal', sans-serif;
+}
+
+.menu_secondary > ul > li > a {
+  font-family: 'Arsenal', sans-serif;
+  /* font-weight: 300; */
+}
+
+.nav_donate > form > button {
+  font-family: 'Arsenal', sans-serif;
+}
+
 /* Naslovnica */
 .i_jumbo_title {
   font-size: 60px;
@@ -23,6 +37,7 @@
 .i_boter button {
     font-size: 18px;
     padding: 10px 24px;
+    font-weight: 500;
 }
 
 /* Subtext na prvi strani */
