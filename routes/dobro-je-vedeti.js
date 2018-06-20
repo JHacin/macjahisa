@@ -54,6 +54,7 @@ router.get("/prispevki/:id", function(req, res){
 
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
+    if(podstran===null) return res.render("404");
     if(err) return console.log(err);
     res.render("dobro-je-vedeti/show",
     {

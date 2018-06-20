@@ -42,6 +42,7 @@ router.get("/muce/:id", function(req, res){
 // Pogoji in postopki etc.
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
+    if(podstran===null) return res.render("404");
     if(err) return console.log(err);
     res.render("posvojitev/show",
     {
