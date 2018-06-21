@@ -120,15 +120,9 @@ app.use("*", function(req, res, next) {
 //   // });
 // });
 
-// sitemap
-app.get('/sitemap.xml', function(req, res) {
-  sitemap.toXML( function (err, xml) {
-      if (err) {
-        return res.status(500).end();
-      }
-      res.header('Content-Type', 'application/xml');
-      res.send( xml );
-  });
+app.get("/sitemap.xml", function(req, res){
+  res.type("application/xml");
+  res.sendFile('sitemap.xml');
 });
 
 // INDEX ROUTE
@@ -256,6 +250,8 @@ app.get("/", function(req, res){
   //     // }
   //   });
   // });
+
+
 
 app.get("/zasebnost", function(req, res) {
   res.redirect("o-nas/zasebnost");
