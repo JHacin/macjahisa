@@ -17,10 +17,6 @@
   margin-left: 1.5rem;
 }
 
-.side_cat:hover {
-  filter: sepia(40%);
-}
-
 .side_header {
   color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
   padding: 0.8rem 1rem;
@@ -70,8 +66,7 @@
     text-decoration: none;
   }
 
-    .side_btn a:visited,
-    .side_btn a:hover {
+    .side_btn a:visited {
       color: #3f3f3f;
     }
 

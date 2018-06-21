@@ -103,11 +103,7 @@ a {
     vertical-align: bottom;
   }
 
-  .sidebar .sidebar_mailing .mailingButton:hover {
-    cursor: pointer;
 
-    background: #eaeaea;
-  }
 
 .content {
   width: 75%;
@@ -158,10 +154,7 @@ a {
   text-decoration: underline;
 }
 
-  .content a:hover {
-    color: #d9680ce8;
-    font-weight: 600;
-  }
+
 
 .jplist-icon {
   height: 35px;
@@ -248,10 +241,7 @@ a {
     vertical-align: middle;
   }
 
-  .content .clanek_link:hover {
-    font-weight: 400;
-    color: #b7b7b7;
-  }
+
 
 /* VITA */
 .vita_category_box {
@@ -309,10 +299,169 @@ input.paypal_btn,
   color: #ffcb00;
 }
 
-/* MailChimp  */
-/* .modalContent {
-  width: 450px!important;
+/* Enable hover effects only on large screens */
+@media all and (min-width: 1140px) {
+  #imageZoom:hover {
+    color: #131313c2;
+  }
+
+  .i_jumbo_button:hover {
+    cursor: pointer;
+  }
+
+  .social_buttons a .fab:hover,
+  .i_footer > .container > #footer_links > div > ul > li a:hover {
+    color: rgb(255, 203, 0); color: rgba(255, 203, 0, 0.9);
+  }
+
+  #zasebnostLink a:hover {
+    color: #ffcb00;
+  }
+
+  .stellarnav > ul > .menu_primary:hover {
+    background-color: #3f3f3f;
+  }
+
+  .stellarnav > ul > .menu_primary:hover > a {
+    color: #e5e5e5;
+  }
+
+  .menu_primary > a:hover {
+    cursor: default;
+  }
+
+  .stellarnav > ul > .menu_primary > ul > li:hover {
+    background-color: #e5e5e5;
+  }
+
+  .stellarnav > ul > .menu_primary > ul > .disabled_li:hover {
+    background-color: #fff;
+    background-image: none;
+  }
+
+  .menu_secondary > ul > li > a:hover {
+    color: #000;
+  }
+
+  .nav_donate > form > button:hover {
+    cursor: pointer;
+  }
+
+  .jumbo_button button:hover {
+    cursor: pointer;
+    background: rgb(255, 203, 0); background: rgba(255, 203, 0, 0.75);
+  }
+
+  .stellarnav .nav_kategorija > a:hover {
+    color: black;
+    cursor: pointer;
+  }
+
+  .stellarnav .nav_podstran:hover {
+    background: #f3f3f3;
+  }
+
+  .stellarnav .nav_podstran a:hover {
+    color: black;
+  }
+
+  .search button:hover {
+    cursor: pointer;
+    color: #e59400;
+  }
+
+  .gsc-search-button-v2 svg:hover {
+    cursor: pointer!important;
+  }
+
+  .gsc-search-box .gsc-input>input:hover,
+  .gsc-input-box-hover {
+    border: none!important;
+    border-top-color: none!important;
+    -moz-box-shadow: none!important;
+    -webkit-box-shadow: none!important;
+    box-shadow: none!important;
+  }
+
+  #___gcse_0 input#gsc-i-id1:hover {
+    cursor: default;
+  }
+
+  .nav_donate > form > button:hover,
+  .i_jumbo_button:hover,
+  .i_dohodnina > button:hover,
+  .i_donate > button:hover,
+  .mailingButton:hover {
+    cursor: pointer;
+    background-color: #ebebeb;
+    color: #1f1f1f;
+    box-shadow: 1px 1px #a5a5a5;
+  }
+
+  .i_muca:hover .i_muca_img a img {
+    filter: sepia(40%);
+  }
+
+  .clear input#mc-embedded-subscribe:hover {
+    color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
+  }
+
+  .i_edu button:hover,
+  .i_muce button:hover,
+  .i_boter button:hover {
+    cursor: pointer;
+    color: #e5e5e5;
+    background: #515151;
+  }
+
+  .side_cat:hover {
+    filter: sepia(40%);
+  }
+
+  #imageZoom:hover {
+    cursor: pointer;
+    background: #131313c2;
+    color: #dbdbdb;
+  }
+
+  .muca h2 a:hover {
+    color: #000000;
+    font-weight: 700;
+  }
+
+  .muca:hover .muca_img a img {
+    filter: sepia(40%);
+  }
+
+  .v-novem-domu_muca:hover .muca_img a img {
+    filter: sepia(40%);
+  }
+
+  .jplist-panel button:hover {
+    cursor: pointer;
+    color: #343a40;
+  }
+
+  .paginator a li:hover {
+    font-weight: 500;
+  }
+
+  .side_btn a:hover {
+    color: #3f3f3f;
+  }
+
+  .sidebar .sidebar_mailing .mailingButton:hover {
+    cursor: pointer;
+    background: #eaeaea;
+  }
+
+  .content a:hover {
+    color: #d9680ce8;
+    font-weight: 600;
+  }
+
+  .content .clanek_link:hover {
+    font-weight: 400;
+    color: #b7b7b7;
+  }
 }
-.modalContent__content {
-  padding: 200px 30px 0 30px!important;
-} */

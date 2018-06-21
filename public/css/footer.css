@@ -79,10 +79,7 @@
             transition: all 0.4s ease;
           }
 
-          .social_buttons a .fab:hover,
-          .i_footer > .container > #footer_links > div > ul > li a:hover {
-            color: rgb(255, 203, 0); color: rgba(255, 203, 0, 0.9);
-          }
+
 
         .fb-page {
           border: 1px solid rgb(255,255,255); border: 1px solid rgba(255,255,255,0.3);
@@ -132,7 +129,3 @@
     color: rgba(255, 203, 0, 0.7);
     transition: color 0.2s ease;
   }
-
-    #zasebnostLink a:hover {
-      color: #ffcb00;
-    }

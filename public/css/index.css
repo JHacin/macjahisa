@@ -32,16 +32,7 @@ button i {
   /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23abaaaa' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
 }
 
-.nav_donate > form > button:hover,
-.i_jumbo_button:hover,
-.i_dohodnina > button:hover,
-.i_donate > button:hover,
-.mailingButton:hover {
-  cursor: pointer;
-  background-color: #ebebeb;
-  color: #1f1f1f;
-  box-shadow: 1px 1px #a5a5a5;
-}
+
 
 .nav_donate > form > button {
   box-shadow: none;
@@ -201,9 +192,7 @@ button i {
           transition: all 0.2s ease-out;
         }
 
-        .i_muca:hover .i_muca_img a img {
-          filter: sepia(40%);
-        }
+
 
       .i_muca_txt {
         padding: 5px 20px;
@@ -258,9 +247,7 @@ button i {
   transition: all 0.2s ease;
 }
 
-.clear input#mc-embedded-subscribe:hover {
-  color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
-}
+
 
   .i_mailing > h2 {
     font-weight: 500;
@@ -502,15 +489,6 @@ input[type=email]:focus {
     box-shadow: 1px 1px #a5a5a5;
     transition: all 0.15s ease;
   }
-
-    .i_edu button:hover,
-    .i_muce button:hover,
-    .i_boter button:hover {
-      cursor: pointer;
-      color: #e5e5e5;
-      background: #515151;
-      /* font-weight: 300; */
-    }
 
 /* END IZOBRAZEVANJE */
 

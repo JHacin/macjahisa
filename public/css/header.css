@@ -107,29 +107,14 @@
   }
 
   .stellarnav > ul > .menu_primary {
-    /* height: 95px; */
     line-height: 75px;
     font-weight: 600;
     font-size: 19px;
-    /* color: #343a40; */
-    /* font-family: 'Open Sans', sans-serif; */
     border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
-    /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23bdbdbd' fill-opacity='0.38' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
   }
 
-    .stellarnav > ul > .menu_primary:hover {
-      background-color: #3f3f3f;
-      /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c5c5c5' fill-opacity='0.17' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
-    }
 
-    .stellarnav > ul > .menu_primary:hover > a {
-      color: #e5e5e5;
-    }
-
-    .menu_primary > a:hover {
-      cursor: default;
-    }
 
     .stellarnav li a {
       padding: 10px 15px;
@@ -163,17 +148,7 @@
         border-bottom-right-radius: 5px;
       }
 
-      .stellarnav > ul > .menu_primary > ul > li:hover {
-        /* background-color: #ffcb00;
-        background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%237c7b79' fill-opacity='0.23' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
-        background-color: #e5e5e5;
-        /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%233f3f3f' fill-opacity='0.16' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
-      }
 
-      .stellarnav > ul > .menu_primary > ul > .disabled_li:hover {
-        background-color: #fff;
-        background-image: none;
-      }
 
         .stellarnav > ul > .menu_primary > ul > li > a {
           color: #1f1f1f;
@@ -237,9 +212,7 @@
         letter-spacing: 0.1px;
       }
 
-        .menu_secondary > ul > li > a:hover {
-          color: #000;
-        }
+
 
       .nav_search {
         display: -webkit-box;
@@ -300,12 +273,9 @@
         font-weight: 600;
         font-family: 'Open Sans', sans-serif;
         z-index: 998;
-        /* -webkit-transform: translate3d(0,0,0); */
       }
 
-      .nav_donate > form > button:hover {
-        cursor: pointer;
-      }
+
 
 .header_mobile {
   display: none;
@@ -407,12 +377,6 @@ display: none;
       letter-spacing: 1px;
     }
 
-
-.jumbo_button button:hover {
-  cursor: pointer;
-  background: rgb(255, 203, 0); background: rgba(255, 203, 0, 0.75);
-}
-
 .nav {
   background: rgb(230, 230, 230);
   background: rgb(230, 230, 230); background: rgba(230, 230, 230,1);
@@ -499,18 +463,7 @@ display: none;
         padding-top: 0px;
       }
 
-      .stellarnav .nav_kategorija > a:hover {
-        color: black;
-        cursor: pointer;
-      }
 
-      .stellarnav .nav_podstran:hover {
-        background: #f3f3f3;
-      }
-
-      .stellarnav .nav_podstran a:hover {
-        color: black;
-      }
     /* END STELLARNAV */
 
   .nav .fa-search {
@@ -545,11 +498,6 @@ display: none;
     -o-transition: all 0.2s ease;
     transition: all 0.2s ease;
   }
-
-    .search button:hover {
-      cursor: pointer;
-      color: #e59400;
-    }
 
 /*  */
 .page_header {
@@ -708,10 +656,6 @@ td.gsc-search-button {
       font-size: 20px!important;
 }
 
-.gsc-search-button-v2 svg:hover {
-  cursor: pointer!important;
-}
-
 table.gsc-search-box {
   margin-bottom: 0!important;
 }
@@ -724,14 +668,7 @@ td.gsc-input {
   background: transparent!!important;
 }
 
-.gsc-search-box .gsc-input>input:hover,
-.gsc-input-box-hover {
-  border: none!important;
-  border-top-color: none!important;
-  -moz-box-shadow: none!important;
-  -webkit-box-shadow: none!important;
-  box-shadow: none!important;
-}
+
 
 .gsc-search-box .gsc-input>input:focus,
 .gsc-input-box-focus {
@@ -764,16 +701,10 @@ td#gs_tti51 {
 #___gcse_0 .gsst_a .gscb_a {
   color: white!important;
   display: none!important;
-  /* visibility: hidden!important; */
-}
-
-#___gcse_0 input#gsc-i-id1:hover {
-  cursor: default;
 }
 
 #___gcse_0 a.gsst_a {
   display: none!important;
-  /* visibility: hidden!important; */
 }
 
 #___gcse_0 .gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
