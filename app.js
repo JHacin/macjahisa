@@ -139,7 +139,8 @@ app.get("/", function(req, res){
             steviloMucKiIscejoDom: steviloMuc,
             naslovnice: aktiviraneNaslovnice,
             isIndexPage: true,
-            hasCustomMetaData: false
+            hasCustomMetaData: false,
+            needsSlickSlider: true
           });
         });
       });

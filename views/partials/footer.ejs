@@ -58,12 +58,17 @@
 </div>
 <!-- SCRIPTS -->
 <script type="text/javascript" src="/js/stellarnav.min.js"></script>
+<% if (typeof needsSlickSlider !== "undefined") { %>
 <script type="text/javascript" src="/slick/slick.min.js"></script>
+<% }; %>
 
 <script type="text/javascript">
           $(document).ready(function() {
 
-            $('.lazy').Lazy();
+            if ($(".lazy").length >=1) {
+              $('.lazy').Lazy();
+            };
+
 
             $(".stellarnav").stellarNav({
               position: "left",
@@ -71,7 +76,7 @@
               showArrows: false
             });
 
-            if($(".i_jumbo").length) {
+            if($(".i_jumbo").length >= 1) {
               $(".i_jumbo").slick({
                 dots: true,
                 arrows: false,
@@ -87,12 +92,13 @@
           });
 </script>
 
-<!-- <script src="/js/jquery.pajinate.min.js"></script> -->
+<% if (typeof needsJpList !== "undefined") { %>
 <script src="/js/jplist.core.min.js"></script>
 <script src="/js/jplist.textbox-filter.min.js"></script>
 <script src="/js/jplist.pagination-bundle.min.js"></script>
 <script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
 <script src="/js/jplist.filter-toggle-bundle.min.js"></script>
+<% }; %>
 <script src="/js/main.js"></script>
 
 

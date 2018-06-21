@@ -15,7 +15,7 @@ router.get("/muce", function(req, res){
       res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
       sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša",
-      muce: muce})
+      muce: muce, needsJpList: true})
     });
   });
 });
@@ -34,7 +34,8 @@ router.get("/muce/:id", function(req, res){
       title: muca.ime + " | Mačja hiša",
       social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
       social_image: "http://" + req.headers.host + "/files/oglasi_muce/" + muca.file_name1,
-      bannerIsHidden: true
+      bannerIsHidden: true,
+      needsSlickSlider: true
     });
   });
 });

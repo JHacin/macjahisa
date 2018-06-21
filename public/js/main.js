@@ -15,13 +15,17 @@ $(document).ready( function() {
   });
 
   // MUCE LIST
-  $('.muce_seznam').jplist({
-    itemsBox: '.list',
-    itemPath: '.list-item',
-    panelPath: '.jplist-panel'
-   });
+  if($(".muce_seznam").length >= 1) {
+    $('.muce_seznam').jplist({
+      itemsBox: '.list',
+      itemPath: '.list-item',
+      panelPath: '.jplist-panel'
+     });
+  };
+
 
    // MUCA IMAGE SLIDER
+if($(".photos").length >= 1) {
    $('.photos').slick({
      dots: false,
      arrows: true,
@@ -46,5 +50,6 @@ $(document).ready( function() {
        }
      ]
    });
+ };
 
 });
