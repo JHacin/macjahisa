@@ -1,3 +1,10 @@
+.i_jumbo {
+    visibility: hidden!important;
+}
+.i_jumbo.slick-initialized {
+    visibility: visible!important;
+}
+
 body > div {
   display: -webkit-box;
   display: -ms-flexbox;
