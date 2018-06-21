@@ -82,12 +82,12 @@ app.use(function(req, res, next){
 // find all categories and subpages (for navigation menu), cats and news (for sidebar)
 app.use("*", function(req, res, next) {
   Kategorija.find({}, function(err, kategorije){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     Podstran.find({}, function(err, podstrani){
-      if(err) return console.log(err);
+      if(err) return res.render("500");
       Muca.find().where("status").in([1, 2]).sort({datum: -1}).random(3, true, function(err, sidebar_muce) {
-        if(err) return console.log(err);
-            if(err) return console.log(err);
+        if(err) return res.render("500");
+            if(err) return res.render("500");
             req.nav_kategorije = kategorije;
             req.nav_podstrani = podstrani;
             req.sidebar_muce = sidebar_muce;
@@ -105,13 +105,13 @@ app.use("*", function(req, res, next) {
 //     clanek.dbid = count;
 //
 //     clanek.save(function(err, shranjenClanek){
-//             if(err) return console.log(err);
+//             if(err) return res.render("500");
 //
 //           });
 //     if (!clanek.tip) {
 //       clanek.tip = "besedilo";
 //       clanek.save(function(err, shranjenClanek){
-//         if(err) return console.log(err);
+//         if(err) return res.render("500");
 //       });
 //     }
 //   });
@@ -123,12 +123,12 @@ app.use("*", function(req, res, next) {
 // INDEX ROUTE
 app.get("/", function(req, res){
   Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     Muca.where("status").in([1, 2]).count().exec(function(err, count){
         var steviloMuc = count;
-        if(err) return console.log(err);
+        if(err) return res.render("500");
         Naslovnica.find().where("pozicija").in([1, 2, 3]).exec(function(err, naslovnice){
-          if(err) return console.log(err);
+          if(err) return res.render("500");
 
           var aktiviraneNaslovnice = [];
             naslovnice.map(function(naslovnica){
@@ -177,14 +177,14 @@ app.get("/", function(req, res){
 //     };
 //     muca.ime = ime;
 //     muca.save(function(err, muca){
-//       if(err) return console.log(err);
+//       if(err) return res.render("500");
 //     });
 //     console.log(muca.SEOmetaTitle);
 //     muca.SEOmetaTitle = muca.ime + " | Mačja hiša";
 //     muca.SEOfbTitle = muca.ime + " | Mačja hiša";
 //     muca.SEOtwitterTitle = muca.ime + " | Mačja hiša";
 //     muca.save(function(err, muca){
-//       if(err) return console.log(err);
+//       if(err) return res.render("500");
 //     });
 //   });
 // });

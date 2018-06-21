@@ -10,7 +10,7 @@ router.get("/", function(req, res){
 
 router.get("/izobrazevalne-vsebine", function(req, res){
   Podstran.findOne({naslov: "Izobraževalne vsebine"}, function(err, podstran){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine){
       res.render("dobro-je-vedeti/izobrazevalne-vsebine", {nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša",
@@ -21,9 +21,9 @@ router.get("/izobrazevalne-vsebine", function(req, res){
 
 router.get("/prispevki", function(req, res){
   Podstran.findOne({naslov: "Prispevki"}, function(err, podstran){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     Clanek.find({}, function(err, clanki) {
-      if(err) return console.log(err);
+      if(err) return res.render("500");
       res.render("dobro-je-vedeti/prispevki", {nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
       podstran: podstran, clanki: clanki})
@@ -33,7 +33,7 @@ router.get("/prispevki", function(req, res){
 
 router.get("/prispevki/:id", function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
 
     if(clanek.tip == "besedilo") {
 
@@ -54,8 +54,8 @@ router.get("/prispevki/:id", function(req, res){
 
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
-    if(podstran===null) return res.render("404");
-    if(err) return console.log(err);
+    if(podstran===null || err) return res.render("404");
+    if(err) return res.render("500");
     res.render("dobro-je-vedeti/show",
     {
       podstran: podstran,

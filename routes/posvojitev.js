@@ -11,7 +11,7 @@ router.get("/", function(req, res){
 router.get("/muce", function(req, res){
   Podstran.findOne({naslov: "Muce, ki iščejo dom"}, function(err, podstran){
     Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce){
-      if(err) return console.log(err);
+      if(err) return res.render("500");
       res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,
       sidebar_muce: req.sidebar_muce, title: "Muce, ki iščejo dom | Mačja hiša",
@@ -23,7 +23,7 @@ router.get("/muce", function(req, res){
 // Individualna muca
 router.get("/muce/:id", function(req, res){
   Muca.findOne({dbid: req.params.id}, function (err, muca){
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     res.render("posvojitev/prikaz", {
       muca: muca,
       // podstran: {naslov: muca.ime},
@@ -44,7 +44,7 @@ router.get("/muce/:id", function(req, res){
 router.get("/:podstran", function(req, res){
   Podstran.findOne({url: req.params.podstran}, function(err, podstran){
     if(podstran===null) return res.render("404");
-    if(err) return console.log(err);
+    if(err) return res.render("500");
     res.render("posvojitev/show",
     {
       podstran: podstran,

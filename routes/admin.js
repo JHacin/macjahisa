@@ -764,7 +764,7 @@ router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
       return res.redirect("/admin/login");
     }
     Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
-      if(err) return console.log(err);
+      if(err) return res.render("500");
       kategorija.save();
       req.flash("success", "Podstran posodobljena.");
       res.redirect("/admin/podstrani/");
