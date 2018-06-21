@@ -2,6 +2,7 @@ require('dotenv').config();
 
 var compression         = require("compression"),
     express             = require("express"),
+    minify              = require("express-minify"),
     helmet              = require("helmet"),
     ejs                 = require("ejs"),
     mongoose            = require("mongoose"),
@@ -32,10 +33,23 @@ var v_novem_domu = require("./routes/v-novem-domu.js");
 
 // CONFIG
 app.use(compression());
+app.use(function(req, res, next)
+{
+  if (/\.min\.(css|js)$/.test(req.url)) {
+    res.minifyOptions = res.minifyOptions || {};
+    res.minifyOptions.minify = false;
+  }
+  next();
+});
+app.use(minify({
+  cache: __dirname + "/cache",
+  jsMatch: /js/,
+  cssMatch: /css/,
+}));
 app.use(helmet())
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
-app.use(express.static(__dirname + "/public"));
+app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json({limit: "1tb"}));
 app.use(bodyParser.urlencoded({limit: "1tb", extended: true, parameterLimit:50000}));
