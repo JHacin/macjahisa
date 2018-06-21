@@ -120,6 +120,17 @@ app.use("*", function(req, res, next) {
 //   // });
 // });
 
+// sitemap
+app.get('/sitemap.xml', function(req, res) {
+  sitemap.toXML( function (err, xml) {
+      if (err) {
+        return res.status(500).end();
+      }
+      res.header('Content-Type', 'application/xml');
+      res.send( xml );
+  });
+});
+
 // INDEX ROUTE
 app.get("/", function(req, res){
   Muca.find().where("status").in([1, 2]).random(4, true, function(err, muce){
