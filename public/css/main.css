@@ -456,12 +456,11 @@ input.paypal_btn,
   }
 
   .content a:hover {
-    color: #d9680ce8;
-    font-weight: 600;
+    color: #9e9e9e;
   }
 
   .content .clanek_link:hover {
     font-weight: 400;
-    color: #b7b7b7;
+    color: #9e9e9e;
   }
 }
