@@ -398,6 +398,11 @@ input.paypal_btn,
     box-shadow: 1px 1px #a5a5a5;
   }
 
+  .nav_donate > form > button:hover {
+    box-shadow: none;
+    border: 1px solid #c4c4c4;
+  }
+
   .i_muca:hover .i_muca_img a img {
     filter: sepia(40%);
   }
