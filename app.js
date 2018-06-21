@@ -1,6 +1,7 @@
 require('dotenv').config();
 
-var express             = require("express"),
+var compression         = require("compression"),
+    express             = require("express"),
     ejs                 = require("ejs"),
     mongoose            = require("mongoose"),
     mongooseQueryRandom = require("mongoose-query-random"),
@@ -29,6 +30,7 @@ var admin = require("./routes/admin.js");
 var v_novem_domu = require("./routes/v-novem-domu.js");
 
 // CONFIG
+app.use(compression());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public"));
