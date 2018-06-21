@@ -46,7 +46,7 @@ app.use(minify({
   jsMatch: /js/,
   cssMatch: /css/,
 }));
-app.use(helmet())
+app.use(helmet());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
