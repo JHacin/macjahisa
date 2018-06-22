@@ -5,7 +5,7 @@
         <div class="naslovnica" style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje %>);">
           <div class="i_jumbo_text">
             <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
-            <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka že ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
+            <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
             <button class="i_jumbo_button"><a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>"><%- naslovnica.napisNaGumbu %></a></button>
           </div>
         </div>
