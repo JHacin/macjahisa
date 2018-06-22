@@ -52,4 +52,6 @@ if($(".photos").length >= 1) {
    });
  };
 
+ $(".i_jumbo_title").innerHTML = "<strong>asd</strong>".
+
 });
