@@ -34,7 +34,7 @@ $(document).ready( function() {
   // muce metadata
   $("#generateCatMetaDataButton").click(function() {
     var ime = $("#ime").val();
-    var opis = myEditor.getData();
+    var opis = $('#editor').trumbowyg('html');
     if(ime == "" || opis == "") {
       alert("Manjka ime in/ali opis.");
     } else {
@@ -45,7 +45,7 @@ $(document).ready( function() {
   // članki metadata
   $("#generateArticleMetaDataButton").click(function() {
     var naslov = $("#naslov").val();
-    var besedilo = myEditor.getData();
+    var besedilo = $('#editor').trumbowyg('html');
 
     if(naslov == "" || besedilo == "") {
       alert("Manjka naslov in/ali besedilo.");
@@ -57,7 +57,7 @@ $(document).ready( function() {
   // podstrani metadata
   $("#generatePageMetaDataButton").click(function() {
     var naslov = $("#naslov").val();
-    var vsebina = myEditor.getData();
+    var vsebina = $('#editor').trumbowyg('html');
     if(naslov == "" || vsebina == "") {
       alert("Manjka naslov in/ali besedilo.");
     } else {
