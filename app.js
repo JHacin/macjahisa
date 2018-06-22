@@ -50,7 +50,7 @@ app.use(minify({
 app.use(helmet());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
-app.use(express.static("/public", { maxAge: 31557600 }));
+app.use(express.static("/public"));
 app.use(express.static("./node_modules"));
 // app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
 // app.use(express.static(__dirname + "./node_modules"));
