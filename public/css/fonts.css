@@ -78,11 +78,7 @@
   font-family: 'Nunito', sans-serif;
 }
 
-/* Footer */
-.i_footer h3 {
-  font-size: 20px;
-  font-family: 'Nunito', sans-serif;
-}
+
 
 #footer_links > div > ul > li {
   font-size: 15px;
@@ -310,5 +306,28 @@
   .side_cat_ime h5,
   .sidebar_social h3 {
     font-size: 16px;
+  }
+
+  /* Footer */
+  .i_footer h3 {
+    font-size: 18px;
+    margin-bottom: 0;
+    letter-spacing: 1.5px;
+  }
+
+  .i_footer h3:first-of-type {
+    margin-top: 0;
+  }
+
+  #footer_links>div>ul {
+    margin: 0.3rem 0 1rem 0;
+  }
+
+  #footer_links>div>ul {
+    line-height: 30px;
+  }
+
+  #footer_links>div>ul>li a {
+    font-size: 14px;
   }
 }

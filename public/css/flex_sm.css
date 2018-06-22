@@ -9,6 +9,11 @@
       text-align: center;
     }
 
+    #footer_links>div>ul {
+      margin: 0.3rem 0 1rem 0;
+    }
+
+
   .muca_infoandmore p {
     margin-bottom: 0;
   }
