@@ -24,7 +24,7 @@ var storage_muce = multer.diskStorage({
     cb(null, 'public/files/oglasi_muce')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname.replace(/[- )(]/g,''))
+    cb(null, Date.now() + file.originalname.replace(/[ )(]/g,''))
   }
 })
 
@@ -33,7 +33,7 @@ var storage_clanki = multer.diskStorage({
     cb(null, 'public/files/clanki')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname.replace(/[- )(]/g,''))
+    cb(null, file.originalname.replace(/[ )(]/g,''))
   }
 })
 
@@ -42,7 +42,7 @@ var storage_izobrazevanje = multer.diskStorage({
     cb(null, 'public/files/izobrazevanje')
   },
   filename: function (req, file, cb) {
-    cb(null, file.originalname.replace(/[- )(]/g,''))
+    cb(null, file.originalname.replace(/[ )(]/g,''))
   }
 })
 
@@ -51,7 +51,7 @@ var storage_naslovnice = multer.diskStorage({
     cb(null, 'public/files/naslovnice')
   },
   filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname.replace(/[- )(]/g,''))
+    cb(null, Date.now() + file.originalname.replace(/[ )(]/g,''))
   }
 })
 
@@ -561,7 +561,7 @@ router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("cla
         return res.redirect("/admin/clanki");
       }
       if(req.file) {
-        clanek.vsebina = req.file.originalname;
+        clanek.vsebina = req.file.originalname.replace(/[ )(]/g,'');
         clanek.dbid = count + 1;
         clanek.save();
       };
@@ -630,7 +630,7 @@ router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("
       return res.redirect("/admin/clanki");
     }
     if (req.file) {
-      clanek.vsebina = req.file.originalname;
+      clanek.vsebina = req.file.originalname.replace(/[ )(]/g,'');
       clanek.save();
     }
     req.flash("success", "Prispevek posodobljen.");
@@ -673,12 +673,12 @@ router.post("/izobrazevalne-vsebine", middleware.isPageEditor, upload_izobrazeva
       return res.redirect("/admin/izobrazevalne-vsebine");
     }
     if(req.files["vsebina[datoteka]"]) {
-      vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname;
+      vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
     };
 
     if(req.files["vsebina[naslovna_slika]"]) {
-      vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname;
+      vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
     };
     req.flash("success", "Vsebina dodana.");
@@ -694,11 +694,11 @@ router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobraz
       return res.redirect("/admin/izobrazevalne-vsebine");
     }
     if(req.files["vsebina[nova_datoteka]"]) {
-      vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname;
+      vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
     };
     if(req.files["vsebina[nova_naslovna_slika]"]) {
-      vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname;
+      vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
     };
     req.flash("success", "Vsebina posodobljena.");
@@ -1310,7 +1310,7 @@ router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("na
 
       if(req.file) {
         // var ozadje = "naslovnica_" + dbid + "." + req.file.mimetype.split("/")[1];
-        naslovnica.ozadje = req.file.filename;
+        naslovnica.ozadje = req.file.filename.replace(/[ )(]/g,'');
         naslovnica.save(function (err) {
           if (err) return handleError(err);
           // saved!
@@ -1335,7 +1335,7 @@ router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single(
     }
 
     if(req.file) {
-      var ozadje = req.file.filename;
+      var ozadje = req.file.filename.replace(/[ )(]/g,'');
       naslovnica.ozadje = ozadje;
       naslovnica.save(function (err) {
         if (err) return handleError(err);
