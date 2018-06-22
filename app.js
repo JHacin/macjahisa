@@ -13,9 +13,8 @@ var compression         = require("compression"),
     passport            = require("passport"),
     LocalStrategy       = require("passport-local"),
     flash               = require("connect-flash"),
-    methodOverride      = require("method-override"),
-    maintenance         = require("maintenance");
-    // ckEditor            = require( '@ckeditor/ckeditor5-build-classic' );
+    middleware          = require("./middleware"),
+    methodOverride      = require("method-override");
 
 var Muca                = require("./models/muca"),
     Kategorija          = require("./models/kategorija"),
@@ -53,6 +52,8 @@ mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
 app.use(express.static("/public", { maxAge: 31557600 }));
 app.use(express.static("./node_modules"));
+// app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
+// app.use(express.static(__dirname + "./node_modules"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json({limit: "1tb"}));
 app.use(bodyParser.urlencoded({limit: "1tb", extended: true, parameterLimit:50000}));
@@ -123,23 +124,24 @@ app.use("*", function(req, res, next) {
   // });
 // });
 
-// app.get('/', function (req, res) {
-// 	console.log(req.url);
-// 	res.render("maintenance");
-// });
 
-var options = {
-	current: true,						// current state, default **false**
-	httpEndpoint: true,					// expose http endpoint for hot-switch, default **false**,
-	url: '/app/mt',						// if `httpEndpoint` is on, customize endpoint url, default **'/maintenance'**
-	accessKey: 'xx4zUU8Cyy7',			// token that client send to authorize, if not defined `access_key` is not used
-	view: 'maintenance',				// view to render on maintenance, default **'maintenance.html'**
-	api: '/api',						// for rest API, species root URL to apply, default **undefined**
-	status: 503,						// status code for response, default **503**
-	message: 'Takoj bomo nazaj'				// response message, default **'sorry, we are on maintenance'**
-};
+// MAINTENANCE MODE
+app.get('/admin', function(req, res) {
+  res.render("admin/login");
+});
 
-// maintenance(app, options);
+app.get('/admin/login', function(req, res) {
+  res.render("admin/login");
+});
+
+app.post("/admin/login", passport.authenticate("local",
+    {
+        successRedirect: "/admin/muce/iscejo",
+        failureRedirect: "/admin/login"
+    }), function(req, res) {
+});
+
+app.use('*', middleware.isLoggedInWhenUnderMaintenance);
 
 app.get("/sitemap.xml", function(req, res){
   res.type("application/xml");

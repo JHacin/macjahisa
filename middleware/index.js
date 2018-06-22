@@ -1,5 +1,13 @@
 var middlewareObj = {};
 
+middlewareObj.isLoggedInWhenUnderMaintenance = function(req, res, next){
+    if(req.isAuthenticated()){
+        return next();
+    }
+    // req.flash("error", "Za to moraš biti prijavljen.");
+    res.render("maintenance");
+};
+
 middlewareObj.isLoggedIn = function(req, res, next){
     if(req.isAuthenticated()){
         return next();
