@@ -511,9 +511,8 @@ input[type=email]:focus {
       -ms-flex-align: center;
           align-items: center;
   padding: 60px 0;
-  /* background-image: url(/files/index/7.jpg); */
   background-size: cover;
-  background-position: top;
+  background-position: 50% 50%;
   background-repeat: no-repeat;
 }
 
