@@ -2,6 +2,10 @@ body {
   margin: 0;
 }
 
+iframe {
+  max-width: 100%!important;
+}
+
 .notVisible {
   /* visibility: hidden; */
   display: none;
