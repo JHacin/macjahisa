@@ -230,13 +230,9 @@ textarea {
 }
 
 .cms_muca_row .trumbowyg-box {
-  width: 88%;
+  width: 88%!important;
 }
 
 .trumbowyg-box {
-  margin: 0 auto;
-}
-
-.trumbowyg-modal-box form label input[name="target"]:before {
-  content: "Za zunanje povezave vpiši _target";
+  margin: 0 auto!important;
 }
