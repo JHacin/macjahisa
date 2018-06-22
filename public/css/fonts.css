@@ -320,14 +320,15 @@
   }
 
   #footer_links>div>ul {
-    margin: 0.3rem 0 1rem 0;
+    margin: 0.3rem 0 1.2rem 0;
   }
 
-  #footer_links>div>ul {
+  #footer_links>div>ul>li {
     line-height: 30px;
   }
 
   #footer_links>div>ul>li a {
     font-size: 14px;
+
   }
 }
