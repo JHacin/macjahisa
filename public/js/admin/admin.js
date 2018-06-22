@@ -18,12 +18,6 @@ $(document).ready( function() {
     "order": [[ 0, 'desc' ]]
   });
 
-  // $('#summernote').summernote({
-  //   minHeight: 500,
-  //   placeholder: 'Vnesi besedilo...',
-  //   fontNames: ['Open Sans']
-  // });
-
   $("#naslovnicaRangeInput").on("input", function() {
     $("#naslovnicaRangeValue").html($(this).val() + "%");
     var pos = "50% " + $(this).val() + "%";

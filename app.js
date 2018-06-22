@@ -14,6 +14,7 @@ var compression         = require("compression"),
     LocalStrategy       = require("passport-local"),
     flash               = require("connect-flash"),
     methodOverride      = require("method-override");
+    // ckEditor            = require( '@ckeditor/ckeditor5-build-classic' );
 
 var Muca                = require("./models/muca"),
     Kategorija          = require("./models/kategorija"),
@@ -50,6 +51,7 @@ app.use(helmet());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
 app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
+app.use(express.static("./node_modules"));
 app.use(methodOverride("_method"));
 app.use(bodyParser.json({limit: "1tb"}));
 app.use(bodyParser.urlencoded({limit: "1tb", extended: true, parameterLimit:50000}));
@@ -106,8 +108,8 @@ app.use("*", function(req, res, next) {
 //
 //     clanek.save(function(err, shranjenClanek){
 //             if(err) return res.render("500");
-//
 //           });
+//           console.log(clanek.dbid);
 //     if (!clanek.tip) {
 //       clanek.tip = "besedilo";
 //       clanek.save(function(err, shranjenClanek){
@@ -115,9 +117,9 @@ app.use("*", function(req, res, next) {
 //       });
 //     }
 //   });
-//   // Clanek.count({}, function(err, count){
-//   //
-//   // });
+  // Clanek.count({}, function(err, count){
+  //
+  // });
 // });
 
 app.get("/sitemap.xml", function(req, res){

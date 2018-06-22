@@ -229,18 +229,14 @@ textarea {
   vertical-align: middle;
 }
 
-.ck.ck-editor__main>.ck-editor__editable {
-  background: rgb(243, 243, 243);
-  min-height: 300px;
-  min-width: 800px;
-  max-width: 88%;
+.cms_muca_row .trumbowyg-box {
+  width: 88%;
 }
 
-.ck.ck-reset.ck-editor.ck-rounded-corners,
-.ck.ck-toolbar {
-  max-width: 88%;
+.trumbowyg-box {
+  margin: 0 auto;
 }
 
-/* #boter_povezava, label[for='boter_povezava'] {
-  transition: all 0.2s ease;
-} */
+.trumbowyg-modal-box form label input[name="target"]:before {
+  content: "Za zunanje povezave vpiši _target";
+}

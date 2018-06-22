@@ -165,7 +165,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
       status: $("#status").val(),
       mesec_rojstva: $("#mesec_rojstva").val(),
       spol: $("#spol").val(),
-      opis: myEditor.getData(),
+      opis: $('#editor').trumbowyg('html'),
       kontakt: $("#kontakt").val(),
       posvojitev_na_daljavo: $("#posvojitev_na_daljavo").val(),
       boter_povezava: $("#boter_povezava").val(),
