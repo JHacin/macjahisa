@@ -338,7 +338,7 @@ input[type=email]:focus {
           align-items: center;
   /* background-image: url(/files/index/6.jpg); */
   background-size: cover;
-  background-position: center;
+  background-position: 50% 60%;
   background-repeat: no-repeat;
 }
 

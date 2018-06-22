@@ -42,11 +42,11 @@ app.use(function(req, res, next)
   }
   next();
 });
-app.use(minify({
-  cache: __dirname + "/cache",
-  jsMatch: /js/,
-  cssMatch: /css/,
-}));
+// app.use(minify({
+//   cache: __dirname + "/cache",
+//   jsMatch: /js/,
+//   cssMatch: /css/,
+// }));
 app.use(helmet());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
