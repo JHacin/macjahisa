@@ -73,6 +73,7 @@
 
 .cat_full .photos div img {
   height: 300px;
+  margin-bottom: 1rem;
 }
 
 .jplist-panel.muce_filtri {

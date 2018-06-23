@@ -10,6 +10,10 @@
 
 }
 
+.fb_banner {
+  margin-top: 1px;
+}
+
     #footer_links {
       width: 75%;
       display: flex;

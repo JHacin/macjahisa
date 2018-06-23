@@ -112,6 +112,9 @@
     font-size: 19px;
     border-right: 1px solid #ddd; border-right: 1px solid rgba(0, 0, 0, 0.08);
     background-color: #ffffff;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 700;
+    transition: all 0.15s ease;
   }
 
 
@@ -130,6 +133,7 @@
 
       /* Pogoji za posvojitev, Seznam muc itd. */
       .stellarnav > ul > .menu_primary > ul > li {
+        transition: all 0.15s ease;
         background: #fff;
         width: 245px;
         padding: 5px 0;

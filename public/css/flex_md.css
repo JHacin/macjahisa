@@ -391,8 +391,8 @@
   }
 
   #imageZoom {
-    padding: 1rem 1.5rem;
-    margin: 1.5rem 0;
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0 1.5rem 0;
   }
 
   #back_to_cats_list {
