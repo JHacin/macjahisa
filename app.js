@@ -2,7 +2,7 @@ require('dotenv').config();
 
 var compression         = require("compression"),
     express             = require("express"),
-    minify              = require("express-minify"),
+    // minify              = require("express-minify"),
     helmet              = require("helmet"),
     ejs                 = require("ejs"),
     mongoose            = require("mongoose"),
@@ -34,14 +34,14 @@ var v_novem_domu = require("./routes/v-novem-domu.js");
 
 // CONFIG
 app.use(compression());
-app.use(function(req, res, next)
-{
-  if (/\.min\.(css|js)$/.test(req.url)) {
-    res.minifyOptions = res.minifyOptions || {};
-    res.minifyOptions.minify = false;
-  }
-  next();
-});
+// app.use(function(req, res, next)
+// {
+//   if (/\.min\.(css|js)$/.test(req.url)) {
+//     res.minifyOptions = res.minifyOptions || {};
+//     res.minifyOptions.minify = false;
+//   }
+//   next();
+// });
 // app.use(minify({
 //   cache: __dirname + "/cache",
 //   jsMatch: /js/,
@@ -127,30 +127,30 @@ app.use("*", function(req, res, next) {
 
 
 // MAINTENANCE MODE
-app.get('/admin', function(req, res) {
-  if(req.isAuthenticated()){
-      res.redirect("admin/muce/iscejo");
-  } else {
-    res.render("admin/login");
-  }
-});
-
-app.get('/admin/login', function(req, res) {
-  if(req.isAuthenticated()){
-      res.redirect("admin/muce/iscejo");
-  } else {
-    res.render("admin/login");
-  }
-});
-
-app.post("/admin/login", passport.authenticate("local",
-    {
-        successRedirect: "/admin/muce/iscejo",
-        failureRedirect: "/admin/login"
-    }), function(req, res) {
-});
-
-app.use('*', middleware.isLoggedInWhenUnderMaintenance);
+// app.get('/admin', function(req, res) {
+//   if(req.isAuthenticated()){
+//       res.redirect("admin/muce/iscejo");
+//   } else {
+//     res.render("admin/login");
+//   }
+// });
+//
+// app.get('/admin/login', function(req, res) {
+//   if(req.isAuthenticated()){
+//       res.redirect("admin/muce/iscejo");
+//   } else {
+//     res.render("admin/login");
+//   }
+// });
+//
+// app.post("/admin/login", passport.authenticate("local",
+//     {
+//         successRedirect: "/admin/muce/iscejo",
+//         failureRedirect: "/admin/login"
+//     }), function(req, res) {
+// });
+//
+// app.use('*', middleware.isLoggedInWhenUnderMaintenance);
 
 app.get("/sitemap.xml", function(req, res){
   res.type("application/xml");

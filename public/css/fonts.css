@@ -287,7 +287,6 @@
   /* IZOBRAŽEVANJE  */
   .izobrazevalne-vsebine .vsebina h3 {
     font-size: 16px;
-    text-align: center;
   }
 
   .izobrazevalne-vsebine .vsebina a {
@@ -331,5 +330,12 @@
   #footer_links>div>ul>li a {
     font-size: 14px;
 
+  }
+}
+
+@media all and (max-width: 640px) {
+  .izobrazevalne-vsebine .vsebina h3 {
+    font-size: 16px;
+    text-align: center;
   }
 }
