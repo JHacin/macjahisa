@@ -128,11 +128,19 @@ app.use("*", function(req, res, next) {
 
 // MAINTENANCE MODE
 app.get('/admin', function(req, res) {
-  res.render("admin/login");
+  if(req.isAuthenticated()){
+      res.redirect("admin/muce/iscejo");
+  } else {
+    res.render("admin/login");
+  }
 });
 
 app.get('/admin/login', function(req, res) {
-  res.render("admin/login");
+  if(req.isAuthenticated()){
+      res.redirect("admin/muce/iscejo");
+  } else {
+    res.render("admin/login");
+  }
 });
 
 app.post("/admin/login", passport.authenticate("local",
