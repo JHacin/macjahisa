@@ -3,7 +3,7 @@
 <p><a href="/admin/clanki"><< Nazaj</a></p>
 <h3>Uredi povezavo</h3>
 
-<form action="/admin/clanki/<%= clanek._id %>?_method=PUT" method="POST">
+<form action="/admin/clanki/<%= clanek.dbid %>?_method=PUT" method="POST">
   <div class="required">
     <label for="clanek[naslov]">Naslov:</label>
     <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
