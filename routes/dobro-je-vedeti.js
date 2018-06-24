@@ -31,12 +31,12 @@ router.get("/letaki", function(req, res){
 });
 
 router.get("/prispevki", function(req, res){
-  Podstran.findOne({naslov: "Prispevki"}, function(err, podstran){
+  Podstran.findOne({naslov: "Prispevki, članki, povezave"}, function(err, podstran){
     if(err) return res.render("500");
     Clanek.find({}, function(err, clanki) {
       if(err) return res.render("500");
-      res.render("dobro-je-vedeti/prispevki", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Koristne informacije | Mačja hiša",
+      res.render("dobro-je-vedeti/prispevki-clanki-povezave", {nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Prispevki, članki, povezave | Mačja hiša",
       podstran: podstran, clanki: clanki})
     });
   });

@@ -597,7 +597,7 @@ router.get("/clanki/:id", middleware.isPageEditor, function(req, res){
     } else if(clanek.tip == "datoteka") {
       res.redirect("/files/clanki/" + clanek.vsebina);
     } else {
-      res.redirect("/dobro-je-vedeti/prispevki/" + clanek.dbid);
+      res.redirect("/dobro-je-vedeti/prispevki-clanki-povezave/" + clanek.dbid);
     }
   });
 });

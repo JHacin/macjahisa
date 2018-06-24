@@ -22,7 +22,7 @@ clanki.forEach(function(clanek){
 <h2>Prispevki</h2>
 <ul>
   <% prispevki.forEach(function(clanek){ %>
-    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki/<%= clanek.dbid %>"
+    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki-clanki-povezave/<%= clanek.dbid %>"
       target="<%= clanek.tip === 'besedilo' ? '_top' : '_blank' %>">
       <%= clanek.naslov %>
     <% if (clanek.tip === "besedilo") { %>
@@ -41,7 +41,7 @@ clanki.forEach(function(clanek){
 <h2>Nasveti</h2>
 <ul>
   <% nasveti.forEach(function(clanek){ %>
-    <li><a  class="clanek_link" href="/dobro-je-vedeti/prispevki/<%= clanek.dbid %>"
+    <li><a  class="clanek_link" href="/dobro-je-vedeti/prispevki-clanki-povezave/<%= clanek.dbid %>"
       target="<%= clanek.tip === 'besedilo' ? '_top' : '_blank' %>">
       <%= clanek.naslov %>
       <% if (clanek.tip === "besedilo") { %>
@@ -60,7 +60,7 @@ clanki.forEach(function(clanek){
 <h2>Zdravje</h2>
 <ul>
   <% zdravje.forEach(function(clanek){ %>
-    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki/<%= clanek.dbid %>"
+    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki-clanki-povezave/<%= clanek.dbid %>"
       target="<%= clanek.tip === 'besedilo' ? '_top' : '_blank' %>">
       <%= clanek.naslov %>
       <% if (clanek.tip === "besedilo") { %>
@@ -79,7 +79,7 @@ clanki.forEach(function(clanek){
 <h2>Zakonodaja</h2>
 <ul>
   <% zakonodaja.forEach(function(clanek){ %>
-    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki/<%= clanek.dbid %>"
+    <li><a class="clanek_link" href="/dobro-je-vedeti/prispevki-clanki-povezave/<%= clanek.dbid %>"
       target="<%= clanek.tip === 'besedilo' ? '_top' : '_blank' %>">
       <%= clanek.naslov %>
       <% if (clanek.tip === "besedilo") { %>
