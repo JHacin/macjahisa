@@ -50,8 +50,19 @@ app.use(compression());
 app.use(helmet());
 mongoose.connect("mongodb://localhost/macjahisa" || process.env.DATABASE);
 app.set("view engine", "ejs");
-app.use(express.static("/public"));
-app.use(express.static("./node_modules"));
+
+if (process.env.STATIC_PUBLIC === '__dirname + "/public"') {
+  app.use(express.static(__dirname + "/public"));
+} else {
+  app.use(express.static("/public"));
+}
+
+if (process.env.STATIC_NODE_MODULES === '__dirname + "./node_modules"') {
+  app.use(express.static(__dirname + "./node_modules"));
+} else {
+  app.use(express.static("./node_modules"));
+}
+
 // app.use(express.static(__dirname + "/public", { maxAge: 31557600 }));
 // app.use(express.static(__dirname + "/public"));
 // app.use(express.static(__dirname + "./node_modules"));

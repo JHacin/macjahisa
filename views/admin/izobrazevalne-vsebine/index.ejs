@@ -1,11 +1,12 @@
 <% include ../../partials/admin/header %>
 
-<h3>Izobraževalne vsebine</h3>
+<h3>Zbirka Mačje hiše in letaki (PDF)</h3>
 <p><a href="/admin/izobrazevalne-vsebine/add">+ Dodaj novo</a></p>
 <table id="tabela" class="display">
     <thead>
         <tr>
             <th>Datum objave</th>
+            <th>Kategorija</th>
             <th>Naslov</th>
             <th>Naslovna slika</th>
             <th>Datoteka</th>
@@ -23,6 +24,7 @@
                 <!-- actual date format shown -->
                 <%= moment(vsebina.datum).format("DD[.]MM[.]YYYY") %>
               </td>
+              <td><%= vsebina.kategorija %></td>
               <td><%= vsebina.naslov %></td>
               <td><a href="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" target="_blank"><img class="thumb" src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>" /></a></td>
               <td><%- vsebina.datoteka %></td>

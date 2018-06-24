@@ -8,6 +8,10 @@
     <input type="text" name="vsebina[naslov]" id="naslov" size="70" value="<%= vsebina.naslov %>" autofocus required/>
   </div>
   <div>
+  <div class="required">
+    <label for="datum">Datum objave (najnovejše objave so prikazane prve):</label>
+    <input type="date" id="datum" name="vsebina[datum]" value="<%= moment(vsebina.datum).format("YYYY-MM-DD") %>" required/>
+  </div>
     <label for="vsebina[datoteka]">Datoteka:</label>
     <input type="text" name="vsebina[datoteka]" id="datoteka" value="<%= vsebina.datoteka %>" size="70" disabled/>
   </div>
@@ -22,6 +26,13 @@
   <div>
     <label for="vsebina[nova_naslovna_slika]">Nova naslovna slika:</label>
     <input type="file" accept="image/*" name="vsebina[nova_naslovna_slika]" id="nova_naslovna_slika" size="70"/>
+  </div>
+  <div>
+    <label for="vsebina[kategorija]">Kategorija:</label>
+    <select id="kategorija" name="vsebina[kategorija]">
+      <option value="zbirka-macje-hise" <%= vsebina.kategorija == "zbirka-macje-hise" ? "selected" : "" %>>Zbirka Mačje hiše</option>
+      <option value="letaki" <%= vsebina.kategorija == "letaki" ? "selected" : "" %>>Letaki</option>
+    </select>
   </div>
   <div>
     <label for="vsebina[objava]">Objava:</label>

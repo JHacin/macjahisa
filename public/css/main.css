@@ -2,8 +2,12 @@ body {
   margin: 0;
 }
 
+figure {
+  margin: 0;
+}
+
 iframe {
-  max-width: 100%!important;
+  max-width: 100%;
 }
 
 .notVisible {

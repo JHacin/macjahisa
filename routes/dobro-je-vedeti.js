@@ -5,15 +5,26 @@ var Clanek = require("../models/clanek");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
 
 router.get("/", function(req, res){
-  res.redirect("/dobro-je-vedeti/izobrazevalne-vsebine");
+  res.redirect("/dobro-je-vedeti/zbirka-macje-hise");
 });
 
-router.get("/izobrazevalne-vsebine", function(req, res){
-  Podstran.findOne({naslov: "Izobraževalne vsebine"}, function(err, podstran){
+router.get("/zbirka-macje-hise", function(req, res){
+  Podstran.findOne({naslov: "Zbirka Mačje hiše"}, function(err, podstran){
     if(err) return res.render("500");
-    Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine){
-      res.render("dobro-je-vedeti/izobrazevalne-vsebine", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Izobraževalne vsebine | Mačja hiša",
+    Izobrazevalna_vsebina.find({kategorija:"zbirka-macje-hise"}).sort({datum: -1}).exec(function(err, vsebine){
+      res.render("dobro-je-vedeti/zbirka-macje-hise", {nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Zbirka Mačje hiše | Mačja hiša",
+      podstran: podstran, vsebine: vsebine})
+    });
+  });
+});
+
+router.get("/letaki", function(req, res){
+  Podstran.findOne({naslov: "Letaki"}, function(err, podstran){
+    if(err) return res.render("500");
+    Izobrazevalna_vsebina.find({kategorija:"letaki"}).sort({datum: -1}).exec(function(err, vsebine){
+      res.render("dobro-je-vedeti/letaki", {nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Letaki | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });
   });

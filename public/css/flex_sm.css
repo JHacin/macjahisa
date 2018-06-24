@@ -9,8 +9,9 @@
       text-align: center;
     }
 
-
-
+  #imageZoomDiv {
+    display: none;
+  }
 
   .muca_infoandmore p {
     margin-bottom: 0;
@@ -82,6 +83,7 @@
 
   .photos {
     width: 86vw;
+    margin-bottom: 1.4rem;
   }
 
   .content ul {
@@ -554,7 +556,7 @@
 }
 
 .i_edu_img {
-  margin: 0 0 20px 0;
+  margin: 0;
   -ms-flex-pack: distribute;
       justify-content: space-around;
   -webkit-box-align: center;
@@ -571,7 +573,7 @@
   .i_edu_img img {
     height: auto;
     max-width: 43%;
-    margin: 0;
+    margin: 0 0 25px 0;
   }
 
   .i_edu p {
@@ -644,7 +646,9 @@
     min-height: 240px;
   }
 
-
+  .side_cat {
+    height: 200px;
+  }
 
   .izobrazevalne-vsebine > .vnos {
     -webkit-box-orient: vertical;
@@ -686,8 +690,22 @@
   }
 
   .photos {
-    width: 85vw;
+    width: 100vw;
   }
+
+    .slick-prev {
+      left: 4%;
+      z-index: 90001;
+    }
+
+    .slick-next {
+      right: 4%;
+      z-index: 90001;
+    }
+
+    .slick-prev:before, .slick-next:before {
+      color: #fcfdffad !important;
+    }
 
   .photos .photo {
     margin: 0 2px;
@@ -710,7 +728,11 @@
 @media all and (max-width: 480px) {
 
   .sidebar {
-    width: 90%;
+    width: 100%;
+  }
+
+  .i_edu_img img {
+    margin: 0 0 20px 0;
   }
 
   .jplist-panel .jplist-pagination {
@@ -734,7 +756,11 @@
 @media all and (max-width: 360px) {
 
   .sidebar {
-    width: 90%;
+    width: 100%;
+  }
+
+  .i_edu_img img {
+    margin: 0 0 12px 0;
   }
 
   .fb-page, .fb-page iframe[style], .fb-page span {
@@ -763,7 +789,7 @@
   }
 
   .side_cat {
-    height: 190px;
+    height: 170px;
   }
 
   .i_muca {
