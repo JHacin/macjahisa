@@ -143,6 +143,12 @@
     font-size: 20px;
     font-weight: 600;
     margin-bottom: 0;
+    padding-top: 0;
+  }
+
+  .muca h2 {
+    padding-top: 0;
+    margin-bottom: 0;
   }
 
   /* individualna stran */
