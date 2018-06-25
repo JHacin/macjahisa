@@ -3,6 +3,7 @@ var router = express.Router({mergeParams: true});
 var Podstran = require("../models/podstran");
 var Clanek = require("../models/clanek");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
+var Otroci_vsebina = require("../models/otroci_vsebina");
 
 router.get("/", function(req, res){
   res.redirect("/dobro-je-vedeti/zbirka-macje-hise");
@@ -61,6 +62,18 @@ router.get("/prispevki-clanki-povezave/:id", function(req, res){
     } else if (clanek.tip =="povezava"){
       res.redirect(clanek.vsebina);
     }
+  });
+});
+
+router.get("/koticek-za-otroke", function(req, res){
+  Podstran.findOne({naslov: "Kotiček za otroke"}, function(err, podstran){
+    if(err) return res.render("500");
+    Otroci_vsebina.find({}, function(err, vsebine) {
+      if(err) return res.render("500");
+      res.render("dobro-je-vedeti/koticek-za-otroke", {nav_kategorije: req.nav_kategorije,
+      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Kotiček za otroke | Mačja hiša",
+      podstran: podstran, vsebine: vsebine})
+    });
   });
 });
 

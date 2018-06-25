@@ -1,0 +1,39 @@
+<% include ../../partials/admin/header %>
+<p><a href="/admin/koticek-za-otroke"><< Nazaj</a></p>
+<h3>Nova vsebina za otroški kotiček</h3>
+
+<form action="/admin/koticek-za-otroke" method="POST" enctype="multipart/form-data">
+  <div>
+    <label for="vsebina[naslov]">Naslov:</label>
+    <input type="text" name="vsebina[naslov]" id="naslov" size="70" autofocus/>
+  </div>
+  <div class="required">
+    <label for="datum">Datum objave (najnovejše objave so prikazane prve):</label>
+    <input type="date" id="datum" name="vsebina[datum]" value="" required/>
+  </div>
+  <div class="required">
+    <label for="vsebina[datoteka]">Datoteka:</label>
+    <input type="file" accept="application/msword application/pdf" name="vsebina[datoteka]" id="datoteka" size="70" required/>
+  </div>
+  <div class="required">
+    <label for="vsebina[naslovna_slika]">Naslovna slika (če gre za pobarvanko, lahko daš kar isto kot pri datoteki):</label>
+    <input type="file" accept="image/*" name="vsebina[naslovna_slika]" id="naslovna_slika" size="70" required/>
+  </div>
+  <div>
+    <label for="vsebina[kategorija]">Kategorija:</label>
+    <select id="kategorija" name="vsebina[kategorija]">
+      <option value="pobarvanka" selected>Pobarvanka</option>
+      <option value="drugo">Drugo</option>
+    </select>
+  </div>
+  <div>
+    <label for="vsebina[objava]">Objava:</label>
+    <select id="objava" name="vsebina[objava]">
+      <option value="1" selected>Da</option>
+      <option value="0">Ne</option>
+    </select>
+  </div>
+  <input type="submit" value="Dodaj">
+</form>
+
+<% include ../../partials/admin/footer %>

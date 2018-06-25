@@ -61,8 +61,8 @@ app.use(express.static("./node_modules"));
 // app.use(express.static(__dirname + "/public"));
 // app.use(express.static(__dirname + "./node_modules"));
 app.use(methodOverride("_method"));
-app.use(bodyParser.json({limit: "1tb"}));
-app.use(bodyParser.urlencoded({limit: "1tb", extended: true, parameterLimit:50000}));
+app.use(bodyParser.json({limit: "100mb"}));
+app.use(bodyParser.urlencoded({limit: "100mb", extended: true, parameterLimit:50000}));
 app.use(flash());
 app.locals.moment = require('moment');
 

@@ -8,6 +8,7 @@ var Kategorija = require("../models/kategorija");
 var Kontakt = require("../models/kontakt");
 var Oskrbnica = require("../models/oskrbnica");
 var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
+var Otroci_vsebina = require("../models/otroci_vsebina");
 var User = require("../models/user");
 var moment = require("moment");
 var passport = require("passport");
@@ -46,6 +47,15 @@ var storage_izobrazevanje = multer.diskStorage({
   }
 })
 
+var storage_otroci = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, 'public/files/otroski-koticek')
+  },
+  filename: function (req, file, cb) {
+    cb(null, file.originalname.replace(/[ )(]/g,''))
+  }
+})
+
 var storage_naslovnice = multer.diskStorage({
   destination: function (req, file, cb) {
     cb(null, 'public/files/naslovnice')
@@ -58,6 +68,7 @@ var storage_naslovnice = multer.diskStorage({
 var upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
+var upload_otroci = multer({ storage: storage_otroci, limits: { fieldSize: 25 * 1024 * 10240 } });
 var upload_naslovnice = multer({ storage: storage_naslovnice, limits: { fieldSize: 25 * 1024 * 10240 } });
 // END MULTER
 
@@ -706,6 +717,73 @@ router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobraz
   });
 });
 // END IZOBRAŽEVANJE
+
+// BEGIN OTROŠKI KOTIČEK
+router.get("/koticek-za-otroke", middleware.isPageEditor, function(req, res){
+  Otroci_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
+    if(err) {
+      req.flash("error", "Prišlo je do napake v bazi podatkov.");
+      return res.redirect("/admin/login");
+    }
+    res.render("admin/koticek-za-otroke/index", {vsebine: vsebine});
+  })
+});
+
+router.get("/koticek-za-otroke/add", middleware.isPageEditor, function(req, res){
+  res.render("admin/koticek-za-otroke/add");
+});
+
+router.get("/koticek-za-otroke/:id/edit", middleware.isPageEditor, function(req, res){
+  Otroci_vsebina.findById(req.params.id, function(err, vsebina){
+    if(err) {
+      req.flash("error", "Vsebine ne najdem v bazi podatkov.");
+      return res.redirect("/admin/koticek-za-otroke");
+    }
+    res.render("admin/koticek-za-otroke/edit", {vsebina: vsebina})
+  });
+});
+
+router.post("/koticek-za-otroke", middleware.isPageEditor, upload_otroci.fields([
+    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
+  Otroci_vsebina.create(req.body.vsebina, function(err, vsebina){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri vnosu vsebine.");
+      return res.redirect("/admin/koticek-za-otroke");
+    }
+    if(req.files["vsebina[datoteka]"]) {
+      vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname.replace(/[ )(]/g,'');
+      vsebina.save();
+    };
+
+    if(req.files["vsebina[naslovna_slika]"]) {
+      vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
+      vsebina.save();
+    };
+    req.flash("success", "Vsebina dodana.");
+    res.redirect("/admin/koticek-za-otroke");
+  });
+});
+
+router.put("/koticek-za-otroke/:id", middleware.isPageEditor, upload_otroci.fields([
+    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
+  Otroci_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
+    if(err) {
+      req.flash("error", "Prišlo je do napake pri posodabljanju vsebine.");
+      return res.redirect("/admin/koticek-za-otroke");
+    }
+    if(req.files["vsebina[nova_datoteka]"]) {
+      vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname.replace(/[ )(]/g,'');
+      vsebina.save();
+    };
+    if(req.files["vsebina[nova_naslovna_slika]"]) {
+      vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
+      vsebina.save();
+    };
+    req.flash("success", "Vsebina posodobljena.");
+    res.redirect("/admin/koticek-za-otroke");
+  });
+});
+// END OTROŠKI KOTIČEK
 
 // PODSTRANI
 router.get("/podstrani", middleware.isPageEditor, function(req, res){
