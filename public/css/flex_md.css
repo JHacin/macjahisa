@@ -1,5 +1,14 @@
 @media all and (max-width: 1515px) {
 
+  .koticek-za-otroke-vsebina {
+    width: 45%;
+  }
+
+  .koticek-za-otroke-slika {
+    min-height: 200px;
+    max-height: 250px;
+  }
+
   .fb-page, .fb-page iframe[style], .fb-page span {
       width: 100% !important;
   }
@@ -352,7 +361,14 @@
 
 @media all and (max-width: 1140px) {
 
+  .koticek-za-otroke-vsebina {
+    width: 40%;
+  }
 
+  .koticek-za-otroke-slika {
+    min-height: 180px;
+    max-height: 200px;
+  }
 
   .i_footer > .container {
     flex-wrap: wrap;
@@ -488,6 +504,14 @@
 
 @media all and (max-width: 960px) {
 
+  .koticek-za-otroke-vsebina {
+    width:100%;
+  }
+
+  .koticek-za-otroke-slika {
+    min-height: auto;
+    max-height: 400px;
+  }
   .i_boter_txt {
     width: 90%;
   }
