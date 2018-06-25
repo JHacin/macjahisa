@@ -43,7 +43,7 @@ if($(".photos").length >= 1) {
           variableWidth: false,
           centerMode: false,
           slidesToShow: 1,
-          autoplay: false
+          autoplay: true
         }
        }
      ]

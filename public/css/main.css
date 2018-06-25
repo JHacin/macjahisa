@@ -272,7 +272,7 @@ input.paypal_btn,
 
 /* SLICK */
 .slick-prev:before, .slick-next:before {
-    color: #343a40 !important;
+    color: #ffffffe0!important;
 }
 
 .slick-slide:focus {
