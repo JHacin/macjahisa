@@ -43,7 +43,7 @@ router.get("/prispevki-clanki-povezave", function(req, res){
   });
 });
 
-router.get("/prispevki/:id", function(req, res){
+router.get("/prispevki-clanki-povezave/:id", function(req, res){
   Clanek.findOne({dbid: req.params.id}, function(err, clanek){
     if(err) return res.render("500");
 
