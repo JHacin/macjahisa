@@ -32,16 +32,14 @@ if($(".photos").length >= 1) {
      infinite: true,
      speed: 700,
      autoplay: true,
-     autoplaySpeed: 4500,
+     autoplaySpeed: 3500,
      slidesToShow: 1,
      centerMode: false,
      variableWidth: true,
-     adaptiveHeight: false,
      responsive: [
        {
          breakpoint: 768,
          settings: {
-          adaptiveHeight: true,
           variableWidth: false,
           centerMode: false,
           slidesToShow: 1,
