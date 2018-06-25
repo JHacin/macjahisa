@@ -9,6 +9,10 @@
     max-height: 250px;
   }
 
+  .koticek-za-otroke-slika img {
+    max-height: 220px;
+  }
+
   .fb-page, .fb-page iframe[style], .fb-page span {
       width: 100% !important;
   }
@@ -370,6 +374,10 @@
     max-height: 200px;
   }
 
+  .koticek-za-otroke-slika img {
+    max-height: 170px;
+  }
+
   .i_footer > .container {
     flex-wrap: wrap;
   }
@@ -512,6 +520,11 @@
     min-height: auto;
     max-height: 400px;
   }
+
+  .koticek-za-otroke-slika img {
+    max-height: 370px;
+  }
+
   .i_boter_txt {
     width: 90%;
   }
