@@ -2,6 +2,7 @@ require('dotenv').config();
 
 var compression         = require("compression"),
     express             = require("express"),
+    xmlify              = require("xmlify"),
     // minify              = require("express-minify"),
     helmet              = require("helmet"),
     ejs                 = require("ejs"),
@@ -14,7 +15,8 @@ var compression         = require("compression"),
     LocalStrategy       = require("passport-local"),
     flash               = require("connect-flash"),
     middleware          = require("./middleware"),
-    methodOverride      = require("method-override");
+    methodOverride      = require("method-override"),
+    fs                  = require("fs");
 
 var Muca                = require("./models/muca"),
     Kategorija          = require("./models/kategorija"),
@@ -160,6 +162,17 @@ app.use("*", function(req, res, next) {
 app.get("/sitemap.xml", function(req, res){
   res.type("application/xml");
   res.sendFile('sitemap.xml');
+});
+
+app.get("/oglasi_xml_bolha.xml", function(req, res){
+  console.log("hi");
+  res.type("application/xml");
+  res.sendFile(__dirname + '/oglasi_xml_bolha.xml');
+});
+
+app.get("/oglasi_xml_salomon.xml", function(req, res){
+  res.type("application/xml");
+  res.sendFile(__dirname + '/oglasi_xml_salomon.xml');
 });
 
 // INDEX ROUTE
