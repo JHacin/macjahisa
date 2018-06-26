@@ -2,7 +2,6 @@ require('dotenv').config();
 
 var compression         = require("compression"),
     express             = require("express"),
-    xmlify              = require("xmlify"),
     // minify              = require("express-minify"),
     helmet              = require("helmet"),
     ejs                 = require("ejs"),
