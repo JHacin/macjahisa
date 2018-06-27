@@ -588,6 +588,7 @@
     height: 35px;
     line-height: 35px;
     font-family: "Open Sans", sans-serif;
+    margin: 0;
   }
 
   .jplist-panel .jplist-pagination {

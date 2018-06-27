@@ -30,8 +30,8 @@ button i {
 
 .nav_donate > form > button,
 .i_jumbo_button,
-.i_dohodnina > button,
-.i_donate > button,
+.i_dohodnina > a > button,
+.i_donate > a > button,
 .i_boter > button {
   background-color: #ffcb00;
   transition: background-color 0.2s ease;
@@ -100,8 +100,8 @@ button i {
     font-size: 18px;
   }
 
-  .i_dohodnina > button,
-    .i_donate > button,
+  .i_dohodnina > a > button,
+    .i_donate > a > button,
     .i_boter > button {
     -ms-flex-item-align: center;
         -ms-grid-row-align: center;
@@ -524,7 +524,7 @@ input[type=email]:focus {
     text-align: center;
   }
 
-  .i_donate button {
+  .i_donate a button {
     font-weight: 700;
     letter-spacing: 2px;
     font-size: 26px;

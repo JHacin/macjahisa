@@ -471,8 +471,8 @@ input.paypal_btn,
 
   .nav_donate > form > button:hover,
   .i_jumbo_button:hover,
-  .i_dohodnina > button:hover,
-  .i_donate > button:hover,
+  .i_dohodnina > a > button:hover,
+  .i_donate > a > button:hover,
   .mailingButton:hover {
     cursor: pointer;
     background-color: #ebebeb;

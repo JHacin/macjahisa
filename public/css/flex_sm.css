@@ -485,12 +485,12 @@
   font-size: 16px;
 }
 
-.i_dohodnina > button, .i_boter > button {
+.i_dohodnina > a > button, .i_boter > button {
 
   padding: 10px 25px;
 }
 
-  .i_donate > button {
+  .i_donate > a > button {
     font-size: 20px;
     padding: 12px 28px;
     font-weight: 600;
@@ -600,7 +600,7 @@
   font-size: 24px;
 }
 
-.i_donate > button {
+.i_donate > a > button {
   margin-top: 5px;
 }
 

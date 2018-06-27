@@ -28,11 +28,11 @@
 
 /* Gumbi na prvi strani */
 .i_jumbo_button,
-.i_dohodnina > button,
+.i_dohodnina > a > button,
 .i_muce > a > button,
 .i_mailing > a > .mailingButton,
 .i_edu button,
-.i_donate button,
+.i_donate a button,
 .i_boter button {
     font-size: 18px;
     padding: 10px 24px;
@@ -214,11 +214,11 @@
 
   /* Gumbi na prvi strani */
   .i_jumbo_button,
-  .i_dohodnina > button,
+  .i_dohodnina > a > button,
   .i_muce > a > button,
   .i_mailing > a > .mailingButton,
   .i_edu button,
-  .i_donate button,
+  .i_donate a button,
   .i_boter button {
       font-size: 16px;
       padding: 8px 18px;

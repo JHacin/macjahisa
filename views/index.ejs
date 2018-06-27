@@ -6,7 +6,9 @@
           <div class="i_jumbo_text">
             <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
             <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
-            <button class="i_jumbo_button"><a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>"><%- naslovnica.napisNaGumbu %></a></button>
+            <a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>">
+              <button class="i_jumbo_button"><%- naslovnica.napisNaGumbu %></button>
+            </a>
           </div>
         </div>
       <% }); %>
@@ -14,7 +16,7 @@
     <div class="i_dohodnina">
       <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>
       <p>Vas ne stane nič, nam pa veliko pomeni.</p>
-      <button><a href="/pomoc/dohodnina">Namenite nam del dohodnine <i class="fas fa-angle-double-right"></i></a></button>
+      <a href="/pomoc/dohodnina"><button>Namenite nam del dohodnine <i class="fas fa-angle-double-right"></i></button></a>
     </div>
     <div class="i_muce">
       <div class="i_muce_head">
@@ -82,7 +84,7 @@
     </div>
     <div class="i_donate lazy" data-src="/files/page/doniraj.JPG">
       <h2>Podprite naše delo in nam pomagajte oskrbeti številne brezdomne muce.</h2>
-      <button><a href="/pomoc/donacije">Doniraj</a></button>
+      <a href="/pomoc/donacije"><button>Doniraj</button></a>
     </div>
     <div class="i_boter">
       <h1>Mačji boter</h1>
