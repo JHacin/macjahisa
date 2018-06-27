@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 Allow: /sitemap.htm
-Sitemap: http://207.154.195.5:3000/sitemap.xml
+Sitemap: http://www.macjahisa.si/sitemap.xml

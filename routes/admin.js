@@ -1384,7 +1384,7 @@ router.post('/forgot', function(req, res, next) {
         }
       });
 
-      var link = "http://207.154.195.5:3001/admin/reset/" + token;
+      var link = "http://www.macjahisa.si/admin/reset/" + token;
 
       var mailOptions = {
         to: user.email,
@@ -1392,7 +1392,7 @@ router.post('/forgot', function(req, res, next) {
         subject: 'Mačja hiša CMS - Sprememba gesla',
         text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
           'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
-          'http://207.154.195.5:3001/admin/reset/' + token + '\n\n' +
+          'http://www.macjahisa.si/admin/reset/' + token + '\n\n' +
           'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n',
         html: "<p>Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.</p><p>Postopek lahko zaključite z uporabo spodnje povezave:</p><p><a href='" + link + "' target='_blank'>" + link + "</a></p><p>Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.</p>"
       };
