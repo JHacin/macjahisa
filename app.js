@@ -32,6 +32,7 @@ var pomoc = require("./routes/pomoc.js");
 var projekt_vita = require("./routes/projekt-vita.js");
 var admin = require("./routes/admin.js");
 var v_novem_domu = require("./routes/v-novem-domu.js");
+var redirects = require("./routes/redirects.js");
 
 // CONFIG
 app.use(compression());
@@ -157,6 +158,8 @@ app.use("*", function(req, res, next) {
 // });
 //
 // app.use('*', middleware.isLoggedInWhenUnderMaintenance);
+
+app.use("/", redirects);
 
 app.get("/sitemap.xml", function(req, res){
   res.type("application/xml");

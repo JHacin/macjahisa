@@ -14,7 +14,6 @@ var moment = require("moment");
 var passport = require("passport");
 var middleware = require("../middleware");
 const nodemailer = require("nodemailer");
-var xmlify              = require("xmlify");
 var crypto = require("crypto");
 var async = require("async");
 const fs = require("fs");
@@ -119,14 +118,17 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
       var ime = '<izdelekIme>' + muca.ime + '</izdelekIme>';
       var datum = '<zadnja_osvezitev>' + moment().format("DD[/]MM[/]YYYY") + '</zadnja_osvezitev>';
       var url = '<url>http://www.macjahisa.si/posvojitev/muce/' + muca.dbid + '</url>';
-      var opis = '<opis>' + muca.opis
+
+      var generic = '<br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.<br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.<br /><br /><strong><a href="http://www.macjahisa.si/posvojitev/muce">Za vse muce, ki iščejo dom, klikni tukaj.</a></strong><br />';
+
+      var opis = '<opis><![CDATA[' + muca.opis
                   .replace(/(<([^>]+)>)/ig, "")
                   .replace(/&scaron;/g, "š")
                   .replace(/&Scaron;/g, "Š")
                   .replace(/&raquo;/g, '"')
                   .replace(/&laquo;/g, '"')
                   .replace(/&nbsp;/g, "")
-                  .replace(/(?:\r\n|\r|\n)/g, ' ') + '</opis>';
+                  .replace(/(?:\r\n|\r|\n)/g, ' ') + generic + ']]></opis>';
 
       // SLIKE
       var slike = '';
@@ -345,71 +347,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
             if (err) return handleError(err);
             // saved!
           });
-
-          // MAKE XML FILES FOR BOLHA/SALOMON
-          // Muca.find({}).where("status").in([1, 2]).limit(100).exec(function(err, muce) {
-          //   if(err) return console.error(err);
-          //   var xmlOutput = '<?xml version="1.0" encoding="UTF-8"?><trgovina id="macja_hisa">';
-          //
-          //   muce.forEach(function(muca) {
-          //     xmlOutput += '<izdelek>';
-          //     var id = '<izdelekID>' + (muca.dbid === undefined ? count + 1 : muca.dbid) + '</izdelekID>';
-          //     var ime = '<izdelekIme>' + muca.ime + '</izdelekIme>';
-          //     var datum = '<zadnja_osvezitev>' + moment().format("DD[/]MM[/]YYYY") + '</zadnja_osvezitev>';
-          //     var url = '<url>http://www.macjahisa.si/posvojitev/muce/' + muca.dbid + '</url>';
-          //     var opis = '<opis>' + muca.opis
-          //                 .replace(/(<([^>]+)>)/ig, "")
-          //                 .replace(/&scaron;/g, "š")
-          //                 .replace(/&Scaron;/g, "Š")
-          //                 .replace(/&raquo;/g, '"')
-          //                 .replace(/&laquo;/g, '"')
-          //                 .replace(/&nbsp;/g, "")
-          //                 .replace(/(?:\r\n|\r|\n)/g, ' ') + '</opis>';
-          //
-          //     // SLIKE
-          //     var slike = '';
-          //     if(muca.file_name1 === undefined && muca.file_name2 === undefined && muca.file_name3 === undefined && muca.file_name4 === undefined) {
-          //       slike = '<slike><slika href="http://www.macjahisa.si/files/page/logo.png" /></slike>';
-          //     } else {
-          //       slike += '<slike>';
-          //         if(muca.file_name1 !== undefined) {
-          //           slike += '<slika>';
-          //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-          //           slike += muca.file_name1;
-          //           slike += '</slika>';
-          //         }
-          //         if(muca.file_name2 !== undefined) {
-          //           slike += '<slika>';
-          //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-          //           slike += muca.file_name2;
-          //           slike += '</slika>';
-          //         }
-          //         if(muca.file_name3 !== undefined) {
-          //           slike += '<slika>';
-          //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-          //           slike += muca.file_name3;
-          //           slike += '</slika>';
-          //         }
-          //         if(muca.file_name4 !== undefined) {
-          //           slike += '<slika>';
-          //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-          //           slike += muca.file_name4;
-          //           slike += '</slika>';
-          //         }
-          //       slike += '</slike>';
-          //     }
-          //     // END SLIKE
-          //
-          //     var toAttach = id + ime + datum + url + opis + slike;
-          //
-          //     xmlOutput += toAttach;
-          //     xmlOutput += '<cena>Podarimo</cena><kategorijaID>3564</kategorijaID></izdelek>';
-          //   });
-          //   xmlOutput += '</trgovina>';
-          //
-          //   var writer = fs.createWriteStream('output.xml');
-          //   writer.write(xmlOutput);
-          // });
 
           req.flash("success", "Nova muca dodana.");
           res.send({redirect: '/admin/muce/iscejo'});
@@ -648,71 +585,6 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         });
       });
     };
-
-    // // MAKE XML FILES FOR BOLHA/SALOMON
-    // Muca.find({}).where("status").in([1, 2]).limit(100).exec(function(err, muce) {
-    //   if(err) return console.error(err);
-    //   var xmlOutput = '<?xml version="1.0" encoding="UTF-8"?><trgovina id="macja_hisa">';
-    //
-    //   muce.forEach(function(muca) {
-    //     xmlOutput += '<izdelek>';
-    //     var id = '<izdelekID>' + muca.dbid + '</izdelekID>';
-    //     var ime = '<izdelekIme>' + muca.ime + '</izdelekIme>';
-    //     var datum = '<zadnja_osvezitev>' + moment().format("DD[/]MM[/]YYYY") + '</zadnja_osvezitev>';
-    //     var url = '<url>http://www.macjahisa.si/posvojitev/muce/' + muca.dbid + '</url>';
-    //     var opis = '<opis>' + muca.opis
-    //                 .replace(/(<([^>]+)>)/ig, "")
-    //                 .replace(/&scaron;/g, "š")
-    //                 .replace(/&Scaron;/g, "Š")
-    //                 .replace(/&raquo;/g, '"')
-    //                 .replace(/&laquo;/g, '"')
-    //                 .replace(/&nbsp;/g, "")
-    //                 .replace(/(?:\r\n|\r|\n)/g, ' ') + '</opis>';
-    //
-    //     // SLIKE
-    //     var slike = '';
-    //     if(muca.file_name1 === undefined && muca.file_name2 === undefined && muca.file_name3 === undefined && muca.file_name4 === undefined) {
-    //       slike = '<slike><slika href="http://www.macjahisa.si/files/page/logo.png" /></slike>';
-    //     } else {
-    //       slike += '<slike>';
-    //         if(muca.file_name1 !== undefined) {
-    //           slike += '<slika>';
-    //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-    //           slike += muca.file_name1;
-    //           slike += '</slika>';
-    //         }
-    //         if(muca.file_name2 !== undefined) {
-    //           slike += '<slika>';
-    //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-    //           slike += muca.file_name2;
-    //           slike += '</slika>';
-    //         }
-    //         if(muca.file_name3 !== undefined) {
-    //           slike += '<slika>';
-    //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-    //           slike += muca.file_name3;
-    //           slike += '</slika>';
-    //         }
-    //         if(muca.file_name4 !== undefined) {
-    //           slike += '<slika>';
-    //           slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-    //           slike += muca.file_name4;
-    //           slike += '</slika>';
-    //         }
-    //       slike += '</slike>';
-    //     }
-    //     // END SLIKE
-    //
-    //     var toAttach = id + ime + datum + url + opis + slike;
-    //
-    //     xmlOutput += toAttach;
-    //     xmlOutput += '<cena>Podarimo</cena><kategorijaID>3564</kategorijaID></izdelek>';
-    //   });
-    //   xmlOutput += '</trgovina>';
-    //
-    //   var writer = fs.createWriteStream('output.xml');
-    //   writer.write(xmlOutput);
-    // });
 
       // muca.save();
       req.flash("success", "Podatki muce posodobljeni.");

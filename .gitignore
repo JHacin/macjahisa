@@ -59,3 +59,7 @@ typings/
 
 # images and other files
 /public/files
+
+# Bolha XMLji
+oglasi_xml_bolha.xml
+oglasi_xml_salomon.xml
