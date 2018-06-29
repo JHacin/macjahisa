@@ -15,8 +15,8 @@ iframe {
   display: none;
 }
 
-select {
-    font-family: 'Nunito', sans-serif!important;
+.paypal_table select {
+    font-family: 'Nunito', sans-serif;
 }
 
 .stellarnav.mobile.left>ul {

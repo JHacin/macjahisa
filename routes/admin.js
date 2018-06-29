@@ -342,6 +342,20 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           novaMuca.SEOtwitterTitle = req.body.SEOtwitterTitle;
           novaMuca.SEOtwitterDescription = req.body.SEOtwitterDescription;
 
+          if(req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
+
+            novaMuca.SEOmetaTitle = req.body.ime + " | Mačja hiša";
+            novaMuca.SEOfbTitle = req.body.ime + " | Mačja hiša";
+            novaMuca.SEOtwitterTitle = req.body.ime + " | Mačja hiša";
+            novaMuca.SEOmetaDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+            novaMuca.SEOfbDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+            novaMuca.SEOtwitterDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
+
           // shrani
           novaMuca.save(function (err) {
             if (err) return handleError(err);
@@ -384,6 +398,20 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
     muca.SEOfbDescription = req.body.SEOfbDescription;
     muca.SEOtwitterTitle = req.body.SEOtwitterTitle;
     muca.SEOtwitterDescription = req.body.SEOtwitterDescription;
+
+    if(req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
+      muca.SEOmetaTitle = req.body.ime + " | Mačja hiša";
+      muca.SEOfbTitle = req.body.ime + " | Mačja hiša";
+      muca.SEOtwitterTitle = req.body.ime + " | Mačja hiša";
+      muca.SEOmetaDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      muca.SEOfbDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      muca.SEOtwitterDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      muca.save(function (err) {
+        if (err) return handleError(err);
+        // saved!
+      });
+    }
+
     muca.save(function (err) {
       if (err) return handleError(err);
       // saved!
@@ -646,6 +674,7 @@ router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("cla
         clanek.dbid = count + 1;
         clanek.save();
       };
+
       req.flash("success", "Prispevek dodan.");
       res.redirect("/admin/clanki");
     });
@@ -661,6 +690,18 @@ router.post("/clanki", middleware.isPageEditor, function(req, res){
       }
       clanek.dbid = count + 1;
       clanek.save();
+
+      if(req.body.clanek.SEOmetaTitle === "") {
+        clanek.SEOmetaTitle = req.body.clanek.naslov + " | Mačja hiša";
+        clanek.SEOfbTitle = req.body.clanek.naslov + " | Mačja hiša";
+        clanek.SEOtwitterTitle = req.body.clanek.naslov + " | Mačja hiša";
+        clanek.SEOmetaDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+        clanek.SEOfbDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+        clanek.SEOtwitterDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      }
+
+      clanek.save();
+
       req.flash("success", "Prispevek dodan.");
       res.redirect("/admin/clanki");
     });
@@ -699,6 +740,16 @@ router.put("/clanki/:id", middleware.isPageEditor, function(req, res){
       clanek.kategorija = req.body.clanek.kategorija;
       clanek.save();
     }
+
+    if(req.body.clanek.SEOmetaTitle === "") {
+      clanek.SEOmetaTitle = req.body.clanek.naslov + " | Mačja hiša";
+      clanek.SEOfbTitle = req.body.clanek.naslov + " | Mačja hiša";
+      clanek.SEOtwitterTitle = req.body.clanek.naslov + " | Mačja hiša";
+      clanek.SEOmetaDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      clanek.SEOfbDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      clanek.SEOtwitterDescription = req.body.clanek.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+    }
+
     req.flash("success", "Prispevek posodobljen.");
     res.redirect("/admin/clanki");
   });
@@ -888,6 +939,17 @@ router.post("/podstrani", middleware.isPageEditor, function(req, res){
         podstran.save();
         kategorija.podstrani_length +=1;
         kategorija.save();
+
+        if(req.body.podstran.SEOmetaTitle === "") {
+          podstran.SEOmetaTitle = req.body.podstran.naslov + " | Mačja hiša";
+          podstran.SEOfbTitle = req.body.podstran.naslov + " | Mačja hiša";
+          podstran.SEOtwitterTitle = req.body.podstran.naslov + " | Mačja hiša";
+          podstran.SEOmetaDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+          podstran.SEOfbDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+          podstran.SEOtwitterDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+        }
+        podstran.save();
+
         req.flash("success", "Podstran dodana.");
         res.redirect("/admin/podstrani");
       }
@@ -911,6 +973,17 @@ router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
       req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
       return res.redirect("/admin/login");
     }
+
+    if(req.body.podstran.SEOmetaTitle === "") {
+      podstran.SEOmetaTitle = req.body.podstran.naslov + " | Mačja hiša";
+      podstran.SEOfbTitle = req.body.podstran.naslov + " | Mačja hiša";
+      podstran.SEOtwitterTitle = req.body.podstran.naslov + " | Mačja hiša";
+      podstran.SEOmetaDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      podstran.SEOfbDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+      podstran.SEOtwitterDescription = req.body.podstran.vsebina.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
+    }
+    podstran.save();
+
     Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
       if(err) return res.render("500");
       kategorija.save();
