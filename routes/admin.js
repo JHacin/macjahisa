@@ -119,7 +119,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
       var datum = '<zadnja_osvezitev>' + moment().format("DD[/]MM[/]YYYY") + '</zadnja_osvezitev>';
       var url = '<url>http://www.macjahisa.si/posvojitev/muce/' + muca.dbid + '</url>';
 
-      var generic = '<br /><br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.<br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.<br /><br /><strong>Za vse muce, ki iščejo dom, klikni tukaj.</a></strong><br /><br />';
+      var generic = '<br /><br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.<br /><br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.<br /><br /><strong>Za vse muce, ki iščejo dom, klikni tukaj.</a></strong><br /><br />';
 
       var opis = '<opis><![CDATA[' + muca.opis
                   .replace(/(<([^>]+)>)/ig, "")
