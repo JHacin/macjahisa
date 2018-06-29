@@ -15,6 +15,10 @@ iframe {
   display: none;
 }
 
+select {
+    font-family: 'Nunito', sans-serif!important;
+}
+
 .stellarnav.mobile.left>ul {
   -webkit-transform: translate3d(0,0,0);
   -webkit-transform-style: preserve-3d;
