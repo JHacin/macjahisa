@@ -1,66 +1,68 @@
-<script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous"></script>
-  <!-- Import dependency for Resizimg  (note that the link below will only work for a limited number of requests, for a productive setup make a local copy from https://github.com/RickStrahl/jquery-resizable  -->
-<script src="https://rawgit.com/RickStrahl/jquery-resizable/master/dist/jquery-resizable.min.js"></script>
-<script src="/js/jquery.dataTables.min.js"></script>
+      <script
+        src="https://code.jquery.com/jquery-3.2.1.min.js"
+        integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="/js/admin/bootstrap-datepicker.js"></script>
+        <!-- Import dependency for Resizimg  (note that the link below will only work for a limited number of requests, for a productive setup make a local copy from https://github.com/RickStrahl/jquery-resizable  -->
+      <script src="https://rawgit.com/RickStrahl/jquery-resizable/master/dist/jquery-resizable.min.js"></script>
+      <script src="/js/jquery.dataTables.min.js"></script>
 
-<!-- Trumbowyg -->
-<script src="/trumbowyg/dist/trumbowyg.min.js"></script>
-<script src="/trumbowyg/dist/plugins/base64/trumbowyg.base64.min.js"></script>
-<script src="/trumbowyg/dist/langs/sl.min.js"></script>
-<script src="/trumbowyg/dist/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
-<script src="/trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
-<script src="/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.js"></script>
-<script src="/trumbowyg/dist/plugins/noembed/trumbowyg.noembed.min.js"></script>
+      <!-- Trumbowyg -->
+      <script src="/trumbowyg/dist/trumbowyg.min.js"></script>
+      <script src="/trumbowyg/dist/plugins/base64/trumbowyg.base64.min.js"></script>
+      <script src="/trumbowyg/dist/langs/sl.min.js"></script>
+      <script src="/trumbowyg/dist/plugins/cleanpaste/trumbowyg.cleanpaste.min.js"></script>
+      <script src="/trumbowyg/dist/plugins/colors/trumbowyg.colors.min.js"></script>
+      <script src="/trumbowyg/dist/plugins/resizimg/trumbowyg.resizimg.js"></script>
+      <script src="/trumbowyg/dist/plugins/noembed/trumbowyg.noembed.min.js"></script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.3.6/cropper.min.js" integrity="sha256-Yy+Yx/rF7i632Ap6hE+zOX6AwuhfU5IjyG4Dw1+jyDU=" crossorigin="anonymous"></script>
-<script src="/js/admin/admin.js"></script>
-<script src="/js/admin/imagecrop.js"></script>
-<script src="/js/admin/naslovnice.js"></script>
-<script>
-$('#editor').trumbowyg({
-  lang: 'sl',
-  imageWidthModalEdit: true,
-  removeformatPasted: true,
-  urlProtocol: true,
-  semantic: false,
-  btnsDef: {
-        headings: {
-            dropdown: ['p', 'h2', 'h3', 'h4', 'blockquote'],
-            title: 'Stil',
-            ico: 'p',
-            hasIcon: true
-        },
-        images: {
-            dropdown: ['insertImage', 'base64'],
-            title: 'Vstavi sliko',
-            ico: 'insertImage',
-            hasIcon: true
-        }
-    },
-  btns: [
-        ['viewHTML'],
-        ['undo', 'redo'], // Only supported in Blink browsers
-        ['headings'],
-        ['strong', 'em', 'del'],
-        ['foreColor'],
-        ['backColor'],
-        ['link'],
-        ['images'],
-        ['noembed'],
-        ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
-        ['unorderedList', 'orderedList'],
-        ['horizontalRule'],
-        ['removeformat'],
-        ['fullscreen']
-    ]
-});
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.3.6/cropper.min.js" integrity="sha256-Yy+Yx/rF7i632Ap6hE+zOX6AwuhfU5IjyG4Dw1+jyDU=" crossorigin="anonymous"></script>
+      <script src="/js/admin/admin.js"></script>
+      <script src="/js/admin/imagecrop.js"></script>
+      <script src="/js/admin/naslovnice.js"></script>
+      <script>
+      $('#editor').trumbowyg({
+        lang: 'sl',
+        imageWidthModalEdit: true,
+        removeformatPasted: true,
+        urlProtocol: true,
+        semantic: false,
+        btnsDef: {
+              headings: {
+                  dropdown: ['p', 'h2', 'h3', 'h4', 'blockquote'],
+                  title: 'Stil',
+                  ico: 'p',
+                  hasIcon: true
+              },
+              images: {
+                  dropdown: ['insertImage', 'base64'],
+                  title: 'Vstavi sliko',
+                  ico: 'insertImage',
+                  hasIcon: true
+              }
+          },
+        btns: [
+              ['viewHTML'],
+              ['undo', 'redo'], // Only supported in Blink browsers
+              ['headings'],
+              ['strong', 'em', 'del'],
+              ['foreColor'],
+              ['backColor'],
+              ['link'],
+              ['images'],
+              ['noembed'],
+              ['justifyLeft', 'justifyCenter', 'justifyRight', 'justifyFull'],
+              ['unorderedList', 'orderedList'],
+              ['horizontalRule'],
+              ['removeformat'],
+              ['fullscreen']
+          ]
+      });
 
-</script>
-</div>
-</body>
+      </script>
+      </div><!-- end bootstrap container -->
+    </div><!-- end bootstrap container-fluid -->
+  </body>
 </html>

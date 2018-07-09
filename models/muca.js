@@ -4,6 +4,8 @@ var mucaSchema = new mongoose.Schema({
   dbid: Number,
   // user_id: Number,
   datum: Date,
+  datum_objave: Date,
+  izpostavljena: Boolean,
   status: Number,
   ime: String,
   mesec_rojstva: Date,

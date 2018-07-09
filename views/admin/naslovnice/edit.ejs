@@ -1,40 +1,48 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/naslovnice"><< Nazaj</a></p>
-<h3>Urejanje naslovnice</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/naslovnice"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Urejanje naslovnice</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/naslovnice/<%= naslovnica._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-  <div>
-    <label for="naslovnica[ozadje]">Ozadje:</label>
-    <input type="file" accept="image/*" name="naslovnica[ozadje]" id="ozadje" size="70" value="<%= naslovnica.ozadje %>"/>
-    <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.
+  <div class="required form-group">
+    <label for="naslovnica[ozadje]">Trenutno ozadje:</label>
+    <input class="form-control" type="text" size="50" value="<%= naslovnica.ozadje %>" disabled/>
   </div>
-  <div class="required">
+  <div class="required form-group">
+    <label for="naslovnica[ozadje]">Novo ozadje:</label>
+    <input class="form-control-file" type="file" accept="image/*" name="naslovnica[ozadje]" id="ozadje" size="70" />
+    <small class="form-text text-muted"><strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.</small>
+  </div>
+  <div class="required form-group">
     <label for="naslovnica[naslov]">Naslov:</label>
-    <input type="text" name="naslovnica[naslov]" id="naslov" size="70" value="<%= naslovnica.naslov %>" autofocus required/>
+    <input class="form-control" type="text" name="naslovnica[naslov]" id="naslov" size="70" value="<%= naslovnica.naslov %>" autofocus required/>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="naslovnica[podnaslov]">Podnaslov:</label>
-    <input type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70" value="<%= naslovnica.podnaslov %>" />
+    <input class="form-control" type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70" value="<%= naslovnica.podnaslov %>" />
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
-    <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" value="<%= naslovnica.napisNaGumbu %>" required/>
+    <input class="form-control" type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" value="<%= naslovnica.napisNaGumbu %>" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[povezava]">Povezava:</label>
-    <input type="url" name="naslovnica[povezava]" id="povezava" size="70" value="<%= naslovnica.povezava %>" required/>
+    <input class="form-control" type="url" name="naslovnica[povezava]" id="povezava" size="70" value="<%= naslovnica.povezava %>" required/>
     <input type="checkbox" name="externalURL" <%= naslovnica.externalURL ? 'checked' : '' %>>
     <label class="form-check-label" for="externalURL">
-      Povezava na zunanjo stran (odprta bo v novem zavihku)
+      Povezava na zunanjo stran (obkljukaj, če želiš, da se odpre v novem zavihku)
     </label>
   </div>
-  <div class="naslovnicaRange">
+  <div class="naslovnicaRange form-group">
     <label for="formControlRange">Izrez ozadja po višini (% od vrha)</label>
-    <input type="range" name="rangeInput" id="naslovnicaRangeInput" min="0" max="100" value="<%= naslovnica.cssBackgroundPositionVertical %>">
+    <input class="form-control" type="range" name="rangeInput" id="naslovnicaRangeInput" min="0" max="100" value="<%= naslovnica.cssBackgroundPositionVertical %>">
     <span id="naslovnicaRangeValue"><%= naslovnica.cssBackgroundPositionVertical %>%</span>
   </div>
-  <button type="submit" class="btn btn-success"><i class="fas fa-check"></i> Potrdi spremembe</button>
+  <button type="submit" class="btn btn-secondary"><i class="fas fa-check"></i> Potrdi spremembe</button>
 </form>
+<hr />
 <button class="btn btn-warning" id="naslovnicaPreviewLoadButton"><i class="far fa-eye"></i> Pokaži predogled</button>
 <button class="btn btn-info" id="naslovnicaPreviewReloadButton"> <i class="fas fa-sync"></i> Osveži predogled</button>
 <p></p>

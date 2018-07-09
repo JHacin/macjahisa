@@ -23,6 +23,7 @@ router.get("/muce", function(req, res){
 // Individualna muca
 router.get("/muce/:id", function(req, res){
   Muca.findOne({dbid: req.params.id}, function (err, muca){
+    if(muca===null) return res.render("404");
     if(err) return res.render("500");
     res.render("posvojitev/prikaz", {
       muca: muca,

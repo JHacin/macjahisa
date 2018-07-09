@@ -1,21 +1,25 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/kontakti"><< Nazaj</a></p>
-<h3>Uredi kontakt</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/kontakti"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Uredi kontakt</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/kontakti/<%= kontakt._id %>?_method=PUT" method="POST">
-  <div>
+  <div class="form-group">
     <label for="kontakt[ime]">Ime:</label>
-    <input type="text" name="kontakt[ime]" id="ime" value="<%= kontakt.ime %>"/>
+    <input class="form-control" type="text" name="kontakt[ime]" id="ime" value="<%= kontakt.ime %>"/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="kontakt[email]">E-mail:</label>
-    <input type="text" name="kontakt[email]" id="email" value="<%= kontakt.email %>" required/>
+    <input class="form-control" type="text" name="kontakt[email]" id="email" value="<%= kontakt.email %>" required/>
   </div>
-  <div>
+  <div class="form-group">
     <label for="kontakt[tel]">Telefonska številka:</label>
-    <input type="text" name="kontakt[tel]" id="tel" value="<%= kontakt.tel %>"/>
+    <input class="form-control" type="text" name="kontakt[tel]" id="tel" value="<%= kontakt.tel %>"/>
   </div>
-  <input type="submit" value="Potrdi spremembe">
+    <hr />
+  <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
 </form>
 
 <% include ../../partials/admin/footer %>

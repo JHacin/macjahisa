@@ -222,6 +222,16 @@ app.get("/", function(req, res){
     });
   });
 
+  // dodelitev datumov objave
+  Muca.find({}, function(err, muce){
+    muce.forEach(function(muca){
+      muca.datum_objave = muca.datum;
+      muca.save(function(err, muca){
+        if(err) return console.log(err);
+      });
+    });
+  });
+
 // poprava imen (ki vključejejo nepotreben CAPS LOCK)
 // Muca.find({}, function(err, muce){
 //   muce.forEach(function(muca){
@@ -326,6 +336,7 @@ app.use(function(req, res) {
   // Handle 500
   app.use(function(error, req, res, next) {
      res.status(500);
+     console.log(error);
      res.render("500");
   });
 

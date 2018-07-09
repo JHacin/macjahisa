@@ -1,38 +1,21 @@
 <% include ../../partials/admin/header %>
 <% include ../../partials/functions/muce %>
-<p><a href="/admin/muce/iscejo"><< Nazaj</a></p>
-
-<h3>Vnesi novo muco</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/muce/iscejo"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Vnesi novo muco</h1>
+</div>
+<hr class="header-divider" />
 
 <form class="cmsForm">
-  <div class="required">
-    <label for="ime">ime:</label>
-    <input type="text" id="ime" autofocus name="ime" required/>
-  </div>
-  <div class="required">
-    <label for="datum">datum sprejema:</label>
-    <input type="date" id="datum" name="datum" value="" required/>
-  </div>
-  <div class="required">
-    <label for="status">stanje:</label>
-    <select id="status" name="status">
-      <option selected disabled></option>
-      <option value="1">oddaja se prvič</option>
-      <option value="2">oddaja se ponovno</option>
-      <option value="3">se ne oddaja oz. bo ostal/-a za nedoločen čas</option>
-      <option value="4">v novem domu</option>
-      <option value="5">R.I.P.</option>
-    </select>
+  <div class="required form-group">
+    <label for="ime">Ime:</label>
+    <input type="text" id="ime" name="ime" class="form-control" autofocus required/>
   </div>
 
-  <div class="required">
-    <label for="mesec_rojstva">mesec rojstva:</label>
-    <input type="month" id="mesec_rojstva" name="mesec_rojstva" required/>
-  </div>
-  <div>
-    <label for="spol">spol:</label>
-    <select id="spol" name="spol">
-      <option selected disabled>--</option>
+  <div class="form-group required">
+    <label for="spol">Spol:</label>
+    <select id="spol" class="form-control" name="spol">
+      <option selected disabled>--izberi--</option>
       <option value="1">samček</option>
       <option value="2">samička</option>
       <option value="3">samček in samička</option>
@@ -41,49 +24,105 @@
       <option value="4">neznano</option>
     </select>
   </div>
-  <div>
-    <label for="opis">opis:</label>
-    <textarea id="editor" name="opis" required></textarea>
+
+  <div class="required form-group">
+    <label for="datum_objave">Datum objave na spletni strani:</label>
+    <input type="date" id="datum_objave" name="datum_objave" class="form-control" value="" required/>
+    <small class="form-text text-muted">Nazadnje objavljene muce bodo na seznamu prikazane prve (če želiš muco premakniti bolj na začetek, spremeni ta datum v novejšega).</small>
   </div>
-  <div>
-    <label for="kontakt">kontakt:</label>
-    <select id="kontakt" name="kontakt">
+
+  <div class="required form-group">
+    <label for="datum">Datum sprejema v zavetišče:</label>
+    <input type="date" id="datum" name="datum" class="form-control" value="" required/>
+    <small class="form-text text-muted">Če tvoj brskalnik ne podpira ročne izbire datuma, ga napiši v formatu <em>dd-mmm-yyyy</em> (na primer: 5. september 2017 napiši kot <strong>05-Sep-2017</strong>).</small>
+  </div>
+
+  <div class="form-group alert alert-secondary">
+    <input type="checkbox" id="izpostavljena" name="izpostavljena">
+    <label class="form-check-label" for="externalURL">
+      Izpostavi na vrhu seznama muc za posvojitev
+    </label>
+    <small class="form-text text-muted">Muce, pri katerih je obkljukano to polje, bodo na seznamu vseh muc prikazane pred drugimi (izpostavljenih je lahko več).</small>
+  </div>
+
+  <div class="required form-group">
+    <label for="mesec_rojstva">Mesec rojstva:</label>
+    <input type="text" id="mesec_rojstva" name="mesec_rojstva" class="form-control" placeholder="Klikni v polje..." required/>
+    <small class="form-text text-muted">Če tvoj brskalnik ne podpira ročne izbire datuma, ga napiši v formatu <em>yyyy-mm</em> (na primer: september 2017 napiši kot <strong>2017-09</strong>).</small>
+  </div>
+
+  <div class="required form-group">
+    <label for="status">Stanje:</label>
+    <select id="status" class="form-control" name="status">
+      <option selected disabled>--izberi--</option>
+      <option value="1">oddaja se prvič</option>
+      <option value="2">oddaja se ponovno</option>
+      <option value="3">se ne oddaja oz. bo ostal/-a za nedoločen čas</option>
+      <option value="4">v novem domu</option>
+      <option value="5">R.I.P.</option>
+    </select>
+  </div>
+
+  <div class="form-group required">
+    <label for="opis">Opis:</label>
+    <textarea id="editor" class="form-control" name="opis" required></textarea>
+    <small class="form-text text-muted"><strong>Opomba</strong>: za boljši izgled na strani ne vstavljaj praznih vrstic (razmak med vrsticami in naslovi se uredi sam).</small>
+  </div>
+
+  <div class="form-group required">
+    <label for="kontakt">Kontakt za posvojitev:</label>
+    <select id="kontakt" class="form-control" name="kontakt">
       <% kontakti.forEach(function(kontakt){ %>
         <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
-        <option value="<%= k %>" <%= kontakt.email == "posvojitev@macjahisa.si" ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
+        <option value="<%= k %>" <%= kontakt.email == "posvojitev@macjahisa.si" ? "selected" : "" %>><%= k == "posvojitveni_vprasalnik" ? "Posvojitveni vprašalnik (povezava)" : "(" + kontakt.ime + ") " + k %></option>
       <% }); %>
     </select>
   </div>
-  <div>
-    <label for="posvojitev_na_daljavo">posvojitev_na_daljavo:</label>
-    <select id="posvojitev_na_daljavo" name="posvojitev_na_daljavo">
-      <option selected disabled>--</option>
+
+  <div class="form-group required">
+    <label for="posvojitev_na_daljavo">Posvojitev na daljavo:</label>
+    <select class="form-control" id="posvojitev_na_daljavo" name="posvojitev_na_daljavo">
+      <option selected disabled>--izberi--</option>
       <option value="0">ne</option>
       <option value="1">da</option>
     </select>
-    <label for="boter_povezava" style="margin: 0 5px 0 15px;">URL povezava do zgodbe na Mačjem botru:</label>
-    <input type="url" size="50" id="boter_povezava" name="muca[boter_povezava]" required/>
-    <a id="boter_povezava_search_google" class="btn btn-outline-info" style="font-size: 14px; align-self: center; margin-left: 10px" href="" target="_blank">Poišči stran na Botru prek Googla</a>
+    <label for="boter_povezava" style="margin: 15px 0;">URL povezava do zgodbe na Mačjem botru:</label>
+    <input class="form-control" type="url" size="50" id="boter_povezava" name="muca[boter_povezava]" required/>
+    <small id="boter_povezava_note" class="form-text text-muted"><strong>Opomba</strong>: vstavi celotno povezavo (npr.: <strong>http://www.macjiboter.si/muca_zgodba.php?id=2588</strong>).</small>
+    <a id="boter_povezava_search_google" class="btn btn-outline-info" style="font-size: 14px; align-self: center; margin-top: 15px;" href="" target="_blank">Poišči stran na Botru prek Googla</a>
   </div>
-  <div>
-    <hr />
-    <h4>Veterinarski status:</h4>
-    <div>
-      <label for="vet[s_k]">Sterilizirana / kastriran:</label>
-      <input type="checkbox" id="vet[s_k]" name="vet[s_k]" checked/><br />
-      <label for="vet[cipiranje]">Čipirana:</label>
-      <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" checked/><br />
-      <label for="vet[cepljenje]">Cepljena:</label>
-      <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" checked/><br />
-      <label for="vet[razparazit]">Razparazitena:</label>
-      <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" checked/><br />
-      <label for="vet[felv]">FeLV pozitivna:</label>
-      <input type="checkbox" id="vet[felv]" name="vet[felv]" /><br />
-      <label for="vet[fiv]">FIV pozitivna:</label>
-      <input type="checkbox" id="vet[fiv]" name="vet[fiv]" />
-    </div>
-    <hr />
+
+  <hr />
+  <h4>Opravljeni posegi:</h4>
+  <div class="form-check">
+    <input type="checkbox" id="vet[s_k]" name="vet[s_k]" class="form-check-input" checked/>
+    <label class="form-check-label" for="vet[s_k]">Sterilizacija / kastracija</label>
   </div>
+  <div class="form-check">
+    <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" class="form-check-input" checked/>
+    <label class="form-check-label" for="vet[cipiranje]">Čipiranje</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" class="form-check-input" checked/>
+    <label class="form-check-label" for="vet[cepljenje]">Cepljenje</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" class="form-check-input" checked/>
+    <label class="form-check-label" for="vet[razparazit]">Razparazitenje</label>
+  </div>
+  <br />
+  <h4>Zdravstveno stanje:</h4>
+  <div class="form-check">
+    <input type="checkbox" id="vet[felv]" name="vet[felv]" class="form-check-input" />
+    <label class="form-check-label" for="vet[felv]">FeLV +</label>
+  </div>
+  <div class="form-check">
+    <input type="checkbox" id="vet[fiv]" name="vet[fiv]" class="form-check-input" />
+    <label class="form-check-label" for="vet[fiv]">FIV +</label>
+  </div>
+
+  <hr />
+  <h4>Slike:</h4>
   <!-- GROUPING VARIABLES FOR CAT PICTURES -->
   <%
   var images = ["slika1", "slika2", "slika3", "slika4"];
@@ -97,12 +136,13 @@
   %>
 
   <div>
-    <img class="slika" style="width: 150px;" src="" />
     <label for="<%= slika %>">Slika <%= i+1 %>:</label>
-    <input type="file" accept="image/*" class="catImgUploadInput" id="<%= slika %>" name="<%= slika %>"/>
-    <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
-  </div>
+    <input type="file" accept="image/*" class="catImgUploadInput form-control-file" id="<%= slika %>" name="<%= slika %>"/>
 
+    <img class="slika" style="width: 150px;" src="" />
+    <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" style="margin-top: 1rem;" />
+  </div>
+  <hr />
 <% }; %>
 
 <!-- MODAL -->
@@ -125,45 +165,48 @@
 
 <!-- METADATA -->
 <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
-<hr />
 <h4>Metapodatki:</h4>
 <button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
+<br />
+<br />
   <!-- Default SEO -->
-  <div>
-    <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-    <input class="SEOinputField" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+  <div class="row">
+    <div class="col">
+      <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" class="form-control" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+    </div>
+    <div class="col">
+      <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOfbTitle" class="form-control" name="muca[SEOfbTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+    </div>
+    <div class="col">
+      <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+      <input class="SEOinputField" type="text" id="SEOtwitterTitle" class="form-control" name="muca[SEOtwitterTitle]" size="40"/>
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+    </div>
   </div>
-  <div >
-    <label for="SEOmetaDescription">SEO meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="muca[SEOmetaDescription]"></textarea>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
-  </div>
-  <!-- Facebook -->
-  <div>
-    <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-    <input class="SEOinputField" type="text" id="SEOfbTitle" name="muca[SEOfbTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
-  </div>
-  <div >
-    <label for="SEOfbDescription">Facebook meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="muca[SEOfbDescription]"></textarea>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
-  </div>
-  <!-- Twitter -->
-  <div>
-    <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-    <input class="SEOinputField" type="text" id="SEOtwitterTitle" name="muca[SEOtwitterTitle]" size="40"/>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
-  </div>
-  <div >
-    <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"></textarea>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+  <br />
+  <div class="row">
+    <div class="col">
+      <label for="SEOmetaDescription">SEO meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="40" id="SEOmetaDescription" class="form-control" name="muca[SEOmetaDescription]"></textarea><br />
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
+    </div>
+    <div class="col">
+      <label for="SEOfbDescription">Facebook meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="40" id="SEOfbDescription" class="form-control" name="muca[SEOfbDescription]"></textarea><br />
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
+    </div>
+    <div class="col">
+      <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+      <textarea class="SEOinputField" rows="6" cols="40" id="SEOtwitterDescription" class="form-control" name="muca[SEOtwitterDescription]"></textarea><br />
+      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+    </div>
   </div>
 <% }; %>
 </form>
-
 <hr />
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi</button>
 <% include ../../partials/admin/footer %>

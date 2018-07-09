@@ -1,7 +1,10 @@
 <% include ../../partials/admin/header %>
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Kotiček za otroke</h1>
+  <a href="/admin/koticek-za-otroke/add"><button class="btn btn-warning addOrEditButton">Vnesi novo >></button></a>
+</div>
+<hr class="header-divider" />
 
-<h3>Kotiček za otroke</h3>
-<p><a href="/admin/koticek-za-otroke/add">+ Dodaj novo</a></p>
 <table id="tabela" class="display">
     <thead>
         <tr>
@@ -9,7 +12,7 @@
             <th>Naslov</th>
             <th>Kategorija</th>
             <th>Naslovna slika</th>
-            <th>Datoteka</th>
+            <!-- <th>Datoteka</th> -->
             <th>Objava</th>
             <th>Prikaži</th>
             <th>Uredi</th>
@@ -27,7 +30,7 @@
               <td><%= vsebina.naslov %></td>
               <td><%= vsebina.kategorija %></td>
               <td><a href="/files/otroski-koticek/<%= vsebina.naslovna_slika %>" target="_blank"><img class="thumb" src="/files/otroski-koticek/<%= vsebina.naslovna_slika %>" /></a></td>
-              <td><%- vsebina.datoteka %></td>
+              <!-- <td><%- vsebina.datoteka %></td> -->
               <td><%= vsebina.objava == "1" ? "Da" : "Ne" %></td>
               <td><a href="/files/otroski-koticek/<%= vsebina.datoteka %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
               <td><a href="/admin/koticek-za-otroke/<%= vsebina._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>

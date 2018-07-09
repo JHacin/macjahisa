@@ -1,21 +1,25 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/kontakti"><< Nazaj</a></p>
-<h3>Nov kontakt</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/kontakti"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Nov kontakt</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/kontakti" method="POST">
-  <div>
+  <div class="form-group">
     <label for="kontakt[ime]">Ime:</label>
-    <input type="text" name="kontakt[ime]" id="ime" autofocus/>
+    <input class="form-control" type="text" name="kontakt[ime]" id="ime" autofocus/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="kontakt[email]">E-mail:</label>
-    <input type="text" name="kontakt[email]" id="email" required/>
+    <input class="form-control" type="text" name="kontakt[email]" id="email" required/>
   </div>
-  <div>
+  <div class="form-group">
     <label for="kontakt[tel]">Telefonska številka:</label>
-    <input type="text" name="kontakt[tel]" id="tel"/>
+    <input class="form-control" type="text" name="kontakt[tel]" id="tel"/>
   </div>
-  <input type="submit" value="Dodaj">
+    <hr />
+  <input type="submit" class="btn btn-secondary" value="Dodaj">
 </form>
 
 <% include ../../partials/admin/footer %>

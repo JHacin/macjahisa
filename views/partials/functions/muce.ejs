@@ -105,6 +105,10 @@ starostVMesecih = function(mesec_rojstva) {
 sestavaKontaktaCMS = function(email, tel) {
   var result = "";
 
+  if(email == "Posvojitveni vprašalnik (ne spreminjaj!)") {
+    return "posvojitveni_vprasalnik";
+  }
+
   if(email != undefined && email != "") {
     result += email;
   }

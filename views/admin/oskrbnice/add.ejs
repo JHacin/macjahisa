@@ -1,24 +1,28 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/oskrbnice"><< Nazaj</a></p>
-<h3>Nov mail</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/oskrbnice"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Nov e-mail naslov za obveščanje</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/oskrbnice" method="POST">
-  <div class="required">
+  <div class="required form-group">
     <label for="oskrbnica[ime]">Ime:</label>
-    <input type="text" name="oskrbnica[ime]" id="ime" autofocus required/>
+    <input class="form-control" type="text" name="oskrbnica[ime]" id="ime" autofocus required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="oskrbnica[email]">E-mail:</label>
-    <input type="text" name="oskrbnica[email]" id="email" required/>
+    <input class="form-control" type="text" name="oskrbnica[email]" id="email" required/>
   </div>
-  <div>
-    <label for="aktivna">Aktivna:</label>
-    <select id="aktivna" name="oskrbnica[aktivna]">
+  <div class="required form-group">
+    <label for="aktivna">Aktiven:</label>
+    <select class="form-control" id="aktivna" name="oskrbnica[aktivna]">
       <option value="Da" selected>Da</option>
       <option value="Ne">Ne</option>
     </select>
   </div>
-  <input type="submit" value="Dodaj">
+  <hr />
+  <input type="submit" class="btn btn-secondary" value="Dodaj">
 </form>
 
 <% include ../../partials/admin/footer %>

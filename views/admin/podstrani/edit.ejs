@@ -1,16 +1,21 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/podstrani"><< Nazaj</a></p>
-<h3>Uredi podstran</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/podstrani"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Urejanje podstrani</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/podstrani/<%= podstran._id %>?_method=PUT" method="POST">
-  <div class="required">
+  <div class="required form-group">
     <label for="podstran[naslov]">Naslov:</label>
-    <input type="text" name="podstran[naslov]" id="naslov" value="<%= podstran.naslov %>" required/>
+    <input type="text" name="podstran[naslov]" class="form-control" id="naslov" value="<%= podstran.naslov %>" required />
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="podstran[url]">URL:</label>
-    <input size="40" type="text" name="podstran[url]" id="url" value="<%= podstran.url %>" required/>
-    (zapiši v formatu <em><span style="color: red;">naslov-strani-in-tako-dalje</span></em>, presledek nadomesti pomišljaj (-).<strong> Brez pravih presledkov, šumnikov ali posebnih simbolov</strong>)
+    <input size="40" type="text" class="form-control" name="podstran[url]" id="url" value="<%= podstran.url %>" <%= (currentUser && (currentUser.adminLevel !== "admin" && currentUser.adminLevel !== "owner")) ? "disabled" : "" %> required/>
+    <small class="form-text text-muted">URL lahko spremeni samo administrator. Zapiši v formatu <em><span style="color: red;">naslov-strani-in-tako-dalje</span></em>,
+      presledek nadomesti s pomišljajem (-).<strong>
+      Brez pravih presledkov, šumnikov ali posebnih simbolov</strong>).</small>
   </div>
   <!-- <div>
     <label for="podstran[objava]">Vključena v menu:</label>
@@ -19,17 +24,19 @@
       <option value="Ne">Ne</option>
     </select>
   </div> -->
-  <div>
+  <div class="required form-group">
     <label for="podstran[kategorija]">Kategorija:</label>
-    <select id="kategorija" name="podstran[kategorija]">
+    <select class="form-control" id="kategorija" name="podstran[kategorija]">
       <% kategorije.forEach(function(kategorija){ %>
         <option value="<%= kategorija._id %>" <%= podstran.kategorija.equals(kategorija._id) ? "selected" : "" %>><%= kategorija.naslov %></option>
       <% }); %>
     </select>
   </div>
-  <div>
-    <label for="podstran[vsebina]">Vsebina:</label>
+  <div class="required form-group">
+    <label for="podstran[vsebina]"> Vsebina:</label>
     <textarea name="podstran[vsebina]" id="editor" required><%= podstran.vsebina %></textarea>
+    <small class="form-text text-muted"><strong>Opomba</strong>: za boljši izgled na strani ne vstavljaj praznih vrstic (razmak med vrsticami in naslovi se uredi sam).</small>
+
   </div>
 
   <!-- METADATA -->
@@ -37,43 +44,48 @@
   <hr />
   <h4>Metapodatki:</h4>
   <button type="button" id="generatePageMetaDataButton" class="btn btn-warning">Generiraj iz opisa / besedila</button>
+  <br />
+  <br />
     <!-- Default SEO -->
-    <div>
-      <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-      <input class="SEOinputField" value="<%- podstran.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= podstran.SEOmetaTitle.length %></span> znakov</span>
+    <div class="row">
+      <div class="col">
+        <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOmetaTitle" name="podstran[SEOmetaTitle]" value="<%= podstran.SEOmetaTitle %>" class="form-control" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= podstran.SEOmetaTitle.length %></span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOfbTitle" class="form-control" value="<%= podstran.SEOfbTitle %>" name="podstran[SEOfbTitle]" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= podstran.SEOfbTitle.length %></span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOtwitterTitle" class="form-control" value="<%= podstran.SEOtwitterTitle %>" name="podstran[SEOtwitterTitle]" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= podstran.SEOtwitterTitle.length %></span> znakov</span>
+      </div>
     </div>
-    <div >
-      <label for="SEOmetaDescription">SEO meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="podstran[SEOmetaDescription]"><%- podstran.SEOmetaDescription %></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= podstran.SEOmetaDescription.length %></span> znakov</span>
-    </div>
-    <!-- Facebook -->
-    <div>
-      <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-      <input class="SEOinputField" value="<%- podstran.SEOfbTitle %>" type="text" id="SEOfbTitle" name="podstran[SEOfbTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= podstran.SEOfbTitle.length %></span> znakov</span>
-    </div>
-    <div >
-      <label for="SEOfbDescription">Facebook meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="podstran[SEOfbDescription]"><%- podstran.SEOfbDescription %></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= podstran.SEOfbDescription.length %></span> znakov</span>
-    </div>
-    <!-- Twitter -->
-    <div>
-      <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-      <input class="SEOinputField" value="<%- podstran.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="podstran[SEOtwitterTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= podstran.SEOtwitterTitle.length %></span> znakov</span>
-    </div>
-    <div >
-      <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="podstran[SEOtwitterDescription]"><%- podstran.SEOtwitterDescription %></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= podstran.SEOtwitterDescription.length %></span> znakov</span>
+    <br />
+    <div class="row">
+      <div class="col">
+        <label for="SEOmetaDescription">SEO meta opis:</label><br />
+        <textarea class="SEOinputField" rows="8" cols="40" id="SEOmetaDescription" class="form-control" name="podstran[SEOmetaDescription]"><%- podstran.SEOmetaDescription %></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= podstran.SEOmetaDescription.length %></span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOfbDescription">Facebook meta opis:</label><br />
+        <textarea class="SEOinputField" rows="8" cols="40" id="SEOfbDescription" class="form-control" name="podstran[SEOfbDescription]"><%- podstran.SEOfbDescription %></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= podstran.SEOfbDescription.length %></span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+        <textarea class="SEOinputField" rows="8" cols="40" id="SEOtwitterDescription" class="form-control" name="podstran[SEOtwitterDescription]"><%- podstran.SEOtwitterDescription %></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= podstran.SEOtwitterDescription.length %></span> znakov</span>
+      </div>
     </div>
   <% }; %>
   <hr />
 
-  <input type="submit" value="Potrdi spremembe">
+  <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
 </form>
 
 

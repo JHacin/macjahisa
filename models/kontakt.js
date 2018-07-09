@@ -2,7 +2,7 @@ var mongoose = require("mongoose");
 
 var kontaktSchema = new mongoose.Schema({
   ime: String,
-  email: { type: String, default: "info@macjahisa.si" },
+  email: { type: String, default: "posvojitev@macjahisa.si" },
   tel: String
 });
 

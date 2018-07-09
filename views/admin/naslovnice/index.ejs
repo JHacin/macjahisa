@@ -1,7 +1,9 @@
 <% include ../../partials/admin/header %>
-
-<h3>Naslovnice</h3>
-<p><a href="/admin/naslovnice/add">+ Dodaj novo</a></p>
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Naslovnice</h1>
+  <a href="/admin/naslovnice/add"><button class="btn btn-warning addOrEditButton">Vnesi novo >></button></a>
+</div>
+<hr class="header-divider" />
 
 <div id="aktiviraneNaslovnice">
   <%
@@ -17,30 +19,34 @@
 
   <% aktivirane.forEach(function(naslovnica) { %>
   <div id="naslovnica<%= naslovnica.pozicija%>">
-    <h4>Naslovnica <%= naslovnica.pozicija %></h4>
-    <img src="/files/naslovnice/<%= naslovnica.ozadje %>" style="height: 250px;"/>
-    <p><strong>Naslov</strong>: <%- naslovnica.naslov %></p>
-    <p><strong>Podnaslov</strong>: <%- naslovnica.podnaslov %></p>
-    <p><strong>Napis na gumbu</strong>: <%- naslovnica.napisNaGumbu %></p>
+    <h4>Naslovnica #<%= naslovnica.pozicija %></h4>
+    <strong>Ozadje</strong>:<br />
+    <img src="/files/naslovnice/<%= naslovnica.ozadje %>"/>
+    <p><strong>Naslov</strong>: <br /><small class="text-muted"><%- naslovnica.naslov %></small></p>
+    <p><strong>Podnaslov</strong>: <br /><small class="text-muted"><%- naslovnica.podnaslov %></small></p>
+    <p><strong>Napis na gumbu</strong>: <br /><small class="text-muted"><%- naslovnica.napisNaGumbu %></small></p>
+    <p><strong>Povezava</strong>: <br /><small class="text-muted"><%- naslovnica.povezava %></small></p>
     <form action="/admin/naslovnice/<%= naslovnica._id %>/deactivate" method="POST">
-      <input type="submit" value="Deaktiviraj"/>
+      <input type="submit" class="btn btn-outline-danger" value="Deaktiviraj"/>
     </form>
   </div>
   <% }); %>
 
 </div>
-<hr />
+
+<hr class="header-divider" />
+
 <table id="tabela" class="display">
     <thead>
         <tr>
             <th>Zadnja sprememba</th>
             <th>Ozadje</th>
             <th>Naslov</th>
-            <th>Podnaslov</th>
-            <th>Napis na gumbu</th>
+            <!-- <th>Podnaslov</th> -->
+            <!-- <th>Napis na gumbu</th> -->
             <th>Povezava</th>
             <th>Uredi</th>
-            <th>Označi kot</th>
+            <th>Nastavi kot naslovnico št.</th>
         </tr>
     </thead>
     <tbody>
@@ -54,14 +60,14 @@
               </td>
               <td><a href="/files/naslovnice/<%= naslovnica.ozadje %>" target="_blank"><img class="thumb" src="/files/naslovnice/<%= naslovnica.ozadje %>" /></a></td>
               <td><%- naslovnica.naslov %></td>
-              <td><%= naslovnica.podnaslov %></td>
-              <td><%= naslovnica.napisNaGumbu %></td>
+              <!-- <td><%= naslovnica.podnaslov %></td>
+              <td><%= naslovnica.napisNaGumbu %></td> -->
               <td><a href="<%= naslovnica.povezava %>" target="_blank"><%= naslovnica.povezava %></a></td>
               <td><a href="/admin/naslovnice/<%= naslovnica._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
               <td>
-                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_1" <%= naslovnica.pozicija === 1 ? "disabled": "" %>>Prva naslovnica</button><br />
-                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_2" <%= naslovnica.pozicija === 2 ? "disabled": "" %>>Druga naslovnica</button><br />
-                  <button class="setNaslovnicaButton" id="<%= naslovnica._id %>_3" <%= naslovnica.pozicija === 3 ? "disabled": "" %>>Tretja naslovnica</button>
+                  <button class="btn btn-secondary setNaslovnicaButton" id="<%= naslovnica._id %>_1" <%= naslovnica.pozicija === 1 ? "disabled": "" %>>#1</button>
+                  <button class="btn btn-warning setNaslovnicaButton" id="<%= naslovnica._id %>_2" <%= naslovnica.pozicija === 2 ? "disabled": "" %>>#2</button>
+                  <button class="btn btn-dark setNaslovnicaButton" id="<%= naslovnica._id %>_3" <%= naslovnica.pozicija === 3 ? "disabled": "" %>>#3</button>
               </td>
           </tr>
         <% }) %>

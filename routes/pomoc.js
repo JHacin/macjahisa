@@ -6,7 +6,7 @@ router.get("/", function(req, res){
   res.redirect("/pomoc/nacini-pomoci");
 });
 
-router.get("/donacije", function(req, res){
+router.post("/donacije", function(req, res){
   Podstran.findOne({naslov: "Donacije"}, function(err, podstran){
     if(podstran===null) return res.render("404");
     res.render("pomoc/donacije",

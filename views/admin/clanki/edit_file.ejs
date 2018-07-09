@@ -1,37 +1,44 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/clanki"><< Nazaj</a></p>
-<h3>Uredi datoteko</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/clanki"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Uredi datoteko</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/clanki_upload/<%= clanek._id %>?_method=PUT" method="POST" enctype="multipart/form-data">
-  <div class="required">
+  <div class="required form-group">
     <label for="clanek[naslov]">Naslov:</label>
-    <input type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
+    <input type="text" name="clanek[naslov]" id="naslov" size="70" class="form-control" value="<%= clanek.naslov %>" autofocus required/>
+    <small class="form-text text-muted">Naslov bo prikazan na seznamu člankov, prispevkov in povezav (<a href="/dobro-je-vedeti/prispevki-clanki-povezave" target="_blank">http://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave)</a>.</small>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="kategorija">Kategorija:</label>
-    <select id="kategorija" name="clanek[kategorija]">
+    <select class="form-control" id="kategorija" name="clanek[kategorija]">
       <option value="prispevki" <%= clanek.kategorija == "prispevki" ? "selected" : "" %>>prispevki</option>
       <option value="nasveti" <%= clanek.kategorija == "nasveti" ? "selected" : "" %>>nasveti</option>
       <option value="zakonodaja" <%= clanek.kategorija == "zakonodaja" ? "selected" : "" %>>zakonodaja</option>
       <option value="zdravje" <%= clanek.kategorija == "zdravje" ? "selected" : "" %>>zdravje</option>
     </select>
+    <small class="form-text text-muted">Kategorija na seznamu člankov, v kateri bo datoteka.</small>
   </div>
-  <div>
-    <label for="clanek[vsebina]">Datoteka:</label>
-    <input type="text" name="clanek[vsebina]" id="vsebina" value="<%= clanek.vsebina %>" size="70" disabled/>
+  <div class="form-group">
+    <label for="clanek[vsebina]">Trenutna datoteka:</label>
+    <input class="form-control" type="text" name="clanek[vsebina]" id="vsebina" value="<%= clanek.vsebina %>" size="70" disabled/>
   </div>
-  <div>
+  <div class="form-group">
     <label for="clanek[nova_vsebina]">Naloži drugo datoteko:</label>
-    <input type="file" accept="application/msword application/pdf" name="clanek[nova_vsebina]" id="nova_vsebina" size="70"/>
+    <input class="form-control-file" type="file" accept="application/msword application/pdf" name="clanek[nova_vsebina]" id="nova_vsebina" size="70"/>
+    <small class="form-text text-muted">Dovoljene so samo PDF ali Microsoft Word (.doc/.docx) datoteke.</small>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="clanek[objava]">Objava:</label>
-    <select id="objava" name="clanek[objava]">
+    <select class="form-control" id="objava" name="clanek[objava]">
       <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>
       <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
     </select>
+    <small class="form-text text-muted">Določi, ali bo datoteka prikazana na seznamu člankov.</small>
   </div>
-  <input type="submit" value="Potrdi spremembe">
+  <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
 </form>
 
 <% include ../../partials/admin/footer %>

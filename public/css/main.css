@@ -27,6 +27,10 @@ iframe {
   -webkit-transform-style: preserve-3d;
 }
 
+.stellarnav > ul > .menu_primary:hover > a {
+  color: #f2f2f2;
+}
+
 body > div > .container {
   width: 1250px;
   max-width: 1300px;
@@ -384,9 +388,6 @@ input.paypal_btn,
 
 /* Enable hover effects only on large screens */
 @media all and (min-width: 1140px) {
-  #imageZoom:hover {
-    color: #131313c2;
-  }
 
   .i_jumbo_button:hover {
     cursor: pointer;
@@ -403,17 +404,16 @@ input.paypal_btn,
 
   .stellarnav > ul > .menu_primary:hover {
     background-color: #595959;
-    /* background-color: #3f3f3f; */
   }
 
-  .stellarnav > ul > .menu_primary:hover > a {
-    color: #f2f2f2;
-    /* color: #e5e5e5; */
-    /* font-weight: 600; */
-  }
+
 
   .menu_primary > a:hover {
     cursor: default;
+  }
+
+  a.kat_toggle:hover {
+    color: red;
   }
 
   .stellarnav > ul > .menu_primary > ul > li:hover {
@@ -507,12 +507,6 @@ input.paypal_btn,
 
   .side_cat:hover {
     filter: sepia(40%);
-  }
-
-  #imageZoom:hover {
-    cursor: pointer;
-    background: #131313c2;
-    color: #dbdbdb;
   }
 
   .muca h2 a:hover {

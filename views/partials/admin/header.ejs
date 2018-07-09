@@ -1,77 +1,115 @@
 <!doctype html>
 <html lang="en">
   <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="icon" href="/images/favicon.ico">
     <title>CMS - Mačja hiša</title>
-    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/trumbowyg/dist/ui/trumbowyg.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/jquery.dataTables.min.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800&amp;subset=latin-ext" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Life+Savers:400,700&amp;subset=latin-ext" rel="stylesheet">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/cms.css" />
+    <link rel="stylesheet" href="/css/datepicker.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.3.6/cropper.min.css" integrity="sha256-1tX5fsVcIDX7IzM1u6WaEqyG0T34/10zrlPJIu3kwbY=" crossorigin="anonymous" />
     <link rel="stylesheet" href="/trumbowyg/dist/plugins/colors/ui/trumbowyg.colors.css"></script>
     <link rel="stylesheet" href="/trumbowyg/dist/ui/trumbowyg.css">
   </head>
   <body>
-    <div class="topnav">
-      <div>
-        <img src="/files/page/logo_notitle.png" />
-        <h2>Mačja hiša CMS</h2>
-      </div>
-      <div>
-        <a href="/" target="_blank">
-          <h5 style="color:white;">Na domačo stran <i class="fas fa-angle-double-right"></i></h5>
-        </a>
-      </div>
-    </div>
+    <div class="container-fluid">
+      <nav class="navbar sticky-top navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="/admin">Mačja hiša CMS</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-    <div class="sidenav">
-      <ul>
-        <li><h4 style="margin-top: 10px;">Muce</h4></li>
-        <li><a href="/admin/muce/add"><i class="fas fa-plus-circle"></i> Vnesi novo</a></li>
-        <li><a href="/admin/muce/iscejo">Iščejo dom</a></li>
-        <li><a href="/admin/muce/iscejo_botra">Iščejo botra</a></li>
-        <li><a href="/admin/muce/v-novem-domu">V novem domu</a></li>
-        <li><a href="/admin/muce/arhiv">Vse muce v bazi</a></li>
-        <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner" || currentUser.adminLevel == "page_editor")){ %>
-        <li><h4>Vsebina</h4></li>
-        <li><a href="/admin/podstrani">Podstrani</a></li>
-        <li><a href="/admin/clanki">Prispevki, članki, povezave</a></li>
-        <li><a href="/admin/izobrazevalne-vsebine">Zbirka MH in letaki (PDF)</a></li>
-        <li><a href="/admin/koticek-za-otroke">Kotiček za otroke</a></li>
-        <li><a href="/admin/naslovnice">Naslovnice</a></li>
-        <% }; %>
-        <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
-        <li><h4>Administracija</h4></li>
-        <li><a href="/admin/users">Uporabniki CMSja</a></li>
-        <li><a href="/admin/kontakti">Kontakti za posvojitev</a></li>
-        <li><a href="/admin/oskrbnice">Oskrbnice</a></li>
-        <% }; %>
-        <% if(currentUser && currentUser.adminLevel == "owner"){ %>
-        <li><a href="/admin/menu">Urejanje menija</a></li>
-        <% }; %>
-        <li><h4>Račun</h4></li>
-        <li><a href="/admin/profil">Uredi osebne podatke</a></li>
-        <li><a href="/admin/profil/geslo">Spremeni geslo</a></li>
-        <li><a href="/admin/logout">Odjava</a></li>
-      </ul>
-    </div>
-    <div class="main">
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <!-- Muce -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="muceDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Muce
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/admin/muce/add">Vnesi novo</a>
+                <a class="dropdown-item" href="/admin/muce/iscejo">Iščejo dom</a>
+                <a class="dropdown-item" href="/admin/muce/iscejo_botra">Iščejo botra</a>
+                <a class="dropdown-item" href="/admin/muce/v-novem-domu">V novem domu</a>
+                <a class="dropdown-item" href="/admin/muce/arhiv">Vse muce v bazi</a>
+              </div>
+            </li>
+            <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner" || currentUser.adminLevel == "page_editor")){ %>
+            <!-- Vsebina -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="vsebinaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Vsebina
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/admin/podstrani">Podstrani</a>
+                <a class="dropdown-item" href="/admin/clanki">Prispevki, članki, povezave</a>
+                <a class="dropdown-item" href="/admin/izobrazevalne-vsebine">Zbirka MH in letaki (PDF)</a>
+                <a class="dropdown-item" href="/admin/koticek-za-otroke">Kotiček za otroke</a>
+                <a class="dropdown-item" href="/admin/naslovnice">Naslovnice</a>
+              </div>
+            </li>
+            <% }; %>
+            <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
+            <!-- Administracija -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="administracijaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Administracija
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/admin/users">Uporabniki CMSja</a>
+                <a class="dropdown-item" href="/admin/kontakti">Kontakti za posvojitev</a>
+                <a class="dropdown-item" href="/admin/oskrbnice">Oskrbnice</a>
+              </div>
+            </li>
+            <% }; %>
+            <!-- <% if(currentUser && currentUser.adminLevel == "owner"){ %> -->
+            <!-- Urejanje menija -->
+            <!-- <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="urejanjeMenijaDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Urejanje menija
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/admin/menu">Urejanje menija</a>
+              </div>
+            </li> -->
+            <!-- <% }; %> -->
+            <!-- Račun -->
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="racunDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Račun
+              </a>
+              <div class="dropdown-menu">
+                <a class="dropdown-item" href="/admin/profil">Uredi osebne podatke</a>
+                <a class="dropdown-item" href="/admin/profil/geslo">Spremeni geslo</a>
+                <a class="dropdown-item" href="/admin/logout">Odjava</a>
+              </div>
+            </li>
+          </ul>
+          <a class="my-2 my-lg-0" href="/" target="_blank">
+
+            <button class="btn btn-outline-warning my-2 my-sm-0" type="submit">Pojdi na <strong>macjahisa.si</strong> >></button>
+          </a>
+        </div>
+      </nav>
+    <div class="container">
+      <!-- FLASH MESSAGES -->
       <div class="flash">
-          <% if(error && error.length > 0) { %>
-          <div class="alert alert-danger" role="alert">
-              <%= error %>
-          </div>
-          <% } %>
-          <% if(success && success.length > 0) { %>
-          <div class="alert alert-success" role="alert">
-              <%= success %>
-          </div>
-          <% } %>
+        <% if(error && error.length > 0) { %>
+        <div class="alert alert-danger" role="alert">
+            <%= error %>
+        </div>
+        <% } %>
+        <% if(success && success.length > 0) { %>
+        <div class="alert alert-success" role="alert">
+            <%= success %>
+        </div>
+        <% } %>
       </div>

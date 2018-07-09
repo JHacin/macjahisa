@@ -1,31 +1,38 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/clanki"><< Nazaj</a></p>
-<h3>Novo besedilo</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/clanki"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Nov članek</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/clanki" method="POST">
-  <div class="required">
+  <div class="required form-group">
     <label for="clanek[naslov]">Naslov:</label>
-    <input type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
+    <input class="form-control" type="text" name="clanek[naslov]" id="naslov" size="70" autofocus required/>
+    <small class="form-text text-muted">Naslov bo prikazan na seznamu člankov, prispevkov in povezav (<a href="/dobro-je-vedeti/prispevki-clanki-povezave" target="_blank">http://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave)</a>.</small>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="kategorija">Kategorija:</label>
-    <select id="kategorija" name="clanek[kategorija]">
+    <select class="form-control" id="kategorija" name="clanek[kategorija]">
       <option value="prispevki">prispevki</option>
       <option value="nasveti">nasveti</option>
       <option value="zakonodaja">zakonodaja</option>
       <option value="zdravje">zdravje</option>
     </select>
+    <small class="form-text text-muted">Kategorija na seznamu člankov, v kateri bo besedilo.</small>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="clanek[objava]">Objava:</label>
-    <select id="objava" name="clanek[objava]">
+    <select class="form-control" id="objava" name="clanek[objava]">
       <option value="1" selected>Da</option>
       <option value="0">Ne</option>
     </select>
+    <small class="form-text text-muted">Določi, ali bo članek prikazan na seznamu člankov.</small>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="clanek[vsebina]">Vsebina:</label>
-    <textarea name="clanek[vsebina]" id="editor" required></textarea>
+    <textarea class="form-control" name="clanek[vsebina]" id="editor" required></textarea>
+    <small class="form-text text-muted"><strong>Opomba</strong>: za boljši izgled na strani ne vstavljaj praznih vrstic (razmak med vrsticami in naslovi se uredi sam).</small>
   </div>
   <input type="hidden" name="clanek[tip]" value="besedilo" />
 
@@ -35,43 +42,48 @@
   <hr />
   <h4>Metapodatki:</h4>
   <button type="button" id="generateArticleMetaDataButton" class="btn btn-warning">Generiraj iz opisa / besedila</button>
+  <br />
+  <br />
     <!-- Default SEO -->
-    <div>
-      <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-      <input class="SEOinputField" type="text" id="SEOmetaTitle" name="clanek[SEOmetaTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+    <div class="row">
+      <div class="col">
+        <label for="SEOmetaTitle">SEO meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOmetaTitle" name="clanek[SEOmetaTitle]" class="form-control" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength">0</span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOfbTitle">Facebook meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOfbTitle" class="form-control" name="clanek[SEOfbTitle]" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
+        <input class="SEOinputField" type="text" id="SEOtwitterTitle" class="form-control" name="clanek[SEOtwitterTitle]" size="40"/>
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
+      </div>
     </div>
-    <div >
-      <label for="SEOmetaDescription">SEO meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="clanek[SEOmetaDescription]"></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
-    </div>
-    <!-- Facebook -->
-    <div>
-      <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-      <input class="SEOinputField" type="text" id="SEOfbTitle" name="clanek[SEOfbTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength">0</span> znakov</span>
-    </div>
-    <div >
-      <label for="SEOfbDescription">Facebook meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="clanek[SEOfbDescription]"></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
-    </div>
-    <!-- Twitter -->
-    <div>
-      <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-      <input class="SEOinputField" type="text" id="SEOtwitterTitle" name="clanek[SEOtwitterTitle]" size="40"/>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength">0</span> znakov</span>
-    </div>
-    <div >
-      <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
-      <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="clanek[SEOtwitterDescription]"></textarea>
-      <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+    <br />
+    <div class="row">
+      <div class="col">
+        <label for="SEOmetaDescription">SEO meta opis:</label><br />
+        <textarea class="SEOinputField" rows="6" cols="40" id="SEOmetaDescription" class="form-control" name="clanek[SEOmetaDescription]"></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength">0</span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOfbDescription">Facebook meta opis:</label><br />
+        <textarea class="SEOinputField" rows="6" cols="40" id="SEOfbDescription" class="form-control" name="clanek[SEOfbDescription]"></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength">0</span> znakov</span>
+      </div>
+      <div class="col">
+        <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
+        <textarea class="SEOinputField" rows="6" cols="40" id="SEOtwitterDescription" class="form-control" name="clanek[SEOtwitterDescription]"></textarea><br />
+        <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength">0</span> znakov</span>
+      </div>
     </div>
   <% }; %>
   <hr />
 
-    <input type="submit" value="Dodaj">
+    <input type="submit" class="btn btn-secondary" value="Dodaj">
 </form>
 
 <% include ../../partials/admin/footer %>

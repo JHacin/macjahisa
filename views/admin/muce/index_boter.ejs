@@ -1,18 +1,21 @@
 <% include ../../partials/admin/header %>
 <% include ../../partials/functions/muce %>
-
-<h3>Muce za posvojitev, ki iščejo botra</h3>
-<p><a href="/admin/muce/add">+ Dodaj novo</a></p>
-
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Muce, ki iščejo botra</h1>
+  <a href="/admin/muce/add"><button class="btn btn-warning addOrEditButton">Vnesi novo >></button></a>
+</div>
+<hr class="header-divider" />
 <table id="tabela" class="display">
     <thead>
         <tr>
+            <th>Datum objave</th>
+            <th>Izpostavljena</th>
             <th>Datum sprejema</th>
             <th>Status</th>
             <th>Ime</th>
-            <th>Spol</th>
+            <!-- <th>Spol</th> -->
             <th>Slika</th>
-            <th>Posvojitev na daljavo</th>
+            <th>Išče botra</th>
             <th>Povezava do zgodbe je vnešena</th>
             <th>Prikaži</th>
             <th>Uredi</th>
@@ -23,13 +26,20 @@
           <tr>
               <td>
                 <!-- hidden date format for table ordering purposes  -->
+                <span class="hidden"><%= moment(muca.datum_objave).format("YYYY[/]MM[/]DD") %></span>
+                <!-- actual date format shown -->
+                <%= moment(muca.datum_objave).format("D[.]M[.]YYYY") %>
+              </td>
+              <td><%= muca.izpostavljena ? "Da" : "Ne" %></td>
+              <td>
+                <!-- hidden date format for table ordering purposes  -->
                 <span class="hidden"><%= moment(muca.datum).format("YYYY[/]MM[/]DD") %></span>
                 <!-- actual date format shown -->
                 <%= moment(muca.datum).format("D[.]M[.]YYYY") %>
               </td>
               <td><%= stanjeMuce(muca.status) %></td>
               <td><%= muca.ime %></td>
-              <td><%= spolMuce(muca.spol) %></td>
+              <!-- <td><%= spolMuce(muca.spol) %></td> -->
               <td><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></td>
               <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
               <td><%= muca.boter_povezava == undefined ? "Ne" : "Da" %></td>

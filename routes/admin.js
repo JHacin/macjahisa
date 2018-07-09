@@ -177,7 +177,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
     writer2.write(xmlOutput);
   });
 
-  Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce) {
+  Muca.find().where("status").in([1, 2]).sort({datum_objave: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -188,7 +188,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
 
 // MUCE KI IŠČEJO BOTRA
 router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
-  Muca.find().where("posvojitev_na_daljavo").equals(1).where("status").in([1, 2, 3]).sort({datum: -1}).exec(function(err, muce) {
+  Muca.find().where("posvojitev_na_daljavo").equals(1).where("status").in([1, 2, 3]).sort({datum_objave: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -198,7 +198,7 @@ router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
 });
 
 router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
-  Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce) {
+  Muca.find().where("status").equals(4).sort({datum_objave: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -208,7 +208,7 @@ router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
 });
 
 router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
-  Muca.find({}).sort({datum: -1}).exec(function(err, muce) {
+  Muca.find({}).sort({datum_objave: -1}).exec(function(err, muce) {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -249,6 +249,7 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
         }
 
           novaMuca.dbid = count + 1;
+          novaMuca.izpostavljena = req.body.izpostavljena;
 
           // VET STATUS
           for(var key in req.body.vet) {
@@ -258,6 +259,7 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           // slike
           if(req.body.slika1_crop) {
             var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
+
             var imageBuffer = Buffer.from(base64_string, 'base64');
             var imageName = novaMuca.dbid + "_" + "_1" + ".jpeg";
             var fileLocation = "public/files/oglasi_muce/" + imageName;
@@ -334,6 +336,7 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           };
 
           novaMuca.ime = ime;
+          novaMuca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
           novaMuca.boter_povezava = req.body.boter_povezava;
           novaMuca.SEOmetaTitle = req.body.SEOmetaTitle;
           novaMuca.SEOmetaDescription = req.body.SEOmetaDescription;
@@ -407,51 +410,61 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
       muca.SEOfbDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
       muca.SEOtwitterDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
       muca.save(function (err) {
-        if (err) return handleError(err);
+        if (err) return console.log(err);
         // saved!
       });
     }
 
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
     muca.datum = req.body.datum;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
+      // saved!
+    });
+    muca.datum_objave = req.body.datum_objave;
+    muca.save(function (err) {
+      if (err) return console.log(err);
+      // saved!
+    });
+    muca.izpostavljena = req.body.izpostavljena;
+    muca.save(function (err) {
+      if (err) return console.log(err);
       // saved!
     });
     muca.status = req.body.status;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
-    muca.mesec_rojstva = req.body.mesec_rojstva;
+    muca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
     muca.spol = req.body.spol;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
 
     muca.opis = req.body.opis;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
 
     muca.kontakt = req.body.kontakt;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
 
     muca.posvojitev_na_daljavo = req.body.posvojitev_na_daljavo;
     muca.save(function (err) {
-      if (err) return handleError(err);
+      if (err) return console.log(err);
       // saved!
     });
 
@@ -472,6 +485,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
       // spremeni datum 'sprejema' pri muci ki gre v nov dom (ali je prišla nazaj)
       if(gre_v_nov_dom || (req.body.status != 4 && muca.status == 4)) {
         muca.datum = moment();
+        muca.datum_objave = moment();
       }
 
       muca.save(function (err) {
@@ -1083,17 +1097,14 @@ router.get("/kontakti/add", middleware.isAdmin, function(req, res){
 });
 
 router.post("/kontakti", middleware.isAdmin, function(req, res){
-  if(err) {
-    req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
-    return res.redirect("/admin/kontakti");
-  }
   Kontakt.create(req.body.kontakt, function(err, kontakt){
     if(err) {
+      return console.log(err);
       req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
       return res.redirect("/admin/kontakti");
     }
     req.flash("success", "Kontaktna oseba dodana.");
-    res.redirect("/admin/kontakti/");
+    res.redirect("/admin/kontakti");
   })
 });
 

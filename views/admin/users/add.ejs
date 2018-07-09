@@ -1,38 +1,43 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/users"><< Nazaj</a></p>
-<h3>Nov uporabnik</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/users"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Nov uporabnik</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/users" method="POST">
-  <div class="required">
+  <div class="required form-group">
     <label for="username">Uporabniško ime:</label>
-    <input type="text" name="username" id="username" autofocus required/>
+    <input class="form-control" type="text" name="username" id="username" autofocus required/>
   </div>
-  <div class="required">
-    <label for="password">Začetno geslo (uporabnik si ga lahko po prijavi spremeni):</label>
-    <input type="text" name="password" id="password" required/>
+  <div class="required form-group">
+    <label for="password">Začetno geslo:</label>
+    <input class="form-control" type="text" name="password" id="password" required/>
+    <small class="form-text text-muted"><strong>Opomba: </strong> uporabnik si ga lahko po prijavi spremeni.</small>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="firstName">Ime:</label>
-    <input type="text" name="firstName" id="firstName" required/>
+    <input class="form-control" type="text" name="firstName" id="firstName" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="lastName">Priimek:</label>
-    <input type="text" name="lastName" id="lastName" required/>
+    <input class="form-control" type="text" name="lastName" id="lastName" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="email">E-mail naslov:</label>
-    <input type="email" name="email" id="email" required/>
+    <input class="form-control" type="email" name="email" id="email" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="adminLevel">Stopnja pravic:</label>
-    <select id="adminLevel" name="adminLevel">
+    <select class="form-control" id="adminLevel" name="adminLevel">
       <option value="cat_editor" selected>Urednik oglasov za muce</option>
       <option value="page_editor">Urednik strani</option>
       <option value="admin">Administrator</option>
       <option value="owner" <%= currentUser.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>
     </select>
   </div>
-  <input type="submit" value="Dodaj">
+  <hr />
+  <input type="submit" class="btn btn-secondary" value="Dodaj">
 </form>
 
 <% include ../../partials/admin/footer %>

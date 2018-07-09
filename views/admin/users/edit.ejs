@@ -1,27 +1,30 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/users"><< Nazaj</a></p>
-<h3>Uredi uporabnika</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/users"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Uredi uporabnika</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/users/<%= user._id %>?_method=PUT" method="POST">
-  <div class="required">
+  <div class="required form-group">
     <label for="username">Uporabniško ime:</label>
-    <input type="text" name="username" id="username" value="<%= user.username %>" autofocus required/>
+    <input class="form-control" type="text" name="username" id="username" value="<%= user.username %>" autofocus required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="firstName">Ime:</label>
-    <input type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required/>
+    <input class="form-control" type="text" name="firstName" id="firstName" value="<%= user.firstName %>" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="lastName">Priimek:</label>
-    <input type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required/>
+    <input class="form-control" type="text" name="lastName" id="lastName" value="<%= user.lastName %>" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="email">E-mail naslov:</label>
-    <input type="email" name="email" id="email" value="<%= user.email %>" required/>
+    <input class="form-control" type="email" name="email" id="email" value="<%= user.email %>" required/>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="adminLevel">Stopnja pravic:</label>
-    <select id="adminLevel" name="adminLevel">
+    <select class="form-control" id="adminLevel" name="adminLevel">
       <option value="cat_editor" <%= user.adminLevel == "cat_editor" ? "selected" : "" %>>Urednik oglasov za muce</option>
       <option value="page_editor" <%= user.adminLevel == "page_editor" ? "selected" : "" %>>Urednik strani</option>
       <option value="admin" <%= user.adminLevel == "admin" ? "selected" : "" %>>Administrator</option>
@@ -29,7 +32,8 @@
       <option value="owner" <%= user.adminLevel == "owner" ? "selected" : "" %> <%= user.adminLevel !== "owner" ? "disabled" : "" %>>Lastnik</option>
     </select>
   </div>
-  <input type="submit" value="Potrdi spremembe">
+  <hr />
+  <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
 </form>
 
 <% include ../../partials/admin/footer %>

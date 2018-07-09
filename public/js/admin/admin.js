@@ -1,6 +1,15 @@
 $(document).ready( function() {
 
+  $('#mesec_rojstva').datepicker({
+    format: "yyyy-mm",
+    viewMode: "months",
+    minViewMode: "months"
+  });
 
+  $('#mesec_rojstva').datepicker()
+  .on('changeDate', function(){
+    $(".datepicker.dropdown-menu").css("display", "none");
+  });
 
   // set default value of date input to today
   Date.prototype.toDateInputValue = (function() {
@@ -11,6 +20,10 @@ $(document).ready( function() {
 
   if ($('#datum').val() == "") {
     $('#datum').val(new Date().toDateInputValue());
+  }
+
+  if ($('#datum_objave').val() == "") {
+    $('#datum_objave').val(new Date().toDateInputValue());
   }
 
   // dataTables
@@ -99,18 +112,18 @@ $(document).ready( function() {
 
   // Muce - boter link
   if ($("#posvojitev_na_daljavo").val() !== "1") {
-    $("#boter_povezava, label[for='boter_povezava']").hide();
+    $("#boter_povezava_note, #boter_povezava, label[for='boter_povezava']").hide();
     $("#boter_povezava").prop("required", false);
     $("#boter_povezava_search_google").hide()
   }
 
   $("#posvojitev_na_daljavo").on("change", function() {
     if($(this).val() === "0") {
-      $("#boter_povezava, label[for='boter_povezava']").hide();
+      $("#boter_povezava_note, #boter_povezava, label[for='boter_povezava']").hide();
       $("#boter_povezava").prop("required", false);
       $("#boter_povezava_search_google").hide()
     } else if($(this).val() === "1") {
-      $("#boter_povezava, label[for='boter_povezava']").show();
+      $("#boter_povezava_note, #boter_povezava, label[for='boter_povezava']").show();
       $("#boter_povezava").prop("required", true);
       $("#boter_povezava_search_google").show()
     }

@@ -1,35 +1,19 @@
 <% include ../../partials/admin/header %>
 <% include ../../partials/functions/muce %>
-<p><a href="/admin/muce/iscejo"><< Nazaj</a></p>
+<a class="p-2 badge badge-info backToIndex" href="/admin/muce/iscejo"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<hr class="header-divider" />
 
-<div class="cms_muca">
+
   <form class="cmsForm">
-  <!-- <form class="cmsForm" action="/admin/muce/<%= muca._id %>?_method=PUT" method="POST" enctype="multipart/form-data"> -->
-    <div class="cms_muca_row">
-      <div class="cms_attr" class="required">Ime</div>
-      <input type="text" id="ime" name="ime" value="<%= muca.ime %>" required/>
+
+    <div class="required form-group">
+      <label for="ime">Ime:</label>
+      <input type="text" id="ime" name="muca[ime]" class="form-control" value="<%= muca.ime %>" autofocus required/>
     </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr" class="required">Datum prihoda</div>
-      <input type="date" id="datum" name="muca[datum]" value="<%= moment(muca.datum).format("YYYY-MM-DD") %>" required/>
-    </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr">Status</div>
-      <select id="status" name="muca[status]">
-        <option value="1" <%= muca.status == 1 ? "selected" : "" %>>oddaja se prvič</option>
-        <option value="2" <%= muca.status == 2 ? "selected" : "" %>>oddaja se ponovno</option>
-        <option value="3" <%= muca.status == 3 ? "selected" : "" %>>se ne oddaja oz. bo ostal za nedoločen čas</option>
-        <option value="4" <%= muca.status == 4 ? "selected" : "" %>>v novem domu</option>
-        <option value="5" <%= muca.status == 5 ? "selected" : "" %>>R.I.P.</option>
-      </select>
-    </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr" class="required">Mesec rojstva</div>
-      <input type="month" id="mesec_rojstva" name="muca[mesec_rojstva]" value="<%= moment(muca.mesec_rojstva).format("YYYY-MM") %>" required/>
-    </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr">Spol</div>
-      <select id="spol" name="muca[spol]">
+
+    <div class="form-group required">
+      <label for="spol">Spol:</label>
+      <select id="spol" class="form-control" name="muca[spol]">
         <option value="1" <%= muca.spol == 1 ? "selected" : "" %>>samček</option>
         <option value="2" <%= muca.spol == 2 ? "selected" : "" %>>samička</option>
         <option value="3" <%= muca.spol == 3 ? "selected" : "" %>>samček in samička</option>
@@ -38,47 +22,102 @@
         <option value="4" <%= muca.spol == 4 ? "selected" : "" %>>neznano</option>
       </select>
     </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr" class="required">Opis</div>
-      <textarea id="editor" name="muca[opis]" required><%- muca.opis %></textarea>
+
+    <div class="required form-group">
+      <label for="datum_objave">Datum objave na spletni strani:</label>
+      <input type="date" id="datum_objave" name="muca[datum_objave]" class="form-control" value="<%= moment(muca.datum_objave).format("YYYY-MM-DD") %>" required/>
+      <small class="form-text text-muted">Nazadnje objavljene muce bodo na seznamu prikazane prve (če želiš muco premakniti bolj na začetek, spremeni ta datum v novejšega).</small>
     </div>
-    <div class="cms_muca_row">
-      <div class="cms_attr">Kontakt</div>
-      <select id="kontakt" name="muca[kontakt]">
+
+    <div class="form-group alert alert-secondary">
+      <input type="checkbox" id="izpostavljena" name="muca[izpostavljena]" <%= muca.izpostavljena == true ? "checked" : "" %>>
+      <label class="form-check-label" for="externalURL">
+        Izpostavi na vrhu seznama muc za posvojitev
+      </label>
+      <small class="form-text text-muted">Muce, pri katerih je obkljukano to polje, bodo na seznamu vseh muc prikazane pred drugimi (izpostavljenih je lahko več).</small>
+    </div>
+
+    <div class="required form-group">
+      <label for="datum">Datum sprejema v zavetišče:</label>
+      <input type="date" id="datum" name="muca[datum]" class="form-control" value="<%= moment(muca.datum).format("YYYY-MM-DD") %>" required/>
+      <small class="form-text text-muted">Če tvoj brskalnik ne podpira ročne izbire datuma, ga napiši v formatu <em>dd-mmm-yyyy</em> (na primer: 5. september 2017 napiši kot <strong>05-Sep-2017</strong>).</small>
+    </div>
+
+    <div class="required form-group">
+      <label for="mesec_rojstva">Mesec rojstva:</label>
+      <input type="text" id="mesec_rojstva" placeholder="Klikni v polje..." name="muca[mesec_rojstva]" value="<%= moment(muca.mesec_rojstva).format("YYYY-MM") %>" class="form-control" required/>
+      <small class="form-text text-muted">Če tvoj brskalnik ne podpira ročne izbire datuma, ga napiši v formatu <em>yyyy-mm</em> (na primer: september 2017 napiši kot <strong>2017-09</strong>).</small>
+    </div>
+
+    <div class="required form-group">
+      <label for="status">Stanje:</label>
+      <select id="status" class="form-control" name="muca[status]">
+        <option value="1" <%= muca.status == 1 ? "selected" : "" %>>oddaja se prvič</option>
+        <option value="2" <%= muca.status == 2 ? "selected" : "" %>>oddaja se ponovno</option>
+        <option value="3" <%= muca.status == 3 ? "selected" : "" %>>se ne oddaja oz. bo ostal za nedoločen čas</option>
+        <option value="4" <%= muca.status == 4 ? "selected" : "" %>>v novem domu</option>
+        <option value="5" <%= muca.status == 5 ? "selected" : "" %>>R.I.P.</option>
+      </select>
+    </div>
+
+    <div class="form-group required">
+      <label for="opis">Opis:</label>
+      <textarea id="editor" class="form-control" name="muca[opis]" required><%- muca.opis %></textarea>
+      <small class="form-text text-muted"><strong>Opomba</strong>: za boljši izgled na strani ne vstavljaj praznih vrstic (razmak med vrsticami in naslovi se uredi sam).</small>
+    </div>
+
+    <div class="form-group required">
+      <label for="kontakt">Kontakt za posvojitev:</label>
+      <select id="kontakt" class="form-control" name="muca[kontakt]">
         <% kontakti.forEach(function(kontakt){ %>
           <% var k = sestavaKontaktaCMS(kontakt.email, kontakt.tel); %>
-          <option value="<%= k %>" <%= muca.kontakt == k ? "selected" : "" %>><%= "(" + kontakt.ime + ") " + k %></option>
+          <option value="<%= k %>" <%= muca.kontakt == k ? "selected" : "" %>><%= k == "posvojitveni_vprasalnik" ? "Posvojitveni vprašalnik (povezava)" : "(" + kontakt.ime + ") " + k %></option>
         <% }); %>
       </select>
     </div>
-      <div class="cms_muca_row">
-        <div class="cms_attr">Veterinarski status</div>
-        <div style="margin: 1em;">
-          <label for="vet[s_k]">Sterilizirana / kastriran:</label>
-          <input type="checkbox" id="vet[s_k]" name="vet[s_k]" <%= muca.vet.s_k == true ? "checked" : "" %>/><br />
-          <label for="vet[cipiranje]">Čipirana:</label>
-          <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" <%= muca.vet.cipiranje == true ? "checked" : "" %>/><br />
-          <label for="vet[cepljenje]">Cepljena:</label>
-          <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" <%= muca.vet.cepljenje == true ? "checked" : "" %>/><br />
-          <label for="vet[razparazit]">Razparazitena:</label>
-          <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" <%= muca.vet.razparazit == true ? "checked" : "" %>/><br />
-          <label for="vet[felv]">FeLV pozitivna:</label>
-          <input type="checkbox" id="vet[felv]" name="vet[felv]" <%= muca.vet.felv == true ? "checked" : "" %>/><br />
-          <label for="vet[fiv]">FIV pozitivna:</label>
-          <input type="checkbox" id="vet[fiv]" name="vet[fiv]" <%= muca.vet.fiv == true ? "checked" : "" %>/>
-        </div>
-      </div>
-      <!-- POSVOJITEV NA DALJAVO -->
-      <div class="cms_muca_row">
-        <div class="cms_attr">Posvojitev na daljavo?</div>
-        <select id="posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
-          <option value="0" <%= muca.posvojitev_na_daljavo == 0 ? "selected" : "" %>>ne</option>
-          <option value="1" <%= muca.posvojitev_na_daljavo == 1 ? "selected" : "" %>>da</option>
-        </select>
-        <label for="boter_povezava" style="margin: 0 5px 0 15px;">URL povezava do zgodbe na Mačjem botru:</label>
-        <input type="url" size="50" id="boter_povezava" name="muca[boter_povezava]" value="<%= muca.boter_povezava %>" required/>
-        <a id="boter_povezava_search_google" class="btn btn-outline-info" style="font-size: 14px; align-self: center; margin-left: 10px" href="https://www.google.si/search?q=<%= muca.ime %>+ma%C4%8Dji+boter" target="_blank">Poišči stran na Botru prek Googla</a>
-      </div>
+
+    <div class="form-group required">
+      <label for="posvojitev_na_daljavo">Posvojitev na daljavo:</label>
+      <select class="form-control" id="posvojitev_na_daljavo" name="muca[posvojitev_na_daljavo]">
+        <option value="0" <%= muca.posvojitev_na_daljavo == 0 ? "selected" : "" %>>ne</option>
+        <option value="1" <%= muca.posvojitev_na_daljavo == 1 ? "selected" : "" %>>da</option>
+      </select>
+        <label for="boter_povezava" style="margin: 15px 0;">URL povezava do zgodbe na Mačjem botru:</label>
+      <input type="url" size="50" id="boter_povezava" name="muca[boter_povezava]" value="<%= muca.boter_povezava %>" required/>
+      <a id="boter_povezava_search_google" class="btn btn-outline-info" style="font-size: 14px; align-self: center; margin-left: 10px" href="https://www.google.si/search?q=<%= muca.ime %>+ma%C4%8Dji+boter" target="_blank">Poišči stran na Botru prek Googla</a>
+    </div>
+
+    <hr />
+    <h4>Opravljeni posegi:</h4>
+
+    <div class="form-check">
+      <input type="checkbox" id="vet[s_k]" name="vet[s_k]" class="form-check-input" <%= muca.vet.s_k == true ? "checked" : "" %>/>
+      <label class="form-check-label" for="vet[s_k]">Sterilizacija / kastracija</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="vet[cipiranje]" name="vet[cipiranje]" class="form-check-input" <%= muca.vet.cipiranje == true ? "checked" : "" %>/>
+      <label class="form-check-label" for="vet[cipiranje]">Čipiranje</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="vet[cepljenje]" name="vet[cepljenje]" class="form-check-input" <%= muca.vet.cepljenje == true ? "checked" : "" %>/>
+      <label class="form-check-label" for="vet[cepljenje]">Cepljenje</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="vet[razparazit]" name="vet[razparazit]" class="form-check-input" <%= muca.vet.razparazit == true ? "checked" : "" %>/>
+      <label class="form-check-label" for="vet[razparazit]">Razparazitenje</label>
+    </div>
+    <br />
+    <h4>Zdravstveno stanje:</h4>
+    <div class="form-check">
+      <input type="checkbox" id="vet[felv]" name="vet[felv]" class="form-check-input" <%= muca.vet.felv == true ? "checked" : "" %>/>
+      <label class="form-check-label" for="vet[felv]">FeLV +</label>
+    </div>
+    <div class="form-check">
+      <input type="checkbox" id="vet[fiv]" name="vet[fiv]" class="form-check-input" />
+      <label class="form-check-label" for="vet[fiv]">FIV +</label>
+    </div>
+    <hr />
+    <h4>Slike:</h4>
 
 <!-- GROUPING VARIABLES FOR CAT PICTURES -->
 <%
@@ -104,17 +143,18 @@ slika = images[i];
       <% }; %>
       <!-- če ni slike se prikaže gumb za dodajanje -->
       <% if(file != "NULL") { %>
-        <label for="<%= slika %>">Izberi novo sliko:</label>
+        <label for="<%= slika %>" style="margin-left: 2rem;">Izberi novo sliko:</label>
       <% }; %>
         <input class="catImgUploadInput" type="file" name="<%= slika %>" />
         <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
       <% if(file != "NULL") { %>
         <button type="button" class="btn btn-outline-dark currentImageCropButton">
-          Obreži trenutno sliko
+          <i class="fas fa-cut"></i> Obreži trenutno sliko
         </button>
       <% }; %>
     </div>
   </div>
+  <hr />
 <% }; %>
 
 <!-- MODAL -->
@@ -137,46 +177,50 @@ slika = images[i];
 
 <!-- METADATA -->
 <% if(currentUser && (currentUser.adminLevel == "admin" || currentUser.adminLevel == "owner")){ %>
-<hr />
 <h4>Metapodatki:</h4>
 <button type="button" id="generateCatMetaDataButton" class="btn btn-warning">Generiraj iz opisa / imena</button>
-  <!-- Default SEO -->
-  <div>
+<br />
+<br />
+
+<div class="row">
+  <div class="col">
     <label for="SEOmetaTitle">SEO meta naziv:</label><br />
-    <input class="SEOinputField" value="<%- muca.SEOmetaTitle %>" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" size="40"/>
+    <input class="SEOinputField" type="text" id="SEOmetaTitle" name="muca[SEOmetaTitle]" value="<%= muca.SEOmetaTitle %>" class="form-control" size="40"/>
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaTitleLength"><%= muca.SEOmetaTitle.length %></span> znakov</span>
   </div>
-  <div >
-    <label for="SEOmetaDescription">SEO meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOmetaDescription" name="muca[SEOmetaDescription]"><%- muca.SEOmetaDescription %></textarea>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= muca.SEOmetaDescription.length %></span> znakov</span>
-  </div>
-  <!-- Facebook -->
-  <div>
+  <div class="col">
     <label for="SEOfbTitle">Facebook meta naziv:</label><br />
-    <input class="SEOinputField" value="<%- muca.SEOfbTitle %>" type="text" id="SEOfbTitle" name="muca[SEOfbTitle]" size="40"/>
+    <input class="SEOinputField" type="text" id="SEOfbTitle" class="form-control" value="<%= muca.SEOfbTitle %>" name="muca[SEOfbTitle]" size="40"/>
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbTitleLength"><%= muca.SEOfbTitle.length %></span> znakov</span>
   </div>
-  <div >
-    <label for="SEOfbDescription">Facebook meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOfbDescription" name="muca[SEOfbDescription]"><%- muca.SEOfbDescription %></textarea>
-    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= muca.SEOfbDescription.length %></span> znakov</span>
-  </div>
-  <!-- Twitter -->
-  <div>
+  <div class="col">
     <label for="SEOtwitterTitle">Twitter meta naziv:</label><br />
-    <input class="SEOinputField" value="<%- muca.SEOtwitterTitle %>" type="text" id="SEOtwitterTitle" name="muca[SEOtwitterTitle]" size="40"/>
+    <input class="SEOinputField" type="text" id="SEOtwitterTitle" class="form-control" value="<%= muca.SEOtwitterTitle %>" name="muca[SEOtwitterTitle]" size="40"/>
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterTitleLength"><%= muca.SEOtwitterTitle.length %></span> znakov</span>
   </div>
-  <div >
+</div>
+<br />
+<div class="row">
+  <div class="col">
+    <label for="SEOmetaDescription">SEO meta opis:</label><br />
+    <textarea class="SEOinputField" rows="8" cols="40" id="SEOmetaDescription" class="form-control" name="muca[SEOmetaDescription]"><%- muca.SEOmetaDescription %></textarea><br />
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOmetaDescriptionLength"><%= muca.SEOmetaDescription.length %></span> znakov</span>
+  </div>
+  <div class="col">
+    <label for="SEOfbDescription">Facebook meta opis:</label><br />
+    <textarea class="SEOinputField" rows="8" cols="40" id="SEOfbDescription" class="form-control" name="muca[SEOfbDescription]"><%- muca.SEOfbDescription %></textarea><br />
+    <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOfbDescriptionLength"><%= muca.SEOfbDescription.length %></span> znakov</span>
+  </div>
+  <div class="col">
     <label for="SEOtwitterDescription">Twitter meta opis:</label><br />
-    <textarea class="SEOinputField" rows="6" cols="90" id="SEOtwitterDescription" name="muca[SEOtwitterDescription]"><%- muca.SEOtwitterDescription %></textarea>
+    <textarea class="SEOinputField" rows="8" cols="40" id="SEOtwitterDescription" class="form-control" name="muca[SEOtwitterDescription]"><%- muca.SEOtwitterDescription %></textarea><br />
     <span class="SEOtextlength">Dolžina: <span class="charLength" id="SEOtwitterDescriptionLength"><%= muca.SEOtwitterDescription.length %></span> znakov</span>
   </div>
+</div>
 <% }; %>
 </form>
 <hr />
 <button type="button" class="btn btn-secondary" id="formSubmit">Potrdi spremembe</button>
-</div>
+
 
 <% include ../../partials/admin/footer %>

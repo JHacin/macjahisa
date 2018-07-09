@@ -1,12 +1,14 @@
 <% include ../../partials/admin/header %>
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Prispevki, članki, povezave</h1>
+  <div class="addArticlesDiv">
+    <a href="/admin/clanki/add_text"><button class="btn btn-outline-primary addOrEditButton"><i class="fas fa-align-left" aria-hidden="true"></i> Nov članek</button></a>
+    <a href="/admin/clanki/add_file"><button class="btn btn-outline-danger addOrEditButton"><i class="fas fa-file-pdf-o" aria-hidden="true"></i> Nova PDF datoteka</button></a>
+    <a href="/admin/clanki/add_link"><button class="btn btn-outline-dark addOrEditButton"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Nova zunanja povezava</button></a>
+  </div>
+</div>
+<hr class="header-divider" />
 
-<h3>Prispevki</h3>
-<hr />
-<strong>Dodaj: </strong>
-<a href="/admin/clanki/add_text"><i class="fas fa-align-left" aria-hidden="true"></i> Besedilo (na naši strani)</a> |
-<a href="/admin/clanki/add_file"><i class="fas fa-file-pdf-o" aria-hidden="true"></i> Datoteko (.PDF)</a> |
-<a href="/admin/clanki/add_link"><i class="fas fa-external-link-alt" aria-hidden="true"></i> Povezavo (na zunanjo stran)</a>
-<hr />
 
 <table id="tabela" class="display">
     <thead>

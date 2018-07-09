@@ -1,40 +1,44 @@
 <% include ../../partials/admin/header %>
-<p><a href="/admin/naslovnice"><< Nazaj</a></p>
-<h3>Nova naslovnica</h3>
+<a class="p-2 badge badge-info backToIndex" href="/admin/naslovnice"><i class="fas fa-arrow-left"></i> Nazaj</a>
+<div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-warning">Nova naslovnica</h1>
+</div>
+<hr class="header-divider" />
 
 <form action="/admin/naslovnice" method="POST" enctype="multipart/form-data">
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[ozadje]">Ozadje:</label>
-    <input type="file" accept="image/*" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
-    <strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.
+    <input class="form-control-file" type="file" accept="image/*" name="naslovnica[ozadje]" id="ozadje" size="70" required/>
+    <small class="form-text text-muted"><strong>Opomba: </strong> pred nalaganjem slike jo skompresiraj v spletnem orodju <a style="color: orange; font-weight: bold;" href="https://tinypng.com/" target="_blank">TinyPNG</a>.</small>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[naslov]">Naslov:</label>
-    <input type="text" name="naslovnica[naslov]" id="naslov" size="70" autofocus required/>
+    <input class="form-control" type="text" name="naslovnica[naslov]" id="naslov" size="70" autofocus required/>
   </div>
-  <div>
+  <div class="required form-group">
     <label for="naslovnica[podnaslov]">Podnaslov:</label>
-    <input type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70"/>
+    <input class="form-control" type="text" name="naslovnica[podnaslov]" id="podnaslov" size="70"/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[napisNaGumbu]">Napis na gumbu:</label>
-    <input type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" required/>
+    <input class="form-control" type="text" name="naslovnica[napisNaGumbu]" id="napisNaGumbu" size="70" required/>
   </div>
-  <div class="required">
+  <div class="required form-group">
     <label for="naslovnica[povezava]">Povezava:</label>
-    <input type="url" name="naslovnica[povezava]" id="povezava" size="70" required/>
+    <input class="form-control" type="url" name="naslovnica[povezava]" id="povezava" size="70" required/>
     <input type="checkbox" name="externalURL">
     <label class="form-check-label" for="externalURL">
-      Povezava na zunanjo stran (odprta bo v novem zavihku)
+      Povezava na zunanjo stran (obkljukaj, če želiš, da se odpre v novem zavihku)
     </label>
   </div>
-  <div class="naslovnicaRange">
-    <label for="formControlRange">Izrez ozadja po višini (% od vrha)</label>
-    <input type="range" name="rangeInput" id="naslovnicaRangeInput" min="0" max="100" >
+  <div class="naslovnicaRange form-group">
+    <label for="naslovnicaRangeInput">Izrez ozadja po višini (% od vrha):</label>
+    <input class="form-control" type="range" name="rangeInput" id="naslovnicaRangeInput" min="0" max="100" >
     <span id="naslovnicaRangeValue">50%</span>
   </div>
-  <input type="submit" class="btn btn-success" value="Dodaj">
+  <input type="submit" class="btn btn-secondary" value="Dodaj">
 </form>
+<hr />
 <button class="btn btn-warning" id="naslovnicaPreviewLoadButton"><i class="far fa-eye"></i> Pokaži predogled</button>
 <button class="btn btn-info" id="naslovnicaPreviewReloadButton"> <i class="fas fa-sync"></i> Osveži predogled</button>
 <p></p>

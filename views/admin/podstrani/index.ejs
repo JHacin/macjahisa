@@ -1,7 +1,9 @@
 <% include ../../partials/admin/header %>
-
-<h3>Podstrani</h3>
-<p><a href="/admin/podstrani/add">+ Dodaj novo</a></p>
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Podstrani</h1>
+  <a href="/admin/podstrani/add"><button class="btn btn-warning addOrEditButton">Vnesi novo >></button></a>
+</div>
+<hr class="header-divider" />
 
 <table id="tabela" class="display">
     <thead>
@@ -9,8 +11,8 @@
             <th>Datum zadnje spremembe</th>
             <th>Naslov</th>
             <th>Kategorija</th>
-            <th>Vsebina</th>
-            <th>Objava</th>
+            <!-- <th>Vsebina</th> -->
+            <!-- <th>Objava</th> -->
             <th>Prikaži</th>
             <th>Uredi</th>
         </tr>
@@ -27,8 +29,8 @@
               </td>
               <td><%= podstran.naslov %></td>
               <td><%= podstran.kategorija.naslov %></td>
-              <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td>
-              <td><%= podstran.objava %></td>
+              <!-- <td><%- podstran.vsebina.replace(/<(?:.|\n)*?>/gm, '').substring(0,200) + "..." %></td> -->
+              <!-- <td><%= podstran.objava %></td> -->
               <td><a href="/<%= podstran.kategorija.url %>/<%= podstran.url %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>
               <td><a href="/admin/podstrani/<%= podstran._id %>/edit"><i class="fas fa-edit" aria-hidden="true"></i></a></td>
           </tr>

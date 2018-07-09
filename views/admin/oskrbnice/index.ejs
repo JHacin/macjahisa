@@ -1,8 +1,10 @@
 <% include ../../partials/admin/header %>
-
-<h3>Oskrbnice</h3>
-<p>Vsi maili, na katere bodo poslana obvestila o pomembnih spremembah.</p>
-<p><a href="/admin/oskrbnice/add">+ Dodaj nov mail</a></p>
+<div class="header d-flex flex-row justify-content-between align-items-center">
+  <h1 class="p-2 badge badge-secondary">Oskrbnice</h1>
+  <a href="/admin/oskrbnice/add"><button class="btn btn-warning addOrEditButton">Dodaj nov email naslov >></button></a>
+</div>
+<h6>Na spodnje e-mail naslove bodo poslana samodejna obvestila ob odhodu muc v nov dom.</h6>
+<hr class="header-divider" />
 
 <table id="tabela" class="display">
     <thead>

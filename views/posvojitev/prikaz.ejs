@@ -60,10 +60,6 @@
         <% }); %>
       </div>
 
-      <div id="imageZoomDiv">
-        <button id="imageZoom">Povečaj slike</button>
-      </div>
-
       <div class="cat_social_mobile">
         <div class="fb-like"
           data-href="<%= social_url %>"
@@ -125,7 +121,7 @@
           <%- muca.opis %>
         <div class="contact">
           <h2><i class="fas fa-envelope"></i> Kontakt:</h2>
-          <p><%= muca.kontakt %></p>
+          <p><%- muca.kontakt == "posvojitveni_vprasalnik" ? "Če ste zainteresirani za posvojitev, izpolnite <a href='https://goo.gl/forms/Tg04MsPbkQqMLkQi1' title='posvojitveni vprašalnik' target='_blank'>posvojitveni vprašalnik</a> in bomo mi kontaktirali vas." : muca.kontakt %></p>
         </div>
         <% if(muca.posvojitev_na_daljavo == 1) { %>
           <div class="boter_true">

@@ -158,9 +158,51 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
     }
   });
 
+  function resizebase64(base64, maxWidth, maxHeight) {
+    if(base64 == "") {
+      return "";
+    }
+
+    // Max size for thumbnail
+    if(typeof(maxWidth) === 'undefined')  maxWidth = 500;
+    if(typeof(maxHeight) === 'undefined')  maxHeight = 500;
+
+    // Create and initialize two canvas
+    var canvas = document.createElement("canvas");
+    var ctx = canvas.getContext("2d");
+    var canvasCopy = document.createElement("canvas");
+    var copyContext = canvasCopy.getContext("2d");
+
+    // Create original image
+    var img = new Image();
+    img.src = base64;
+
+    // Determine new ratio based on max size
+    var ratio = 1;
+    if(img.width > maxWidth)
+      ratio = maxWidth / img.width;
+    else if(img.height > maxHeight)
+      ratio = maxHeight / img.height;
+
+    // Draw original image in second canvas
+    canvasCopy.width = img.width;
+    canvasCopy.height = img.height;
+    copyContext.drawImage(img, 0, 0);
+
+    // Copy and resize second canvas to first canvas
+    canvas.width = img.width * ratio;
+    canvas.height = img.height * ratio;
+    ctx.drawImage(canvasCopy, 0, 0, canvasCopy.width, canvasCopy.height, 0, 0, canvas.width, canvas.height);
+
+    return canvas.toDataURL();
+  }
+
   function getFormData() {
+    console.log(document.getElementById("izpostavljena").checked);
     var formData = {
       ime: $("#ime").val(),
+      datum_objave: $("#datum").val(),
+      izpostavljena: document.getElementById("izpostavljena").checked,
       datum: $("#datum").val(),
       status: $("#status").val(),
       mesec_rojstva: $("#mesec_rojstva").val(),
@@ -177,10 +219,10 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
         felv: document.getElementById("vet[felv]").checked,
         fiv: document.getElementById("vet[fiv]").checked
       },
-      slika1_crop: $("#slika1_crop").val(),
-      slika2_crop: $("#slika2_crop").val(),
-      slika3_crop: $("#slika3_crop").val(),
-      slika4_crop: $("#slika4_crop").val(),
+      slika1_crop: resizebase64($("#slika1_crop").val(), 600),
+      slika2_crop: resizebase64($("#slika2_crop").val(), 600),
+      slika3_crop: resizebase64($("#slika3_crop").val(), 600),
+      slika4_crop: resizebase64($("#slika4_crop").val(), 600),
       SEOmetaTitle: $("#SEOmetaTitle").val(),
       SEOmetaDescription: $("#SEOmetaDescription").val(),
       SEOfbTitle: $("#SEOfbTitle").val(),
@@ -194,6 +236,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
   function dataisValid(data) {
     var isValid = true;
     if(data.ime === "") { alert("Vnesi ime."); return false; }
+    if(data.datum_objave === "") { alert("Vnesi datum objave."); return false; }
     if(data.datum === "") { alert("Vnesi datum sprejema."); return false; }
     if(data.status === null) { alert("Vnesi status muce."); return false; }
     if(data.mesec_rojstva === "") { alert("Vnesi mesec rojstva."); return false; }
