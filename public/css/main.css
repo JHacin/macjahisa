@@ -280,7 +280,7 @@ input.paypal_btn,
 
 /* SLICK */
 .slick-prev:before, .slick-next:before {
-    color: #ffffffe0!important;
+    color: #bbb!important;
 }
 
 .slick-slide:focus {

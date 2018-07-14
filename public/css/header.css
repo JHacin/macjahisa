@@ -164,7 +164,7 @@
 /* END STELLARNAV OVERRIDE FOR LARGE SCREENS */
 
     .stellarnav .fa-bars {
-      font-size: 32px;
+      font-size: 26px;
       margin-left: 10px;
       margin-right: 10px;
       color: #343a40;
@@ -690,6 +690,15 @@ div#gsc-iw-id2 {
 
 .gsc-search-box-tools .gsc-search-box .gsc-input {
   padding-right: none!important;
+}
+
+.gsc-cursor-box.gs-bidi-start-align {
+  font-size: 15px!important;
+  letter-spacing: 3px!important;
+}
+
+.gsc-results.gsc-webResult {
+  padding-bottom: 2rem!important;
 }
 
 td#gs_tti51 {

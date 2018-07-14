@@ -10,7 +10,7 @@ router.get("/", function(req, res){
 // Seznam muc
 router.get("/muce", function(req, res){
   Podstran.findOne({naslov: "Muce, ki iščejo dom"}, function(err, podstran){
-    Muca.find().where("status").in([1, 2]).sort({datum: -1}).exec(function(err, muce){
+    Muca.find().where("status").in([1, 2]).sort({datum_objave: -1}).exec(function(err, muce){
       if(err) return res.render("500");
       res.render("posvojitev/muce", {podstran: podstran, nav_kategorije: req.nav_kategorije,
       nav_podstrani: req.nav_podstrani,

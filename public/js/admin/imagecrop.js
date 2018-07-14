@@ -201,7 +201,7 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
     console.log(document.getElementById("izpostavljena").checked);
     var formData = {
       ime: $("#ime").val(),
-      datum_objave: $("#datum").val(),
+      datum_objave: $("#datum_objave").val(),
       izpostavljena: document.getElementById("izpostavljena").checked,
       datum: $("#datum").val(),
       status: $("#status").val(),

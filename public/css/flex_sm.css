@@ -298,7 +298,7 @@
 
   /* MENU */
   .navbar {
-    height: 65px;
+    height: 55px;
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -332,13 +332,13 @@
         -ms-flex-order: 1;
             order: 1;
     border-right: none;
-    height: 55px;
+    height: 45px;
     padding-top: 5px;
     padding-bottom: 5px;
   }
 
     .navbar .logo img {
-      height: 50px;
+      height: 45px;
       vertical-align: middle;
     }
 
@@ -379,7 +379,7 @@
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
-    height: 75px;
+    height: 65px;
     -webkit-box-ordinal-group: 4;
         -ms-flex-order: 3;
             order: 3;
@@ -393,7 +393,7 @@
             order: 2;
     position: relative;
     padding: 0;
-    height: 75px;
+    height: 65px;
   }
 
     .nav_donate > form {
@@ -405,11 +405,10 @@
 
       .nav_donate > form > button {
         border: none;
-        height: 65px;
+        height: 55px;
         width: 100%;
         padding: 0;
         border-radius: 0;
-        font-size: 26px;
         font-weight: 700;
       }
 /* END MENU */

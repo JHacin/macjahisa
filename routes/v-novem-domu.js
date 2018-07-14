@@ -30,7 +30,7 @@ router.get("/:page", function(req, res, next){
     Muca
       .find({})
       .where("status").equals(4)
-      .sort({datum: -1})
+      .sort({datum_objave: -1})
       .skip((perPage * page) - perPage)
       .limit(perPage)
       .exec(function(err, muce){
