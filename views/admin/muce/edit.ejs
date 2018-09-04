@@ -130,7 +130,6 @@ var count = files.length;
 
 file = files[i];
 slika = images[i];
-
 %>
 
   <!-- SLIKE -->
@@ -138,19 +137,22 @@ slika = images[i];
     <div class="cms_attr">Slika <%= i+1 %></div>
     <div class="cms_val">
       <!-- če ima sploh sliko se jo prikaže -->
-      <% if(file != "NULL") { %>
+      <% if(file !== undefined) { %>
         <img id="<%= muca._id %>" class="slika" src="/files/oglasi_muce/<%= file %>" />
-      <% }; %>
+      <% } else { %>
+        <img id="<%= muca._id %>" class="slika" src="" />
+      <% } %>
       <!-- če ni slike se prikaže gumb za dodajanje -->
-      <% if(file != "NULL") { %>
+      <% if(file != undefined) { %>
         <label for="<%= slika %>" style="margin-left: 2rem;">Izberi novo sliko:</label>
       <% }; %>
         <input class="catImgUploadInput" type="file" name="<%= slika %>" />
         <input type="hidden" class="hiddenImgUploadInput" id="<%= slika %>_crop" name="<%= slika %>_crop" />
-      <% if(file != "NULL") { %>
+      <% if(file != undefined) { %>
         <button type="button" class="btn btn-outline-dark currentImageCropButton">
           <i class="fas fa-cut"></i> Obreži trenutno sliko
         </button>
+        <input type="checkbox" id="<%= slika %>_delete" name="<%= slika %>_delete" style="margin-left: 30px;"> Označi za brisanje
       <% }; %>
     </div>
   </div>

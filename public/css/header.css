@@ -80,7 +80,7 @@
   }
 
 /* STELLARNAV OVERRIDE FOR LARGE SCREENS */
-@media all and (min-width: 1515px) {
+@media all and (min-width: 1420px) {
 
 .stellarnav > ul {
   display: -webkit-box;

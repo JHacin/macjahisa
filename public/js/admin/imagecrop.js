@@ -198,7 +198,6 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
   }
 
   function getFormData() {
-    console.log(document.getElementById("izpostavljena").checked);
     var formData = {
       ime: $("#ime").val(),
       datum_objave: $("#datum_objave").val(),
@@ -223,6 +222,10 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
       slika2_crop: resizebase64($("#slika2_crop").val(), 600),
       slika3_crop: resizebase64($("#slika3_crop").val(), 600),
       slika4_crop: resizebase64($("#slika4_crop").val(), 600),
+      slika1_delete: document.getElementById("slika1_delete") !== null ? document.getElementById("slika1_delete").checked : undefined,
+      slika2_delete: document.getElementById("slika2_delete") !== null ? document.getElementById("slika2_delete").checked : undefined,
+      slika3_delete: document.getElementById("slika3_delete") !== null ? document.getElementById("slika3_delete").checked : undefined,
+      slika4_delete: document.getElementById("slika4_delete") !== null ? document.getElementById("slika4_delete").checked : undefined,
       SEOmetaTitle: $("#SEOmetaTitle").val(),
       SEOmetaDescription: $("#SEOmetaDescription").val(),
       SEOfbTitle: $("#SEOfbTitle").val(),

@@ -182,7 +182,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    res.render("admin/muce/index", {muce: muce});
+    res.render("admin/muce/index", {muce: muce, title: "Muce za posvojitev"});
   });
 });
 
@@ -193,7 +193,7 @@ router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    res.render("admin/muce/index_boter", {muce: muce});
+    res.render("admin/muce/index_boter", {muce: muce, title: "Iščejo botra"});
   })
 });
 
@@ -203,7 +203,7 @@ router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    res.render("admin/muce/index", {muce: muce});
+    res.render("admin/muce/index", {muce: muce, title: "V novem domu"});
   })
 });
 
@@ -213,7 +213,7 @@ router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    res.render("admin/muce/index", {muce: muce});
+    res.render("admin/muce/index", {muce: muce, title: "Seznam vseh muc"});
   })
 });
 
@@ -561,6 +561,38 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         });
       }
 
+      if (req.body.slika1_delete) {
+        muca.file_name1 = undefined;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
+      if (req.body.slika2_delete) {
+        muca.file_name2 = undefined;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
+      if (req.body.slika3_delete) {
+        muca.file_name3 = undefined;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
+      if (req.body.slika4_delete) {
+        muca.file_name4 = undefined;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
     // če gre v nov dom
     if(gre_v_nov_dom) {
       Oskrbnica.find({}, function(err, oskrbnice){
@@ -629,7 +661,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
     };
 
       // muca.save();
-      req.flash("success", "Podatki muce posodobljeni.");
+      req.flash("success", "Podatki muce posodobljeni. Če na spletni strani ne vidiš spremembe, moraš v brskalniku izbrisati predpomnilnik.");
       res.send({redirect: '/admin/muce/iscejo'});
   });
 });
