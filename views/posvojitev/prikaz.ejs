@@ -15,9 +15,10 @@
           slike.push(file);
         }
       });
-
+      var large_img_exists = false
       files_large.forEach(function(file) {
         if(file !== undefined && file !== "" && file !== "NULL") {
+          large_img_exists = true;
           slike_large.push(file);
         }
       });
@@ -75,9 +76,11 @@
         <% } %>
       </div>
 
+      <% if (large_img_exists) { %>
       <div id="imageZoomDiv">
         <button id="imageZoom">Povečaj slike</button>
       </div>
+      <% } %>
 
       <div class="cat_social_mobile">
         <div class="fb-like"
