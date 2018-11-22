@@ -219,9 +219,13 @@ var getCurrentImageCropButtons = document.getElementsByClassName('currentImageCr
         fiv: document.getElementById("vet[fiv]").checked
       },
       slika1_crop: resizebase64($("#slika1_crop").val(), 600),
+      slika1_large_crop: $("#slika1_crop").val(),
       slika2_crop: resizebase64($("#slika2_crop").val(), 600),
+      slika2_large_crop: $("#slika2_crop").val(),
       slika3_crop: resizebase64($("#slika3_crop").val(), 600),
+      slika3_large_crop: $("#slika3_crop").val(),
       slika4_crop: resizebase64($("#slika4_crop").val(), 600),
+      slika4_large_crop: $("#slika4_crop").val(),
       slika1_delete: document.getElementById("slika1_delete") !== null ? document.getElementById("slika1_delete").checked : undefined,
       slika2_delete: document.getElementById("slika2_delete") !== null ? document.getElementById("slika2_delete").checked : undefined,
       slika3_delete: document.getElementById("slika3_delete") !== null ? document.getElementById("slika3_delete").checked : undefined,

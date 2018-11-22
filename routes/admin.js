@@ -275,6 +275,24 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
             });
           }
 
+          if(req.body.slika1_large_crop) {
+            var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
+
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_1_large" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name1_large = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
+
           if(req.body.slika2_crop) {
             var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
             var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -286,6 +304,24 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name2 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
+
+          if(req.body.slika2_large_crop) {
+            var base64_string = req.body.slika2_large_crop.replace(/^data:image\/\w+;base64,/, "");
+
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_2_large" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name2_large = imageName;
             novaMuca.save(function (err) {
               if (err) return handleError(err);
               // saved!
@@ -309,6 +345,24 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
             });
           }
 
+          if(req.body.slika3_large_crop) {
+            var base64_string = req.body.slika3_large_crop.replace(/^data:image\/\w+;base64,/, "");
+
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_3_large" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name3_large = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
+
           if(req.body.slika4_crop) {
             var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
             var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -320,6 +374,24 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name4 = imageName;
+            novaMuca.save(function (err) {
+              if (err) return handleError(err);
+              // saved!
+            });
+          }
+
+          if(req.body.slika4_large_crop) {
+            var base64_string = req.body.slika4_large_crop.replace(/^data:image\/\w+;base64,/, "");
+
+            var imageBuffer = Buffer.from(base64_string, 'base64');
+            var imageName = novaMuca.dbid + "_" + "_4_large" + ".jpeg";
+            var fileLocation = "public/files/oglasi_muce/" + imageName;
+            try {
+              fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+            } catch (e) {
+              console.error(e);
+            }
+            novaMuca.file_name4_large = imageName;
             novaMuca.save(function (err) {
               if (err) return handleError(err);
               // saved!
@@ -510,6 +582,23 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         });
       }
 
+      if(req.body.slika1_large_crop) {
+        var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_1_large" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name1_large = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
       if(req.body.slika2_crop) {
         var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
         var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -521,6 +610,23 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
           console.error(e);
         }
         muca.file_name2 = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
+      if(req.body.slika2_large_crop) {
+        var base64_string = req.body.slika2_large_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_2_large" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name2_large = imageName;
         muca.save(function (err) {
           if (err) return handleError(err);
           // saved!
@@ -544,6 +650,23 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         });
       }
 
+      if(req.body.slika3_large_crop) {
+        var base64_string = req.body.slika3_large_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_3_large" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name3_large = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
       if(req.body.slika4_crop) {
         var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
         var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -561,8 +684,26 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         });
       }
 
+      if(req.body.slika4_large_crop) {
+        var base64_string = req.body.slika4_large_crop.replace(/^data:image\/\w+;base64,/, "");
+        var imageBuffer = Buffer.from(base64_string, 'base64');
+        var imageName = muca.dbid + "_" + "_4_large" + ".jpeg";
+        var fileLocation = "public/files/oglasi_muce/" + imageName;
+        try {
+          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+        } catch (e) {
+          console.error(e);
+        }
+        muca.file_name4_large = imageName;
+        muca.save(function (err) {
+          if (err) return handleError(err);
+          // saved!
+        });
+      }
+
       if (req.body.slika1_delete) {
         muca.file_name1 = undefined;
+        muca.file_name1_large = undefined;
         muca.save(function (err) {
           if (err) return handleError(err);
           // saved!
@@ -571,6 +712,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
       if (req.body.slika2_delete) {
         muca.file_name2 = undefined;
+        muca.file_name2_large = undefined;
         muca.save(function (err) {
           if (err) return handleError(err);
           // saved!
@@ -579,6 +721,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
       if (req.body.slika3_delete) {
         muca.file_name3 = undefined;
+        muca.file_name3_large = undefined;
         muca.save(function (err) {
           if (err) return handleError(err);
           // saved!
@@ -587,6 +730,7 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
       if (req.body.slika4_delete) {
         muca.file_name4 = undefined;
+        muca.file_name4_large = undefined;
         muca.save(function (err) {
           if (err) return handleError(err);
           // saved!

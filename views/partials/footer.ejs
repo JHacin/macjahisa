@@ -58,6 +58,7 @@
 </div>
 <!-- SCRIPTS -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.js" integrity="sha256-ULR2qlEu6WigJY4xQsDsJeW76e9tEE2EWjnKEQ+0L8Q=" crossorigin="anonymous"></script>
 <% if (typeof isIndexPage !== "undefined") { %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js" integrity="sha256-7PSmF2ojY04Z7YCwG5wwvH+bdUxV1PPCIORvvTYHo7M=" crossorigin="anonymous"></script>
 <% }; %>
@@ -89,6 +90,22 @@
             }
 
           });
+
+          $("#imageZoom").click(function() {
+            $('[data-fancybox="gallery"]')[0].click();
+          });
+
+          if ($('[data-fancybox="gallery"]').length > 0) {
+            $('[data-fancybox="gallery"]').fancybox({
+            	// Options will go here
+              loop: true,
+              buttons: [
+                "zoom",
+                "close"
+              ],
+            });
+          }
+
 </script>
 
 <% if (typeof needsJpList !== "undefined") { %>

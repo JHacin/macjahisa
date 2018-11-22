@@ -27,6 +27,10 @@
     width: 100%;
   }
 
+  #imageZoomDiv {
+   display: none;
+ }
+
   .content {
     width: 100%;
     margin-right: 0;

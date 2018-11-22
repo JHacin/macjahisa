@@ -29,6 +29,24 @@
   width: 100%;
 }
 
+#imageZoomDiv {
+  width: 100%;
+  text-align: right;
+}
+
+#imageZoom {
+  color: #908e8e;
+  font-size: 14px;
+  letter-spacing: 0.5px;
+  font-weight: 500;
+  transition: all 0.1s ease;
+  background: none;
+  border: 1px solid #dbdbdb;
+  border-radius: 5px;
+  font-family: "Open Sans", sans-serif;
+  padding: 8px 14px;
+}
+
 .cat_top,
 .cat_social_desktop {
   display: flex;

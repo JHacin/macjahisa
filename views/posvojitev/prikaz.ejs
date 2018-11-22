@@ -6,13 +6,21 @@
     <!-- združi vse slike -->
     <%
       var slike = [];
+      var slike_large = [];
       var files = [muca.file_name1, muca.file_name2, muca.file_name3, muca.file_name4];
+      var files_large = [muca.file_name1_large, muca.file_name2_large, muca.file_name3_large, muca.file_name4_large];
 
       files.forEach(function(file) {
         if(file !== undefined && file !== "" && file !== "NULL") {
           slike.push(file);
         }
-      })
+      });
+
+      files_large.forEach(function(file) {
+        if(file !== undefined && file !== "" && file !== "NULL") {
+          slike_large.push(file);
+        }
+      });
     %>
     <div id="back_to_cats_list">
       <em>
@@ -53,11 +61,22 @@
 
     <div class="cat_full">
       <div class="photos">
-        <% slike.forEach(function(slika){ %>
+
+        <% for (var i = 0; i < slike.length; i++) { %>
           <div class="photo">
-            <img src="/files/oglasi_muce/<%= slika %>" alt="<%= muca.ime %>"/>
+            <% if (slike_large[i] !== undefined && slike_large[i] !== "" && slike_large[i] !== "NULL") { %>
+            <a data-fancybox="gallery" href="/files/oglasi_muce/<%= slike_large[i] %>">
+            <% } %>
+              <img src="/files/oglasi_muce/<%= slike[i] %>" alt="<%= muca.ime %>"/>
+            <% if (slike_large[i] !== undefined && slike_large[i] !== "" && slike_large[i] !== "NULL") { %>
+            </a>
+            <% } %>
           </div>
-        <% }); %>
+        <% } %>
+      </div>
+
+      <div id="imageZoomDiv">
+        <button id="imageZoom">Povečaj slike</button>
       </div>
 
       <div class="cat_social_mobile">

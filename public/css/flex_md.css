@@ -413,6 +413,16 @@
     padding: 20px 0 28px 0;
   }
 
+  #imageZoomDiv {
+    text-align: center;
+    margin-bottom: 0;
+  }
+
+  #imageZoom {
+    padding: 0.5rem 1rem;
+    margin: 0.5rem 0 1.5rem 0;
+  }
+
   #back_to_cats_list {
     text-align: center;
   }
@@ -552,6 +562,23 @@
 
   .i_muca_txt {
     width: 285px;
+  }
+
+}
+
+@media all and (min-width: 769px) and (max-width: 1420px) {
+  .stellarnav a.menu-toggle.full {
+    position: relative;
+  }
+  .stellarnav a.menu-toggle.full:after {
+    content: "Menu";
+    font-family: "Nunito", sans-serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-55%);
+    right: -2.5rem;
   }
 
 }

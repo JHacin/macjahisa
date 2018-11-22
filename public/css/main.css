@@ -389,6 +389,10 @@ input.paypal_btn,
 /* Enable hover effects only on large screens */
 @media all and (min-width: 1140px) {
 
+  #imageZoom:hover {
+    color: #131313c2;
+  }
+
   .i_jumbo_button:hover {
     cursor: pointer;
   }
@@ -507,6 +511,12 @@ input.paypal_btn,
 
   .side_cat:hover {
     filter: sepia(40%);
+  }
+
+  #imageZoom:hover {
+    cursor: pointer;
+    background: #131313c2;
+    color: #dbdbdb;
   }
 
   .muca h2 a:hover {
