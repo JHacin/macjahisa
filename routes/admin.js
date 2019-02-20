@@ -398,14 +398,14 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
             });
           }
 
-          // poprava imen (ki vključejejo nepotreben CAPS LOCK)
+          // poprava imen (ki vključujejo nepotreben CAPS LOCK)
           var ime = req.body.ime;
-          ime = ime.toLowerCase();
-          ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-          if(ime.indexOf(" in ") != -1) {
-            var index = ime.indexOf(" in ");
-            ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-          };
+          // ime = ime.toLowerCase();
+          // ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+          // if(ime.indexOf(" in ") != -1) {
+          //   var index = ime.indexOf(" in ");
+          //   ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+          // };
 
           novaMuca.ime = ime;
           novaMuca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
@@ -457,12 +457,12 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
 
     // popravi ime (velike začetnice)
     var ime = req.body.ime;
-    ime = ime.toLowerCase();
-    ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-    if(ime.indexOf(" in ") != -1) {
-      var index = ime.indexOf(" in ");
-      ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-    };
+    // ime = ime.toLowerCase();
+    // ime = ime.charAt(0).toUpperCase() + ime.slice(1);
+    // if(ime.indexOf(" in ") != -1) {
+    //   var index = ime.indexOf(" in ");
+    //   ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
+    // };
 
     // // posodobi podatke
     muca.ime = ime;
