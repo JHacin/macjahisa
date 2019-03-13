@@ -108,7 +108,7 @@ router.get("/logout", function(req, res) {
 router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
 
   // MAKE XML FILES FOR BOLHA/SALOMON
-  Muca.find({}).where("status").in([1, 2]).limit(100).exec(function(err, muce) {
+  Muca.find({}).where("status").in([1, 2]).exec(function(err, muce) {
     if(err) return console.error(err);
     var xmlOutput = '<?xml version="1.0" encoding="UTF-8"?><trgovina id="macja_hisa">';
 
