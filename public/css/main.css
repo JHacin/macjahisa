@@ -19,7 +19,7 @@ iframe {
   font-family: "Nunito", sans-serif;
 }
 
-.nav_menu.primary.mobile.left > ul {
+.nav_menu_primary.mobile.left > ul {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
   z-index: 99999;
@@ -27,7 +27,7 @@ iframe {
   -webkit-transform-style: preserve-3d;
 }
 
-.nav_menu.primary > ul > .nav_menu_primary_category:hover > a {
+.nav_menu_primary > ul > .nav_menu_primary_category:hover > a {
   color: #f2f2f2;
 }
 
@@ -400,7 +400,7 @@ input.paypal_btn,
     color: #ffcb00;
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category:hover {
     background-color: #595959;
   }
 
@@ -412,11 +412,11 @@ input.paypal_btn,
     color: red;
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > li:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li:hover {
     background-color: #e5e5e5;
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > .disabled_li:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > .disabled_li:hover {
     background-color: #fff;
     background-image: none;
   }
@@ -435,16 +435,16 @@ input.paypal_btn,
     background: rgba(255, 203, 0, 0.75);
   }
 
-  .nav_menu.primary .nav_kategorija > a:hover {
+  .nav_menu_primary .nav_kategorija > a:hover {
     color: black;
     cursor: pointer;
   }
 
-  .nav_menu.primary .nav_podstran:hover {
+  .nav_menu_primary .nav_podstran:hover {
     background: #f3f3f3;
   }
 
-  .nav_menu.primary .nav_podstran a:hover {
+  .nav_menu_primary .nav_podstran a:hover {
     color: black;
   }
 

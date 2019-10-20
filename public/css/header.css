@@ -65,7 +65,7 @@
   flex-wrap: wrap;
 }
 
-.nav_menu.primary {
+.nav_menu_primary {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -84,7 +84,7 @@
 
 /* STELLARNAV OVERRIDE FOR LARGE SCREENS */
 @media all and (min-width: 1420px) {
-  .nav_menu.primary > ul {
+  .nav_menu_primary > ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -97,18 +97,16 @@
     justify-content: flex-start;
   }
 
-  .nav_menu.primary.mobile.left > ul {
-    /* min-height: 100%; */
+  .nav_menu_primary.mobile.left > ul {
     padding-bottom: 100px;
   }
 
-  .nav_menu.primary > ul > li > a {
+  .nav_menu_primary > ul > li > a {
     padding: 0;
     color: #343a40;
-    /* font-family: 'Open Sans', sans-serif; */
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category {
+  .nav_menu_primary > ul > .nav_menu_primary_category {
     line-height: 75px;
     font-weight: 600;
     font-size: 19px;
@@ -120,12 +118,12 @@
     transition: all 0.15s ease;
   }
 
-  .nav_menu.primary li a {
+  .nav_menu_primary li a {
     padding: 10px 15px;
   }
 
   /* Posvojitev, Vaša pomoč, Izobraževanje */
-  .nav_menu.primary > ul > .nav_menu_primary_category > a {
+  .nav_menu_primary > ul > .nav_menu_primary_category > a {
     margin: 0 20px;
     -webkit-transition: none;
     -o-transition: none;
@@ -133,7 +131,7 @@
   }
 
   /* Pogoji za posvojitev, Seznam muc itd. */
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > li {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li {
     transition: all 0.15s ease;
     background: #fff;
     width: 245px;
@@ -146,18 +144,18 @@
     border-right: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > li:first-of-type {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li:first-of-type {
     border-top: 1px solid #ddd;
     border-top: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul,
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > li:last-of-type {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul,
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li:last-of-type {
     border-bottom-left-radius: 5px;
     border-bottom-right-radius: 5px;
   }
 
-  .nav_menu.primary > ul > .nav_menu_primary_category > ul > li > a {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li > a {
     color: #1f1f1f;
     font-size: 1rem;
     font-weight: 500;
@@ -165,15 +163,15 @@
 }
 /* END STELLARNAV OVERRIDE FOR LARGE SCREENS */
 
-.nav_menu.primary .fa-bars {
+.nav_menu_primary .fa-bars {
   font-size: 26px;
   margin-left: 10px;
   margin-right: 10px;
   color: #343a40;
 }
 
-.nav_menu.primary > ul > li:nth-of-type(n + 4),
-.nav_menu.primary > ul > .nav_search_mobile {
+.nav_menu_primary > ul > li:nth-of-type(n + 4),
+.nav_menu_primary > ul > .nav_search_mobile {
   display: none;
 }
 
@@ -408,7 +406,7 @@
 
 /* STELLARNAV CUSTOM */
 @media all and (min-width: 601px) {
-  .nav_menu.primary > ul {
+  .nav_menu_primary > ul {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
@@ -424,27 +422,27 @@
     align-items: center;
   }
 
-  .nav_menu.primary .nav_kategorija {
+  .nav_menu_primary .nav_kategorija {
     margin: 0 10px 0 0;
     padding: 0 10px;
     height: 50px;
     line-height: 50px;
   }
 
-  .nav_menu.primary .nav_kategorija > a {
+  .nav_menu_primary .nav_kategorija > a {
     color: #343a40;
     padding: 0 !important;
     font-family: "Raleway", sans-serif;
   }
 
-  .nav_menu.primary .nav_podstrani {
+  .nav_menu_primary .nav_podstrani {
     margin: 0 -10px;
     border-left: 1px solid #e8e8e8;
     border-right: 1px solid #e8e8e8;
     border-top: 3px solid #e18a07;
   }
 
-  .nav_menu.primary .nav_podstran {
+  .nav_menu_primary .nav_podstran {
     padding: 10px;
     font-size: 0.9em;
     background: #f7f7f7;
@@ -454,7 +452,7 @@
     transition: all 0.2s ease;
   }
 
-  .nav_menu.primary .nav_podstran a {
+  .nav_menu_primary .nav_podstran a {
     padding: 0;
     -webkit-transition: all 0.2s ease;
     -o-transition: all 0.2s ease;
@@ -462,7 +460,7 @@
   }
 }
 
-.nav_menu.primary .nav_podstrani {
+.nav_menu_primary .nav_podstrani {
   background: #f7f7f7 !important;
   padding-top: 0px;
 }
@@ -561,7 +559,6 @@ div#___gcse_0 .gsc-control-wrapper-cse {
 }
 
 div#___gcse_0 .gsc-search-button-v2 {
-  /* background: #ddd; background: rgba(0,0,0,0.08); */
   background: transparent;
   padding: 15px 35px 10px 22px !important;
 }
