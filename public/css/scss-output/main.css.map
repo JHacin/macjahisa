@@ -1,0 +1,14 @@
+{
+	"version": 3,
+	"file": "main.css",
+	"sources": [
+		"../../scss/main.scss",
+		"../../scss/layout/_header.scss"
+	],
+	"sourcesContent": [
+		"@import \"layout/header\";\n",
+		""
+	],
+	"names": [],
+	"mappings": ""
+}

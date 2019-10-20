@@ -6,7 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "serve": "nodemon app.js"
+    "serve": "nodemon app.js",
+    "sass": "node-sass --watch --recursive --output public/css/scss-output --source-map true --source-map-contents public/scss"
   },
   "repository": {
     "type": "git",
@@ -49,6 +50,7 @@
     "mongoose-query-random": "^1.0.1",
     "mongoose-url-slugs": "^1.0.2",
     "multer": "^1.3.0",
+    "node-sass": "^4.12.0",
     "nodemailer": "^4.4.2",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
