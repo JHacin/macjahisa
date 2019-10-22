@@ -10,13 +10,27 @@ html {
   box-sizing: inherit;
 }
 
-li {
+body {
+  padding-top: $navbar-height;
+}
+
+ul {
   list-style: none;
+}
+
+.content ul {
+  list-style: initial;
+  margin-bottom: 1em;
+  padding-left: 30px;
 }
 
 a {
   text-decoration: none;
   color: inherit;
+}
+
+h1 {
+  margin-bottom: 26px;
 }
 
 button {

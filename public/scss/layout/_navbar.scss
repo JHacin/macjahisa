@@ -1,6 +1,17 @@
 .navbar {
   height: $navbar-height;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  transition: top 0.15s ease-in-out;
+  background: $color-white;
   border-bottom: 1px solid $border-light-color;
+  box-shadow: 0 5px 7px -4px rgba(0, 0, 0, 0.03);
+  z-index: 9999;
+
+  &.move-up {
+    top: calc(-#{$navbar-height} - 8px);
+  }
 
   > .logo {
     @extend %flex-j-center-ai-center;
