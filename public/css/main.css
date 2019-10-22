@@ -483,7 +483,6 @@ input.paypal_btn,
 
   .nav_donate > form > button:hover {
     box-shadow: none;
-    border: 1px solid #c4c4c4;
   }
 
   .i_muca:hover .i_muca_img a img {
