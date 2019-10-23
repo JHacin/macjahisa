@@ -26,3 +26,9 @@
 %transition-all-quick {
   transition: all 0.15s ease-in-out;
 }
+
+%flex-column-ai-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

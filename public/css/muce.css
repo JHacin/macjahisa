@@ -456,7 +456,7 @@
 }
 
 .v-novem-domu_muca .muca_ime {
-  width: calc(100% - 1.3rem);
+  width: 100%;
   text-align: center;
 }
 
@@ -481,12 +481,6 @@
 
 .v-novem-domu_muca h2 {
   margin: 0.2rem 0 0.5rem 0;
-  /* font-weight: 600;
-  letter-spacing: 1px;
-  color: #3f3f3f;
-  font-weight: 700;
-  font-size: 26px;
-  margin: 6px 0 3px 0; */
 }
 
 .v-novem-domu_muca .muca_odhod {
@@ -494,7 +488,6 @@
   padding: 0 0.5em 0.5em 0.5em;
   background: #dbdbdb;
   border-top: none;
-  width: calc(100% - 1em);
   font-style: italic;
   font-size: 14px;
 }
@@ -637,7 +630,7 @@ input[type="checkbox" i] {
 }
 
 /* PAGINATOR */
-.paginator {
+ul.paginator {
   list-style: none;
   display: -webkit-box;
   display: -ms-flexbox;

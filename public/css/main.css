@@ -404,10 +404,6 @@ input.paypal_btn,
     background-color: #595959;
   }
 
-  .nav_menu_primary_category > a:hover {
-    cursor: default;
-  }
-
   a.kat_toggle:hover {
     color: red;
   }
@@ -464,10 +460,6 @@ input.paypal_btn,
     -moz-box-shadow: none !important;
     -webkit-box-shadow: none !important;
     box-shadow: none !important;
-  }
-
-  #___gcse_0 input#gsc-i-id1:hover {
-    cursor: default;
   }
 
   .nav_donate > form > button:hover,

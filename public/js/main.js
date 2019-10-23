@@ -48,6 +48,28 @@ $(document).ready(function() {
     lastScrollTop = scrollTop;
   }
 
+  // MENU TOGGLE
+  $(".nav_menu_open").click(function() {
+    $(".nav_menu_primary").addClass("fixed_fullscreen");
+  });
+  $(".nav_menu_close").click(function() {
+    $(".nav_menu_primary").removeClass("fixed_fullscreen");
+  });
+  $(".nav_menu_primary .nav_menu_primary_category").click(function() {
+    if ($(".nav_menu_primary").hasClass("fixed_fullscreen")) {
+      $(this)
+        .siblings(".nav_menu_primary_category")
+        .removeClass("active")
+        .children("ul")
+        .slideUp(250);
+
+      $(this)
+        .toggleClass("active")
+        .children("ul")
+        .slideToggle(250);
+    }
+  });
+
   // MUCE LIST
   if ($(".muce_seznam").length >= 1) {
     $(".muce_seznam").jplist({

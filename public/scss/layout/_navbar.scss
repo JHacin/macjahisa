@@ -28,22 +28,56 @@
     @extend %flex-j-end;
     width: 100%;
 
+    > a.nav_menu_open {
+      @include breakpoint-1420-max {
+        position: relative;
+        margin-right: auto;
+        display: flex;
+        align-items: center;
+        font-size: 26px;
+        padding: 15px 25px;
+
+        &::after {
+          content: "Menu";
+          position: absolute;
+          top: 50%;
+          transform: translateY(-50%);
+          right: -2.5rem;
+          font-family: "Nunito", sans-serif;
+          font-size: 1.15rem;
+          font-weight: 600;
+          text-transform: uppercase;
+          opacity: 0.5;
+        }
+      }
+
+      display: none;
+    }
+
     > .nav_menu_primary {
+      @include breakpoint-1420-max {
+        visibility: hidden;
+        opacity: 0;
+        transition: all 0.2s ease;
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        width: 100%;
+        height: 100vh;
+        background: $color-white;
+        z-index: 9999;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: flex-start;
+      }
+
       @extend %flex-j-center;
       margin-right: auto;
 
-      > ul {
-        @extend %flex-ai-center;
-        text-align: center;
-
-        > li.nav_menu_primary_category {
-          @extend %font-nunito;
-          position: relative;
-          line-height: $navbar-height;
-          border-right: 1px solid $border-light-color;
-          font-weight: 600;
-          font-size: 19px;
-
+      &:not(.fixed_fullscreen) {
+        li.nav_menu_primary_category {
           &:hover {
             background-color: $menu-large-hover-color;
 
@@ -59,6 +93,125 @@
               }
             }
           }
+        }
+      }
+
+      &.fixed_fullscreen {
+        visibility: visible;
+        opacity: 1;
+
+        > * {
+          max-width: 90%;
+          width: 1140px;
+        }
+
+        > .nav_menu_primary_fixed_header {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+          padding: 3vw 0 0 0;
+
+          > .logo {
+            img {
+              height: 80px;
+            }
+          }
+
+          > a.nav_menu_close {
+            font-size: 32px;
+
+            &:hover {
+              color: $color-midgray;
+            }
+          }
+        }
+
+        > ul.nav_menu_primary_list {
+          margin-top: 5vw;
+          flex-direction: column;
+
+          > li.nav_menu_primary_category {
+            border-right: none;
+            line-height: 55px;
+
+            &.active {
+              > a.kat_toggle {
+                color: $color-midgray;
+
+                &:after {
+                  transform: rotate(-90deg);
+                }
+              }
+            }
+
+            &:hover {
+              color: $color-midgray;
+              background-color: $color-white;
+              cursor: pointer;
+            }
+
+            > a.kat_toggle {
+              font-size: 24px;
+              margin: 0 10px;
+
+              &:hover {
+                color: $color-midgray;
+              }
+
+              &:after {
+                display: inline-block;
+                content: "\f0d7";
+                font-family: "Font Awesome 5 Free";
+                margin-left: 10px;
+                transition: all 0.25s ease-in-out;
+              }
+            }
+
+            > ul {
+              position: initial;
+              width: auto;
+
+              > li {
+                border: none;
+                width: auto;
+                text-align: center;
+
+                &:first-of-type {
+                  border-top: none;
+                }
+
+                &:hover {
+                  background-color: $color-white;
+
+                  > a {
+                    color: $color-midgray;
+                  }
+                }
+
+                > a {
+                  font-size: 18px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+      > .nav_menu_primary_fixed_header {
+        display: none;
+      }
+
+      > ul.nav_menu_primary_list {
+        @extend %flex-ai-center;
+        text-align: center;
+
+        > li.nav_menu_primary_category {
+          @extend %font-nunito;
+          position: relative;
+          line-height: $navbar-height;
+          border-right: 1px solid $border-light-color;
+          font-weight: 600;
+          font-size: 19px;
 
           > a.kat_toggle {
             margin: 0 20px;

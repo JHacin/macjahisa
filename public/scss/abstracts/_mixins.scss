@@ -2,3 +2,70 @@
   border-bottom-left-radius: $radius;
   border-bottom-right-radius: $radius;
 }
+
+// Breakpoints
+@mixin breakpoint-360-max {
+  @media (max-width: 360px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-480-max {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-640-max {
+  @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-768-max {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-960-max {
+  @media (max-width: 960px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-1000-max {
+  @media (max-width: 1000px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-1140-max {
+  @media (max-width: 1140px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-1420-max {
+  @media (max-width: 1420px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-1421-min {
+  @media (min-width: 1421px) {
+    @content;
+  }
+}
+
+@mixin breakpoint-min($width) {
+  @media (min-width: $width + "px") {
+    @content;
+  }
+}
+
+@mixin breakpoint-max($width) {
+  @media (max-width: $width + "px") {
+    @content;
+  }
+}
