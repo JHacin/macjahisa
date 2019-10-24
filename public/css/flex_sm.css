@@ -332,7 +332,6 @@
     -ms-flex-order: 1;
     order: 1;
     border-right: none;
-    height: 45px;
     padding-top: 5px;
     padding-bottom: 5px;
   }
@@ -376,7 +375,6 @@
     -webkit-box-pack: start;
     -ms-flex-pack: start;
     justify-content: flex-start;
-    height: 65px;
     -webkit-box-ordinal-group: 4;
     -ms-flex-order: 3;
     order: 3;
@@ -390,7 +388,6 @@
     order: 2;
     position: relative;
     padding: 0;
-    height: 65px;
   }
 
   .nav_donate > form {

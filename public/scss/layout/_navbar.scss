@@ -1,4 +1,8 @@
 .navbar {
+  @include breakpoint-768-max {
+    height: $navbar-height-mobile;
+  }
+
   height: $navbar-height;
   width: 100%;
   position: fixed;
@@ -24,101 +28,130 @@
     }
   }
 
-  > .nav_menu {
-    @extend %flex-j-end;
-    width: 100%;
+  > a.nav_menu_open {
+    @include breakpoint-1420-max {
+      @include font-size(26px);
+      position: relative;
+      margin-right: auto;
+      display: flex;
+      align-items: center;
+      padding: 15px 25px;
 
-    > a.nav_menu_open {
-      @include breakpoint-1420-max {
-        position: relative;
-        margin-right: auto;
-        display: flex;
-        align-items: center;
-        font-size: 26px;
-        padding: 15px 25px;
-
-        &::after {
-          content: "Menu";
-          position: absolute;
-          top: 50%;
-          transform: translateY(-50%);
-          right: -2.5rem;
-          font-family: "Nunito", sans-serif;
-          font-size: 1.15rem;
-          font-weight: 600;
-          text-transform: uppercase;
-          opacity: 0.5;
+      &::after {
+        @include breakpoint-768-max {
+          display: none;
         }
-      }
 
+        @include font-size(18px);
+        content: "Menu";
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        right: -2.5rem;
+        font-family: "Nunito", sans-serif;
+        font-weight: 600;
+        text-transform: uppercase;
+        opacity: 0.5;
+      }
+    }
+
+    @include breakpoint-768-max {
+      order: 3;
+    }
+
+    display: none;
+  }
+
+  > .nav_menu {
+    @include breakpoint-768-max {
       display: none;
     }
 
-    > .nav_menu_primary {
-      @include breakpoint-1420-max {
-        visibility: hidden;
-        opacity: 0;
-        transition: all 0.2s ease;
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
-        width: 100%;
-        height: 100vh;
-        background: $color-white;
-        z-index: 9999;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-      }
+    @extend %transition-all-quick;
+    @extend %flex-j-end;
+    width: 100%;
 
-      @extend %flex-j-center;
-      margin-right: auto;
+    &:not(.fixed_fullscreen) {
+      > .nav_menu_primary {
+        > .nav_menu_primary_list {
+          > li.nav_menu_primary_category {
+            &:hover {
+              background-color: $menu-large-hover-color;
 
-      &:not(.fixed_fullscreen) {
-        li.nav_menu_primary_category {
-          &:hover {
-            background-color: $menu-large-hover-color;
+              > a.kat_toggle {
+                color: $color-white;
+              }
 
-            > a.kat_toggle {
-              color: $color-white;
-            }
+              > ul {
+                display: block;
 
-            > ul {
-              display: block;
-
-              &:hover {
-                cursor: pointer;
+                &:hover {
+                  cursor: pointer;
+                }
               }
             }
           }
         }
       }
+    }
 
-      &.fixed_fullscreen {
-        visibility: visible;
-        opacity: 1;
+    &.fixed_fullscreen {
+      @include breakpoint-768-max {
+        padding-top: 0;
 
-        > * {
-          max-width: 90%;
-          width: 1140px;
+        .nav_menu_primary_fixed_header {
+          height: $navbar-height-mobile;
+          padding: 5px 0;
         }
+      }
+
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      height: 100vh;
+      background: $color-white;
+      z-index: 9999;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      overflow-y: scroll;
+      padding: 3vw 0 40vw 0;
+
+      > * {
+        max-width: 90%;
+        width: 1140px;
+        margin: 0 auto;
+      }
+
+      > .nav_menu_primary {
+        display: flex;
+        flex-direction: column;
 
         > .nav_menu_primary_fixed_header {
           display: flex;
           justify-content: space-between;
-          align-items: center;
-          padding: 3vw 0 0 0;
 
           > .logo {
             img {
+              @include breakpoint-768-max {
+                height: 45px;
+              }
+
               height: 80px;
             }
           }
 
           > a.nav_menu_close {
-            font-size: 32px;
+            @include breakpoint-768-max {
+              @include font-size(24px);
+              display: flex;
+              align-items: center;
+            }
+
+            @include font-size(32px);
 
             &:hover {
               color: $color-midgray;
@@ -151,7 +184,7 @@
             }
 
             > a.kat_toggle {
-              font-size: 24px;
+              @include font-size(24px);
               margin: 0 10px;
 
               &:hover {
@@ -189,13 +222,49 @@
                 }
 
                 > a {
-                  font-size: 18px;
+                  @include font-size(18px);
                 }
               }
             }
           }
         }
       }
+
+      > .nav_menu_secondary {
+        @extend %flex-j-center;
+        margin: 3vw auto;
+        line-height: 40px;
+
+        > ul {
+          @extend %flex-column-ai-center;
+
+          > li {
+            > a {
+              @include font-size(20px);
+            }
+          }
+        }
+      }
+
+      > .nav_search {
+        display: block;
+        width: 300px;
+        margin-top: 20px;
+      }
+    }
+
+    > .nav_menu_primary {
+      @include breakpoint-1420-max {
+        display: none;
+      }
+
+      @include breakpoint-768-max {
+        max-width: 100%;
+        padding: 0 20px;
+      }
+
+      @extend %flex-j-center;
+      margin-right: auto;
 
       > .nav_menu_primary_fixed_header {
         display: none;
@@ -207,11 +276,11 @@
 
         > li.nav_menu_primary_category {
           @extend %font-nunito;
+          @include font-size(18px);
           position: relative;
           line-height: $navbar-height;
           border-right: 1px solid $border-light-color;
           font-weight: 600;
-          font-size: 19px;
 
           > a.kat_toggle {
             margin: 0 20px;
@@ -251,10 +320,10 @@
               }
 
               > a {
+                @include font-size(16px);
                 display: block;
                 padding: 10px 15px;
                 color: $color-darkgray;
-                font-size: 1rem;
                 font-weight: 500;
               }
             }
@@ -268,6 +337,10 @@
     }
 
     > .nav_menu_secondary {
+      @include breakpoint-1140-max {
+        display: none;
+      }
+
       @extend %flex-ai-center;
 
       > ul {
@@ -275,10 +348,10 @@
 
         > li {
           a {
+            @include font-size(16px);
             padding: 0 15px 0 0;
             font-weight: 300;
             color: $color-midgray;
-            font-size: 16px;
             letter-spacing: 0.1px;
 
             &:hover {
@@ -290,14 +363,23 @@
     }
 
     > .nav_search {
+      @include breakpoint-1420-max {
+        width: 250px;
+      }
+
+      @include breakpoint-768-max {
+        display: none;
+      }
+
       @extend %flex-ai-center;
       width: 200px;
 
       #___gcse_0 {
         width: 100%;
+        margin: auto 0 !important;
 
         .gsc-control-cse.gsc-control-cse-sl {
-          padding: 0 1em;
+          padding: 0;
 
           .gsc-control-wrapper-cse {
             width: 100%;
@@ -315,26 +397,24 @@
                   > .gsc-input-box {
                     border: 1px solid rgba(0, 0, 0, 0.2) !important;
                     border-right: none !important;
+                    border-radius: 0 !important;
 
                     .gsib_a {
                       font-family: "Open Sans", serif !important;
                       font-weight: 300 !important;
                       font-size: 18px !important;
+                      padding: 0 0 0 8px !important;
 
                       > .gsc-input {
-                        font-size: 16px !important;
+                        height: 38px !important;
                         font-family: "Open Sans", serif !important;
                         font-weight: 300 !important;
                         border: none !important;
-                        margin: 5px 0 !important;
                         color: #333 !important;
-                        padding: 10px 10px 10px 5px !important;
-                        height: 15px !important;
                         background: 0 0 !important;
 
                         &::placeholder {
                           font: 300 16px "Open Sans", serif !important;
-                          line-height: 16px !important;
                         }
                       }
                     }
@@ -365,6 +445,18 @@
                 }
               }
             }
+
+            .gsc-results-wrapper-overlay.gsc-results-wrapper-visible {
+              @include breakpoint-768-max {
+                opacity: 1 !important;
+                visibility: visible !important;
+                height: calc(100vh - 5rem) !important;
+                width: calc(100% - 2rem) !important;
+                top: 1rem !important;
+                left: 1rem !important;
+                padding-top: 3rem;
+              }
+            }
           }
         }
       }
@@ -372,16 +464,36 @@
   }
 
   > .nav_donate {
+    @include breakpoint-768-max {
+      padding: 0;
+    }
+
     margin-left: auto;
     padding: 0 15px;
     z-index: 998;
 
     form {
+      @include breakpoint-768-max {
+        @include font-size(22px);
+        width: 100%;
+        height: 100%;
+        border-radius: 0;
+        margin: 0;
+      }
+
       height: 100%;
 
       button {
+        @include breakpoint-768-max {
+          @include font-size(22px);
+          width: 100%;
+          height: 100%;
+          border-radius: 0;
+          margin: 0;
+        }
+
         @extend %font-nunito;
-        font-size: 32px;
+        @include font-size(32px);
         text-transform: uppercase;
         letter-spacing: 1px;
         font-weight: 700;

@@ -1,5 +1,6 @@
 // Dimensions
 $navbar-height: 75px;
+$navbar-height-mobile: 55px;
 
 // Colors
 $color-white: #fff;
@@ -10,3 +11,9 @@ $color-darkgray-blue: #343a40;
 $border-light-color: rgba(0, 0, 0, 0.08);
 $button-hover-lightgray-color: #e5e5e5;
 $menu-large-hover-color: #595959;
+
+// RFS
+$rfs-breakpoint: 1920px !default;
+$rfs-breakpoint-unit: px !default;
+$rfs-rem-value: 16 !default;
+$rfs-unit: px !default;
