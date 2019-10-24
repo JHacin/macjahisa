@@ -16,18 +16,18 @@ iframe {
 }
 
 .paypal_table select {
-    font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
 }
 
-.stellarnav.mobile.left>ul {
-  -webkit-transform: translate3d(0,0,0);
+.nav_menu_primary.mobile.left > ul {
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
   z-index: 99999;
-  -webkit-transform: translate3d(0,0,0);
+  -webkit-transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
 }
 
-.stellarnav > ul > .menu_primary:hover > a {
+.nav_menu_primary > ul > .nav_menu_primary_category:hover > a {
   color: #f2f2f2;
 }
 
@@ -39,8 +39,8 @@ body > div > .container {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   margin: 0 auto;
 }
 
@@ -71,11 +71,11 @@ a {
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
-.main > div > .container  {
+.main > div > .container {
   padding: 45px 0;
   max-width: 1300px;
   margin: 0 auto;
@@ -87,11 +87,11 @@ a {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
   -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  -ms-flex-pack: center;
+  justify-content: center;
   width: 1250px;
 }
 
@@ -106,7 +106,7 @@ a {
   border-radius: 5px;
   box-shadow: 1px 1px #d5d5d5;
   padding: 10px 20px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 20px;
   letter-spacing: 0.5px;
@@ -115,11 +115,9 @@ a {
   transition: all 0.15s ease;
 }
 
-  .mailingButton i {
-    vertical-align: bottom;
-  }
-
-
+.mailingButton i {
+  vertical-align: bottom;
+}
 
 .content {
   width: 75%;
@@ -169,8 +167,6 @@ a {
   text-decoration: underline;
 }
 
-
-
 .jplist-icon {
   height: 35px;
   line-height: 35px;
@@ -183,14 +179,13 @@ a {
 
 /* IZOBRAŽEVANJE */
 .izobrazevalne-vsebine {
-
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
 }
 
 .izobrazevalne-vsebine > .vnos {
@@ -200,37 +195,38 @@ a {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+  -ms-flex-direction: row;
+  flex-direction: row;
 }
 
 .izobrazevalne-vsebine > .vnos > .naslovna_slika {
   width: 20%;
 }
 
-  .naslovna_slika img {
-    max-width: 100%;
-    border: 1px solid #ddd; border: 1px solid rgba(0,0,0,0.2);
-  }
+.naslovna_slika img {
+  max-width: 100%;
+  border: 1px solid #ddd;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+}
 
 .izobrazevalne-vsebine > .vnos > .vsebina {
   width: 80%;
   padding: 0 1em;
 }
 
-  .izobrazevalne-vsebine .vsebina h3 {
-    font-weight: 600;
-    color: #3f3f3f;
-    margin: 0 0 0.5em 0;
-    letter-spacing: 0.23px;
-    font-family: 'Nunito', sans-serif;
-  }
+.izobrazevalne-vsebine .vsebina h3 {
+  font-weight: 600;
+  color: #3f3f3f;
+  margin: 0 0 0.5em 0;
+  letter-spacing: 0.23px;
+  font-family: "Nunito", sans-serif;
+}
 
-  .izobrazevalne-vsebine .vsebina a {
-    font-weight: 400;
-    letter-spacing: 0.5px;
-    text-decoration: none;
-  }
+.izobrazevalne-vsebine .vsebina a {
+  font-weight: 400;
+  letter-spacing: 0.5px;
+  text-decoration: none;
+}
 
 /* ČLANKI */
 .content .clanek_link {
@@ -251,13 +247,11 @@ a {
   color: #707070;
 }
 
-  .content .clanek_link i {
-    margin-left: 2px;
-    color: #3f3f3f;
-    vertical-align: middle;
-  }
-
-
+.content .clanek_link i {
+  margin-left: 2px;
+  color: #3f3f3f;
+  vertical-align: middle;
+}
 
 /* VITA */
 
@@ -279,8 +273,9 @@ input.paypal_btn,
 }
 
 /* SLICK */
-.slick-prev:before, .slick-next:before {
-    color: #bbb!important;
+.slick-prev:before,
+.slick-next:before {
+  color: #bbb !important;
 }
 
 .slick-slide:focus {
@@ -300,11 +295,11 @@ input.paypal_btn,
 }
 
 .slick-dots li button:before {
-    font-size: 20px;
-    line-height: 20px;
-    color: #fff;
-    opacity: 1;
-    margin-right: 50px;
+  font-size: 20px;
+  line-height: 20px;
+  color: #fff;
+  opacity: 1;
+  margin-right: 50px;
 }
 
 .i_jumbo .slick-dots li.slick-active button:before {
@@ -333,18 +328,18 @@ input.paypal_btn,
 }
 
 .koticek-za-otroke-slika {
-    padding: 15px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    min-height: 300px;
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  min-height: 300px;
 }
 
-  .koticek-za-otroke-slika img {
-    max-height: 270px;
-  }
+.koticek-za-otroke-slika img {
+  max-height: 270px;
+}
 
 .koticek-za-otroke-naslov {
   height: 40px;
@@ -370,7 +365,7 @@ input.paypal_btn,
   font-size: 16px;
   color: #4a4848;
   line-height: 40px;
-  font-family: 'Nunito', sans-serif;
+  font-family: "Nunito", sans-serif;
   font-weight: 300;
 }
 
@@ -385,10 +380,8 @@ input.paypal_btn,
 }
 /* KOTIČEK ZA OTROKE END */
 
-
 /* Enable hover effects only on large screens */
 @media all and (min-width: 1140px) {
-
   #imageZoom:hover {
     color: #131313c2;
   }
@@ -399,37 +392,32 @@ input.paypal_btn,
 
   .social_buttons a .fab:hover,
   .i_footer > .container > #footer_links > div > ul > li a:hover {
-    color: rgb(255, 203, 0); color: rgba(255, 203, 0, 0.9);
+    color: rgb(255, 203, 0);
+    color: rgba(255, 203, 0, 0.9);
   }
 
   #zasebnostLink a:hover {
     color: #ffcb00;
   }
 
-  .stellarnav > ul > .menu_primary:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category:hover {
     background-color: #595959;
-  }
-
-
-
-  .menu_primary > a:hover {
-    cursor: default;
   }
 
   a.kat_toggle:hover {
     color: red;
   }
 
-  .stellarnav > ul > .menu_primary > ul > li:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > li:hover {
     background-color: #e5e5e5;
   }
 
-  .stellarnav > ul > .menu_primary > ul > .disabled_li:hover {
+  .nav_menu_primary > ul > .nav_menu_primary_category > ul > .disabled_li:hover {
     background-color: #fff;
     background-image: none;
   }
 
-  .menu_secondary > ul > li > a:hover {
+  .nav_menu_secondary > ul > li > a:hover {
     color: #000;
   }
 
@@ -439,19 +427,20 @@ input.paypal_btn,
 
   .jumbo_button button:hover {
     cursor: pointer;
-    background: rgb(255, 203, 0); background: rgba(255, 203, 0, 0.75);
+    background: rgb(255, 203, 0);
+    background: rgba(255, 203, 0, 0.75);
   }
 
-  .stellarnav .nav_kategorija > a:hover {
+  .nav_menu_primary .nav_kategorija > a:hover {
     color: black;
     cursor: pointer;
   }
 
-  .stellarnav .nav_podstran:hover {
+  .nav_menu_primary .nav_podstran:hover {
     background: #f3f3f3;
   }
 
-  .stellarnav .nav_podstran a:hover {
+  .nav_menu_primary .nav_podstran a:hover {
     color: black;
   }
 
@@ -461,20 +450,16 @@ input.paypal_btn,
   }
 
   .gsc-search-button-v2 svg:hover {
-    cursor: pointer!important;
+    cursor: pointer !important;
   }
 
-  .gsc-search-box .gsc-input>input:hover,
+  .gsc-search-box .gsc-input > input:hover,
   .gsc-input-box-hover {
-    border: none!important;
-    border-top-color: none!important;
-    -moz-box-shadow: none!important;
-    -webkit-box-shadow: none!important;
-    box-shadow: none!important;
-  }
-
-  #___gcse_0 input#gsc-i-id1:hover {
-    cursor: default;
+    border: none !important;
+    border-top-color: none !important;
+    -moz-box-shadow: none !important;
+    -webkit-box-shadow: none !important;
+    box-shadow: none !important;
   }
 
   .nav_donate > form > button:hover,
@@ -490,7 +475,6 @@ input.paypal_btn,
 
   .nav_donate > form > button:hover {
     box-shadow: none;
-    border: 1px solid #c4c4c4;
   }
 
   .i_muca:hover .i_muca_img a img {
@@ -498,7 +482,8 @@ input.paypal_btn,
   }
 
   .clear input#mc-embedded-subscribe:hover {
-    color: rgb(255, 255, 255); color: rgba(255, 255, 255, 0.9);
+    color: rgb(255, 255, 255);
+    color: rgba(255, 255, 255, 0.9);
   }
 
   .i_edu button:hover,

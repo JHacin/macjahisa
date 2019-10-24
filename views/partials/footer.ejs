@@ -62,20 +62,12 @@
 <% if (typeof isIndexPage !== "undefined") { %>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js" integrity="sha256-7PSmF2ojY04Z7YCwG5wwvH+bdUxV1PPCIORvvTYHo7M=" crossorigin="anonymous"></script>
 <% }; %>
-<script type="text/javascript" src="/js/stellarnav.min.js"></script>
 <% if (typeof needsSlickSlider !== "undefined") { %>
 <script type="text/javascript" src="/js/slick.min.js"></script>
 <% }; %>
 
 <script type="text/javascript">
           $(document).ready(function() {
-
-            $(".stellarnav").stellarNav({
-              position: "left",
-              breakpoint: 1420,
-              showArrows: false
-            });
-
             if($(".i_jumbo").length >= 1) {
               $(".i_jumbo").slick({
                 dots: true,

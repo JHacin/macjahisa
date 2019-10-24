@@ -1,0 +1,34 @@
+%font-nunito {
+  font-family: "Nunito", sans-serif;
+}
+
+%flex-j-center {
+  display: flex;
+  justify-content: center;
+}
+
+%flex-j-end {
+  display: flex;
+  justify-content: flex-end;
+}
+
+%flex-ai-center {
+  display: flex;
+  align-items: center;
+}
+
+%flex-j-center-ai-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+%transition-all-quick {
+  transition: all 0.15s ease-in-out;
+}
+
+%flex-column-ai-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}

@@ -1,0 +1,53 @@
+html {
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  @include breakpoint-768-max {
+    padding-top: $navbar-height-mobile;
+  }
+
+  padding-top: $navbar-height;
+
+  &.navbar_fixed {
+    overflow-y: hidden;
+  }
+}
+
+ul {
+  list-style: none;
+}
+
+.content ul {
+  list-style: initial;
+  margin-bottom: 1em;
+  padding-left: 30px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+h1 {
+  margin-bottom: 26px;
+}
+
+h3 {
+  margin-top: 22px;
+  margin-bottom: 22px;
+}
+
+button {
+  &:focus {
+    outline: none;
+  }
+}

@@ -1,193 +1,209 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-<head>
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136196420-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
+  <head>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-136196420-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
 
-    gtag('config', 'UA-136196420-1');
-  </script>
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@MacjaHisa">
-  <meta name="twitter:creator" content="@MacjaHisa">
-  <meta property="og:url" content="<%= social_url %>" />
-  <meta property="og:type" content="website" />
-  <% if (typeof hasCustomMetaData != "undefined") { %>
-    <% include ../partials/seo/metatags_default %>
-  <% } %>
-  <% if (typeof hasCustomMetaData == "undefined") { %>
-    <% include ../partials/seo/metatags_custom %>
-  <% } %>
-  <% if (locals.social_image) { %>
-  <meta property="og:image" content="<%= social_image %>" />
-  <meta name="twitter:image" content="<%= social_image %>">
-  <% } else { %>
-  <meta property="og:image" content="<%= social_image_default %>" />
-  <meta name="twitter:image" content="<%= social_image_default %>">
-  <% } %>
-  <meta property="og:image:width" content="500" />
-  <meta property="og:image:height" content="260" />
-  <link rel="icon" href="/images/favicon.ico">
-  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
-  <link rel="stylesheet" type="text/css" media="all" href="/css/stellarnav.min.css">
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&amp;subset=latin-ext" rel="stylesheet">
-  <% if (typeof needsSlickSlider !== "undefined") { %>
-  <link rel="stylesheet" type="text/css" href="/css/slick.css"/>
-  <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" />
+      gtag("config", "UA-136196420-1");
+    </script>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@MacjaHisa" />
+    <meta name="twitter:creator" content="@MacjaHisa" />
+    <meta property="og:url" content="<%= social_url %>" />
+    <meta property="og:type" content="website" />
+    <% if (typeof hasCustomMetaData != "undefined") { %> <% include ../partials/seo/metatags_default
+    %> <% } %> <% if (typeof hasCustomMetaData == "undefined") { %> <% include
+    ../partials/seo/metatags_custom %> <% } %> <% if (locals.social_image) { %>
+    <meta property="og:image" content="<%= social_image %>" />
+    <meta name="twitter:image" content="<%= social_image %>" />
+    <% } else { %>
+    <meta property="og:image" content="<%= social_image_default %>" />
+    <meta name="twitter:image" content="<%= social_image_default %>" />
+    <% } %>
+    <meta property="og:image:width" content="500" />
+    <meta property="og:image:height" content="260" />
+    <link rel="icon" href="/images/favicon.ico" />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
+      integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Nunito:300,400,600,700&amp;subset=latin-ext"
+      rel="stylesheet"
+    />
+    <% if (typeof needsSlickSlider !== "undefined") { %>
+    <link rel="stylesheet" type="text/css" href="/css/slick.css" />
+    <link rel="stylesheet" type="text/css" href="/css/slick-theme.css" />
 
-  <% }; %>
-  <% if (typeof needsJpList !== "undefined") { %>
-  <link rel="stylesheet" type="text/css" href="/css/jplist.core.min.css" />
-  <link rel="stylesheet" type="text/css" href="/css/jplist.textbox-filter.min.css" />
-  <link rel="stylesheet" type="text/css" href="/css/jplist.filter-toggle-bundle.min.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jplist/5.2.0/css/jplist.pagination-bundle.min.css" integrity="sha256-XTBrlZtUCphfWhX2g0lriTnBYRhWPYl60zaLYBoPSpM=" crossorigin="anonymous" />
-  <% }; %>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css" integrity="sha256-5yrE3ZX38R20LqA/1Mvh3KHJWG1HJF42qtZlRtGGRgE=" crossorigin="anonymous" />
-  <!-- <link rel="stylesheet" href="/css/index.css" />
-  <link rel="stylesheet" href="/css/header.css" />
-  <link rel="stylesheet" href="/css/sidebar.css" />
-  <link rel="stylesheet" href="/css/main.css" />
-  <link rel="stylesheet" href="/css/footer.css" />
-  <link rel="stylesheet" href="/css/muce.css" />
-  <link rel="stylesheet" href="/css/flex_md.css" media="(max-width: 1515px)"/>
-  <link rel="stylesheet" href="/css/flex_sm.css" media="(max-width: 768px)"/>
-  <link rel="stylesheet" href="/css/fonts.css" /> -->
+    <% }; %> <% if (typeof needsJpList !== "undefined") { %>
+    <link rel="stylesheet" type="text/css" href="/css/jplist.core.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jplist.textbox-filter.min.css" />
+    <link rel="stylesheet" type="text/css" href="/css/jplist.filter-toggle-bundle.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/jplist/5.2.0/css/jplist.pagination-bundle.min.css"
+      integrity="sha256-XTBrlZtUCphfWhX2g0lriTnBYRhWPYl60zaLYBoPSpM="
+      crossorigin="anonymous"
+    />
+    <% }; %>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.2/jquery.fancybox.min.css"
+      integrity="sha256-5yrE3ZX38R20LqA/1Mvh3KHJWG1HJF42qtZlRtGGRgE="
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/css/scss-output/main.css" />
+    <link rel="stylesheet" href="/css/index.css" />
+    <link rel="stylesheet" href="/css/header.css" />
+    <link rel="stylesheet" href="/css/sidebar.css" />
+    <link rel="stylesheet" href="/css/main.css" />
+    <link rel="stylesheet" href="/css/footer.css" />
+    <link rel="stylesheet" href="/css/muce.css" />
+    <link rel="stylesheet" href="/css/flex_md.css" media="(max-width: 1515px)" />
+    <link rel="stylesheet" href="/css/flex_sm.css" media="(max-width: 768px)" />
+    <link rel="stylesheet" href="/css/fonts.css" />
+    <!-- <link rel="stylesheet" href="/css/minified.css" /> -->
+  </head>
+  <body>
+    <!-- FACEBOOK JAVASCRIPT SDK -->
+    <script>
+      window.fbAsyncInit = function() {
+        FB.init({
+          appId: "1653543114703176",
+          cookie: true,
+          xfbml: true,
+          version: "v2.12"
+        });
 
-  <link rel="stylesheet" href="/css/minified.css" />
-</head>
-<body>
-  <!-- FACEBOOK JAVASCRIPT SDK -->
-  <script>
-    window.fbAsyncInit = function() {
-      FB.init({
-        appId      : '1653543114703176',
-        cookie     : true,
-        xfbml      : true,
-        version    : 'v2.12'
-      });
+        FB.AppEvents.logPageView();
+      };
 
-      FB.AppEvents.logPageView();
-    };
+      (function(d, s, id) {
+        var js,
+          fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) {
+          return;
+        }
+        js = d.createElement(s);
+        js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js";
+        fjs.parentNode.insertBefore(js, fjs);
+      })(document, "script", "facebook-jssdk");
 
-    (function(d, s, id){
-       var js, fjs = d.getElementsByTagName(s)[0];
-       if (d.getElementById(id)) {return;}
-       js = d.createElement(s); js.id = id;
-       js.src = "https://connect.facebook.net/en_US/sdk.js";
-       fjs.parentNode.insertBefore(js, fjs);
-     }(document, 'script', 'facebook-jssdk'));
+      (function() {
+        var cx = "001736101284721641425:w8gp2vqwk54";
+        var gcse = document.createElement("script");
+        gcse.type = "text/javascript";
+        gcse.async = true;
+        gcse.src = "https://cse.google.com/cse.js?cx=" + cx;
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(gcse, s);
+      })();
 
-  </script>
-  <!-- END FACEBOOK JAVASCRIPT SDK -->
-  <div class="navbar">
-    <div class="logo">
-      <a href="/"><img src="/files/page/logo.png" alt="Mačja hiša"/></a>
-    </div>
-    <div class="nav_menu">
+      window.onload = function() {
+        // document.getElementById('gsc-i-id2').placeholder = 'Išči...';
+        document.getElementById("gsc-i-id1").placeholder = "Išči...";
+      };
+    </script>
+    <!-- END FACEBOOK JAVASCRIPT SDK -->
 
-      <div class="stellarnav">
+    <div class="navbar">
+      <div class="logo">
+        <a href="/"><img src="/files/page/logo.png" alt="Mačja hiša"/></a>
+      </div>
 
-        <!-- PRIMARY MENU -->
-        <ul>
-          <div class="nav_search_mobile">
-            <script>
-(function() {
-var cx = '001736101284721641425:w8gp2vqwk54';
-var gcse = document.createElement('script');
-gcse.type = 'text/javascript';
-gcse.async = true;
-gcse.src = 'https://cse.google.com/cse.js?cx=' + cx;
-var s = document.getElementsByTagName('script')[0];
-s.parentNode.insertBefore(gcse, s);
-})();
-</script>
-<gcse:search></gcse:search></div>
+      <a href="#" class="nav_menu_open">
+        <i class="fas fa-bars"></i>
+      </a>
 
-          <li class="menu_primary">
+      <div class="nav_menu">
+        <div class="nav_menu_primary">
+          <div class="nav_menu_primary_fixed_header">
+            <div class="logo">
+              <a href="/"><img src="/files/page/logo.png" alt="Mačja hiša"/></a>
+            </div>
+            <a href="#" class="nav_menu_close">
+              <i class="fa fa-times" aria-hidden="true"></i>
+            </a>
+          </div>
+          <ul class="nav_menu_primary_list">
+            <li class="nav_menu_primary_category">
+              <a href="#" class="kat_toggle">Posvojitev</a>
+              <ul>
+                <li><a href="/posvojitev/pogoji-in-postopek">Pogoji in postopek</a></li>
+                <li><a href="/posvojitev/muce">Muce, ki iščejo dom</a></li>
+                <li><a href="/v-novem-domu/1">V novem domu</a></li>
+              </ul>
+            </li>
+            <li class="nav_menu_primary_category">
+              <a href="#" class="kat_toggle">Vaša pomoč</a>
+              <ul>
+                <li><a href="/pomoc/nacini-pomoci">Načini pomoči</a></li>
+                <li><a href="/pomoc/donacije">Donacije</a></li>
+                <li><a href="/pomoc/dohodnina">Dohodnina</a></li>
+                <li><a href="/o-nas/macji-boter">Posvojitev na daljavo</a></li>
+                <li><a href="/projekt-vita/predstavitev">Projekt Vita</a></li>
+              </ul>
+            </li>
+            <li class="nav_menu_primary_category">
+              <a href="#" class="kat_toggle">Izobraževanje</a>
+              <ul>
+                <li>
+                  <a href="/dobro-je-vedeti/sterilizacija-kastracija"
+                    >Sterilizacija in kastracija</a
+                  >
+                </li>
+                <li><a href="/dobro-je-vedeti/zbirka-macje-hise">Zbirka Mačje hiše</a></li>
+                <li><a href="/dobro-je-vedeti/letaki">Letaki</a></li>
+                <li>
+                  <a href="/dobro-je-vedeti/prispevki-clanki-povezave"
+                    >Prispevki, članki, povezave</a
+                  >
+                </li>
+                <li><a href="/dobro-je-vedeti/koticek-za-otroke">Kotiček za otroke</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div>
+        <!-- END PRIMARY MENU -->
 
-            <a href="/posvojitev/muce" class="kat_toggle">Posvojitev</a>
-            <ul>
-              <li><a href="/posvojitev/pogoji-in-postopek">Pogoji in postopek</a></li>
-              <!-- <li><a href="/posvojitev/pogoji-in-postopek">Postopek posvojitve</a></li> -->
-              <li><a href="/posvojitev/muce">Muce, ki iščejo dom</a></li>
-              <li><a href="/v-novem-domu/1">V novem domu</a></li>
-            </ul>
-          </li>
-          <li class="menu_primary">
-            <a href="#" class="kat_toggle">Vaša pomoč</a>
-            <ul>
-              <li><a href="/pomoc/nacini-pomoci">Načini pomoči</a></li>
-              <li><a href="/pomoc/donacije">Donacije</a></li>
-              <li><a href="/pomoc/dohodnina">Dohodnina</a></li>
-              <li><a href="/o-nas/macji-boter">Posvojitev na daljavo</a></li>
-              <li><a href="/projekt-vita/predstavitev">Projekt Vita</a></li>
-            </ul>
-          </li>
-          <li class="menu_primary">
-            <a href="#" class="kat_toggle">Izobraževanje</a>
-            <ul>
-              <li><a href="/dobro-je-vedeti/sterilizacija-kastracija">Sterilizacija in kastracija</a></li>
-              <li><a href="/dobro-je-vedeti/zbirka-macje-hise">Zbirka Mačje hiše</a></li>
-              <li><a href="/dobro-je-vedeti/letaki">Letaki</a></li>
-              <li><a href="/dobro-je-vedeti/prispevki-clanki-povezave">Prispevki, članki, povezave</a></li>
-              <li><a href="/dobro-je-vedeti/koticek-za-otroke">Kotiček za otroke</a></li>
-            </ul>
-          </li>
-          <li class="menu_secondary_mobile">
+        <!-- SECONDARY MENU -->
+        <div class="nav_menu_secondary">
+          <ul>
             <li><a href="/o-nas/kdo-smo">Kdo smo?</a></li>
             <li><a href="/o-nas/zavetisce-mh">Zavetišče MH</a></li>
             <li><a href="/o-nas/eu-dog-and-cat-alliance">EU Dog & Cat Alliance</a></li>
-          </li>
+          </ul>
+        </div>
 
-
-
-        </ul>
-        <!-- END PRIMARY MENU -->
-
-      </div><!-- END STELLARNAV -->
-
-      <!-- SECONDARY MENU -->
-      <div class="menu_secondary">
-        <ul>
-          <li><a href="/o-nas/kdo-smo">Kdo smo?</a></li>
-          <li><a href="/o-nas/zavetisce-mh">Zavetišče MH</a></li>
-          <li><a href="/o-nas/eu-dog-and-cat-alliance">EU Dog & Cat Alliance</a></li>
-        </ul>
+        <!-- SEARCH FORM -->
+        <div class="nav_search">
+          <gcse:search></gcse:search>
+        </div>
       </div>
+      <!-- END NAV_MENU -->
 
-      <!-- SEARCH FORM -->
-      <div class="nav_search">
-        <script>
-          (function() {
-            var cx2 = '001736101284721641425:w8gp2vqwk54';
-            var gcse2 = document.createElement('script');
-            gcse2.type = 'text/javascript';
-            gcse2.async = true;
-            gcse2.src = 'https://cse.google.com/cse.js?cx=' + cx2;
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(gcse2, s);
-          })();
-          window.onload = function(){
-           document.getElementById('gsc-i-id2').placeholder = 'Išči...';
-           document.getElementById('gsc-i-id1').placeholder = 'Išči...';
-           };
-        </script>
-        <gcse:search></gcse:search>
-      </div>
-
-    </div><!-- END NAV_MENU -->
-
-    <div class="nav_donate">
-      <form action="/pomoc/donacije" method="post" target="_top">
-        <!-- <input type="hidden" name="cmd" value="_s-xclick">
+      <div class="nav_donate">
+        <form action="/pomoc/donacije" method="post" target="_top">
+          <!-- <input type="hidden" name="cmd" value="_s-xclick">
         <input type="hidden" name="hosted_button_id" value="3T8VTPP8R7H74"> -->
-        <button type="submit"  border="0" alt="PayPal donacije">Doniraj</button>
-      </form>
+          <button type="submit" border="0" alt="PayPal donacije">Doniraj</button>
+        </form>
+      </div>
     </div>
-  </div>
+  </body>
+</html>
