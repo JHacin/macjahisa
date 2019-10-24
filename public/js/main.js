@@ -50,15 +50,15 @@ $(document).ready(function() {
 
   // MENU TOGGLE
   $(".nav_menu_open").click(function() {
-    $(".nav_menu").addClass("fixed_fullscreen");
+    $(".navbar").addClass("fixed_fullscreen");
     $("body").addClass("navbar_fixed");
   });
   $(".nav_menu_close").click(function() {
-    $(".nav_menu").removeClass("fixed_fullscreen");
+    $(".navbar").removeClass("fixed_fullscreen");
     $("body").removeClass("navbar_fixed");
   });
   $(".nav_menu_primary .nav_menu_primary_category").click(function() {
-    if ($(".nav_menu").hasClass("fixed_fullscreen")) {
+    if ($(".navbar").hasClass("fixed_fullscreen")) {
       $(this)
         .siblings(".nav_menu_primary_category")
         .removeClass("active")
