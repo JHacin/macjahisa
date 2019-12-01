@@ -67,6 +67,7 @@ app.use(bodyParser.json({limit: "100mb"}));
 app.use(bodyParser.urlencoded({limit: "100mb", extended: true, parameterLimit:50000}));
 app.use(flash());
 app.locals.moment = require('moment');
+app.locals.siteConfig = require("./config/config");
 
 // PASSPORT CONFIG
 app.use(require("express-session")({

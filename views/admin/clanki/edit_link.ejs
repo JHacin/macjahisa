@@ -1,41 +1,61 @@
 <% include ../../partials/admin/header %>
-<a class="p-2 badge badge-info backToIndex" href="/admin/clanki"><i class="fas fa-arrow-left"></i> Nazaj</a>
+
+<a class="p-2 badge badge-info backToIndex" href="/admin/clanki">
+    <i class="fas fa-arrow-left"></i> Nazaj
+</a>
 <div class="header-addOrEdit d-flex flex-row justify-content-between align-items-center">
-  <h1 class="p-2 badge badge-warning">Uredi povezavo</h1>
+    <h1 class="p-2 badge badge-warning">Uredi povezavo</h1>
 </div>
-<hr class="header-divider" />
+
+<hr class="header-divider"/>
 
 <form action="/admin/clanki/<%= clanek.dbid %>?_method=PUT" method="POST">
-  <div class="required form-group">
-    <label for="clanek[naslov]">Naslov:</label>
-    <input class="form-control" type="text" name="clanek[naslov]" id="naslov" size="70" value="<%= clanek.naslov %>" autofocus required/>
-    <small class="form-text text-muted">Naslov bo prikazan na seznamu člankov, prispevkov in povezav (<a href="/dobro-je-vedeti/prispevki-clanki-povezave" target="_blank">http://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave)</a>.</small>
-  </div>
-  <div class="required form-group">
-    <label for="kategorija">Kategorija:</label>
-    <select class="form-control" id="kategorija" name="clanek[kategorija]">
-      <option value="prispevki" <%= clanek.kategorija == "prispevki" ? "selected" : "" %>>prispevki</option>
-      <option value="nasveti" <%= clanek.kategorija == "nasveti" ? "selected" : "" %>>nasveti</option>
-      <option value="zakonodaja" <%= clanek.kategorija == "zakonodaja" ? "selected" : "" %>>zakonodaja</option>
-      <option value="zdravje" <%= clanek.kategorija == "zdravje" ? "selected" : "" %>>zdravje</option>
-    </select>
-    <small class="form-text text-muted">Kategorija na seznamu člankov, v kateri bo povezava.</small>
-  </div>
-  <div class="required form-group">
-    <label for="clanek[vsebina]">Povezava:</label>
-    <input class="form-control" type="url" name="clanek[vsebina]" id="vsebina" size="70" value="<%= clanek.vsebina %>" required/>
-    <small class="form-text text-muted">Povezava do zunanje spletne strani. Vnesi celoten URL naslov (npr. <strong>http://www.macjahisa-vet.si/sladkorna-bolezen-pri-mackah-preventiva-zdravljenje/</strong>).</small>
-  </div>
-  <div class="required form-group">
-    <label for="clanek[objava]">Objava:</label>
-    <select class="form-control" id="objava" name="clanek[objava]">
-      <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>
-      <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
-    </select>
-    <small class="form-text text-muted">Določi, ali bo povezava prikazana na seznamu člankov.</small>
-  </div>
-  <hr />
-  <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
+    <div class="required form-group">
+        <label for="clanek[naslov]">Naslov:</label>
+        <input
+            class="form-control"
+            type="text"
+            name="clanek[naslov]"
+            id="naslov"
+            size="70"
+            value="<%= clanek.naslov %>"
+            autofocus
+            required
+        />
+        <small class="form-text text-muted">
+            Naslov bo prikazan na seznamu člankov, prispevkov in povezav
+            (<a href="/dobro-je-vedeti/prispevki-clanki-povezave" target="_blank">http://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave</a>).
+        </small>
+    </div>
+    <div class="required form-group">
+        <label for="kategorija">Kategorija:</label>
+        <select class="form-control" id="kategorija" name="clanek[kategorija]">
+            <option value="prispevki" <%= clanek.kategorija == "prispevki" ? "selected" : "" %>>prispevki</option>
+            <option value="nasveti" <%= clanek.kategorija == "nasveti" ? "selected" : "" %>>nasveti</option>
+            <option value="zakonodaja" <%= clanek.kategorija == "zakonodaja" ? "selected" : "" %>>zakonodaja</option>
+            <option value="zdravje" <%= clanek.kategorija == "zdravje" ? "selected" : "" %>>zdravje</option>
+        </select>
+        <small class="form-text text-muted">Kategorija na seznamu člankov, v kateri bo povezava.</small>
+    </div>
+    <div class="required form-group">
+        <label for="clanek[vsebina]">Povezava:</label>
+        <input class="form-control" type="url" name="clanek[vsebina]" id="vsebina" size="70"
+               value="<%= clanek.vsebina %>" required/>
+        <small class="form-text text-muted">
+            Povezava do zunanje spletne strani. Vnesi celoten URL naslov
+            (npr. <strong>http://www.macjahisa-vet.si/sladkorna-bolezen-pri-mackah-preventiva-zdravljenje/</strong>).
+        </small>
+    </div>
+    <div class="required form-group">
+        <label for="clanek[objava]">Objava:</label>
+        <select class="form-control" id="objava" name="clanek[objava]">
+            <option value="1" <%= clanek.objava == "1" ? "selected" : "" %>>Da</option>
+            <option value="0" <%= clanek.objava == "0" ? "selected" : "" %>>Ne</option>
+        </select>
+        <small class="form-text text-muted">Določi, ali bo povezava prikazana na seznamu člankov.</small>
+    </div>
+    <hr/>
+    <input type="submit" class="btn btn-secondary" value="Potrdi spremembe">
 </form>
 
 <% include ../../partials/admin/footer %>

@@ -1,98 +1,133 @@
 <% include ./partials/header %>
 
-    <div class="i_jumbo">
-      <% naslovnice.forEach(function(naslovnica) { %>
-        <div class="naslovnica" style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje %>);">
-          <div class="i_jumbo_text">
-            <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
-            <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
-            <a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>">
-              <button class="i_jumbo_button"><%- naslovnica.napisNaGumbu %></button>
-            </a>
-          </div>
+<div class="i_jumbo">
+    <% naslovnice.forEach(function(naslovnica) { %>
+        <div class="naslovnica"
+             style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje %>);">
+            <div class="i_jumbo_text">
+                <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
+                <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
+                <a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>">
+                    <button class="i_jumbo_button"><%- naslovnica.napisNaGumbu %></button>
+                </a>
+            </div>
         </div>
-      <% }); %>
-    </div>
-    <div class="i_dohodnina">
-      <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta del pustili v državnem proračunu.</p>
-      <p>Vas ne stane nič, nam pa veliko pomeni.</p>
-      <a href="/pomoc/dohodnina"><button>Namenite nam del dohodnine <i class="fas fa-angle-double-right"></i></button></a>
-    </div>
-    <div class="i_muce">
-      <div class="i_muce_head">
+    <% }); %>
+</div>
+<div class="i_dohodnina">
+    <p>Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>, saj bi sicer ta
+        del pustili v državnem proračunu.</p>
+    <p>Vas ne stane nič, nam pa veliko pomeni.</p>
+    <a href="/pomoc/dohodnina">
+        <button>Namenite nam del dohodnine <i class="fas fa-angle-double-right"></i></button>
+    </a>
+</div>
+<div class="i_muce">
+    <div class="i_muce_head">
         <h1>Iščejo dom</h1>
-      </div>
-      <div class="i_muce_reel">
+    </div>
+    <div class="i_muce_reel">
         <% muce.forEach(function(muca){ %>
-          <div class="i_muca">
-            <div class="i_muca_img">
-              <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>" alt="<%= muca.ime %>"/></a>
+            <div class="i_muca">
+                <div class="i_muca_img">
+                    <a href="posvojitev/muce/<%= muca.dbid %>"><img src="/files/oglasi_muce/<%= muca.file_name1 %>"
+                                                                    alt="<%= muca.ime %>"/></a>
+                </div>
+                <div class="i_muca_txt">
+                    <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
+                </div>
             </div>
-            <div class="i_muca_txt">
-              <h3><a href="posvojitev/muce/<%= muca.dbid %>"><%= muca.ime %></a></h3>
-            </div>
-          </div>
         <% }); %>
-      </div>
-      <a href="/posvojitev/muce"><button>Vse muce za posvojitev <i class="fas fa-angle-double-right"></i></button></a>
     </div>
-    <div class="divider">
-      <i class="fas fa-ellipsis-h"></i>
-    </div>
-    <div class="i_mailing">
-      <a href="http://eepurl.com/dskgr1" target="_blank">
+    <a href="/posvojitev/muce">
+        <button>Vse muce za posvojitev <i class="fas fa-angle-double-right"></i></button>
+    </a>
+</div>
+<div class="divider">
+    <i class="fas fa-ellipsis-h"></i>
+</div>
+<div class="i_mailing">
+    <a href="http://eepurl.com/dskgr1" target="_blank">
         <button class="mailingButton">
-          Naroči se na e-novice <i class="fas fa-angle-double-right"></i>
+            Naroči se na e-novice <i class="fas fa-angle-double-right"></i>
         </button>
-      </a>
-    </div>
-    <div class="i_help" style="background-image: url(/files/page/podpora2.JPG);">
-      <h1>Kako nas še lahko podprete?</h1>
-      <div class="help_reel">
+    </a>
+</div>
+<div class="i_help" style="background-image: url(/files/page/podpora2.JPG);">
+    <h1>Kako nas še lahko podprete?</h1>
+    <div class="help_reel">
         <div class="help_item">
-          <i class="fas fa-shopping-cart" aria-hidden="true"></i>
-          <h3>Veterina in trgovina</h3>
-          <hr />
-          <p>Z nakupovanjem v trgovini <span class="orange">Super Čombe</span> in uporabo storitev na <span class="orange">Veterini MH</span>.</p>
+            <i class="fas fa-shopping-cart" aria-hidden="true"></i>
+            <h3>Veterina in trgovina</h3>
+            <hr/>
+            <p>
+                Z nakupovanjem v trgovini <a href=<%= siteConfig.external_links.super_combe %> target="_blank">Super
+                    Čombe</a>
+                in uporabo storitev na <a href=<%= siteConfig.external_links.mh_vet %> target="_blank">Veterini MH</a>.
+            </p>
         </div>
         <div class="help_item">
-          <i class="fas fa-users" aria-hidden="true"></i>
-          <h3>Prostovoljstvo</h3>
-          <hr />
-          <p>Pomoč pri začasnem nameščanju muc, delu s potencialnimi posvojitelji, delu na terenu, ipd.</p>
+            <i class="fas fa-users" aria-hidden="true"></i>
+            <h3>Prostovoljstvo</h3>
+            <hr/>
+            <p>Pomoč pri začasnem nameščanju muc, delu s potencialnimi posvojitelji, delu na terenu, ipd.</p>
         </div>
         <div class="help_item">
-          <i class="fas fa-share-alt" aria-hidden="true"></i>
-          <h3>Socialna omrežja</h3>
-          <hr />
-          <p>Naše objave lahko spremljate in delite na forumu <span class="orange">Pomagamo živalim</span> ter našem <span class="orange">Twitterju</span> in <span class="orange">Facebooku</span>.</p>
+            <i class="fas fa-share-alt" aria-hidden="true"></i>
+            <h3>Socialna omrežja</h3>
+            <hr/>
+            <p>
+                Naše objave lahko spremljate in delite na forumu
+                <a href=<%= siteConfig.external_links.pomagamo_zivalim_forum %> target="_blank">Pomagamo živalim</a>
+                ter našem <a href=<%= siteConfig.external_links.mh_social_twitter %> target="_blank">Twitterju</a>
+                in <a href=<%= siteConfig.external_links.mh_social_facebook %> target="_blank">Facebooku</a>.
+            </p>
         </div>
-      </div>
     </div>
-    <div class="i_edu">
-      <h1>Zbirka Mačje hiše</h1>
-      <div class="i_edu_img">
-        <img src="/files/index/edu1.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
-        <img src="/files/index/edu2.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
-        <img src="/files/index/edu3.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
-        <img src="/files/index/edu4.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
-      </div>
-      <div class="i_boter_txt">
-        Predstavljamo novost - <strong>izobraževalne knjižice</strong> iz Zbirke Mačje hiše. Knjižice so v PDF formatu in jih lahko shranite na svoj računalnik, preberete in natisnete. Zelo veseli bomo tudi, če jih boste delili s prijatelji.
-      </div>
-      <a href="/dobro-je-vedeti/zbirka-macje-hise"><button>Preberi več <i class="fas fa-angle-double-right"></i></button></a>
+</div>
+<div class="i_edu">
+    <h1>Zbirka Mačje hiše</h1>
+    <div class="i_edu_img">
+        <a href="/files/izobrazevanje/kako-skrbeti-za-svojo-macko.pdf" target="_blank">
+            <img src="/files/index/edu1.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
+        </a>
+        <a href="/files/izobrazevanje/prostozivece-macke.pdf" target="_blank">
+            <img src="/files/index/edu2.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
+        </a>
+        <a href="/files/izobrazevanje/razumite-obnasanje-svoje-macke.pdf" target="_blank">
+            <img src="/files/index/edu3.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
+        </a>
+        <a href="/files/izobrazevanje/dobrodosla-doma.pdf" target="_blank">
+            <img src="/files/index/edu4.jpg" alt="Izobraževalne vsebine Mačje hiše"/>
+        </a>
     </div>
-    <div class="i_donate" style="background-image: url(/files/page/doniraj.JPG);">
-      <h2>Podprite naše delo in nam pomagajte oskrbeti številne brezdomne muce.</h2>
-      <a href="/pomoc/donacije"><button>Doniraj</button></a>
+    <div class="i_boter_txt">
+        Predstavljamo novost - <strong>izobraževalne knjižice</strong> iz Zbirke Mačje hiše. Knjižice so v PDF formatu
+        in jih lahko shranite na svoj računalnik, preberete in natisnete. Zelo veseli bomo tudi, če jih boste delili s
+        prijatelji.
     </div>
-    <div class="i_boter">
-      <h1>Mačji boter</h1>
-      <img src="/files/index/boter.png" alt="Mačji boter"/>
-      <div class="i_boter_txt">
-        Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>. Namenjen je vsem tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck. Gre za obliko donacije, ki donatorja poveže z določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov prispevek.
-      </div>
-      <a href="/o-nas/macji-boter"><button>Posvoji muco na daljavo <i class="fas fa-angle-double-right"></i></button></a>
+    <a href="/dobro-je-vedeti/zbirka-macje-hise">
+        <button>Preberi več <i class="fas fa-angle-double-right"></i></button>
+    </a>
+</div>
+<div class="i_donate" style="background-image: url(/files/page/doniraj.JPG);">
+    <h2>Podprite naše delo in nam pomagajte oskrbeti številne brezdomne muce.</h2>
+    <a href="/pomoc/donacije">
+        <button>Doniraj</button>
+    </a>
+</div>
+<div class="i_boter">
+    <h1>Mačji boter</h1>
+    <img src="/files/index/boter.png" alt="Mačji boter"/>
+    <div class="i_boter_txt">
+        Mačji boter je projekt Mačje hiše, ki omogoča <strong>posvojitve muck na daljavo</strong>. Namenjen je vsem
+        tistim, ki nam želite pomagati pri oskrbi nekoč brezdomnih muck. Gre za obliko donacije, ki donatorja poveže z
+        določenim mucem ali skupino mucov in mu hkrati omogoča boljši vpogled v to, za kaj je bil porabljen njegov
+        prispevek.
     </div>
+    <a href="/o-nas/macji-boter">
+        <button>Posvoji muco na daljavo <i class="fas fa-angle-double-right"></i></button>
+    </a>
+</div>
 
 <% include ./partials/footer %>
