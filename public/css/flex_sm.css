@@ -552,6 +552,10 @@
     width: 90%;
   }
 
+  .i_edu_img a {
+    text-align: center;
+  }
+
   .i_edu h1 {
     text-align: center;
   }
