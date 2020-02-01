@@ -17,6 +17,7 @@ const nodemailer = require("nodemailer");
 var crypto = require("crypto");
 var async = require("async");
 const fs = require("fs");
+const xmlBuilder = require('xmlbuilder');
 
 // MULTER
 var multer = require("multer");
@@ -109,72 +110,62 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
 
   // MAKE XML FILES FOR BOLHA/SALOMON
   Muca.find({}).where("status").in([1, 2]).exec(function(err, muce) {
-    if(err) return console.error(err);
-    var xmlOutput = '<?xml version="1.0" encoding="UTF-8"?><trgovina id="macja_hisa">';
+    if (err) {
+      return console.error(err);
+    }
+
+    const currentTime = moment().format("DD[/]MM[/]YYYY");
+
+    const descriptionSuffix = '<br /><br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.' +
+        '<br /><br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje' +
+        ' brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.' +
+        '<br /><br /><strong><a href="http://www.macjahisa.si/posvojitev/muce" target="_blank">' +
+        'Za vse muce, ki iščejo dom, klikni tukaj.</a></strong>';
+
+    let xml = xmlBuilder.create('trgovina').att('id', 'macja_hisa');
 
     muce.forEach(function(muca) {
-      xmlOutput += '<izdelek>';
-      var id = '<izdelekID>' + muca.dbid + '</izdelekID>';
-      var ime = '<izdelekIme>' + muca.ime + '</izdelekIme>';
-      var datum = '<zadnja_osvezitev>' + moment().format("DD[/]MM[/]YYYY") + '</zadnja_osvezitev>';
-      var url = '<url>http://www.macjahisa.si/posvojitev/muce/' + muca.dbid + '</url>';
+      const description = muca.opis
+          .replace(/(<([^>]+)>)/ig, "")
+          .replace(/&scaron;/g, "š")
+          .replace(/&Scaron;/g, "Š")
+          .replace(/&raquo;/g, '"')
+          .replace(/&laquo;/g, '"')
+          .replace(/&nbsp;/g, "")
+          .replace(/(?:\r\n|\r|\n)/g, ' ') + descriptionSuffix;
 
-      var generic = '<br /><br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.<br /><br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.<br /><br /><strong><a href="http://www.macjahisa.si/posvojitev/muce" target="_blank">Za vse muce, ki iščejo dom, klikni tukaj.</a></strong>';
+      xml = xml.ele('izdelek')
+          .ele('izdelekID', muca.dbid).up()
+          .ele('izdelekIme').dat(muca.ime).up()
+          .ele('zadnja_osvezitev', currentTime).up()
+          .ele('url').dat('http://www.macjahisa.si/posvojitev/muce/' + muca.dbid).up()
+          .ele('opis').dat(description).up()
+          .ele('slike');
 
-      var opis = '<opis><![CDATA[' + muca.opis
-                  .replace(/(<([^>]+)>)/ig, "")
-                  .replace(/&scaron;/g, "š")
-                  .replace(/&Scaron;/g, "Š")
-                  .replace(/&raquo;/g, '"')
-                  .replace(/&laquo;/g, '"')
-                  .replace(/&nbsp;/g, "")
-                  .replace(/(?:\r\n|\r|\n)/g, ' ') + generic + ']]></opis>';
-
-      // SLIKE
-      var slike = '';
-      if(muca.file_name1 === undefined && muca.file_name2 === undefined && muca.file_name3 === undefined && muca.file_name4 === undefined) {
-        slike = '<slike><slika href="http://www.macjahisa.si/files/page/logo.png" /></slike>';
+      const imageFields = [1, 2, 3, 4].map(n => 'file_name' + n);
+      const hasNoImages = imageFields.every(imageIndex => muca[imageIndex] === undefined);
+      if (hasNoImages) {
+        xml = xml.ele('slika', 'http://www.macjahisa.si/files/page/logo.png').up();
       } else {
-        slike += '<slike>';
-          if(muca.file_name1 !== undefined) {
-            slike += '<slika>';
-            slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-            slike += muca.file_name1;
-            slike += '</slika>';
+        imageFields.forEach(imageField => {
+          if (muca[imageField] !== undefined) {
+            xml = xml.ele('slika', 'http://www.macjahisa.si/files/oglasi_muce/' + muca[imageField]).up();
           }
-          if(muca.file_name2 !== undefined) {
-            slike += '<slika>';
-            slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-            slike += muca.file_name2;
-            slike += '</slika>';
-          }
-          if(muca.file_name3 !== undefined) {
-            slike += '<slika>';
-            slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-            slike += muca.file_name3;
-            slike += '</slika>';
-          }
-          if(muca.file_name4 !== undefined) {
-            slike += '<slika>';
-            slike += 'http://www.macjahisa.si/files/oglasi_muce/';
-            slike += muca.file_name4;
-            slike += '</slika>';
-          }
-        slike += '</slike>';
+        });
+        xml = xml.up();
       }
-      // END SLIKE
 
-      var toAttach = id + ime + datum + url + opis + slike;
+      xml = xml
+          .ele('cena', 'Podarimo').up()
+          .ele('kategorijaID', '3564').up();
 
-      xmlOutput += toAttach;
-      xmlOutput += '<cena>Podarimo</cena><kategorijaID>3564</kategorijaID></izdelek>';
+      xml = xml.up();
     });
-    xmlOutput += '</trgovina>';
 
-    var writer = fs.createWriteStream('oglasi_xml_bolha.xml');
-    writer.write(xmlOutput);
-    var writer2 = fs.createWriteStream('oglasi_xml_salomon.xml');
-    writer2.write(xmlOutput);
+    xml = xml.end();
+
+    fs.createWriteStream('oglasi_xml_bolha.xml').write(xml);
+    fs.createWriteStream('oglasi_xml_salomon.xml').write(xml);
   });
 
   Muca.find().where("status").in([1, 2]).sort({datum_objave: -1}).exec(function(err, muce) {
