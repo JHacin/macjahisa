@@ -1,17 +1,16 @@
 {
-  "name": "macja_hisa_v2",
-  "version": "2.0.0",
+  "name": "macjahisa",
+  "version": "1.2.0",
   "description": "Mačja hiša",
   "main": "app.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node app.js",
-    "serve": "nodemon app.js",
-    "sass": "node-sass --watch --recursive --output public/css/scss-output --source-map true --source-map-contents public/scss"
+    "serve": "nodemon app.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/JHacin/macja_hisa_v2.git"
+    "url": "https://github.com/jhacin/macjahisa"
   },
   "keywords": [
     "mačja",
@@ -24,10 +23,6 @@
   ],
   "author": "Jan Hacin",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/JHacin/macja_hisa_v2/issues"
-  },
-  "homepage": "https://github.com/JHacin/macja_hisa_v2#readme",
   "dependencies": {
     "@ckeditor/ckeditor5-alignment": "^10.0.1",
     "@ckeditor/ckeditor5-build-classic": "^10.1.0",
