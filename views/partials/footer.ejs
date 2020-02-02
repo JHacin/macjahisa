@@ -46,12 +46,12 @@
             </div>
             <div class="fb_banner">
                 <div
-                        class="fb-page"
-                        data-href=<%= siteConfig.external_links.mh_social_facebook %>
-                        data-small-header="false"
-                        data-adapt-container-width="true"
-                        data-hide-cover="false"
-                        data-show-facepile="false"
+                    class="fb-page"
+                    data-href=<%= siteConfig.external_links.mh_social_facebook %>
+                    data-small-header="false"
+                    data-adapt-container-width="true"
+                    data-hide-cover="false"
+                    data-show-facepile="false"
                 >
                     <blockquote
                             cite="https://www.facebook.com/macjahisa"
@@ -88,13 +88,13 @@
 <% if (typeof isIndexPage !== "undefined") { %>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.lazy/1.7.9/jquery.lazy.min.js"
             integrity="sha256-7PSmF2ojY04Z7YCwG5wwvH+bdUxV1PPCIORvvTYHo7M=" crossorigin="anonymous"></script>
-<% }; %>
+<% } %>
 <% if (typeof needsSlickSlider !== "undefined") { %>
     <script type="text/javascript" src="/js/slick.min.js"></script>
-<% }; %>
+<% } %>
 
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         if ($(".i_jumbo").length >= 1) {
             $(".i_jumbo").slick({
                 dots: true,
@@ -110,7 +110,7 @@
 
     });
 
-    $("#imageZoom").click(function () {
+    $("#imageZoom").click(function() {
         $('[data-fancybox="gallery"]')[0].click();
     });
 
@@ -136,18 +136,11 @@
 <% }; %>
 <script src="/js/main.js?v=1.0.1"></script>
 
-
-<!--Start Cookie Script-->
-<script type="text/javascript" charset="UTF-8"
-        src="http://chs03.cookie-script.com/s/52a35aa8f8d6d88add97d8a29604cb4e.js"></script>
-<!--End Cookie Script-->
-
-
 <!-- Mailchimp popup -->
 <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js"
         data-dojo-config="usePlainJson: true, isDebug: false"></script>
-<script type="text/javascript">require(["mojo/signup-forms/Loader"], function (L) {
-        L.start({"baseUrl": "mc.us5.list-manage.com", "uuid": "d07acd44f9838ec72a617ce1f", "lid": "b794a4e2e2"})
+<script type="text/javascript">require(["mojo/signup-forms/Loader"], function(L) {
+        L.start({ "baseUrl": "mc.us5.list-manage.com", "uuid": "d07acd44f9838ec72a617ce1f", "lid": "b794a4e2e2" })
     })</script>
 <!-- End Mailchimp popup-->
 
