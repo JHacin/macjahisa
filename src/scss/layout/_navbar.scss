@@ -131,16 +131,6 @@
                         }
 
                         @include breakpoint-769-min {
-                            &.active {
-                                > a.nav_category_toggle {
-                                    color: $color-midgray;
-
-                                    &:after {
-                                        transform: rotate(-90deg);
-                                    }
-                                }
-                            }
-
                             &:hover {
                                 color: $color-midgray;
                                 background-color: $color-white;
@@ -151,6 +141,18 @@
                         border-right: none;
                         line-height: 55px;
                         text-align: center;
+
+                        &.active {
+                            > a.nav_category_toggle {
+                                @include breakpoint-769-min {
+                                    color: $color-midgray;
+                                }
+
+                                &:after {
+                                    transform: rotate(-90deg);
+                                }
+                            }
+                        }
 
                         > a.nav_category_toggle {
                             @include breakpoint-768-max {
