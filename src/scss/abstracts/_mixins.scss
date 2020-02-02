@@ -28,6 +28,12 @@
   }
 }
 
+@mixin breakpoint-769-min {
+  @media (min-width: 769px) {
+    @content;
+  }
+}
+
 @mixin breakpoint-960-max {
   @media (max-width: 960px) {
     @content;

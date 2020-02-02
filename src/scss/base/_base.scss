@@ -35,6 +35,11 @@ ul {
 a {
   text-decoration: none;
   color: inherit;
+
+  &:focus {
+    outline: none !important;
+    -webkit-tap-highlight-color: transparent;
+  }
 }
 
 h1 {

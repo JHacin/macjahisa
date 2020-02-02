@@ -177,11 +177,6 @@ button i {
   margin: 20px 20px 0 20px;
 }
 
-.i_muca_img a:focus {
-  outline: none !important;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
 .i_muca_img a img {
   position: absolute;
   margin: auto;

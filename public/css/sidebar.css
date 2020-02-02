@@ -106,12 +106,7 @@
   overflow: hidden;
   height: 200px;
   transition: filter 0.2s ease;
-  /* margin-bottom: 0.5rem; */
 }
-
-  .side_cat:nth-of-type(2) {
-    /* margin: 0.2rem 0; */
-  }
 
   .side_cat:last-of-type {
     border-bottom: none;
@@ -128,22 +123,6 @@
   right: -100%;
   top: -100%;
   bottom: -100%;
-}
-
-.side_cat a:focus {
-  outline: none !important;
-  -webkit-tap-highlight-color: rgba(255, 255, 255, 0);
-}
-
-.side_cat h5 a,
-.side_cat_name {
-  /* position: absolute;
-  bottom: 0.4em;
-  right: 0.5em;
-  color: #fff;
-  letter-spacing: 1px;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  font-size: 28px; */
 }
 
 .side_cat_ime {
