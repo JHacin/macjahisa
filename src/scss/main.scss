@@ -3,8 +3,14 @@
 @import "abstracts/mixins";
 @import "abstracts/variables";
 
+.with-bootstrap {
+    @import "~bootstrap/scss/bootstrap";
+    display: block;
+}
+
 @import "base/base";
 @import "base/helpers";
 
 @import "layout/navbar";
 @import "layout/hero";
+@import "pages/fundraiser-landing";

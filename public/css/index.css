@@ -5,7 +5,8 @@
   visibility: visible !important;
 }
 
-body > div {
+body > div,
+body > main {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
