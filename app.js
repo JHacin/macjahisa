@@ -4,13 +4,14 @@ const compression = require('compression');
 const express = require('express');
 const helmet = require('helmet');
 const mongoose = require('mongoose');
-const mongooseQueryRandom = require('mongoose-query-random'); // @see .random() below
+require('mongoose-query-random'); // needed for the query.random() @ index route
 const app = express();
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
 const flash = require('connect-flash');
 const methodOverride = require('method-override');
+const path = require('path');
 
 const Muca = require('./models/muca');
 const Kategorija = require('./models/kategorija');
@@ -18,25 +19,12 @@ const Podstran = require('./models/podstran');
 const User = require('./models/user');
 const Naslovnica = require('./models/naslovnica');
 
-const o_nas = require('./routes/o-nas.js');
-const posvojitev = require('./routes/posvojitev.js');
-const dobro_je_vedeti = require('./routes/dobro-je-vedeti.js');
-const pomoc = require('./routes/pomoc.js');
-const projekt_vita = require('./routes/projekt-vita.js');
-const admin = require('./routes/admin.js');
-const v_novem_domu = require('./routes/v-novem-domu.js');
-const redirects = require('./routes/redirects.js');
-
 app.use(compression());
 app.use(helmet());
 mongoose.connect('mongodb://localhost/macjahisa' || process.env.DATABASE);
 app.set('view engine', 'ejs');
 
-if (process.env.STATIC_PUBLIC === '__dirname + "/public"') {
-    app.use(express.static(__dirname + '/public'));
-} else {
-    app.use(express.static('/public'));
-}
+app.use(express.static(path.join(__dirname, './public')));
 app.use(express.static('./node_modules'));
 app.use(methodOverride('_method'));
 app.use(bodyParser.json({ limit: '100mb' }));
@@ -118,8 +106,6 @@ app.use('*', function(req, res, next) {
 //
 // app.use('*', middleware.isLoggedInWhenUnderMaintenance);
 
-app.use('/', redirects);
-
 app.get('/sitemap.xml', function(req, res) {
     res.type('application/xml');
     res.sendFile('sitemap.xml');
@@ -136,7 +122,6 @@ app.get('/oglasi_xml_salomon.xml', function(req, res) {
     res.sendFile(__dirname + '/oglasi_xml_salomon.xml');
 });
 
-// INDEX ROUTE
 app.get('/', function(req, res) {
     Muca.find()
         .where('status')
@@ -193,13 +178,14 @@ app.get('/zasebnost', function(req, res) {
     res.redirect('o-nas/zasebnost');
 });
 
-app.use('/o-nas/', o_nas);
-app.use('/posvojitev/', posvojitev);
-app.use('/dobro-je-vedeti/', dobro_je_vedeti);
-app.use('/pomoc/', pomoc);
-app.use('/projekt-vita/', projekt_vita);
-app.use('/admin/', admin);
-app.use('/v-novem-domu/', v_novem_domu);
+app.use('/', require('./routes/redirects.js'));
+app.use('/o-nas/', require('./routes/o-nas.js'));
+app.use('/posvojitev/', require('./routes/posvojitev.js'));
+app.use('/dobro-je-vedeti/', require('./routes/dobro-je-vedeti.js'));
+app.use('/pomoc/', require('./routes/pomoc.js'));
+app.use('/projekt-vita/', require('./routes/projekt-vita.js'));
+app.use('/admin/', require('./routes/admin.js'));
+app.use('/v-novem-domu/', require('./routes/v-novem-domu.js'));
 
 app.use(function(req, res) {
     res.status(400);
