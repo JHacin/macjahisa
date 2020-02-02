@@ -1,17 +1,18 @@
 require('dotenv').config();
 
-const compression = require('compression');
 const express = require('express');
-const helmet = require('helmet');
-const mongoose = require('mongoose');
-require('mongoose-query-random'); // needed for the query.random() @ index route
 const app = express();
+const path = require('path');
+const helmet = require('helmet');
+const methodOverride = require('method-override');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const LocalStrategy = require('passport-local');
+const mongoose = require('mongoose');
+require('mongoose-query-random'); // needed for the query.random() @ index route
 const flash = require('connect-flash');
-const methodOverride = require('method-override');
-const path = require('path');
+const compression = require('compression');
+const expressSession = require('express-session');
 
 const Muca = require('./models/muca');
 const Kategorija = require('./models/kategorija');
@@ -19,36 +20,35 @@ const Podstran = require('./models/podstran');
 const User = require('./models/user');
 const Naslovnica = require('./models/naslovnica');
 
+app.set('view engine', 'ejs');
+app.use(express.static(path.join(__dirname, './public')));
+app.use(express.static(path.join(__dirname, './node_modules')));
+
 app.use(compression());
 app.use(helmet());
-mongoose.connect('mongodb://localhost/macjahisa' || process.env.DATABASE);
-app.set('view engine', 'ejs');
-
-app.use(express.static(path.join(__dirname, './public')));
-app.use(express.static('./node_modules'));
+app.use(flash());
 app.use(methodOverride('_method'));
 app.use(bodyParser.json({ limit: '100mb' }));
 app.use(bodyParser.urlencoded({ limit: '100mb', extended: true, parameterLimit: 50000 }));
-app.use(flash());
+
 app.locals.moment = require('moment');
 app.locals.deployVersion = new Date().getTime();
 app.locals.siteConfig = require('./config/config');
 
 app.use(
-    require('express-session')({
+    expressSession({
         secret: 'mew',
         resave: false,
         saveUninitialized: false,
     })
 );
-
 app.use(passport.initialize());
 app.use(passport.session());
 passport.use(new LocalStrategy(User.authenticate()));
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
-app.use(function(req, res, next) {
+app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
@@ -58,19 +58,26 @@ app.use(function(req, res, next) {
     next();
 });
 
+mongoose.connect('mongodb://localhost/macjahisa' || process.env.DATABASE);
+
 // find all categories and subpages (for navigation menu), cats and news (for sidebar)
-app.use('*', function(req, res, next) {
-    Kategorija.find({}, function(err, kategorije) {
-        if (err) return res.render('500');
-        Podstran.find({}, function(err, podstrani) {
-            if (err) return res.render('500');
+app.use('*', (req, res, next) => {
+    Kategorija.find({}, (err, kategorije) => {
+        if (err) {
+            return res.render('500');
+        }
+        Podstran.find({}, (err, podstrani) => {
+            if (err) {
+                return res.render('500');
+            }
             Muca.find()
                 .where('status')
                 .in([1, 2])
                 .sort({ datum: -1 })
-                .random(3, true, function(err, sidebar_muce) {
-                    if (err) return res.render('500');
-                    if (err) return res.render('500');
+                .random(3, true, (err, sidebar_muce) => {
+                    if (err) {
+                        return res.render('500');
+                    }
                     req.nav_kategorije = kategorije;
                     req.nav_podstrani = podstrani;
                     req.sidebar_muce = sidebar_muce;
@@ -106,64 +113,55 @@ app.use('*', function(req, res, next) {
 //
 // app.use('*', middleware.isLoggedInWhenUnderMaintenance);
 
-app.get('/sitemap.xml', function(req, res) {
+app.get('/sitemap.xml', (req, res) => {
     res.type('application/xml');
     res.sendFile('sitemap.xml');
 });
 
-app.get('/oglasi_xml_bolha.xml', function(req, res) {
+app.get('/oglasi_xml_bolha.xml', (req, res) => {
     console.log('hi');
     res.type('application/xml');
     res.sendFile(__dirname + '/oglasi_xml_bolha.xml');
 });
 
-app.get('/oglasi_xml_salomon.xml', function(req, res) {
+app.get('/oglasi_xml_salomon.xml', (req, res) => {
     res.type('application/xml');
     res.sendFile(__dirname + '/oglasi_xml_salomon.xml');
 });
 
-app.get('/', function(req, res) {
+app.get('/', (req, res) => {
     Muca.find()
         .where('status')
         .in([1, 2])
-        .random(4, true, function(err, muce) {
-            if (err) return res.render('500');
+        .random(4, true, (err, muce) => {
+            if (err) {
+                return res.render('500');
+            }
             Muca.where('status')
                 .in([1, 2])
                 .count()
-                .exec(function(err, count) {
-                    var steviloMuc = count;
-                    if (err) return res.render('500');
+                .exec((err, count) => {
+                    if (err) {
+                        return res.render('500');
+                    }
                     Naslovnica.find()
                         .where('pozicija')
                         .in([1, 2, 3])
-                        .exec(function(err, naslovnice) {
-                            if (err) return res.render('500');
+                        .exec((err, naslovnice) => {
+                            if (err) {
+                                return res.render('500');
+                            }
 
-                            var aktiviraneNaslovnice = [];
-                            naslovnice.map(function(naslovnica) {
-                                if (naslovnica.pozicija === 1) {
-                                    aktiviraneNaslovnice.push(naslovnica);
-                                }
-                            });
+                            const aktiviraneNaslovnice = naslovnice
+                                .filter(n => n.pozicija)
+                                .sort((a, b) => a.pozicija > b.pozicija ? 1 : -1);
 
-                            naslovnice.map(function(naslovnica) {
-                                if (naslovnica.pozicija === 2) {
-                                    aktiviraneNaslovnice.push(naslovnica);
-                                }
-                            });
-
-                            naslovnice.map(function(naslovnica) {
-                                if (naslovnica.pozicija === 3) {
-                                    aktiviraneNaslovnice.push(naslovnica);
-                                }
-                            });
                             res.render('index', {
                                 nav_kategorije: req.nav_kategorije,
                                 nav_podstrani: req.nav_podstrani,
                                 title: 'Mačja hiša - skupaj pomagamo brezdomnim mucam',
                                 muce: muce,
-                                steviloMucKiIscejoDom: steviloMuc,
+                                steviloMucKiIscejoDom: count,
                                 naslovnice: aktiviraneNaslovnice,
                                 isIndexPage: true,
                                 hasCustomMetaData: false,
@@ -174,7 +172,7 @@ app.get('/', function(req, res) {
         });
 });
 
-app.get('/zasebnost', function(req, res) {
+app.get('/zasebnost', (req, res) => {
     res.redirect('o-nas/zasebnost');
 });
 
@@ -187,17 +185,17 @@ app.use('/projekt-vita/', require('./routes/projekt-vita.js'));
 app.use('/admin/', require('./routes/admin.js'));
 app.use('/v-novem-domu/', require('./routes/v-novem-domu.js'));
 
-app.use(function(req, res) {
+app.use((req, res) => {
     res.status(400);
     res.render('404');
 });
 
-app.use(function(error, req, res, next) {
+app.use((error, req, res) => {
     res.status(500);
     console.log(error);
     res.render('500');
 });
 
-app.listen(process.env.PORT || 3000, process.env.IP, function() {
+app.listen(process.env.PORT || 3000, process.env.IP, () => {
     console.log('Starting.');
 });
