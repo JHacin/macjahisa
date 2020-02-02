@@ -134,8 +134,10 @@
     <script src="/js/jplist.filter-dropdown-bundle.min.js"></script>
     <script src="/js/jplist.filter-toggle-bundle.min.js"></script>
 <% }; %>
-<script src="/js/main.js?v=1.0.1"></script>
-<script type="text/javascript" src="/dist/bundle.js"></script>
+
+<script src="/js/main.js?v=<%= deployVersion %>"></script>
+<script type="text/javascript" src="/dist/bundle.js?v=<%= deployVersion %>"></script>
+
 <!-- Mailchimp popup -->
 <script type="text/javascript" src="//downloads.mailchimp.com/js/signup-forms/popup/embed.js"
         data-dojo-config="usePlainJson: true, isDebug: false"></script>
