@@ -22,7 +22,12 @@ module.exports = {
                 test: /\.scss$/i,
                 use: [
                     MiniCssExtractPlugin.loader,
-                    'css-loader',
+                    {
+                        loader: 'css-loader',
+                        options: {
+                            sourceMap: true,
+                        },
+                    },
                     {
                         loader: 'postcss-loader',
                         options: {
@@ -34,7 +39,15 @@ module.exports = {
                         },
                     },
                     'resolve-url-loader',
-                    'sass-loader',
+                    {
+                        loader: 'sass-loader',
+                        options: {
+                            sourceMap: true,
+                            sassOptions: {
+                                outputStyle: 'compressed',
+                            },
+                        },
+                    },
                 ]
             },
             {

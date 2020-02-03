@@ -1,37 +1,25 @@
 .fundraiser-landing {
-    @extend .position-relative;
-
     section {
-        @extend .mb-5, .py-5;
+        @extend .mb-6;
     }
 
     &-hero {
-        @extend .position-absolute;
         @include background-image-cover("../../../public/images/backgrounds/cat_house.jpg");
-        z-index: 0;
-        top: 0;
-        height: 600px;
-        width: 100%;
+        background-position-y: bottom;
+        height: 700px;
     }
 
     &-content-wrapper {
-        @extend .position-relative;
         z-index: 1;
-        padding-top: 250px;
     }
 
     &-expo {
-        @extend .bg-white, .shadow-lg, .px-4, .d-flex, .flex-column, .justify-content-between;
-        height: 450px;
-    }
-
-    &-intermediary {
-        @include background-image-cover("../../../public/images/backgrounds/cat_construction.jpg");
+        margin-top: -80px;
     }
 
     &-progress-bar {
         > .progress {
-            height: 50px;
+            height: 40px;
         }
     }
 }
