@@ -1,0 +1,5 @@
+.btn {
+    &.btn-lg {
+        @extend .font-weight-bold;
+    }
+}

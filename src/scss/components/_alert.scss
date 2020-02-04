@@ -1,0 +1,8 @@
+.alert {
+    @extend .shadow-sm, .px-4, .py-3;
+
+    &-secondary {
+        background-color: $secondary;
+        color: color-yiq($secondary);
+    }
+}

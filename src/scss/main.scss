@@ -11,6 +11,10 @@
 
 .with-bootstrap {
     @import "~bootstrap/scss/bootstrap";
+    @import "base/typography";
+    @import "components/alert";
+    @import "components/button";
+    @import "components/card";
     @import "components/nav-tabs";
     @import "pages/fundraiser-landing";
     display: block;

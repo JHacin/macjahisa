@@ -4,19 +4,21 @@
         <header class="fundraiser-landing-hero d-flex text-white">
             <div class="container align-items-center d-flex flex-column justify-content-center pb-5">
                 <h1 class="display-3">Skupaj lahko dosežemo vse</h1>
-                <h2>Zbiranje sredstev za nakup novega zavetišča</h2>
-                <button class="btn btn-primary">Doniraj</button>
+                <h2 class="mb-4 font-weight-light">Zbiranje sredstev za nakup novega zavetišča</h2>
+                <button class="btn btn-primary btn-lg">Doniraj</button>
             </div>
         </header>
         <div class="fundraiser-landing-content-wrapper position-relative">
             <div class="container">
-                <section class="fundraiser-landing-expo bg-white shadow-lg p-4 rounded">
+                <section class="fundraiser-landing-expo bg-white shadow p-4 rounded">
                     <div class="row align-items-center">
                         <div class="col">
-                            <h1><small class="text-muted">zbranih</small> 3045,36€</h1>
+                            <small class="text-muted mr-1">zbranih</small>
+                            <h1 class="d-inline"><strong>15.000€</strong></h1>
                         </div>
                         <div class="col text-right">
-                            <h2><small class="text-muted">od</small> 150.000€</h2>
+                            <small class="text-muted mr-1">od</small>
+                            <h2 class="d-inline">150.000€</h2>
                         </div>
                     </div>
                     <div class="fundraiser-landing-progress-bar py-3">
@@ -24,14 +26,17 @@
                             <div
                                 class="progress-bar progress-bar-striped"
                                 role="progressbar"
-                                style="width: 2%"
-                                aria-valuenow="2"
+                                style="width: 10%"
+                                aria-valuenow="10"
                                 aria-valuemin="0"
                                 aria-valuemax="100"
-                            >2%</div>
+                            >
+                                10%
+                            </div>
+                            <i class="fas fa-home"></i>
                         </div>
                     </div>
-                    <div class="row align-items-center">
+                    <div class="row">
                         <div class="col">
                             <h4 class="d-flex flex-column">
                                 <span>12</span>
@@ -39,188 +44,134 @@
                             </h4>
                         </div>
                         <div class="col text-right">
-                            <button class="btn btn-primary">Doniraj</button>
+                            <button class="btn btn-secondary btn-lg">Doniraj</button>
                         </div>
                     </div>
                 </section>
-                <section class="fundraiser-landing-about bg-white shadow rounded">
-                    <ul class="nav nav-tabs" id="fundraiser-about" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                id="fundraiser-goals-tab"
-                                data-toggle="tab"
-                                href="#fundraiser-goals"
-                                role="tab"
-                                aria-controls="goals"
-                                aria-selected="true"
-                            >
-                                Naš cilj
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                id="fundraiser-cta-tab"
-                                data-toggle="tab"
-                                href="#fundraiser-cta"
-                                role="tab"
-                                aria-controls="cta"
-                                aria-selected="false"
-                            >
-                                Zakaj potrebujemo vašo pomoč
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content p-4">
-                        <div
-                            class="tab-pane fade show active"
-                            id="fundraiser-goals"
-                            role="tabpanel"
-                            aria-labelledby="fundraiser-goals-tab"
-                        >
-                            <div class="row">
-                                <div class="col">
-                                    <h5><strong>Nakup novega zavetišča</strong></h5>
-                                    Našli smo nepremičnino, poslovni prostor, ki nam dolgoročno omogoča širitev na 500 m2,
-                                    stane pa 150.000 eur. Prepričani smo, da lahko z nakupom tega prostora dolgoročno
-                                    poskrbimo za tisoče in tisoče nikogaršnjih muc, poskrbimo za tisoče in tisoče posegov
-                                    sterilizacij in kastracij lastniških muc in izobrazimo tisoče in tisoče otrok,
-                                    da bo mačji jutri boljši, kot trenutno je.
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="/images/backgrounds/cat_construction.jpg"
-                                        alt="Naši cilji"
-                                        class="img-fluid"
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div
-                            class="tab-pane fade"
-                            id="fundraiser-cta"
-                            role="tabpanel"
-                            aria-labelledby="fundraiser-cta-tab"
-                        >
-                            <div class="row">
-                                <div class="col">
-                                    <h5><strong>Primanjkuje nam prostora</strong></h5>
-                                    Za nadaljni razvoj našega delovanja NUJNO!! potrebujemo nove, večje prostore.
+                <section class="fundraiser-landing-about bg-white shadow rounded p-4">
+                    <div class="row py-3">
+                        <div class="col">
+                            <h4 class="mb-3">
+                                <i class="fas fa-question-circle mr-1"></i>
+                                <strong>Zakaj potrebujemo vašo pomoč</strong>
+                            </h4>
+                            <div class="font-weight-light">
+                                <p>
+                                    Za nadaljni razvoj našega delovanja nujno potrebujemo nove, večje prostore.
                                     V prostorih, kjer smo sedaj je naša dejavnost skrajno omejena in nam ne dovoljuje
                                     nobenega razvoja več, v tako majhnih prostorih komaj še zmoremo vsakodnevno delo
-                                    in oskrbo muc, za katere skrbimo. Želimo in potrebujemo boljše, večje prostore za
-                                    naše varovance, za prostovoljce, zaposlene in obiskovalce, še posebej pomembno je
+                                    in oskrbo muc, za katere skrbimo.
+                                </p>
+                                <p>
+                                    Želimo in potrebujemo
+                                    <strong>boljše, večje prostore za naše varovance</strong>,
+                                    za prostovoljce, zaposlene in obiskovalce, še posebej pomembno je
                                     to, da nujno potrebujemo prostore za izobraževanje otrok (in odraslih).
-                                </div>
-                                <div class="col">
-                                    <img
-                                        src="/images/backgrounds/cat_house.jpg"
-                                        alt="Naši cilji"
-                                        class="img-fluid"
-                                    />
-                                </div>
+                                </p>
                             </div>
+                        </div>
+                        <div class="col">
+                            <img src="/images/backgrounds/cat_cage.jpg" alt="Naši cilji" class="img-fluid rounded" />
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="row py-3">
+                        <div class="col">
+                            <img src="/images/backgrounds/cat_construction.jpg" alt="Naši cilji" class="img-fluid rounded" />
+                        </div>
+                        <div class="col">
+                            <h4 class="mb-3">
+                                <i class="fas fa-exclamation-circle mr-1"></i>
+                                <strong>Naš cilj</strong>
+                            </h4>
+                            <div class="font-weight-light">
+                                <p>
+                                    Našli smo nepremičnino, poslovni prostor, ki nam dolgoročno omogoča širitev na
+                                    <strong>500 m<sup>2</sup></strong>,
+                                    stane pa <strong>150.000 €</strong>.
+                                </p>
+                                <p>
+                                    Prepričani smo, da lahko z nakupom tega prostora dolgoročno
+                                    poskrbimo za tisoče in tisoče <strong>nikogaršnjih muc</strong>,
+                                    poskrbimo za tisoče in tisoče posegov <strong>sterilizacij in kastracij lastniških muc</strong>,
+                                    in <strong>izobrazimo tisoče in tisoče otrok</strong>, da bo mačji jutri boljši, kot trenutno je.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="fundraiser-landing-cta">
+                    <div class="alert alert-secondary">
+                        <div class="row align-items-center">
+                            <div class="col">
+                                <h5 class="mb-0"><strong>Potrebujemo širšo podporo in pomoč mnogih.</strong></h5>
+                            </div>
+                            <div class="col text-right"><button class="btn btn-lg btn-light">Doniraj</button></div>
                         </div>
                     </div>
                 </section>
                 <section class="fundraiser-landing-cta text-center py-6">
-                    <h2>Sami ne bomo zmogli!</h2>
-                    <p>
-                        Mogoče smo sanjači, norci, karkoli že, ampak zadali smo si CILJ,
-                        da do septembra 2020 zberemo sredstva za nakup tega prostora. :)
+                    <h1>Sami ne bomo zmogli!</h1>
+                    <p class="font-weight-light">
+                        Mogoče smo sanjači, norci, karkoli že, ampak zadali smo si <strong><u>CILJ</u></strong>,
+                        da do <strong>septembra 2020</strong> zberemo sredstva za nakup tega prostora. :)
                     </p>
                 </section>
-                <section class="fundraiser-landing-cta">
-                    <div class="alert alert-primary">
-                        <div class="row align-items-center">
-                            <div class="col">Potrebujemo širšo podporo in pomoč mnogih.</div>
-                            <div class="col text-right"><button class="btn btn-primary">Doniraj</button></div>
+                <section class="fundraiser-landing-donate">
+                    <h1 class="p-3 text-center"><strong>Načini doniranja</strong></h1>
+                    <div class="row">
+                        <div class="col d-flex">
+                            <div class="card flex-grow-1">
+                                <div class="card-header">
+                                    <i class="fab fa-paypal mr-1"></i>
+                                    <strong>PayPal</strong>
+                                </div>
+                                <div class="card-body font-weight-light">
+                                    <p>
+                                        S pritiskom na spodnji gumb lahko donirate preko spletne storitve
+                                        <strong>PayPal</strong>. Znesek določite sami.
+                                    </p>
+                                    <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+                                        <input type="hidden" name="cmd" value="_s-xclick" />
+                                        <input type="hidden" name="hosted_button_id" value="GPBULFUGMVV8Q" />
+                                        <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
+                                        <img alt="" border="0" src="https://www.paypal.com/en_SI/i/scr/pixel.gif" width="1" height="1" />
+                                    </form>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </section>
-                <section class="fundraiser-landing-donate bg-white shadow rounded">
-                    <h4 class="p-4 border-bottom"><strong>Načini doniranja</strong></h4>
-                    <ul class="nav nav-tabs" id="fundraiser-donate" role="tablist">
-                        <li class="nav-item">
-                            <a
-                                class="nav-link active"
-                                id="fundraiser-donate-paypal"
-                                data-toggle="tab"
-                                href="#fundraiser-paypal"
-                                role="tab"
-                                aria-controls="paypal"
-                                aria-selected="true"
-                            >
-                                PayPal
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                id="fundraiser-donate-trr"
-                                data-toggle="tab"
-                                href="#fundraiser-trr"
-                                role="tab"
-                                aria-controls="trr"
-                                aria-selected="true"
-                            >
-                                Bančno nakazilo
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a
-                                class="nav-link"
-                                id="fundraiser-donate-sms"
-                                data-toggle="tab"
-                                href="#fundraiser-sms"
-                                role="tab"
-                                aria-controls="sms"
-                                aria-selected="true"
-                            >
-                                SMS donacija
-                            </a>
-                        </li>
-                    </ul>
-                    <div class="tab-content p-4">
-                        <div
-                                class="tab-pane fade show active"
-                                id="fundraiser-paypal"
-                                role="tabpanel"
-                                aria-labelledby="fundraiser-paypal-tab"
-                        >
-                            <form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
-                                <input type="hidden" name="cmd" value="_s-xclick" />
-                                <input type="hidden" name="hosted_button_id" value="GPBULFUGMVV8Q" />
-                                <input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donateCC_LG.gif" border="0" name="submit" title="PayPal - The safer, easier way to pay online!" alt="Donate with PayPal button" />
-                                <img alt="" border="0" src="https://www.paypal.com/en_SI/i/scr/pixel.gif" width="1" height="1" />
-                            </form>
+                        <div class="col d-flex">
+                            <div class="card flex-grow-1">
+                                <div class="card-header">
+                                    <i class="fas fa-money-check mr-1"></i>
+                                    <strong>Bančno nakazilo</strong>
+                                </div>
+                                <div class="card-body font-weight-light">
+                                    <p>
+                                        Odprli smo varčevalni TRR, na katerem se bodo zbirala sredstva
+                                        le v namen nakupa prostora za NOVO ZAVETIŠČE.
+                                    </p>
+                                    <p>
+                                        <strong>IBAN</strong>: SI56 6100 0002 3603 842 (odprt pri Delavski hranilnici)
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                        <div
-                                class="tab-pane fade"
-                                id="fundraiser-trr"
-                                role="tabpanel"
-                                aria-labelledby="fundraiser-trr-tab"
-                        >
-                            <p>
-                                Odprli smo varčevalni TRR, na katerem se bodo zbirala sredstva
-                                le v namen nakupa prostora za NOVO ZAVETIŠČE.
-                            </p>
-                            <p>
-                                <strong>IBAN</strong>: SI56 6100 0002 3603 842 odprt pri Delavski hranilnici
-                            </p>
-                        </div>
-                        <div
-                                class="tab-pane fade"
-                                id="fundraiser-sms"
-                                role="tabpanel"
-                                aria-labelledby="fundraiser-sms-tab"
-                        >
-                            <p>
-                                Prav tako sta pri A1 in TELEKOMU odprti novi ključni besedi za SMS donacije
-                                <strong>ZAVETISCEMH5</strong>, Telemach donacija je še v postopku. Donacije SMS
-                                iz tega naslova se bodo uporabile izključno za nakup novega zavetišča.
-                            </p>
+                        <div class="col d-flex">
+                            <div class="card flex-grow-1">
+                                <div class="card-header">
+                                    <i class="fas fa-mobile-alt mr-1"></i>
+                                    <strong>SMS donacija</strong>
+                                </div>
+                                <div class="card-body font-weight-light">
+                                    <p>
+                                        Pri ponudnikih <strong>A1</strong> in <strong>Telekom</strong> smo odprli
+                                        novo ključno besedo za SMS donacije <strong>ZAVETISCEMH5</strong>,
+                                        Telemach donacija je še v postopku.
+                                    </p>
+                                    <p>Donacije SMS iz tega naslova se bodo uporabile izključno za nakup novega zavetišča.</p>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </section>

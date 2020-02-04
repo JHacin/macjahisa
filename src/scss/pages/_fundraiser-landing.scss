@@ -19,7 +19,17 @@
 
     &-progress-bar {
         > .progress {
+            position: relative;
             height: 40px;
+
+            i {
+                font-size: 1.75rem;
+                color: $gray-500;
+                position: absolute;
+                right: 0.5rem;
+                top: 50%;
+                transform: translateY(-50%);
+            }
         }
     }
 }
