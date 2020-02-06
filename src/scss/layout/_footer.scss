@@ -1,0 +1,36 @@
+.footer {
+    &-links {
+        &__title {
+            @extend .font-weight-bold, .mb-4;
+        }
+
+        &__list {
+            @extend .d-flex, .flex-column;
+
+            &-item {
+                @extend .font-size-sm, .mb-3;
+
+                a {
+                    @extend .text-lightgray, .hover-primary;
+                }
+
+                i {
+                    @extend .mr-1;
+                }
+            }
+        }
+    }
+
+    &-social {
+        &__icon {
+            @extend .text-lightgray, .hover-primary, .font-size-xxl;
+        }
+    }
+
+    &-signature {
+        &__divider {
+            @extend .text-lightgray, .py-1, .mx-2, .d-none, .d-md-block;
+            font-size: 8px;
+        }
+    }
+}

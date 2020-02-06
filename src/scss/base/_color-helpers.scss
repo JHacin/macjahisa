@@ -1,0 +1,19 @@
+// Text color
+.text-lightgray {
+    color: #e1e1e1;
+}
+.text-mediumgray {
+    color: #969696;
+}
+
+// Background color
+.bg-dark-gray {
+    background: #232323;
+}
+
+// Hover
+.hover-primary {
+    &:hover {
+        color: $primary;
+    }
+}
