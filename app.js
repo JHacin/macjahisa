@@ -163,7 +163,6 @@ app.get('/', (req, res) => {
                                 muce: muce,
                                 steviloMucKiIscejoDom: count,
                                 naslovnice: aktiviraneNaslovnice,
-                                isIndexPage: true,
                                 hasCustomMetaData: false,
                                 needsSlickSlider: true,
                             });

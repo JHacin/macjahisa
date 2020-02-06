@@ -12,18 +12,6 @@
     max-height: 220px;
   }
 
-  .fb-page,
-  .fb-page iframe[style],
-  .fb-page span {
-    width: 100% !important;
-  }
-
-  .fb_banner {
-    max-width: 340px;
-    text-align: center;
-    margin: 0 auto;
-  }
-
   .photos {
     width: 100%;
   }
@@ -37,13 +25,6 @@
   }
 
   .nonindex > .container {
-    /* -webkit-box-orient: vertical!important;
-    -webkit-box-direction: normal!important;
-        -ms-flex-direction: column!important;
-            flex-direction: column!important; */
-    /* -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; */
     width: 100%;
     max-width: 90%;
   }
@@ -58,13 +39,10 @@
 
   .content {
     width: 90%;
-    /* margin-right: 0; */
-
     margin-right: 5%;
   }
 
   .sidebar {
-    /* width: 90%; */
     width: 410px;
     min-width: 410px;
     margin-left: 0;
@@ -330,37 +308,6 @@
   .help_item {
     width: 33%;
   }
-
-  .i_footer {
-    padding: 40px 0;
-  }
-
-  .i_footer > .container {
-    /* -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-        -ms-flex-direction: column;
-            flex-direction: column;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center; */
-    width: 100%;
-    max-width: 95%;
-  }
-
-  .social_buttons {
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-
-  .social_buttons i {
-    margin: 0 15px;
-  }
-
-  .i_footer > .container > div {
-    width: 90%;
-    /* text-align: center; */
-  }
 }
 
 @media all and (max-width: 1140px) {
@@ -377,33 +324,12 @@
     max-height: 170px;
   }
 
-  .i_footer > .container {
-    flex-wrap: wrap;
-  }
-
-  #footer_links {
-    width: 100%;
-    text-align: center;
-  }
-
-  #footer_social {
-    width: 100%;
-  }
-
-  .fb_banner {
-    text-align: center;
-  }
-
   .sidebar {
     min-width: 310px;
   }
 
   .side_cat {
     height: 200px;
-  }
-
-  .i_signature {
-    padding: 20px 0 28px 0;
   }
 
   #imageZoomDiv {
@@ -534,16 +460,6 @@
 
   .side_cat {
     height: 150px;
-  }
-
-  #footer_links {
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  #footer_links > #footer_links_contact {
-    width: 100%;
-    text-align: center;
   }
 
   .i_muca_img {

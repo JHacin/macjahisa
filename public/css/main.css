@@ -390,16 +390,6 @@ input.paypal_btn,
     cursor: pointer;
   }
 
-  .social_buttons a .fab:hover,
-  .i_footer > .container > #footer_links > div > ul > li a:hover {
-    color: rgb(255, 203, 0);
-    color: rgba(255, 203, 0, 0.9);
-  }
-
-  #zasebnostLink a:hover {
-    color: #ffcb00;
-  }
-
   .nav_menu_primary > ul > .nav_menu_primary_category:hover {
     background-color: #595959;
   }
