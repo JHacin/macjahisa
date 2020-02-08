@@ -81,4 +81,8 @@ router.get("/*.php*", function(req, res){
   res.redirect("/");
 });
 
+router.get("/dobrodelni-koncert", function(req, res){
+  res.redirect("/pomoc/dobrodelni-koncert");
+});
+
 module.exports = router;
