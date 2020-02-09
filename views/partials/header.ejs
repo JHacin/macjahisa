@@ -19,9 +19,15 @@
     <meta name="twitter:creator" content="@MacjaHisa" />
     <meta property="og:url" content="<%= social_url %>" />
     <meta property="og:type" content="website" />
-    <% if (typeof hasCustomMetaData != "undefined") { %> <% include ../partials/seo/metatags_default
-    %> <% } %> <% if (typeof hasCustomMetaData == "undefined") { %> <% include
-    ../partials/seo/metatags_custom %> <% } %> <% if (locals.social_image) { %>
+    <% if (typeof hasCustomMetaData != "undefined") { %>
+      <% include ../partials/seo/metatags_default %>
+    <% } %>
+
+    <% if (typeof hasCustomMetaData == "undefined") { %>
+      <% include ../partials/seo/metatags_custom %>
+    <% } %>
+
+    <% if (locals.social_image) { %>
     <meta property="og:image" content="<%= social_image %>" />
     <meta name="twitter:image" content="<%= social_image %>" />
     <% } else { %>

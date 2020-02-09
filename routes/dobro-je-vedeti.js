@@ -53,7 +53,8 @@ router.get("/prispevki-clanki-povezave/:id", function(req, res){
       res.render("dobro-je-vedeti/clanek", {podstran: clanek,
         nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
         sidebar_muce: req.sidebar_muce,
-        title: clanek.naslov + " | Mačja hiša", social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
+        title: clanek.naslov + " | Mačja hiša",
+        social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
         social_image: "http://" + req.headers.host + "/files/page/article_default.png"
       });
 

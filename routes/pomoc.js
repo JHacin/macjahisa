@@ -37,7 +37,11 @@ router.post('/donacije', (req, res) => {
 });
 
 router.get('/zbiramo-za-zavetisce', (req, res) => {
-    res.render('pomoc/zbiramo_za_zavetisce');
+    res.render('pomoc/zbiramo_za_zavetisce', {
+        title: 'Zbiranje sredstev za novo zavetišče | Mačja hiša',
+        social_description: 'Zbiranje sredstev za nakup novega zavetišča v Celju. Skupaj lahko dosežemo vse!',
+        hasCustomMetaData: false,
+    });
 });
 
 router.get('/:podstran', (req, res) => {
