@@ -9,16 +9,6 @@
     align-self: center;
   }
 
-  #footer_links {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  #footer_links > div {
-    width: 100%;
-    text-align: center;
-  }
-
   .muca_infoandmore p {
     margin-bottom: 0;
   }
@@ -38,10 +28,6 @@
 
   .sidebar_mailing {
     width: 100%;
-  }
-
-  .social_buttons {
-    margin: 16px 0;
   }
 
   .desc {
@@ -591,37 +577,6 @@
   .i_boter_txt {
     width: 90%;
   }
-
-  .i_signature > .container {
-    width: 95%;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .i_signature {
-    height: auto;
-    line-height: 20px;
-    padding: 15px 5px 32px 5px;
-  }
-
-  .signature_divider {
-    margin: 0 3px;
-  }
-
-  .signature_divider {
-    display: none;
-  }
 }
 
 @media all and (max-width: 640px) {
@@ -750,12 +705,6 @@
 
   .i_edu_img img {
     margin: 0 0 12px 0;
-  }
-
-  .fb-page,
-  .fb-page iframe[style],
-  .fb-page span {
-    width: 100% !important;
   }
 
   a.menu-toggle.full {

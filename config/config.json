@@ -17,5 +17,22 @@
     "mh_social_instagram": "http://instagram.com/macjahisa",
     "mh_social_facebook": "https://www.facebook.com/macjahisa",
     "mailto_jan_hacin": "mailto:jan.hacin@gmail.com"
+  },
+  "muca": {
+    "spol": {
+      "1": "samček",
+      "2": "samička",
+      "3": "samček in samička",
+      "4": "neznano",
+      "5": "samčka",
+      "6": "samički"
+    },
+    "status": {
+      "1": "Oddaja se prvič",
+      "2": "Oddaja se ponovno",
+      "3": "Se ne oddaja / bo ostala za nedoločen čas",
+      "4": "V novem domu",
+      "5": "R.I.P."
+    }
   }
 }

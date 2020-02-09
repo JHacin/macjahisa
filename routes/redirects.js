@@ -85,4 +85,8 @@ router.get("/dobrodelni-koncert", function(req, res){
   res.redirect("/pomoc/dobrodelni-koncert");
 });
 
+router.get('/zbiramo-za-zavetisce', (req, res) => {
+  res.redirect("/pomoc/zbiramo-za-zavetisce");
+});
+
 module.exports = router;

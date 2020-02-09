@@ -1,0 +1,10 @@
+.nav-tabs {
+    .nav-link {
+        @extend .p-3;
+        border: none;
+
+        &.active {
+            border-bottom: $nav-tabs-link-active-border-width solid $nav-tabs-link-active-border-color;
+        }
+    }
+}

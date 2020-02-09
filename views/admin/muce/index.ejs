@@ -1,5 +1,4 @@
 <% include ../../partials/admin/header %>
-<% include ../../partials/functions/muce %>
 <div class="header d-flex flex-row justify-content-between align-items-center">
   <h1 class="p-2 badge badge-secondary"><%= title %></h1>
   <a href="/admin/muce/add"><button class="btn btn-warning addOrEditButton">Vnesi novo >></button></a>
@@ -36,9 +35,8 @@
                 <!-- actual date format shown -->
                 <%= moment(muca.datum).format("D[.]M[.]YYYY") %>
               </td>
-              <td><%= stanjeMuce(muca.status) %></td>
+              <td><%= siteConfig.muca.status[muca.status] %></td>
               <td><%= muca.ime %></td>
-              <!-- <td><%= spolMuce(muca.spol) %></td> -->
               <td><a href="/files/oglasi_muce/<%= muca.file_name1 %>" target="_blank"><img class="tableimg" src="/files/oglasi_muce/<%= muca.file_name1 %>" /></a></td>
               <td><%= muca.posvojitev_na_daljavo == 0 ? "Ne" : "Da" %></td>
               <td><a href="/posvojitev/muce/<%= muca.dbid %>" target="_blank"><i class="far fa-eye" aria-hidden="true"></i></a></td>

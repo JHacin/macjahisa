@@ -1,0 +1,29 @@
+// Text
+.text-lightgray {
+    color: #e1e1e1 !important;
+}
+.text-mediumgray {
+    color: #969696 !important;
+}
+
+// Background
+.bg-dark-gray {
+    background: #232323 !important;
+}
+
+// Border
+.border-lightgray {
+    border-color: #e1e1e1 !important;
+}
+
+// Hover
+.hover-primary {
+    &:hover {
+        color: $primary !important;
+    }
+}
+
+// Text shadow
+.text-shadow {
+    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
+}

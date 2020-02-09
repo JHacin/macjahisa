@@ -3,17 +3,50 @@ $navbar-height: 75px;
 $navbar-height-mobile: 55px;
 
 // Colors
-$color-white: #fff;
-$color-black: #000;
-$color-midgray: #848484;
-$color-darkgray: #1f1f1f;
-$color-darkgray-blue: #343a40;
-$border-light-color: rgba(0, 0, 0, 0.08);
-$button-hover-lightgray-color: #e5e5e5;
-$menu-large-hover-color: #595959;
+$color-white: #fff !default;
+$color-black: #000 !default;
+$color-midgray: #848484 !default;
+$color-darkgray: #1f1f1f !default;
+$color-darkgray-blue: #343a40 !default;
+$border-light-color: rgba(0, 0, 0, 0.08) !default;
+$button-hover-lightgray-color: #e5e5e5 !default;
+$menu-large-hover-color: #595959 !default;
 
 // RFS
 $rfs-breakpoint: 1920px !default;
 $rfs-breakpoint-unit: px !default;
 $rfs-rem-value: 16 !default;
 $rfs-unit: px !default;
+
+// Fonts
+$font-nunito: "Nunito", sans-serif !default;
+
+// Bootstrap overrides
+$enable-responsive-font-sizes: true !default;
+
+$primary: #ffcb00 !default;
+$secondary: #b1908e !default;
+$warning: #ed880e !default;
+
+$yiq-contrasted-threshold:  160 !default;
+
+$spacer: 1rem !default;
+$spacers: (
+    6: ($spacer * 4)
+) !default;
+
+$headings-font-family: $font-nunito !default;
+$btn-font-family: $font-nunito !default;
+
+$display1-weight: 600 !default;
+$display2-weight: 600 !default;
+$display3-weight: 600 !default;
+$display4-weight: 600 !default;
+
+$nav-tabs-link-active-border-color: $color-black !default;
+$nav-tabs-link-active-border-width: 2px !default;
+$progress-bar-color: $color-darkgray;
+$input-btn-padding-y: .375rem !default;
+$input-btn-padding-x: 1rem !default;
+$input-btn-padding-y-lg: .5rem !default;
+$input-btn-padding-x-lg: 1.5rem !default;
