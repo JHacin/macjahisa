@@ -3,8 +3,7 @@
   border-bottom-right-radius: $radius;
 }
 
-@mixin background-image-cover($url) {
-  background-image: url($url);
+@mixin background-image-cover-properties {
   background-size: cover;
   background-position: center center;
   background-repeat: no-repeat;

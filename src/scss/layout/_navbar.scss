@@ -366,6 +366,19 @@
                             border-left: 1px solid $border-light-color;
                             border-right: 1px solid $border-light-color;
 
+                            &.highlighted {
+                                @include breakpoint-769-min {
+                                    background-color: $primary;
+                                    &:hover {
+                                        background-color: darken($primary, 5%);
+                                    }
+
+                                    > a {
+                                        font-weight: bold !important;
+                                    }
+                                }
+                            }
+
                             &:first-of-type {
                                 border-top: 1px solid $border-light-color;
                             }

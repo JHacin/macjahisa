@@ -163,16 +163,19 @@
 
 <script type="text/javascript">
     $(document).ready(function() {
-        $(".i_jumbo").slick({
-            dots: true,
-            arrows: false,
-            slidesToShow: 1,
-            autoplay: true,
-            autoplaySpeed: 6000,
-            infinite: true,
-            fade: true,
-            cssEase: "linear"
-        });
+        const $frontPageBanner = $('.i_jumbo');
+        if ($frontPageBanner.length) {
+            $frontPageBanner.slick({
+                dots: true,
+                arrows: false,
+                slidesToShow: 1,
+                autoplay: true,
+                autoplaySpeed: 6000,
+                infinite: true,
+                fade: true,
+                cssEase: "linear"
+            });
+        }
     });
 
     $('#imageZoom').click(function() {

@@ -1,12 +1,14 @@
 .fundraiser-landing {
     section {
-        @extend .mb-6;
+        @extend .mb-5, .mb-md-6;
     }
 
     &-hero {
-        @include background-image-cover("../../../public/images/backgrounds/cat_house.jpg");
-        background-position-y: bottom;
-        height: 700px;
+        @include background-image-cover-properties;
+        @include breakpoint-769-min {
+            height: 700px;
+        }
+        height: 500px;
     }
 
     &-content-wrapper {

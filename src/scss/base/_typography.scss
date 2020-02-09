@@ -17,3 +17,7 @@
 .font-size-xxl {
     font-size: 32px;
 }
+
+p {
+    @include font-size($h6-font-size);
+}
