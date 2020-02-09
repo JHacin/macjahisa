@@ -1683,42 +1683,31 @@ router.post("/naslovnice/:id/deactivate", middleware.isPageEditor, function(req,
 
 router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
   Naslovnica.count({}, function(err, count){
-    if(err) {
+    if (err) {
       req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
       return res.redirect("/admin/naslovnice");
     }
+
     Naslovnica.create(req.body.naslovnica, function(err, naslovnica){
-      if(err) {
+      if (err) {
         req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
         return res.redirect("/admin/naslovnice");
       }
 
       var dbid = count + 1;
       naslovnica.dbid = dbid;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
-
       naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
-
 
       if(req.file) {
-        // var ozadje = "naslovnica_" + dbid + "." + req.file.mimetype.split("/")[1];
         naslovnica.ozadje = req.file.filename.replace(/[ )(]/g,'');
-        naslovnica.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
       }
 
       naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
+        if (err) {
+          console.log(err);
+          req.flash("error", "Prišlo je do napake pri ustvarjanju naslovnice.");
+          return res.redirect("/admin/naslovnice");
+        }
       });
 
       req.flash("success", "Naslovnica dodana.");
@@ -1729,48 +1718,30 @@ router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("na
 
 router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
   Naslovnica.findByIdAndUpdate(req.params.id, req.body.naslovnica, function(err, naslovnica){
-    if(err) {
+    if (err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
       return res.redirect("/admin/naslovnice");
     }
 
-    if(req.file) {
+    if (req.file) {
       var ozadje = req.file.filename.replace(/[ )(]/g,'');
       naslovnica.ozadje = ozadje;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
     }
 
-    if(req.body.externalURL === "on") {
-      naslovnica.externalURL = true;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
-    } else {
-      naslovnica.externalURL = false;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
-    }
+    naslovnica.externalURL = req.body.externalURL === "on";
+    naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
+    naslovnica.datum = Date.now();
 
-      naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
+    naslovnica.save(function (err) {
+      if (err) {
+        console.log(err);
+        req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
+        return res.redirect("/admin/naslovnice");
+      }
+    });
 
-      naslovnica.datum = Date.now();
-      naslovnica.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
-
-      req.flash("success", "Naslovnica posodobljena.");
-      res.redirect("/admin/naslovnice/");
+    req.flash("success", "Naslovnica posodobljena.");
+    res.redirect("/admin/naslovnice/");
   });
 });
 
