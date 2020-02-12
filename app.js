@@ -49,12 +49,12 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
+    const protocol = 'http' + req.secure ? 's' : '' + '://';
     res.locals.currentUser = req.user;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');
-    res.locals.social_url = 'http://' + req.headers.host + req.originalUrl;
-    res.locals.social_image_default =
-        'http://' + req.headers.host + '/files/page/social_default.png';
+    res.locals.social_url = protocol + req.headers.host + req.originalUrl;
+    res.locals.social_image_default = protocol + req.headers.host + '/files/page/social_default.png';
     next();
 });
 
