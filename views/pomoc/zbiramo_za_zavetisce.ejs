@@ -132,11 +132,19 @@
                 </section>
                 <section class="fundraiser-landing-cta text-center pt-2 pb-0 py-lg-5">
                     <h1>Sami ne bomo zmogli!</h1>
-                    <h5 class="font-weight-light">
-                        Skupaj pa lahko dosežemo vse! Vsak vaš prispevek je pomemben in dragocen,
+                    <p>
+                        <strong>Skupaj pa lahko dosežemo vse!</strong> Vsak vaš prispevek je pomemben in dragocen,
                         z vsakim podarjenim evrom smo bliže cilju. Delite naš poziv tudi med svoje prijatelje,
                         naj doseže in se dotakne vsakogar, ki mu je mar.
-                    </h5>
+                    </p>
+                    <div class="share_buttons">
+                        <div class="fb-share-button d-flex m-0 px-1" data-href="<%= social_url %>" data-layout="button"></div>
+                        <div class="d-flex m-0 px-1">
+                            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>" data-text="<%= social_description %>">
+                                <i class="fab fa-twitter"></i> Tweet</a>
+                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                        </div>
+                    </div>
                 </section>
                 <section class="fundraiser-landing-donate" id="fundraiser-landing-donate">
                     <h1 class="p-3 text-center"><strong>Načini doniranja</strong></h1>
@@ -222,6 +230,25 @@
                                         varčevalni račun in se bodo uporabila izključno za nakup novega zavetišča.
                                     </p>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                <section class="fundraiser-landing-mailing">
+                    <div class="alert alert-secondary">
+                        <div class="row align-items-center">
+                            <div class="col-12 col-lg-6 text-center text-lg-left my-3 my-lg-0">
+                                <h5 class="mb-0"><strong>Želite biti obveščeni o napredku projekta?</strong></h5>
+                            </div>
+                            <div class="col-12 col-lg-6 text-center text-lg-right my-2 my-lg-0">
+                                <a
+                                    href="<%= siteConfig.external_links.mailing_sub %>"
+                                    target="_blank"
+                                    class="btn btn-lg btn-light shadow slide-toggle"
+                                    data-slide-to="#fundraiser-landing-donate"
+                                >
+                                    Naročilo na e-novice
+                                </a>
                             </div>
                         </div>
                     </div>
