@@ -436,18 +436,11 @@
     bottom: 5%;
   }
 
-  .i_dohodnina {
-    padding-left: 2em;
-    padding-right: 2em;
-  }
-
-  .i_dohodnina p,
   .i_edu p,
   .i_boter_txt {
     font-size: 16px;
   }
 
-  .i_dohodnina > a > button,
   .i_boter > button {
     padding: 10px 25px;
   }

@@ -28,7 +28,6 @@
 
 /* Gumbi na prvi strani */
 .i_jumbo_button,
-.i_dohodnina > a > button,
 .i_muce > a > button,
 .i_mailing > a > .mailingButton,
 .i_edu button,
@@ -45,7 +44,6 @@
 }
 
 /* Subtext na prvi strani */
-.i_dohodnina > p,
 .help_item p,
 .i_boter_txt {
   font-size: 16px;
@@ -208,7 +206,6 @@
 
   /* Gumbi na prvi strani */
   .i_jumbo_button,
-  .i_dohodnina > a > button,
   .i_muce > a > button,
   .i_mailing > a > .mailingButton,
   .i_edu button,
@@ -219,7 +216,6 @@
   }
 
   /* Subtext na prvi strani */
-  .i_dohodnina > p,
   .help_item p,
   .i_boter_txt {
     font-size: 14px;

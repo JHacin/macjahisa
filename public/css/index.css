@@ -31,7 +31,6 @@ button i {
 
 .nav_donate > form > button,
 .i_jumbo_button,
-.i_dohodnina > a > button,
 .i_donate > a > button,
 .i_boter > button {
   background-color: #ffcb00;
@@ -82,24 +81,6 @@ button i {
   border-radius: 5px;
 }
 
-/* DOHODNINA */
-.i_dohodnina {
-  background: #3f3f3f;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  color: #fff;
-  text-align: center;
-  padding: 40px 20px;
-}
-
-.i_dohodnina > p {
-  font-weight: 300;
-  font-size: 18px;
-}
-
-.i_dohodnina > a > button,
 .i_donate > a > button,
 .i_boter > button {
   -ms-flex-item-align: center;
