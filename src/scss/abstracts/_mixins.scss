@@ -3,13 +3,6 @@
   border-bottom-right-radius: $radius;
 }
 
-@mixin background-image-cover-properties {
-  background-size: cover;
-  background-position: center center;
-  background-repeat: no-repeat;
-  background-color: $color-midgray;
-}
-
 // Breakpoints
 @mixin breakpoint-360-max {
   @media (max-width: 360px) {

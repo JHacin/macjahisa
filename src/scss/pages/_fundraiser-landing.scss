@@ -4,7 +4,6 @@
     }
 
     &-hero {
-        @include background-image-cover-properties;
         @include breakpoint-769-min {
             height: 700px;
             padding-bottom: 100px;

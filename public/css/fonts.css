@@ -31,7 +31,6 @@
 .i_muce > a > button,
 .i_mailing > a > .mailingButton,
 .i_edu button,
-.i_donate a button,
 .i_boter button {
     font-size: 18px;
     padding: 10px 24px;
@@ -67,12 +66,6 @@
 .help_item h3 {
   font-weight: 600;
   font-size: 24px;
-  font-family: 'Nunito', sans-serif;
-}
-
-/* Ponovni poziv za doniranje */
-.i_donate > h2 {
-  font-size: 26px;
   font-family: 'Nunito', sans-serif;
 }
 
@@ -209,7 +202,6 @@
   .i_muce > a > button,
   .i_mailing > a > .mailingButton,
   .i_edu button,
-  .i_donate a button,
   .i_boter button {
       font-size: 16px;
       padding: 8px 18px;
@@ -227,11 +219,6 @@
   .i_edu > h1,
   .i_boter h1 {
     font-size: 30px;
-  }
-
-  /* Ponovni poziv za doniranje */
-  .i_donate > h2 {
-    font-size: 22px;
   }
 
   /* Naslov na podstraneh */

@@ -445,12 +445,6 @@
     padding: 10px 25px;
   }
 
-  .i_donate > a > button {
-    font-size: 20px;
-    padding: 12px 28px;
-    font-weight: 600;
-  }
-
   #mc_embed_signup {
     width: 90%;
   }
@@ -547,20 +541,6 @@
 
   .i_edu p {
     text-align: center;
-  }
-
-  .i_donate {
-    padding: 40px 20px;
-  }
-
-  .i_donate h2 {
-    text-align: center;
-    margin-top: 0;
-    font-size: 24px;
-  }
-
-  .i_donate > a > button {
-    margin-top: 5px;
   }
 
   .i_boter {

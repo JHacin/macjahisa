@@ -31,7 +31,6 @@ button i {
 
 .nav_donate > form > button,
 .i_jumbo_button,
-.i_donate > a > button,
 .i_boter > button {
   background-color: #ffcb00;
   transition: background-color 0.2s ease;
@@ -81,7 +80,6 @@ button i {
   border-radius: 5px;
 }
 
-.i_donate > a > button,
 .i_boter > button {
   -ms-flex-item-align: center;
   -ms-grid-row-align: center;
@@ -477,42 +475,7 @@ input[type="email"]:focus {
   box-shadow: 1px 1px #a5a5a5;
   transition: all 0.15s ease;
 }
-
 /* END IZOBRAZEVANJE */
-
-/* DONATE */
-.i_donate {
-  color: #fff;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  padding: 60px 0;
-  background-size: cover;
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-}
-
-.i_donate > h2 {
-  color: #fff;
-  font-weight: 500;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  font-size: 28px;
-  letter-spacing: 2px;
-  text-align: center;
-}
-
-.i_donate a button {
-  font-weight: 700;
-  letter-spacing: 2px;
-  font-size: 26px;
-  padding: 20px 30px;
-  box-shadow: 1px 1px #888888;
-}
-/* END DONATE */
 
 /* BOTER */
 .i_boter {
