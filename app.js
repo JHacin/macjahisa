@@ -176,7 +176,6 @@ app.use('/o-nas/', require('./routes/o-nas.js'));
 app.use('/posvojitev/', require('./routes/posvojitev.js'));
 app.use('/dobro-je-vedeti/', require('./routes/dobro-je-vedeti.js'));
 app.use('/pomoc/', require('./routes/pomoc.js'));
-app.use('/projekt-vita/', require('./routes/projekt-vita.js'));
 app.use('/admin/', require('./routes/admin.js'));
 app.use('/v-novem-domu/', require('./routes/v-novem-domu.js'));
 

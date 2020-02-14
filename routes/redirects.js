@@ -89,4 +89,16 @@ router.get('/zbiramo-za-zavetisce', (req, res) => {
   res.redirect("/pomoc/zbiramo-za-zavetisce");
 });
 
+router.get("/posvojitev", function(req, res){
+  res.redirect("/posvojitev/muce");
+});
+
+router.get("/o-nas", function(req, res){
+  res.redirect("/o-nas/kdo-smo");
+});
+
+router.get('/projekt-vita', function(req, res) {
+  res.redirect('/projekt-vita/predstavitev');
+});
+
 module.exports = router;

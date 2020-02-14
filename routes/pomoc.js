@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router({ mergeParams: true });
 const Podstran = require('../models/podstran');
+const { renderGenericPage } = require('./util');
 
 router.get('/', (req, res) => {
     res.redirect('/pomoc/nacini-pomoci');
@@ -40,17 +41,6 @@ router.get('/zbiramo-za-zavetisce', (req, res) => {
     });
 });
 
-router.get('/:podstran', (req, res) => {
-    Podstran.findOne({ url: req.params.podstran }, (err, podstran) => {
-        if (!podstran) {
-          return res.render('404');
-        }
-        res.render('pomoc/show', {
-            podstran: podstran,
-            sidebar_muce: req.sidebar_muce,
-            title: podstran.naslov + ' | Mačja hiša',
-        });
-    });
-});
+router.get('/:podstran', renderGenericPage);
 
 module.exports = router;
