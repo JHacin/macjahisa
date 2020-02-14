@@ -35,7 +35,6 @@ router.get("/muce/:id", function(req, res){
       title: muca.ime + " | Mačja hiša",
       social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
       social_image: "http://" + req.headers.host + "/files/oglasi_muce/" + muca.file_name1,
-      bannerIsHidden: true,
       needsSlickSlider: true
     });
   });
