@@ -13,9 +13,6 @@ router.get("/:podstran", function(req, res){
     res.render("projekt-vita/show",
     {
       podstran: podstran,
-      nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani,
-
       sidebar_muce: req.sidebar_muce,
       title: podstran.naslov + " | Mačja hiša"
     });

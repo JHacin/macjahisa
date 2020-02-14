@@ -78,8 +78,6 @@ app.use('*', (req, res, next) => {
                     if (err) {
                         return res.render('500');
                     }
-                    req.nav_kategorije = kategorije;
-                    req.nav_podstrani = podstrani;
                     req.sidebar_muce = sidebar_muce;
                     next();
                 });
@@ -157,8 +155,6 @@ app.get('/', (req, res) => {
                                 .sort((a, b) => a.pozicija > b.pozicija ? 1 : -1);
 
                             res.render('index', {
-                                nav_kategorije: req.nav_kategorije,
-                                nav_podstrani: req.nav_podstrani,
                                 title: 'Mačja hiša - skupaj pomagamo brezdomnim mucam',
                                 muce: muce,
                                 steviloMucKiIscejoDom: count,

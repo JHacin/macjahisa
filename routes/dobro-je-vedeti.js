@@ -13,8 +13,8 @@ router.get("/zbirka-macje-hise", function(req, res){
   Podstran.findOne({naslov: "Zbirka Mačje hiše"}, function(err, podstran){
     if(err) return res.render("500");
     Izobrazevalna_vsebina.find({kategorija:"zbirka-macje-hise"}).sort({datum: -1}).exec(function(err, vsebine){
-      res.render("dobro-je-vedeti/zbirka-macje-hise", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Zbirka Mačje hiše | Mačja hiša",
+      res.render("dobro-je-vedeti/zbirka-macje-hise", {
+        sidebar_muce: req.sidebar_muce, title: "Zbirka Mačje hiše | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });
   });
@@ -24,8 +24,8 @@ router.get("/letaki", function(req, res){
   Podstran.findOne({naslov: "Letaki"}, function(err, podstran){
     if(err) return res.render("500");
     Izobrazevalna_vsebina.find({kategorija:"letaki"}).sort({datum: -1}).exec(function(err, vsebine){
-      res.render("dobro-je-vedeti/letaki", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Letaki | Mačja hiša",
+      res.render("dobro-je-vedeti/letaki", {
+        sidebar_muce: req.sidebar_muce, title: "Letaki | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });
   });
@@ -37,8 +37,8 @@ router.get("/prispevki-clanki-povezave", function(req, res){
     Clanek.find({}, function(err, clanki) {
 
       if(err) return res.render("500");
-      res.render("dobro-je-vedeti/prispevki-clanki-povezave", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Prispevki, članki, povezave | Mačja hiša",
+      res.render("dobro-je-vedeti/prispevki-clanki-povezave", {
+      sidebar_muce: req.sidebar_muce, title: "Prispevki, članki, povezave | Mačja hiša",
       podstran: podstran, clanki: clanki})
     });
   });
@@ -51,7 +51,6 @@ router.get("/prispevki-clanki-povezave/:id", function(req, res){
     if(clanek.tip == "besedilo") {
 
       res.render("dobro-je-vedeti/clanek", {podstran: clanek,
-        nav_kategorije: req.nav_kategorije, nav_podstrani: req.nav_podstrani,
         sidebar_muce: req.sidebar_muce,
         title: clanek.naslov + " | Mačja hiša",
         social_description: clanek.vsebina.replace(/<(?:.|\n)*?>/gm, ''),
@@ -71,8 +70,8 @@ router.get("/koticek-za-otroke", function(req, res){
     if(err) return res.render("500");
     Otroci_vsebina.find({}, function(err, vsebine) {
       if(err) return res.render("500");
-      res.render("dobro-je-vedeti/koticek-za-otroke", {nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani, sidebar_muce: req.sidebar_muce, title: "Kotiček za otroke | Mačja hiša",
+      res.render("dobro-je-vedeti/koticek-za-otroke", {
+     sidebar_muce: req.sidebar_muce, title: "Kotiček za otroke | Mačja hiša",
       podstran: podstran, vsebine: vsebine})
     });
   });
@@ -85,8 +84,6 @@ router.get("/:podstran", function(req, res){
     res.render("dobro-je-vedeti/show",
     {
       podstran: podstran,
-      nav_kategorije: req.nav_kategorije,
-      nav_podstrani: req.nav_podstrani,
       sidebar_muce: req.sidebar_muce,
       title: podstran.naslov + " | Mačja hiša"
     });

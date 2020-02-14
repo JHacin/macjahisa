@@ -13,8 +13,6 @@ router.get('/donacije', (req, res) => {
         }
         res.render('pomoc/donacije', {
             podstran: podstran,
-            nav_kategorije: req.nav_kategorije,
-            nav_podstrani: req.nav_podstrani,
             sidebar_muce: req.sidebar_muce,
             title: podstran.naslov + ' | Mačja hiša',
         });
@@ -28,8 +26,6 @@ router.post('/donacije', (req, res) => {
         }
         res.render('pomoc/donacije', {
             podstran: podstran,
-            nav_kategorije: req.nav_kategorije,
-            nav_podstrani: req.nav_podstrani,
             sidebar_muce: req.sidebar_muce,
             title: podstran.naslov + ' | Mačja hiša',
         });
@@ -51,8 +47,6 @@ router.get('/:podstran', (req, res) => {
         }
         res.render('pomoc/show', {
             podstran: podstran,
-            nav_kategorije: req.nav_kategorije,
-            nav_podstrani: req.nav_podstrani,
             sidebar_muce: req.sidebar_muce,
             title: podstran.naslov + ' | Mačja hiša',
         });

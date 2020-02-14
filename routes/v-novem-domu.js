@@ -10,8 +10,6 @@ var Muca = require("../models/muca");
 //       {
 //         muce: muce,
 //         podstran: podstran,
-//         nav_kategorije: req.nav_kategorije,
-//         nav_podstrani: req.nav_podstrani,
 //
 //         sidebar_muce: req.sidebar_muce,
 //         title: podstran.naslov + " | Mačja hiša"
@@ -39,9 +37,6 @@ router.get("/:page", function(req, res, next){
           res.render("v-novem-domu/index", {
             podstran: podstran,
             title: podstran.naslov + " | Mačja hiša",
-            nav_kategorije: req.nav_kategorije,
-            nav_podstrani: req.nav_podstrani,
-
             sidebar_muce: req.sidebar_muce,
             muce: muce,
             current: page,
