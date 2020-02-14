@@ -7,7 +7,6 @@
 @import "base/helpers";
 
 @import "layout/navbar";
-@import "layout/hero";
 
 .with-bootstrap {
     @import "~bootstrap/scss/bootstrap";
@@ -17,6 +16,8 @@
     @import "components/button";
     @import "components/card";
     @import "components/nav-tabs";
+    @import "layout/content-hero";
+    @import "layout/content-sidebar";
     @import "layout/footer";
     @import "pages/frontpage";
     @import "pages/fundraiser-landing";

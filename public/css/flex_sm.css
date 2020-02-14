@@ -21,15 +21,6 @@
     display: none;
   }
 
-  .content {
-    width: 100%;
-    margin-right: 0;
-  }
-
-  .sidebar_mailing {
-    width: 100%;
-  }
-
   .desc {
     width: 100%;
     margin-top: 0.5rem;
@@ -41,10 +32,6 @@
 
   .data {
     width: 100%;
-  }
-
-  .content .data_header h3 {
-    text-align: left;
   }
 
   .nav_menu_primary.mobile.left > ul {
@@ -73,30 +60,9 @@
     margin-top: 0 !important;
   }
 
-  #v-novem-domu_container > .content > li {
-    width: 100%;
-  }
-
   .photos {
     width: 100%;
     margin-bottom: 1.4rem;
-  }
-
-  .content ul {
-    padding-left: 1.6em;
-  }
-
-  .content ul li {
-    font-size: 16px;
-    line-height: 24px;
-  }
-
-  .content p {
-    margin: 0 0 1.2em 0;
-    line-height: 24px;
-    text-align: justify;
-    font-size: 16px;
-    font-weight: 500;
   }
 
   .jplist-panel {
@@ -182,104 +148,12 @@
     width: 100%;
   }
 
-  .sidebar {
-    width: 60%;
-  }
-
-  .side_cat {
-    height: 230px;
-  }
-
-  .side_cat h5 a {
-    font-size: 34px;
-  }
-
-  .sidebar_img {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    text-align: center;
-  }
-
-  .sidebar_img img {
-    width: 100%;
-  }
-
-  .content h3 {
-    font-size: 22px;
-    margin: 1.5em 0;
-  }
-
   /* izobraževanje */
   .vsebina h3 {
     font-size: 18px;
     text-align: left;
     margin: 0 0 0.5rem 0;
     padding: 0;
-  }
-
-  .content h3:first-of-type {
-    margin-top: 0;
-  }
-
-  .nonindex {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    padding-top: 0;
-  }
-
-  .nonindex > .container {
-    width: 90%;
-    padding-top: 1.2rem;
-    -webkit-box-orient: vertical !important;
-    -webkit-box-direction: normal !important;
-    -ms-flex-direction: column !important;
-    flex-direction: column !important;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .page_header {
-    height: 260px;
-    border-bottom: none;
-  }
-
-  .header_mobile {
-    display: block;
-    text-align: center;
-    border-bottom: 4px solid #ffcb00;
-    padding: 1.5rem;
-    background-color: #515151;
-    border-top: 3px solid #545454ba;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='20' height='12' viewBox='0 0 20 12'%3E%3Cg fill-rule='evenodd'%3E%3Cg id='charlie-brown' fill='%23787878' fill-opacity='0.28'%3E%3Cpath d='M9.8 12L0 2.2V.8l10 10 10-10v1.4L10.2 12h-.4zm-4 0L0 6.2V4.8L7.2 12H5.8zm8.4 0L20 6.2V4.8L12.8 12h1.4zM9.8 0l.2.2.2-.2h-.4zm-4 0L10 4.2 14.2 0h-1.4L10 2.8 7.2 0H5.8z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-  }
-
-  .header_mobile h1 {
-    font-family: "Open Sans", sans-serif;
-    color: #fff;
-    font-size: 26px;
-    font-weight: 700;
-    letter-spacing: 1px;
-    margin: 0;
-  }
-
-  .page_header h1 {
-    /* font-size: 45px;
-    font-weight: 700; */
-    display: none;
   }
 
   /* MENU */
@@ -557,16 +431,8 @@
     width: 100%;
   }
 
-  .sidebar {
-    width: 80%;
-  }
-
   .i_muca_img {
     min-height: 240px;
-  }
-
-  .side_cat {
-    height: 200px;
   }
 
   .izobrazevalne-vsebine > .vnos {
@@ -598,10 +464,6 @@
 
   .muca_img {
     height: 260px;
-  }
-
-  .page_header {
-    height: 190px;
   }
 
   #muca_title_ime {
@@ -645,10 +507,6 @@
 }
 
 @media all and (max-width: 480px) {
-  .sidebar {
-    width: 100%;
-  }
-
   .i_edu_img img {
     margin: 0 0 20px 0;
   }
@@ -672,10 +530,6 @@
 }
 
 @media all and (max-width: 360px) {
-  .sidebar {
-    width: 100%;
-  }
-
   .i_edu_img img {
     margin: 0 0 12px 0;
   }
@@ -699,10 +553,6 @@
 
   .nav_menu_primary .fa-bars {
     font-size: 29px;
-  }
-
-  .side_cat {
-    height: 170px;
   }
 
   .i_muca {

@@ -4,23 +4,6 @@
   margin: 0 auto;
 }
 
-.nonindex > .container_full {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-}
-
-/* #muca_container_div {
-  width: 1420px;
-} */
-
 #muca_container_div > .content {
   margin: 0;
 }
@@ -392,10 +375,6 @@
   margin: 0;
 }
 
-.content .boter_true p {
-  margin: 0;
-}
-
 .boter_true a {
   font-weight: 600;
   color: #343a40;
@@ -404,31 +383,6 @@
 /* V NOVEM DOMU */
 #v-novem-domu_container {
   margin-top: 2rem;
-}
-
-#v-novem-domu_container > .content {
-  list-style: none;
-  padding: 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  margin: 0;
-}
-
-#v-novem-domu_container > .content > li {
-  width: calc(25% - 2em);
-  padding: 0 1em;
-  margin: 0 0 1em 0;
 }
 
 .v-novem-domu_muca {
@@ -679,10 +633,5 @@ ul.paginator {
 }
 
 .paginator_disabled {
-  color: #343a40;
-}
-
-.content ul li.paginator_active {
-  font-weight: 700;
   color: #343a40;
 }

@@ -29,7 +29,6 @@
 /* Gumbi na prvi strani */
 .i_jumbo_button,
 .i_muce > a > button,
-.i_mailing > a > .mailingButton,
 .i_edu button,
 .i_boter button {
     font-size: 18px;
@@ -69,51 +68,6 @@
   font-family: 'Nunito', sans-serif;
 }
 
-/* Nonindex banner */
-.page_header h1 {
-  font-size: 40px;
-  font-weight: 600;
-  letter-spacing: 1px;
-}
-
-/* BESEDILO */
-.content h1, .content h2, .content h3, .content h4 {
-  margin-bottom: 4px;
-  padding-top: 0.75rem;
-}
-
-.page_header h1, .content h1, .content h2, .content h3, .content h4 {
-  font-family: 'Nunito', sans-serif;
-  font-weight: 700!important;
-}
-
-.content h2 {
-  font-size: 22px;
-}
-
-.content h3 {
-  font-size: 18px;
-}
-
-.content h4 {
-  font-size: 16px;
-  margin-top: 0;
-}
-
-.content p {
-    margin: 0 0 10px 0;
-    line-height: 22px;
-    font-size: 15px;
-}
-
-/* Bullet listi v besedilu */
-.content ul {
-  margin-bottom: 14px;
-}
-
-.content ul li {
-  font-size: 15px;
-}
 
 /* MUCE */
 
@@ -134,24 +88,6 @@
   .muca h2 {
     padding-top: 0;
     margin-bottom: 0;
-  }
-
-  /* individualna stran */
-  .content #muca_title_ime {
-    font-size: 40px;
-    font-weight: 500;
-  }
-
-  .content .cat_full .desc h2 {
-    font-weight: 600;
-    font-size: 20px;
-    margin-bottom: 4px;
-  }
-
-  .content .data_header h3 {
-    font-size: 16px;
-    margin: 0;
-    padding-top: 0;
   }
 
   .data_title_row {
@@ -200,7 +136,6 @@
   /* Gumbi na prvi strani */
   .i_jumbo_button,
   .i_muce > a > button,
-  .i_mailing > a > .mailingButton,
   .i_edu button,
   .i_boter button {
       font-size: 16px;
@@ -221,45 +156,6 @@
     font-size: 30px;
   }
 
-  /* Naslov na podstraneh */
-  .header_mobile h1 {
-    font-size: 20px;
-    font-weight: 600;
-    letter-spacing: 0.5px;
-  }
-
-  .content h2 {
-    font-size: 20px;
-  }
-
-  .content h3 {
-    font-size: 16px;
-  }
-
-  .content h4 {
-    font-size: 14px;
-  }
-
-  .content ul li {
-    font-size: 14px;
-  }
-
-  .content p {
-    margin: 0 0 10px 0;
-    line-height: 20px;
-    font-size: 14px;
-  }
-
-  /* individualna stran */
-  .content #muca_title_ime {
-    font-size: 30px;
-    font-weight: 500;
-  }
-
-  .content .cat_full .desc h2 {
-    font-size: 17px;
-  }
-
   .data_title_row {
     font-size: 14px;
   }
@@ -275,21 +171,6 @@
 
   .izobrazevalne-vsebine .vsebina a {
     font-size: 14px;
-  }
-
-  /* SIDEBAR */
-  .sidebar .sidebar_mailing .mailingButton {
-    font-size: 16px;
-  }
-
-  .sidebar_mailing .mailingButton i {
-    font-size: 30px;
-    line-height: 32px;
-  }
-
-  .side_cat_ime h5,
-  .sidebar_social h3 {
-    font-size: 16px;
   }
 }
 

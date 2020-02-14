@@ -49,7 +49,7 @@ passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());
 
 app.use((req, res, next) => {
-    const protocol = 'http' + req.secure ? 's' : '' + '://';
+    const protocol = req.secure ? 'https://' : 'http://';
     res.locals.currentUser = req.user;
     res.locals.error = req.flash('error');
     res.locals.success = req.flash('success');

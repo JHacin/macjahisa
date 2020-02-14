@@ -1,7 +1,17 @@
 <% include ../partials/header %>
 <% include ../partials/nonindex %>
 
-<%- podstran.vsebina %>
+<div class="with-bootstrap">
+    <div class="container">
+        <div class="row content-wrapper py-5">
+            <div class="content-page col-12 col-md-8">
+                <%- podstran.vsebina %>
+            </div>
+            <div class="col-12 col-md-4">
+                <% include ../partials/sidebar %>
+            </div>
+        </div>
+    </div>
+</div>
 
-<% include ../partials/sidebar %>
 <% include ../partials/footer %>
