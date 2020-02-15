@@ -45,14 +45,6 @@
     margin-bottom: 1.4rem;
   }
 
-  /* izobraževanje */
-  .vsebina h3 {
-    font-size: 18px;
-    text-align: left;
-    margin: 0 0 0.5rem 0;
-    padding: 0;
-  }
-
   /* MENU */
   .navbar {
     height: 55px;
@@ -315,29 +307,6 @@
 
   .i_muca_img {
     min-height: 240px;
-  }
-
-  .izobrazevalne-vsebine > .vnos {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .izobrazevalne-vsebine > .vnos > .naslovna_slika {
-    width: 200px;
-  }
-
-  .vsebina h3 {
-    font-size: 16px;
-  }
-
-  .izobrazevalne-vsebine .vsebina p {
-    text-align: center;
-    margin-bottom: 1.5rem;
   }
 
   #muca_title_ime {

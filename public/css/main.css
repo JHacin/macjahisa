@@ -15,10 +15,6 @@ iframe {
   display: none;
 }
 
-.paypal_table select {
-  font-family: "Nunito", sans-serif;
-}
-
 .nav_menu_primary.mobile.left > ul {
   -webkit-transform: translate3d(0, 0, 0);
   -webkit-transform-style: preserve-3d;
@@ -81,57 +77,6 @@ a {
   margin: 0 auto;
 }
 
-/* IZOBRAŽEVANJE */
-.izobrazevalne-vsebine {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.izobrazevalne-vsebine > .vnos {
-  margin-top: 1em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-}
-
-.izobrazevalne-vsebine > .vnos > .naslovna_slika {
-  width: 20%;
-}
-
-.naslovna_slika img {
-  max-width: 100%;
-  border: 1px solid #ddd;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-}
-
-.izobrazevalne-vsebine > .vnos > .vsebina {
-  width: 80%;
-  padding: 0 1em;
-}
-
-.izobrazevalne-vsebine .vsebina h3 {
-  font-weight: 600;
-  color: #3f3f3f;
-  margin: 0 0 0.5em 0;
-  letter-spacing: 0.23px;
-  font-family: "Nunito", sans-serif;
-}
-
-.izobrazevalne-vsebine .vsebina a {
-  font-weight: 400;
-  letter-spacing: 0.5px;
-  text-decoration: none;
-}
-
 /* VITA */
 .vita_category_box a {
   font-size: 18px;
@@ -144,11 +89,7 @@ a {
   margin-left: 0.2rem;
 }
 
-/* PAYPAL */
-input.paypal_btn,
-.paypal_table {
-  padding-bottom: 1rem;
-}
+
 
 /* SLICK */
 .slick-prev:before,

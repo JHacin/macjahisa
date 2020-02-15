@@ -16,7 +16,7 @@ router.get('/zbirka-macje-hise', function(req, res) {
         Izobrazevalna_vsebina.find({ kategorija: 'zbirka-macje-hise' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
-                res.render('dobro-je-vedeti/zbirka-macje-hise', {
+                res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
                     sidebar_muce: req.sidebar_muce,
                     title: 'Zbirka Mačje hiše | Mačja hiša',
                     podstran: podstran,
@@ -32,7 +32,7 @@ router.get('/letaki', function(req, res) {
         Izobrazevalna_vsebina.find({ kategorija: 'letaki' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
-                res.render('dobro-je-vedeti/letaki', {
+                res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
                     sidebar_muce: req.sidebar_muce,
                     title: 'Letaki | Mačja hiša',
                     podstran: podstran,

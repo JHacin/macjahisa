@@ -1,0 +1,39 @@
+<% include ../partials/header %>
+<% include ../partials/nonindex %>
+
+<div class="with-bootstrap">
+    <div class="container">
+        <div class="row content-wrapper pt-5">
+            <div class="content-body col-12">
+                <%- podstran.vsebina %>
+
+                <div class="row">
+                    <% vsebine.forEach(vsebina => { %>
+                        <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4">
+                            <div class="card w-100">
+                                <a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank">
+                                    <img
+                                        class="card-img-top hover-sepia"
+                                        src="/files/izobrazevanje/<%= vsebina.naslovna_slika %>"
+                                        alt="<%= vsebina.naslov %>"
+                                    >
+                                </a>
+                                <div class="card-body bg-light border-top">
+                                    <div class="card-text">
+                                        <h5><%= vsebina.naslov %></h5>
+                                        <a href="/files/izobrazevanje/<%= vsebina.datoteka %>" target="_blank">
+                                            Preberi
+                                            <i class="fas fa-arrow-circle-right"></i>
+                                        </a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    <% }); %>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>
