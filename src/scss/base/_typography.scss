@@ -1,23 +1,39 @@
-.font-size-xxs {
-    font-size: 10px;
+h2, .h2 {
+    font-weight: 600;
 }
 
-.font-size-xs {
-    font-size: 12px;
-}
-
-.font-size-sm {
-    font-size: 14px;
-}
-
-.font-size-md {
-    font-size: 16px;
-}
-
-.font-size-xxl {
-    font-size: 32px;
+h3, .h3 {
+    font-weight: 600;
 }
 
 p {
     @include font-size($h6-font-size);
+}
+
+.font-size-xxs {
+    @include font-size(10px);
+}
+
+.font-size-xs {
+    @include font-size(12px);
+}
+
+.font-size-sm {
+    @include font-size(14px);
+}
+
+.font-size-md {
+    @include font-size(16px);
+}
+
+.font-size-lg {
+    @include font-size(20px);
+}
+
+.font-size-xl {
+    @include font-size(26px);
+}
+
+.font-size-xxl {
+    @include font-size(32px);
 }

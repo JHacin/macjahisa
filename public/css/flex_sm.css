@@ -319,18 +319,6 @@
     padding: 10px 25px;
   }
 
-  #mc_embed_signup {
-    width: 90%;
-  }
-
-  #mc_embed_signup form {
-    width: 90%;
-  }
-
-  #mc_embed_signup input.email {
-    width: 100%;
-  }
-
   .i_muce {
     padding-top: 40px;
   }
@@ -352,9 +340,6 @@
     min-height: 380px;
   }
 
-  .i_mailing {
-    padding-bottom: 40px;
-  }
 
   .i_help {
     padding: 40px 0 20px 0;

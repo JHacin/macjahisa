@@ -17,7 +17,7 @@
 <div class="with-bootstrap">
     <!--Todo: join all sections under one .frontpage parent.-->
     <div class="frontpage">
-        <section class="bg-dark text-lightgray">
+        <section class="bg-dark text-light">
             <div class="container text-center">
                 <p class="mb-2">
                     Donacija 0,5 % dohodnine nevladnim organizacijam je za vas <strong>popolnoma brezplačna</strong>,
@@ -56,12 +56,13 @@
 <div class="divider">
     <i class="fas fa-ellipsis-h"></i>
 </div>
-<div class="i_mailing">
-    <a href="<%= siteConfig.external_links.mailing_sub %>" target="_blank">
-        <button class="mailingButton">
-            Naroči se na e-novice <i class="fas fa-angle-double-right"></i>
-        </button>
-    </a>
+<div class="with-bootstrap">
+    <div class="container text-center pb-5 pt-3">
+        <a href="<%= siteConfig.external_links.mailing_sub %>" target="_blank" class="btn btn-primary">
+            Naroči se na e-novice
+            <i class="fas fa-angle-double-right"></i>
+        </a>
+    </div>
 </div>
 <div class="i_help" style="background-image: url(/files/page/podpora2.JPG);">
     <h1>Kako nas še lahko podprete?</h1>
@@ -71,9 +72,9 @@
             <h3>Veterina in trgovina</h3>
             <hr/>
             <p>
-                Z nakupovanjem v trgovini <a href=<%= siteConfig.external_links.super_combe %> target="_blank">Super
+                Z nakupovanjem v trgovini <a href="<%= siteConfig.external_links.super_combe %>" target="_blank">Super
                     Čombe</a>
-                in uporabo storitev na <a href=<%= siteConfig.external_links.mh_vet %> target="_blank">Veterini MH</a>.
+                in uporabo storitev na <a href="<%= siteConfig.external_links.mh_vet %>" target="_blank">Veterini MH</a>.
             </p>
         </div>
         <div class="help_item">
@@ -88,9 +89,9 @@
             <hr/>
             <p>
                 Naše objave lahko spremljate in delite na forumu
-                <a href=<%= siteConfig.external_links.pomagamo_zivalim_forum %> target="_blank">Pomagamo živalim</a>
-                ter našem <a href=<%= siteConfig.external_links.mh_social_twitter %> target="_blank">Twitterju</a>
-                in <a href=<%= siteConfig.external_links.mh_social_facebook %> target="_blank">Facebooku</a>.
+                <a href="<%= siteConfig.external_links.pomagamo_zivalim_forum %>" target="_blank">Pomagamo živalim</a>
+                ter našem <a href="<%= siteConfig.external_links.mh_social_twitter %>" target="_blank">Twitterju</a>
+                in <a href="<%= siteConfig.external_links.mh_social_facebook %>" target="_blank">Facebooku</a>.
             </p>
         </div>
     </div>

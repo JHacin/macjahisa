@@ -31,7 +31,7 @@ iframe {
   color: #f2f2f2;
 }
 
-body > div > .container {
+body > div:not(.with-bootstrap) > .container {
   width: 1250px;
   max-width: 1300px;
   display: -webkit-box;

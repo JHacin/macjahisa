@@ -1,3 +1,5 @@
 .content-sidebar {
-
+    section {
+        @extend .mb-3;
+    }
 }

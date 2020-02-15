@@ -1,65 +1,63 @@
 <!--Start partials/sidebar-->
+<%
+if (typeof social_description === "undefined") {
+    social_description = siteConfig.social_description_default;
+}
+%>
+
 <div class="content-sidebar">
-    <div>
+    <div class="row">
         <% sidebar_muce.forEach(function(muca) { %>
-            <div>
+        <div class="col-12 col-sm-4 col-lg-12">
+            <section class="rounded border border-gray-2 shadow-sm">
                 <a href="/posvojitev/muce/<%= muca.dbid %>">
                     <img
-                        src="/files/oglasi_muce/<%= muca.file_name1 %>"
-                        alt="<%= muca.ime %>"
-                        class="img-fluid rounded-top"
+                            src="/files/oglasi_muce/<%= muca.file_name1 %>"
+                            alt="<%= muca.ime %>"
+                            class="img-fluid hover-sepia"
                     />
-                    <h5 class="bg-dark text-lightgray text-center py-1 rounded-bottom">
-                        <%= muca.ime %>
-                    </h5>
+                    <h6 class="bg-gray-1 text-dark text-center mb-0 py-1"><strong><%= muca.ime %></strong></h6>
                 </a>
-            </div>
+            </section>
+        </div>
         <% }) %>
     </div>
-    <a
-        href="<%= siteConfig.external_links.mailing_sub %>"
-        target="_blank"
-        class="btn btn-secondary d-flex align-items-center justify-content-center mb-2"
-    >
-        <i class="far fa-envelope mr-1"></i>
-        <span>Naroči se na <strong>e-novice</strong></span>
-    </a>
-    <a href="/dobro-je-vedeti/sterilizacija-kastracija">
-        <img
-            src="/files/sidebar/sk.jpg"
-            alt="Sterilizacija in kastracija"
-            class="img-fluid rounded border mb-2"
-        >
-    </a>
-    <div class="bg-secondary rounded p-3">
-        <h5 class="text-white text-center"><strong>Deli vsebino:</strong></h5>
-        <!-- Če še ni lokalnih social variablov -->
-        <% if (typeof social_description == "undefined") {
-            social_description = "Mačja hiša je projekt Društva za pomoč živalim v stiski SLO, strokovnjaki z veterinarskega in živalovarstvenega področja, angleško organizacijo Cats protection ter aktivnimi posamezniki. Zaživel je s pričetkom leta 2009 z namenom izboljšanja stanja na področju problematike zavrženih in prostoživečih mačk.";
-        }
-        %>
-        <div class="share_buttons">
-            <div
-                class="fb-like"
-                 data-href="<%= social_url %>"
-                 data-layout="button"
-                 data-action="like"
-                 data-show-faces="true"
-            ></div>
-            <div
-                class="fb-share-button"
-                data-href="<%= social_url %>"
-                data-layout="button"
-            ></div>
-            <a
-                class="twitter-share-button"
-                href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
-                data-text="<%= social_description %>"
-            >
-                <i class="fab fa-twitter"></i>
-                Tweet
-            </a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+    <div class="row">
+        <div class="col-12 col-sm-6 col-lg-12">
+            <section class="rounded shadow-sm">
+                <a
+                    href="<%= siteConfig.external_links.mailing_sub %>"
+                    target="_blank"
+                    class="d-block text-dark btn btn-gray-1 border border-gray-2"
+                >
+                    <span class="font-weight-light">Naroči se na <span class="font-weight-bold">e-novice</span></span>
+                    <i class="far fa-envelope d-block font-size-xl text-secondary"></i>
+                </a>
+            </section>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-12">
+            <section class="text-dark pt-2 text-center">
+                <h6 class="text-center"><strong>Deli vsebino</strong></h6>
+                <div class="row align-items-center">
+                    <div
+                        class="fb-like col-12"
+                        data-href="<%= social_url %>"
+                        data-layout="button_count"
+                        data-action="like"
+                        data-share="true"
+                    ></div>
+                    <div class="col-12">
+                        <a
+                            class="twitter-share-button"
+                            href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
+                            data-text="<%= social_description %>"
+                        >
+                            <i class="fab fa-twitter"></i>
+                            Deli na Twitterju
+                        </a>
+                    </div>
+                </div>
+            </section>
         </div>
     </div>
 </div>

@@ -11,7 +11,7 @@
                 @extend .font-size-sm, .mb-3;
 
                 a {
-                    @extend .text-lightgray, .hover-primary;
+                    @extend .text-gray-1, .hover-primary;
                 }
 
                 i {
@@ -23,14 +23,18 @@
 
     &-social {
         &__icon {
-            @extend .text-lightgray, .hover-primary, .font-size-xxl;
+            @extend .text-gray-1, .hover-primary, .font-size-xxl;
         }
     }
 
     &-signature {
         &__divider {
-            @extend .text-lightgray, .py-1, .mx-2, .d-none, .d-md-block;
+            @extend .text-gray-1, .py-1, .mx-2, .d-none, .d-md-block;
             font-size: 8px;
         }
+    }
+
+    a {
+        font-weight: 500;
     }
 }

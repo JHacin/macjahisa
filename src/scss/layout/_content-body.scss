@@ -1,0 +1,18 @@
+.content-body {
+    h2 {
+        @extend .mt-4;
+    }
+
+    h3 {
+        @extend .mt-3;
+    }
+
+    ul {
+        @extend .mb-3, .pl-4;
+        list-style: initial;
+
+        li {
+            @extend .mb-1;
+        }
+    }
+}

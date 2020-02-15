@@ -26,29 +26,15 @@ ul {
   list-style: none;
 }
 
-.content ul {
-  list-style: initial;
-  margin-bottom: 1em;
-  padding-left: 30px;
-}
-
 a {
   text-decoration: none;
   color: inherit;
+  font-weight: 600;
 
   &:focus {
     outline: none !important;
     -webkit-tap-highlight-color: transparent;
   }
-}
-
-h1 {
-  margin-bottom: 26px;
-}
-
-h3 {
-  margin-top: 22px;
-  margin-bottom: 22px;
 }
 
 button {

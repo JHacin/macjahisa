@@ -137,12 +137,25 @@
                         z vsakim podarjenim evrom smo bliže cilju. Delite naš poziv tudi med svoje prijatelje,
                         naj doseže in se dotakne vsakogar, ki mu je mar.
                     </p>
-                    <div class="share_buttons">
-                        <div class="fb-share-button d-flex m-0 px-1" data-href="<%= social_url %>" data-layout="button"></div>
-                        <div class="d-flex m-0 px-1">
-                            <a class="twitter-share-button" href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>" data-text="<%= social_description %>">
-                                <i class="fab fa-twitter"></i> Tweet</a>
-                            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                    <div class="row align-items-center">
+                        <div
+                            class="fb-like col-12"
+                            data-href="<%= social_url %>"
+                            data-layout="button_count"
+                            data-action="like"
+                            data-share="true"
+                            data-size="large"
+                        ></div>
+                        <div class="col-12">
+                            <a
+                                class="twitter-share-button"
+                                href="https://twitter.com/intent/tweet?url=<%= social_url %>&text=<%- social_description %>"
+                                data-text="<%= social_description %>"
+                                data-size="large"
+                            >
+                                <i class="fab fa-twitter"></i>
+                                Deli na Twitterju
+                            </a>
                         </div>
                     </div>
                 </section>
