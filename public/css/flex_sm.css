@@ -1,14 +1,4 @@
 @media all and (max-width: 768px) {
-  .koticek-za-otroke-seznam {
-    flex-wrap: nowrap;
-    flex-direction: column;
-  }
-
-  .koticek-za-otroke-vsebina {
-    width: 70%;
-    align-self: center;
-  }
-
   #imageZoomDiv {
     display: none;
   }
@@ -301,10 +291,6 @@
 }
 
 @media all and (max-width: 640px) {
-  .koticek-za-otroke-vsebina {
-    width: 100%;
-  }
-
   .i_muca_img {
     min-height: 240px;
   }

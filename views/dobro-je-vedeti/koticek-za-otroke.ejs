@@ -3,84 +3,151 @@
 
 <div class="with-bootstrap">
     <div class="container">
-        <div class="row content-wrapper pt-5">
-            <div class="content-body col-12 col-lg-8 pb-5">
+        <div class="row content-wrapper py-5">
+            <div class="content-body col-12">
                 <%- podstran.vsebina %>
 
-                <%
-
-                var pobarvanke = [];
-                var drugo = [];
-
-                vsebine.forEach(function(vsebina){
-                    if(vsebina.kategorija === "pobarvanka") {
-                        pobarvanke.push(vsebina);
-                    }
-                    if(vsebina.kategorija === "drugo") {
-                        drugo.push(vsebina);
-                    }
-                });
-
-                %>
-
-                <h2>Pobarvanke</h2>
-                <p>Slikice si lahko shranite na računalnik, natisnete in pobarvate.</p>
-                <div class="koticek-za-otroke-seznam">
-                    <% pobarvanke.forEach(function(pobarvanka){ %>
-                        <div class="koticek-za-otroke-vsebina">
-                            <div class="koticek-za-otroke-slika">
-                                <img src="/files/otroski-koticek/<%= pobarvanka.naslovna_slika %>" alt="<%= pobarvanka.naslov %>"/>
-                            </div>
-                            <div class="koticek-za-otroke-povezava">
-                                <p>
-                                    <a href="/files/otroski-koticek/<%= pobarvanka.datoteka %>" download><i class="fas fa-save"></i> Shrani</a>
-                                    <a href="/files/otroski-koticek/<%= pobarvanka.datoteka %>" target="_blank"><i class="fas fa-search-plus"></i> Povečaj</p></a>
-                            </div>
-                        </div>
-                    <% }); %>
+                <h6 class="text-center text-md-left">
+                    Pojdi na:
+                </h6>
+                <div class="d-flex align-items-center flex-wrap justify-content-center justify-content-md-start">
+                    <button class="btn btn-primary btn-sm slide-toggle m-1" data-slide-to="#pobarvanke">
+                        Pobarvanke
+                    </button>
+                    <button class="btn btn-secondary btn-sm slide-toggle m-1" data-slide-to="#drugo">
+                        Šolski urnik Mačja hiša
+                    </button>
+                    <button class="btn btn-gray-1 btn-sm slide-toggle m-1" data-slide-to="#razstava">
+                        Razstava učencev OŠ Šmarje pri Jelšah
+                    </button>
                 </div>
 
-                <!-- DRUGO -->
-                <h2>Drugo</h2>
-                <div class="koticek-za-otroke-seznam">
-                    <% drugo.forEach(function(vnos){ %>
-                        <div class="koticek-za-otroke-vsebina">
-                            <% if(vnos.naslov !== "" && vnos.naslov !== 'undefined') { %>
-                                <div class="koticek-za-otroke-naslov">
-                                    <%= vnos.naslov %>
+                <hr>
+
+                <div id="pobarvanke">
+                    <h2>Pobarvanke</h2>
+                    <p>Slikice si lahko shranite na računalnik, natisnete in pobarvate.</p>
+                    <div class="row">
+                        <% pobarvanke.forEach(pobarvanka => { %>
+                            <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4">
+                                <div class="card w-100">
+                                    <img
+                                        class="card-img-top"
+                                        src="/files/otroski-koticek/<%= pobarvanka.naslovna_slika %>"
+                                        alt="<%= pobarvanka.naslov %>"
+                                    >
+                                    <div class="card-body bg-light border-top">
+                                        <div class="card-text row text-center">
+                                            <div class="col-6">
+                                                <i class="fas fa-save text-secondary mr-1"></i>
+                                                <a
+                                                    class="text-dark"
+                                                    href="/files/otroski-koticek/<%= pobarvanka.datoteka %>"
+                                                    download
+                                                >
+                                                    Shrani
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fas fa-search-plus text-secondary mr-1"></i>
+                                                <a
+                                                    class="text-dark"
+                                                    href="/files/otroski-koticek/<%= pobarvanka.datoteka %>"
+                                                    target="_blank"
+                                                >
+                                                    Povečaj
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
-                            <% }; %>
-                            <div class="koticek-za-otroke-slika">
-                                <img src="/files/otroski-koticek/<%= vnos.naslovna_slika %>" alt="<%= vnos.naslov %>"/>
                             </div>
-                            <div class="koticek-za-otroke-povezava">
-                                <p>
-                                    <a href="/files/otroski-koticek/<%= vnos.datoteka %>" download><i class="fas fa-save"></i> Shrani</a>
-                                    <a href="/files/otroski-koticek/<%= vnos.datoteka %>" target="_blank"><i class="fas fa-search-plus"></i> Povečaj</p></a>
-                            </div>
-                        </div>
-                    <% }); %>
+                        <% }); %>
+                    </div>
                 </div>
 
-                <!-- RAZSTAVA -->
-                <h2>Razstava učencev OŠ Šmarje pri Jelšah</h2>
-                <p>Učenci 5. c OŠ Šmarje pri Jelšah so nas razveselili z mačjimi risbami ter izrazili željo, da jih razstavimo. Razstavnega prostora žal nimamo, naši mačji prijatelji pa bi z risbami počeli marsikaj, gotovo pa jih ne bi le zamaknjeno občudovali ;). Zato smo se odločili, da jih zaenkrat virtualno razstavimo ter jim s tem zagotovimo primerno publiko. 5. c, hvala!</p>
-                <div class="koticek-za-otroke-seznam">
-                    <% for(var i = 1; i<= 16; i++) { %>
-                        <div class="koticek-za-otroke-vsebina">
-                            <div class="koticek-za-otroke-slika">
-                                <img src="/files/otroski-koticek/5c-os-smarje-pri-jelsah/<%= i %>.jpg" alt="Razstava učencev OŠ Šmarje pri Jelšah"/>
+                <hr>
+
+                <div id="drugo">
+                    <h2>Drugo</h2>
+                    <div class="row">
+                        <% drugo.forEach(vnos => { %>
+                            <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4">
+                                <div class="card w-100">
+                                    <img
+                                        class="card-img-top"
+                                        src="/files/otroski-koticek/<%= vnos.naslovna_slika %>"
+                                        alt="<%= vnos.naslov %>"
+                                    >
+                                    <div class="card-body border-top p-3 text-white bg-secondary">
+                                        <h6 class="mb-0 text-center"><%= vnos.naslov %></h6>
+                                    </div>
+                                    <div class="card-body bg-light border-top">
+                                        <div class="card-text row text-center">
+                                            <div class="col-6">
+                                                <i class="fas fa-save text-secondary mr-1"></i>
+                                                <a
+                                                    class="text-dark"
+                                                    href="/files/otroski-koticek/<%= vnos.datoteka %>"
+                                                    download
+                                                >
+                                                    Shrani
+                                                </a>
+                                            </div>
+                                            <div class="col-6">
+                                                <i class="fas fa-search-plus text-secondary mr-1"></i>
+                                                <a
+                                                    class="text-dark"
+                                                    href="/files/otroski-koticek/<%= vnos.datoteka %>"
+                                                    target="_blank"
+                                                >
+                                                    Povečaj
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="koticek-za-otroke-povezava">
-                                <p>
-                                    <a href="/files/otroski-koticek/5c-os-smarje-pri-jelsah/<%= i %>.jpg" target="_blank"><i class="fas fa-search-plus"></i> Povečaj</p></a>
-                            </div>
-                        </div>
-                    <% }; %>
+                        <% }); %>
+                    </div>
                 </div>
-            </div>
-            <div class="col-12 col-lg-4 pb-5">
-                <% include ../partials/sidebar %>
+
+                <hr>
+
+                <div id="razstava">
+                    <h2>Razstava učencev OŠ Šmarje pri Jelšah</h2>
+                    <p>
+                        Učenci 5. c OŠ Šmarje pri Jelšah so nas razveselili z mačjimi risbami ter izrazili željo,
+                        da jih razstavimo. Razstavnega prostora žal nimamo, naši mačji prijatelji pa bi z risbami
+                        počeli marsikaj, gotovo pa jih ne bi le zamaknjeno občudovali ;). Zato smo se odločili,
+                        da jih zaenkrat virtualno razstavimo ter jim s tem zagotovimo primerno publiko. 5. c, hvala!
+                    </p>
+                    <div class="row">
+                        <% for (let i = 1; i<= 16; i++) { %>
+                            <div class="col-12 col-sm-6 col-md-4 col-xl-3 mb-4">
+                                <div class="card w-100">
+                                    <img
+                                        class="card-img-top"
+                                        src="/files/otroski-koticek/5c-os-smarje-pri-jelsah/<%= i %>.jpg"
+                                        alt="Razstava učencev OŠ Šmarje pri Jelšah"
+                                    >
+                                    <div class="card-body bg-light border-top">
+                                        <div class="card-text text-center">
+                                            <i class="fas fa-search-plus text-secondary mr-1"></i>
+                                            <a
+                                                class="text-dark"
+                                                href="/files/otroski-koticek/5c-os-smarje-pri-jelsah/<%= i %>.jpg"
+                                                target="_blank"
+                                            >
+                                                Povečaj
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <% } %>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

@@ -1,17 +1,4 @@
 @media all and (max-width: 1420px) {
-  .koticek-za-otroke-vsebina {
-    width: 45%;
-  }
-
-  .koticek-za-otroke-slika {
-    min-height: 200px;
-    max-height: 250px;
-  }
-
-  .koticek-za-otroke-slika img {
-    max-height: 220px;
-  }
-
   .photos {
     width: 100%;
   }
@@ -244,19 +231,6 @@
 }
 
 @media all and (max-width: 1140px) {
-  .koticek-za-otroke-vsebina {
-    width: 40%;
-  }
-
-  .koticek-za-otroke-slika {
-    min-height: 180px;
-    max-height: 200px;
-  }
-
-  .koticek-za-otroke-slika img {
-    max-height: 170px;
-  }
-
   #imageZoomDiv {
     text-align: center;
     margin-bottom: 0;
@@ -349,19 +323,6 @@
 }
 
 @media all and (max-width: 960px) {
-  .koticek-za-otroke-vsebina {
-    width: 100%;
-  }
-
-  .koticek-za-otroke-slika {
-    min-height: auto;
-    max-height: 400px;
-  }
-
-  .koticek-za-otroke-slika img {
-    max-height: 370px;
-  }
-
   .i_boter_txt {
     width: 90%;
   }

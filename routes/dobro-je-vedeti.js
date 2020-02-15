@@ -17,7 +17,6 @@ router.get('/zbirka-macje-hise', function(req, res) {
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
                 res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
-                    sidebar_muce: req.sidebar_muce,
                     title: 'Zbirka Mačje hiše | Mačja hiša',
                     podstran: podstran,
                     vsebine: vsebine,
@@ -33,7 +32,6 @@ router.get('/letaki', function(req, res) {
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
                 res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
-                    sidebar_muce: req.sidebar_muce,
                     title: 'Letaki | Mačja hiša',
                     podstran: podstran,
                     vsebine: vsebine,
@@ -87,16 +85,21 @@ router.get('/prispevki-clanki-povezave/:id', (req, res) => {
     });
 });
 
-router.get('/koticek-za-otroke', function(req, res) {
-    Podstran.findOne({ naslov: 'Kotiček za otroke' }, function(err, podstran) {
-        if (err) return res.render('500');
-        Otroci_vsebina.find({}, function(err, vsebine) {
-            if (err) return res.render('500');
+router.get('/koticek-za-otroke', (req, res) => {
+    Podstran.findOne({ naslov: 'Kotiček za otroke' }, (err, podstran) => {
+        if (err) {
+            return res.render('500');
+        }
+
+        Otroci_vsebina.find({}, (err, vsebine) => {
+            if (err) {
+                return res.render('500');
+            }
             res.render('dobro-je-vedeti/koticek-za-otroke', {
-                sidebar_muce: req.sidebar_muce,
                 title: 'Kotiček za otroke | Mačja hiša',
                 podstran: podstran,
-                vsebine: vsebine,
+                pobarvanke: vsebine.filter(vsebina => vsebina.kategorija === 'pobarvanka'),
+                drugo: vsebine.filter(vsebina => vsebina.kategorija === 'drugo'),
             });
         });
     });
