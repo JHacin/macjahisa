@@ -4,14 +4,6 @@
   margin: 0 auto;
 }
 
-#muca_container_div > .content {
-  margin: 0;
-}
-
-#muca_content_div {
-  width: 100%;
-}
-
 #imageZoomDiv {
   width: 100%;
   text-align: right;
@@ -57,66 +49,6 @@
   margin-bottom: 1rem;
 }
 
-.jplist-panel.muce_filtri {
-  padding: 0 0.5rem 0 1rem;
-}
-
-.text-filter-box input {
-  margin: 0;
-}
-
-.muce_seznam > .list {
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -ms-flex-wrap: wrap;
-  flex-wrap: wrap;
-  -webkit-box-pack: justify;
-  -ms-flex-pack: justify;
-  justify-content: space-between;
-  width: 100%;
-  padding: 0;
-}
-
-.muca {
-  width: 25%;
-  text-align: center;
-  margin-top: 2em;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  transition: filter 0.2s ease;
-}
-
-.muca_ime {
-  background: #dbdbdb;
-  width: 90%;
-  padding: 0.3rem 0.65rem;
-  border-bottom: none;
-  padding-bottom: 0;
-}
-
-.muca h2 {
-  margin: 0;
-}
-
-.muca_ime h2 {
-  margin-bottom: 0;
-}
-
-.muca h2 a,
 .v-novem-domu_muca h2 {
   color: rgb(255, 255, 255);
   color: rgba(255, 255, 255, 0.8);
@@ -124,45 +56,6 @@
   font-weight: 700;
   text-decoration: none;
   color: #3f3f3f;
-}
-
-.muca_img {
-  width: 90%;
-  height: 200px;
-  overflow: hidden;
-  position: relative;
-  border-bottom: none;
-}
-
-.muca_img img {
-  position: absolute;
-  margin: auto;
-  min-height: 100%;
-  min-width: 100%;
-  max-width: 120%;
-  left: -100%;
-  right: -100%;
-  top: -100%;
-  bottom: -100%;
-  transition: filter 0.2s ease;
-}
-
-.muca_infoandmore {
-  padding: 0 0 0.2rem 0;
-  width: 90%;
-  background: #dbdbdb;
-}
-
-.muca_infoandmore p:first-of-type {
-  color: #131313db;
-  margin-top: 0;
-  margin-bottom: 4px;
-}
-
-.muca p {
-  text-align: center;
-  margin: 0.3em 0;
-  letter-spacing: 0.5px;
 }
 
 /* FULL PAGE */
@@ -397,30 +290,6 @@
   width: 100%;
 }
 
-.v-novem-domu_muca .muca_ime {
-  width: 100%;
-  text-align: center;
-}
-
-.v-novem-domu_muca .muca_img {
-  width: 100%;
-  overflow: hidden;
-  position: relative;
-}
-
-.v-novem-domu_muca .muca_img img {
-  position: absolute;
-  margin: auto;
-  min-height: 100%;
-  min-width: 100%;
-  max-width: 110%;
-  left: -100%;
-  right: -100%;
-  top: -100%;
-  bottom: -100%;
-  transition: filter 0.2s ease;
-}
-
 .v-novem-domu_muca h2 {
   margin: 0.2rem 0 0.5rem 0;
 }
@@ -432,143 +301,6 @@
   border-top: none;
   font-style: italic;
   font-size: 14px;
-}
-
-/* JPLIST */
-.muce_seznam .jplist-panel {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-}
-
-.jplist-panel .text-filter-box {
-  height: 35px;
-}
-
-.muce_seznam .muce_filtri {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  align-items: center;
-}
-
-.muce_filtri .jplist-icon {
-  height: 35px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  color: #343a40;
-  line-height: 35px;
-  padding: 0 12px;
-}
-
-/* checkbox pri seznamu muc */
-input[type="checkbox" i] {
-  margin: 0;
-}
-
-.jplist-panel .text-filter-box .jplist-icon {
-  background: rgb(230, 230, 230);
-  background: rgba(230, 230, 230, 1);
-  line-height: 35px;
-  height: 35px;
-}
-
-.jplist-panel input[type="text"] {
-  height: 35px;
-  width: 200px;
-  outline: none;
-  font-family: "Open Sans", sans-serif;
-  border: 1px solid #dddddd;
-  webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  padding: 0 0.4rem;
-  font-size: 14px;
-}
-
-.jplist-panel input[type="text"]:focus {
-  border: 0.5px solid rgb(255, 203, 0);
-  border: 0.5px solid rgba(255, 203, 0, 0.9);
-  -webkit-box-shadow: 0 0 3px rgb(255, 203, 0);
-  -webkit-box-shadow: 0 0 3px rgb(255, 203, 0);
-  box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
-  box-shadow: 0 0 3px rgb(255, 203, 0);
-  box-shadow: 0 0 3px rgba(255, 203, 0, 0.9);
-}
-
-.jplist-panel .jplist-group {
-  height: 35px;
-  color: #27252a;
-  margin: 10px 10px 0 5px;
-  padding: 0 5px 0 10px;
-}
-
-.jplist-panel .jplist-group input,
-.jplist-panel .jplist-group label {
-  height: 35px;
-  line-height: 35px;
-  font-family: "Open Sans", sans-serif;
-  margin: 0;
-}
-
-.jplist-panel .jplist-pagination {
-  float: none;
-  cursor: pointer;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  margin-top: 3em;
-}
-
-.jplist-panel .jplist-pagination .jplist-pagingprev button,
-.jplist-panel .jplist-pagination .jplist-pagingnext button {
-  /* font-size: 24px; */
-  line-height: 24px !important;
-  font-family: "Open Sans", sans-serif;
-}
-
-.jplist-panel .jplist-pagination button {
-  font-family: "Open Sans", sans-serif;
-  display: inline-block;
-  color: #343a40b0;
-  height: 35px;
-  line-height: 35px;
-  padding: 0 13px;
-}
-
-.jplist-panel button {
-  color: #343a40;
-  background: rgb(230, 230, 230);
-  background: rgba(230, 230, 230, 0.4);
-  margin: 10px 10px 0 0;
-}
-
-.jplist-panel .jplist-pagination .jplist-current {
-  font-weight: bold;
-  color: #343a40;
-}
-
-.jplist-label {
-  font-size: 14px;
-  height: 35px;
-  line-height: 35px;
-  font-family: "Open Sans", sans-serif;
 }
 
 /* PAGINATOR */

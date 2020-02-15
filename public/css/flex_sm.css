@@ -9,14 +9,6 @@
     align-self: center;
   }
 
-  .muca_infoandmore p {
-    margin-bottom: 0;
-  }
-
-  #muca_content_div {
-    width: 100%;
-  }
-
   #imageZoomDiv {
     display: none;
   }
@@ -40,10 +32,6 @@
     border-right: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  #muca_container_div {
-    width: 100%;
-  }
-
   .cat_full .photos div img {
     height: auto;
   }
@@ -52,100 +40,9 @@
     margin-bottom: 0;
   }
 
-  .jplist-panel .jplist-label {
-    margin: 1rem 0;
-  }
-
-  .jplist-panel .text-filter-box {
-    margin-top: 0 !important;
-  }
-
   .photos {
     width: 100%;
     margin-bottom: 1.4rem;
-  }
-
-  .jplist-panel {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: horizontal;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: row;
-    flex-direction: row;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-
-  .jplist-panel .jplist-pagination {
-    margin-bottom: 1rem;
-  }
-
-  .muca {
-    width: 100%;
-    margin-top: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .muca_infoandmore {
-    width: 100%;
-  }
-
-  .muca_infoandmore p {
-    text-align: center;
-    margin: 0.5rem 0;
-  }
-
-  .muce_seznam > .list {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .muce_seznam .muce_filtri {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .jplist-panel .text-filter-box,
-  .jplist-panel .jplist-group,
-  .muce_seznam .jplist-label {
-    margin: 7.5px auto;
-  }
-
-  .starost_filter {
-    display: none;
-  }
-
-  .muca_img {
-    height: 260px;
-    width: 100%;
-  }
-
-  .v-novem-domu_muca .muca_img {
-    height: 320px;
-  }
-
-  .jplist-panel .text-filter-box {
-    margin-bottom: 5px;
-  }
-
-  .muce_seznam .jplist-label {
-    margin-right: auto;
-  }
-
-  .muca_ime {
-    width: 100%;
   }
 
   /* izobraževanje */
@@ -443,14 +340,6 @@
     margin-bottom: 1.5rem;
   }
 
-  .v-novem-domu_muca .muca_img {
-    height: 220px;
-  }
-
-  .muca_img {
-    height: 260px;
-  }
-
   #muca_title_ime {
     font-size: 2.5rem;
   }
@@ -495,23 +384,6 @@
   .i_edu_img img {
     margin: 0 0 20px 0;
   }
-
-  .jplist-panel .jplist-pagination {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .muca_img {
-    height: 240px !important;
-  }
 }
 
 @media all and (max-width: 360px) {
@@ -546,13 +418,5 @@
 
   .i_muca_img {
     min-height: 190px;
-  }
-
-  .muca_img {
-    height: 170px;
-  }
-
-  .v-novem-domu_muca .muca_img {
-    height: 170px;
   }
 }

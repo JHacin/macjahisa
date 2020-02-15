@@ -40,3 +40,10 @@
   background-repeat: no-repeat;
   background-color: $color-midgray;
 }
+
+.no-underline {
+  text-decoration: none!important;
+  &:hover {
+    text-decoration: none!important;
+  }
+}

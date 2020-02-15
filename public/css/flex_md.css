@@ -20,18 +20,6 @@
     box-shadow: none;
   }
 
-  .v-novem-domu_muca .muca_img {
-    height: 280px;
-  }
-
-  .jplist-panel .jplist-pagination {
-    margin-bottom: 2rem;
-  }
-
-  #muca_content_div {
-    width: 90%;
-  }
-
   .cat_full {
     margin-bottom: 2rem;
     -webkit-box-pack: center;
@@ -357,15 +345,6 @@
 
   .nav_search {
     margin-left: auto;
-  }
-
-  .muca {
-    width: 50%;
-  }
-
-  .muca_img,
-  .v-novem-domu_muca .muca_img {
-    height: 250px;
   }
 }
 

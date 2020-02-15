@@ -434,29 +434,17 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
     });
 });
 
-router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
-  Muca.findById(req.params.id, function(err, muca){
-    var gre_v_nov_dom = false;
-
-    if(err) {
+router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
+  Muca.findById(req.params.id, (err, muca) => {
+    if (err) {
       req.flash("error", "Muce ne najdem v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    if (req.body.status == 4 && muca.status != 4) {
-      gre_v_nov_dom = true;
-    }
 
-    // popravi ime (velike začetnice)
-    var ime = req.body.ime;
-    // ime = ime.toLowerCase();
-    // ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-    // if(ime.indexOf(" in ") != -1) {
-    //   var index = ime.indexOf(" in ");
-    //   ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-    // };
+    const greVNovDom = req.body.status === 4 && muca.status !== 4;
+    const jePrislaNazaj = req.body.status !== 4 && muca.status === 4;
 
-    // // posodobi podatke
-    muca.ime = ime;
+    muca.ime = req.body.ime;
     muca.boter_povezava = req.body.boter_povezava;
     muca.SEOmetaTitle = req.body.SEOmetaTitle;
     muca.SEOmetaDescription = req.body.SEOmetaDescription;
@@ -465,273 +453,254 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
     muca.SEOtwitterTitle = req.body.SEOtwitterTitle;
     muca.SEOtwitterDescription = req.body.SEOtwitterDescription;
 
-    if(req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
+    if (req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
       muca.SEOmetaTitle = req.body.ime + " | Mačja hiša";
       muca.SEOfbTitle = req.body.ime + " | Mačja hiša";
       muca.SEOtwitterTitle = req.body.ime + " | Mačja hiša";
       muca.SEOmetaDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
       muca.SEOfbDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
       muca.SEOtwitterDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-      muca.save(function (err) {
-        if (err) return console.log(err);
-        // saved!
-      });
     }
 
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.datum = req.body.datum;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.datum_objave = req.body.datum_objave;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.izpostavljena = req.body.izpostavljena;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.status = req.body.status;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
     muca.spol = req.body.spol;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
-
     muca.opis = req.body.opis;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
-
     muca.kontakt = req.body.kontakt;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
-    });
-
     muca.posvojitev_na_daljavo = req.body.posvojitev_na_daljavo;
-    muca.save(function (err) {
-      if (err) return console.log(err);
-      // saved!
+
+    muca.vet = {
+      s_k: false,
+      cipiranje: false,
+      cepljenje: false,
+      razparazit: false,
+      felv: false,
+      fiv: false
+    };
+    for (let key in req.body.vet) {
+      muca.vet[key] = req.body.vet[key];
+    }
+
+    if (greVNovDom || jePrislaNazaj) {
+      muca.datum = moment();
+      muca.datum_objave = moment();
+    }
+
+    [1, 2, 3, 4].forEach(imageIndex => {
+      const needsToBeDeleted = req.body[`slika${imageIndex}_delete`];
+      if (needsToBeDeleted) {
+        muca[`file_name${imageIndex}`] = undefined;
+        muca[`file_name${imageIndex}_large`] = undefined;
+      } else {
+        const imageField = req.body[`slika${imageIndex}_crop`];
+        if (imageField) {
+          const base64_string = imageField.replace(/^data:image\/\w+;base64,/, '');
+          const imageBuffer = Buffer.from(base64_string, 'base64');
+          const imageName = `${muca.dbid}__${imageIndex}.jpeg`;
+          const fileLocation = `public/files/oglasi_muce/${imageName}`;
+          try {
+            fs.writeFileSync(fileLocation, imageBuffer, { encoding:"base64" });
+          } catch (err) {
+            console.error(err);
+          }
+          muca[`file_name${imageIndex}`] = imageName;
+        }
+
+        const largeImageField = req.body[`slika${imageIndex}_large_crop`];
+        if (largeImageField) {
+          const base64_string = largeImageField.replace(/^data:image\/\w+;base64,/, '');
+          const imageBuffer = Buffer.from(base64_string, 'base64');
+          const imageName = `${muca.dbid}__${imageIndex}_large.jpeg`;
+          const fileLocation = `public/files/oglasi_muce/${imageName}`;
+          try {
+            fs.writeFileSync(fileLocation, imageBuffer, { encoding:"base64" });
+          } catch (err) {
+            console.error(err);
+          }
+          muca[`file_name${imageIndex}_large`] = imageName;
+        }
+      }
     });
 
-      // resetiraj vet status pri muci
-      muca.vet = { s_k: false, cipiranje: false, cepljenje: false,
-                   razparazit: false, felv: false, fiv: false };
+    // if (req.body.slika1_crop) {
+    //   var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
+    //   var imageBuffer = Buffer.from(base64_string, 'base64');
+    //   var imageName = muca.dbid + "_" + "_1" + ".jpeg";
+    //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+    //   try {
+    //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+    //   } catch (e) {
+    //     console.error(e);
+    //   }
+    //   muca.file_name1 = imageName;
+    //   muca.save(function (err) {
+    //     if (err) return handleError(err);
+    //     // saved!
+    //   });
+    // }
 
-      // ponovno nastavi
-      for(var key in req.body.vet) {
-        muca.vet[key] = req.body.vet[key];
-      }
+      // if(req.body.slika1_large_crop) {
+      //   var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_1_large" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name1_large = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      muca.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
+      // if(req.body.slika2_crop) {
+      //   var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_2" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name2 = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      // spremeni datum 'sprejema' pri muci ki gre v nov dom (ali je prišla nazaj)
-      if(gre_v_nov_dom || (req.body.status != 4 && muca.status == 4)) {
-        muca.datum = moment();
-        muca.datum_objave = moment();
-      }
+      // if(req.body.slika2_large_crop) {
+      //   var base64_string = req.body.slika2_large_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_2_large" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name2_large = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      muca.save(function (err) {
-        if (err) return handleError(err);
-        // saved!
-      });
+      // if(req.body.slika3_crop) {
+      //   var base64_string = req.body.slika3_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_3" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name3 = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      if(req.body.slika1_crop) {
-        var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_1" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name1 = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
+      // if(req.body.slika3_large_crop) {
+      //   var base64_string = req.body.slika3_large_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_3_large" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name3_large = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      if(req.body.slika1_large_crop) {
-        var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_1_large" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name1_large = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
+      // if(req.body.slika4_crop) {
+      //   var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_4" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name4 = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      if(req.body.slika2_crop) {
-        var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_2" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name2 = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
+      // if(req.body.slika4_large_crop) {
+      //   var base64_string = req.body.slika4_large_crop.replace(/^data:image\/\w+;base64,/, "");
+      //   var imageBuffer = Buffer.from(base64_string, 'base64');
+      //   var imageName = muca.dbid + "_" + "_4_large" + ".jpeg";
+      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
+      //   try {
+      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
+      //   } catch (e) {
+      //     console.error(e);
+      //   }
+      //   muca.file_name4_large = imageName;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
-      if(req.body.slika2_large_crop) {
-        var base64_string = req.body.slika2_large_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_2_large" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name2_large = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if(req.body.slika3_crop) {
-        var base64_string = req.body.slika3_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_3" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name3 = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if(req.body.slika3_large_crop) {
-        var base64_string = req.body.slika3_large_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_3_large" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name3_large = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if(req.body.slika4_crop) {
-        var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_4" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name4 = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if(req.body.slika4_large_crop) {
-        var base64_string = req.body.slika4_large_crop.replace(/^data:image\/\w+;base64,/, "");
-        var imageBuffer = Buffer.from(base64_string, 'base64');
-        var imageName = muca.dbid + "_" + "_4_large" + ".jpeg";
-        var fileLocation = "public/files/oglasi_muce/" + imageName;
-        try {
-          fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-        } catch (e) {
-          console.error(e);
-        }
-        muca.file_name4_large = imageName;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if (req.body.slika1_delete) {
-        muca.file_name1 = undefined;
-        muca.file_name1_large = undefined;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if (req.body.slika2_delete) {
-        muca.file_name2 = undefined;
-        muca.file_name2_large = undefined;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if (req.body.slika3_delete) {
-        muca.file_name3 = undefined;
-        muca.file_name3_large = undefined;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
-
-      if (req.body.slika4_delete) {
-        muca.file_name4 = undefined;
-        muca.file_name4_large = undefined;
-        muca.save(function (err) {
-          if (err) return handleError(err);
-          // saved!
-        });
-      }
+      // if (req.body.slika1_delete) {
+      //   muca.file_name1 = undefined;
+      //   muca.file_name1_large = undefined;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
+      //
+      // if (req.body.slika2_delete) {
+      //   muca.file_name2 = undefined;
+      //   muca.file_name2_large = undefined;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
+      //
+      // if (req.body.slika3_delete) {
+      //   muca.file_name3 = undefined;
+      //   muca.file_name3_large = undefined;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
+      //
+      // if (req.body.slika4_delete) {
+      //   muca.file_name4 = undefined;
+      //   muca.file_name4_large = undefined;
+      //   muca.save(function (err) {
+      //     if (err) return handleError(err);
+      //     // saved!
+      //   });
+      // }
 
     // če gre v nov dom
-    if(gre_v_nov_dom) {
-      Oskrbnica.find({}, function(err, oskrbnice){
-        if(err) {
+    if (greVNovDom) {
+      Oskrbnica.find({}, (err, oskrbnice) => {
+        if (err) {
           req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
           return res.redirect("/admin/muce/iscejo");
         }
@@ -749,22 +718,15 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
             }
         });
 
-        // create array with email addresses
-        var mailing_seznam = [];
-        oskrbnice.forEach(function(oskrbnica){
-          mailing_seznam.push(oskrbnica.email);
-        });
-
         // gre/gresta
-        var subject_stevilo = "gre";
-        if(muca.nacin_posvojitve == "v_paru") {
+        let subject_stevilo = 'gre';
+        if (muca.nacin_posvojitve === "v_paru") {
           subject_stevilo = "gresta";
         }
 
-        // html zapis
-        var html_zapis = "";
+        let html_zapis = '';
         html_zapis += "<h3>" + muca.ime + " ";
-        if(muca.nacin_posvojitve == "v_paru") {
+        if (muca.nacin_posvojitve === "v_paru") {
           html_zapis += "gresta ";
         } else {
           html_zapis += "gre ";
@@ -773,31 +735,34 @@ router.put("/muce/:id", middleware.isLoggedIn, function(req, res){
         html_zapis += "</h3><p>";
         html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
         html_zapis += "</p>";
-        html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>"
+        html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>";
 
-        // setup email data with unicode symbols
         let mailOptions = {
             from: process.env.NOTIF_MAIL, // sender address
-            to: mailing_seznam, // list of receivers
+            to: oskrbnice, // list of receivers
             subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
             text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
             html: html_zapis // html body
         };
 
-        // send mail with defined transport object
         transporter.sendMail(mailOptions, (error, info) => {
-            if(error) {
+            if (error) {
               req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
               return res.redirect("/admin/muce/iscejo");
             }
             console.log('Message sent: %s', info.messageId);
         });
       });
-    };
+    }
 
-      // muca.save();
-      req.flash("success", "Podatki muce posodobljeni. Če na spletni strani ne vidiš spremembe, moraš v brskalniku izbrisati predpomnilnik.");
-      res.send({redirect: '/admin/muce/iscejo'});
+    muca.save(function (err) {
+      if (err) {
+        return console.log(err);
+      }
+    });
+
+    req.flash("success", "Podatki muce posodobljeni. Če na spletni strani ne vidiš spremembe, moraš v brskalniku izbrisati predpomnilnik.");
+    res.send({ redirect: '/admin/muce/iscejo' });
   });
 });
 // END MUCE

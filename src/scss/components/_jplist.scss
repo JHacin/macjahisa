@@ -1,0 +1,31 @@
+.jplist-hidden {
+    display: none;
+}
+
+.jplist-pagination {
+    @extend .pagination, .justify-content-center, .flex-wrap;
+
+    .jplist-pagingprev {
+        @extend .pagination;
+    }
+
+    .jplist-pagingmid {
+        @extend .pagination;
+
+        .jplist-pagesbox {
+            @extend .pagination, .flex-wrap;
+        }
+    }
+
+    .jplist-pagingnext {
+        @extend .pagination;
+    }
+
+    button {
+        @extend .page-link, .text-dark;
+
+        &.jplist-current {
+            @extend .bg-gray-1;
+        }
+    }
+}

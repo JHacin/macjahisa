@@ -17905,6 +17905,9 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _js_mobile_nav__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_js_mobile_nav__WEBPACK_IMPORTED_MODULE_2__);
 /* harmony import */ var _js_slide_toggle__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./js/slide_toggle */ "./src/js/slide_toggle.js");
 /* harmony import */ var _js_slide_toggle__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_js_slide_toggle__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _js_seznam_muc__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./js/seznam_muc */ "./src/js/seznam_muc.js");
+/* harmony import */ var _js_seznam_muc__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(_js_seznam_muc__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -17944,6 +17947,31 @@ $(document).ready(() => {
             toggleClickedCategory();
         }
     });
+});
+
+
+/***/ }),
+
+/***/ "./src/js/seznam_muc.js":
+/*!******************************!*\
+  !*** ./src/js/seznam_muc.js ***!
+  \******************************/
+/*! no static exports found */
+/***/ (function(module, exports) {
+
+$(document).ready(() => {
+    const $seznamMuc = $('.seznam-muc');
+    if ($seznamMuc.length) {
+        $seznamMuc.jplist({
+            itemsBox: '.seznam-muc-list',
+            itemPath: '.seznam-muc-list-item',
+            panelPath: '.jplist-panel',
+            animateToTop: 'html, body',
+            animateToTopDuration: 500,
+            effect: 'fade',
+            duration: 300,
+        });
+    }
 });
 
 

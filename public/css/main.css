@@ -81,16 +81,6 @@ a {
   margin: 0 auto;
 }
 
-.jplist-icon {
-  height: 35px;
-  line-height: 35px;
-}
-
-.jplist-panel .jplist-pagination button:focus,
-.jplist-panel .jplist-pagination button:active {
-  outline: 0;
-}
-
 /* IZOBRAŽEVANJE */
 .izobrazevalne-vsebine {
   display: -webkit-box;
@@ -354,25 +344,6 @@ input.paypal_btn,
     background: #131313c2;
     color: #dbdbdb;
   }
-
-  .muca h2 a:hover {
-    color: #000000;
-    font-weight: 700;
-  }
-
-  .muca:hover .muca_img a img {
-    filter: sepia(40%);
-  }
-
-  .v-novem-domu_muca:hover .muca_img a img {
-    filter: sepia(40%);
-  }
-
-  .jplist-panel button:hover {
-    cursor: pointer;
-    color: #343a40;
-  }
-
   .paginator a li:hover {
     font-weight: 500;
   }

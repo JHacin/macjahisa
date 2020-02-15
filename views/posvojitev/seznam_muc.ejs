@@ -1,0 +1,99 @@
+<% include ../partials/header %>
+<% include ../partials/functions/muce %>
+
+<%
+ function getMucaClasses(muca) {
+     return starostNum(muca.mesec_rojstva) >= 12 ? 'nad1' : 'do1';
+ }
+%>
+
+<div class="with-bootstrap">
+    <div class="container seznam-muc">
+        <h1 class="mt-4"><%= podstran.naslov %></h1>
+        <div><%- podstran.vsebina %></div>
+
+        <div class="jplist-panel my-4 mb-md-5">
+            <div class="form-row align-items-center justify-content-center">
+                <div class="col-auto">
+                    <label class="sr-only" for="seznam-muc-isci-po-imenu">Išči po imenu</label>
+                    <div class="input-group">
+                        <input
+                            type="text"
+                            class="form-control"
+                            id="seznam-muc-isci-po-imenu"
+                            data-path=".muca-ime"
+                            value=""
+                            placeholder="Išči po imenu..."
+                            data-control-type="textbox"
+                            data-control-name="ime-filter"
+                            data-control-action="filter"
+                        />
+                        <div class="input-group-append">
+                            <div class="input-group-text"><i class="fas fa-search"></i></div>
+                        </div>
+                    </div>
+                </div>
+                <div
+                    class="jplist-group col-auto mx-4 my-3"
+                    data-control-type="checkbox-group-filter"
+                    data-control-action="filter"
+                    data-control-name="starost"
+                >
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="do1" data-path=".do1" checked>
+                        <label class="form-check-label" for="do1">Do 1. leta</label>
+                    </div>
+                    <div class="form-check form-check-inline">
+                        <input class="form-check-input" type="checkbox" id="nad1" data-path=".nad1" checked>
+                        <label class="form-check-label" for="nad1">Od 1. leta dalje</label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row seznam-muc-list">
+            <% muce.forEach(function(muca) {  %>
+                <a
+                    class="seznam-muc-list-item col-12 col-sm-6 col-md-4 col-xl-3 no-underline rounded <%= getMucaClasses(muca) %>"
+                    href="/posvojitev/muce/<%= muca.dbid %>"
+                >
+                    <img
+                        src="/files/oglasi_muce/<%= muca.file_name1 %>"
+                        alt="<%= muca.ime %>"
+                        class="img-fluid hover-sepia rounded-top"
+                    />
+                    <div class="bg-gray-1 text-dark text-center py-1 px-2 rounded-bottom">
+                        <div class="muca-ime font-size-lg"><%= muca.ime %></div>
+                        <div><small>Starost: <%= starostVMesecih(muca.mesec_rojstva) %></small></div>
+                    </div>
+                </a>
+            <% }); %>
+        </div>
+
+        <h3 class="jplist-no-results text-center mb-6">Ni rezultatov.</h3>
+
+        <div class="jplist-panel mt-3 mb-5">
+            <nav aria-label="Premakni se na drugo stran">
+                <div
+                    class="jplist-pagination"
+                    data-control-type="pagination"
+                    data-control-name="paging"
+                    data-control-action="paging"
+                    data-items-per-page="20"
+                    data-control-animate-to-top="true"
+                ></div>
+            </nav>
+            <div class="text-center">
+                <small
+                    class="jplist-label"
+                    data-type="Stran {current} od {pages}"
+                    data-control-type="pagination-info"
+                    data-control-name="paging"
+                    data-control-action="paging"
+                ></small>
+            </div>
+        </div>
+    </div>
+</div>
+
+<% include ../partials/footer %>

@@ -2,7 +2,6 @@ var mongoose = require("mongoose");
 
 var mucaSchema = new mongoose.Schema({
   dbid: Number,
-  // user_id: Number,
   datum: Date,
   datum_objave: Date,
   izpostavljena: Boolean,
@@ -10,7 +9,6 @@ var mucaSchema = new mongoose.Schema({
   ime: String,
   mesec_rojstva: Date,
   starost: String,
-  // id_starostne_kategorije: Number,
   spol: Number,
   opis: String,
   kontakt: String,
@@ -24,14 +22,6 @@ var mucaSchema = new mongoose.Schema({
   file_name4_large: String,
   posvojitev_na_daljavo: {type: Number, default: 0},
   boter_povezava: String,
-  // posvojitev_na_daljavo_zgodovina: Number,
-  // objavi_zgodbo: Number,
-  // zgodba: String,
-  // zgodba_file_name1: String,
-  // zgodba_file_name2: String,
-  // zgodba_file_name3: String,
-  // last_update: Date,
-  // add_date: {type: Date, default: Date.now()},
   vet: {
     s_k: { type: Boolean, default: true },
     cipiranje: { type: Boolean, default: true },

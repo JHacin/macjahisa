@@ -9,10 +9,10 @@ router.get('/muce', (req, res) => {
         Muca.find()
             .where('status')
             .in([1, 2])
-            .sort({ datum_objave: -1 })
+            .sort({ izpostavljena: -1, datum_objave: -1 })
             .exec(function(err, muce) {
                 if (err) return res.render('500');
-                res.render('posvojitev/muce', {
+                res.render('posvojitev/seznam_muc', {
                     podstran: podstran,
                     sidebar_muce: req.sidebar_muce,
                     title: 'Muce, ki iščejo dom | Mačja hiša',
@@ -27,7 +27,7 @@ router.get('/muce/:id', (req, res) => {
     Muca.findOne({ dbid: req.params.id }, (err, muca) => {
         if (muca === null) return res.render('404');
         if (err) return res.render('500');
-        res.render('posvojitev/prikaz', {
+        res.render('posvojitev/individualna_muca', {
             muca: muca,
             sidebar_muce: req.sidebar_muce,
             title: muca.ime + ' | Mačja hiša',

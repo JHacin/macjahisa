@@ -31,7 +31,7 @@ $(document).ready(function() {
     }, 250);
 
     function hasScrolled() {
-        var scrollTop = $(this).scrollTop();
+        const scrollTop = $(this).scrollTop();
 
         if (Math.abs(lastScrollTop - scrollTop) <= delta) {
             return;
@@ -57,15 +57,6 @@ $(document).ready(function() {
         $('.navbar').removeClass('open_mobile');
         $('body').removeClass('navbar_fixed');
     });
-
-    // MUCE LIST
-    if ($('.muce_seznam').length >= 1) {
-        $('.muce_seznam').jplist({
-            itemsBox: '.list',
-            itemPath: '.list-item',
-            panelPath: '.jplist-panel',
-        });
-    }
 
     // MUCA IMAGE SLIDER
     if ($('.photos').length >= 1) {
