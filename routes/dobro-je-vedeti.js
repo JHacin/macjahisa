@@ -42,24 +42,34 @@ router.get('/letaki', function(req, res) {
     });
 });
 
-router.get('/prispevki-clanki-povezave', function(req, res) {
-    Podstran.findOne({ naslov: 'Prispevki, članki, povezave' }, function(err, podstran) {
-        if (err) return res.render('500');
-        Clanek.find({}, function(err, clanki) {
-            if (err) return res.render('500');
+router.get('/prispevki-clanki-povezave', (req, res) => {
+    Podstran.findOne({ naslov: 'Prispevki, članki, povezave' }, (err, podstran) => {
+        if (err) {
+            return res.render('500');
+        }
+
+        Clanek.find({ objava: "1" }, (err, clanki) => {
+            if (err) {
+                return res.render('500');
+            }
             res.render('dobro-je-vedeti/prispevki-clanki-povezave', {
                 sidebar_muce: req.sidebar_muce,
                 title: 'Prispevki, članki, povezave | Mačja hiša',
                 podstran: podstran,
-                clanki: clanki,
+                prispevki: clanki.filter(clanek => clanek.kategorija === 'prispevki'),
+                nasveti: clanki.filter(clanek => clanek.kategorija === 'nasveti'),
+                zdravje: clanki.filter(clanek => clanek.kategorija === 'zdravje'),
+                zakonodaja: clanki.filter(clanek => clanek.kategorija === 'zakonodaja'),
             });
         });
     });
 });
 
-router.get('/prispevki-clanki-povezave/:id', function(req, res) {
-    Clanek.findOne({ dbid: req.params.id }, function(err, clanek) {
-        if (err) return res.render('500');
+router.get('/prispevki-clanki-povezave/:id', (req, res) => {
+    Clanek.findOne({ dbid: req.params.id }, (err, clanek) => {
+        if (err) {
+            return res.render('500');
+        }
 
         if (clanek.tip === 'besedilo') {
             res.render('dobro-je-vedeti/clanek', {
