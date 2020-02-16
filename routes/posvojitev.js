@@ -10,8 +10,10 @@ router.get('/muce', (req, res) => {
             .where('status')
             .in([1, 2])
             .sort({ izpostavljena: -1, datum_objave: -1 })
-            .exec(function(err, muce) {
-                if (err) return res.render('500');
+            .exec((err, muce) => {
+                if (err) {
+                    return res.render('500');
+                }
                 res.render('posvojitev/seznam_muc', {
                     podstran: podstran,
                     sidebar_muce: req.sidebar_muce,
@@ -25,14 +27,30 @@ router.get('/muce', (req, res) => {
 
 router.get('/muce/:id', (req, res) => {
     Muca.findOne({ dbid: req.params.id }, (err, muca) => {
-        if (muca === null) return res.render('404');
-        if (err) return res.render('500');
+        if (err) {
+            return res.render('500');
+        }
+        if (!muca) {
+            return res.render('404');
+        }
+
+        const slike = [1, 2, 3, 4]
+            .filter(i => muca[`file_name${i}`] && muca[`file_name${i}`] !== 'NULL')
+            .map(i => muca[`file_name${i}`]);
+
+        const slike_large = [1, 2, 3, 4].map(i =>
+            muca[`file_name${i}_large`] && muca[`file_name${i}_large`] !== 'NULL'
+                ? muca[`file_name${i}_large`]
+                : null
+        );
+
         res.render('posvojitev/individualna_muca', {
             muca: muca,
-            sidebar_muce: req.sidebar_muce,
-            title: muca.ime + ' | Mačja hiša',
+            slike: slike,
+            slike_large: slike_large,
+            title: `${muca.ime} | Mačja hiša`,
             social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
-            social_image: 'http://' + req.headers.host + '/files/oglasi_muce/' + muca.file_name1,
+            social_image: `${req.secure ? 'https://' : 'http://'}${req.headers.host}/files/oglasi_muce/${muca.file_name1}`,
             needsSlickSlider: true,
         });
     });

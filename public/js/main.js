@@ -59,23 +59,20 @@ $(document).ready(function() {
     });
 
     // MUCA IMAGE SLIDER
-    if ($('.photos').length >= 1) {
-        $('.photos').slick({
-            dots: false,
+    const $individualCatPhotos = $('.cat-photos');
+    if ($individualCatPhotos.length) {
+        $individualCatPhotos.slick({
             arrows: true,
             infinite: true,
             speed: 700,
             autoplay: true,
             autoplaySpeed: 3500,
-            slidesToShow: 1,
-            centerMode: false,
-            variableWidth: true,
+            slidesToShow: 2,
+            slidesToScroll: 1,
             responsive: [
                 {
                     breakpoint: 768,
                     settings: {
-                        variableWidth: false,
-                        centerMode: false,
                         slidesToShow: 1,
                         autoplay: true,
                     },

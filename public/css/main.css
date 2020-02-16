@@ -128,10 +128,6 @@ a {
 
 /* Enable hover effects only on large screens */
 @media all and (min-width: 1140px) {
-  #imageZoom:hover {
-    color: #131313c2;
-  }
-
   .i_jumbo_button:hover {
     cursor: pointer;
   }
@@ -225,12 +221,6 @@ a {
     cursor: pointer;
     color: #e5e5e5;
     background: #515151;
-  }
-
-  #imageZoom:hover {
-    cursor: pointer;
-    background: #131313c2;
-    color: #dbdbdb;
   }
 
   .side_btn a:hover {

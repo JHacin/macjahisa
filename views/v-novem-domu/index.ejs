@@ -10,7 +10,7 @@
                 </div>
 
                 <div class="row">
-                    <% muce.forEach(function(muca){ %>
+                    <% muce.forEach(muca => { %>
                         <div class="seznam-muc-list-item col-12 col-sm-6 col-md-4 col-xl-3 no-underline rounded">
                             <img
                                 src="/files/oglasi_muce/<%= muca.file_name1 %>"
@@ -31,7 +31,6 @@
                 <% if (totalPages > 0) { %>
                     <nav aria-label="Premikanje po straneh">
                         <ul class="pagination justify-content-center">
-
                             <% if (currentPage != 1) { %>
                                 <li class="page-item">
                                     <a href="/v-novem-domu/1" class="page-link">
@@ -88,7 +87,6 @@
                                     </a>
                                 </li>
                             <% } %>
-
                         </ul>
                     </nav>
                 <% } %>

@@ -68,18 +68,6 @@
   font-family: 'Nunito', sans-serif;
 }
 
-
-/* MUCE */
-
-  /* seznam */
-  .data_title_row {
-    font-size: 15px;
-  }
-
-  .data_row {
-    font-size: 14px;
-  }
-
 /* VITA */
 .vita_category_box a {
   font-size: 18px;
@@ -127,13 +115,5 @@
   .i_edu > h1,
   .i_boter h1 {
     font-size: 30px;
-  }
-
-  .data_title_row {
-    font-size: 14px;
-  }
-
-  .data_row {
-    font-size: 13px;
   }
 }

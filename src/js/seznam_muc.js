@@ -7,7 +7,6 @@ $(document).ready(() => {
             panelPath: '.jplist-panel',
             animateToTop: 'html, body',
             animateToTopDuration: 500,
-            effect: 'fade',
             duration: 300,
         });
     }
