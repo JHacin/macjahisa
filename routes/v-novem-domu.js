@@ -1,51 +1,39 @@
-var express             = require("express");
-var router              = express.Router({mergeParams: true});
-var Podstran = require("../models/podstran");
-var Muca = require("../models/muca");
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const Podstran = require('../models/podstran');
+const Muca = require('../models/muca');
 
-// router.get("/", function(req, res){
-//   Podstran.findOne({url: "v-novem-domu"}, function(err, podstran){
-//     Muca.find().where("status").equals(4).sort({datum: -1}).exec(function(err, muce){
-//       res.render("v-novem-domu/index",
-//       {
-//         muce: muce,
-//         podstran: podstran,
-//
-//         sidebar_muce: req.sidebar_muce,
-//         title: podstran.naslov + " | Mačja hiša"
-//       });
-//     });
-//   });
-// });
+router.get('/:page', function(req, res, next) {
+  const perPage = 20;
+  const currentPage = req.params.page || 1;
 
-router.get("/:page", function(req, res, next){
-  var perPage = 20;
-  var page = req.params.page || 1;
+  Podstran.findOne({ naslov: 'V novem domu' }, (err, podstran) => {
+        Muca.find({})
+            .where('status')
+            .equals(4)
+            .sort({ datum_objave: -1 })
+            .skip(perPage * currentPage - perPage)
+            .limit(perPage)
+            .exec((err, muce) => {
+                Muca.where('status')
+                    .equals(4)
+                    .count()
+                    .exec((err, count) => {
+                        if (err) {
+                          return next(err);
+                        }
 
-  // najdi podstran
-  Podstran.findOne({naslov: "V novem domu"}, function(err, podstran){
-    // najdi muce po 9 naenkrat
-    Muca
-      .find({})
-      .where("status").equals(4)
-      .sort({datum_objave: -1})
-      .skip((perPage * page) - perPage)
-      .limit(perPage)
-      .exec(function(err, muce){
-        Muca.where("status").equals(4).count().exec(function(err, count){
-          if(err) return next(err);
-          res.render("v-novem-domu/index", {
-            podstran: podstran,
-            title: podstran.naslov + " | Mačja hiša",
-            sidebar_muce: req.sidebar_muce,
-            muce: muce,
-            current: page,
-            pages: Math.ceil(count / perPage),
-            stevilo: count
-          });
-        });
+                        res.render('v-novem-domu/index', {
+                            podstran: podstran,
+                            title: podstran.naslov + ' | Mačja hiša',
+                            muce: muce,
+                            currentPage: Number(currentPage),
+                            totalPages: Math.ceil(count / perPage),
+                            steviloVseh: count,
+                        });
+                    });
+            });
     });
-  });
 });
 
 module.exports = router;

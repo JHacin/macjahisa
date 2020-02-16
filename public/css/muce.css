@@ -49,15 +49,6 @@
   margin-bottom: 1rem;
 }
 
-.v-novem-domu_muca h2 {
-  color: rgb(255, 255, 255);
-  color: rgba(255, 255, 255, 0.8);
-  font-size: 20px;
-  font-weight: 700;
-  text-decoration: none;
-  color: #3f3f3f;
-}
-
 /* FULL PAGE */
 #back_to_cats_list_link {
   color: #939393;
@@ -270,100 +261,5 @@
 
 .boter_true a {
   font-weight: 600;
-  color: #343a40;
-}
-
-/* V NOVEM DOMU */
-#v-novem-domu_container {
-  margin-top: 2rem;
-}
-
-.v-novem-domu_muca {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  margin-bottom: 1em;
-  width: 100%;
-}
-
-.v-novem-domu_muca h2 {
-  margin: 0.2rem 0 0.5rem 0;
-}
-
-.v-novem-domu_muca .muca_odhod {
-  text-align: center;
-  padding: 0 0.5em 0.5em 0.5em;
-  background: #dbdbdb;
-  border-top: none;
-  font-style: italic;
-  font-size: 14px;
-}
-
-/* PAGINATOR */
-ul.paginator {
-  list-style: none;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  padding: 0;
-}
-
-.paginator a {
-  text-align: center;
-  border: 1px solid #ddd;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  font-family: "Open Sans", sans-serif;
-  width: 35px;
-  font-size: 14px;
-  height: 35px;
-  line-height: 35px;
-  -webkit-transition: none;
-  -o-transition: none;
-  transition: none;
-  padding: 0;
-  font-weight: 500;
-  margin: 10px 10px 0 0;
-  border-radius: 3px;
-  background: rgb(230, 230, 230);
-  background: rgba(230, 230, 230, 0.4);
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  -webkit-box-pack: center;
-  -ms-flex-pack: center;
-  justify-content: center;
-  -webkit-box-align: center;
-  -ms-flex-align: center;
-  align-items: center;
-  text-decoration: none;
-}
-
-.paginator a i {
-  vertical-align: middle;
-}
-
-.paginator a li {
-  -webkit-transition: all 0.2s ease;
-  -o-transition: all 0.2s ease;
-  transition: all 0.2s ease;
-  font-weight: 300;
-}
-
-.paginator_disabled {
   color: #343a40;
 }

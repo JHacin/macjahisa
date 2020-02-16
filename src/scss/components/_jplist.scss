@@ -22,7 +22,7 @@
     }
 
     button {
-        @extend .page-link, .text-dark;
+        @extend .page-link;
 
         &.jplist-current {
             @extend .bg-gray-1;

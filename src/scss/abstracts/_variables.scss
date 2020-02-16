@@ -58,6 +58,9 @@ $display2-weight: 600 !default;
 $display3-weight: 600 !default;
 $display4-weight: 600 !default;
 
+$component-active-bg: $gray-1 !default;
+$component-active-color: $dark !default;
+
 $link-color: $secondary !default;
 
 $nav-tabs-link-active-border-color: $color-black !default;
@@ -67,3 +70,5 @@ $input-btn-padding-y: .375rem !default;
 $input-btn-padding-x: 1rem !default;
 $input-btn-padding-y-lg: .5rem !default;
 $input-btn-padding-x-lg: 1.5rem !default;
+
+$pagination-color: $dark !default;

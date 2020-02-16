@@ -232,9 +232,6 @@ a {
     background: #131313c2;
     color: #dbdbdb;
   }
-  .paginator a li:hover {
-    font-weight: 500;
-  }
 
   .side_btn a:hover {
     color: #3f3f3f;
