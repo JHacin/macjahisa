@@ -105,12 +105,12 @@
 
 @media all and (max-width: 640px) {
   .slick-prev {
-    left: 4%;
+    left: 6%;
     z-index: 90001;
   }
 
   .slick-next {
-    right: 4%;
+    right: 6%;
     z-index: 90001;
   }
 
