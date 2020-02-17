@@ -27,45 +27,11 @@
 }
 
 /* Gumbi na prvi strani */
-.i_jumbo_button,
-.i_muce > a > button,
-.i_edu button,
-.i_boter button {
+.i_jumbo_button {
     font-size: 18px;
     padding: 10px 24px;
     font-weight: 600;
     font-family: 'Nunito', sans-serif;
-}
-
-.i_muca_txt a {
-  font-weight: 500;
-}
-
-/* Subtext na prvi strani */
-.help_item p,
-.i_boter_txt {
-  font-size: 16px;
-}
-
-/* Naslovi na prvi strani */
-.i_muce > .i_muce_head > h1,
-.i_help > h1,
-.i_edu > h1,
-.i_boter h1 {
-  font-size: 38px;
-  font-family: 'Nunito', sans-serif;
-  font-weight: 300;
-}
-
-/* Kako lahko pomagate */
-.help_item .fas {
-  font-size: 28px;
-}
-
-.help_item h3 {
-  font-weight: 600;
-  font-size: 24px;
-  font-family: 'Nunito', sans-serif;
 }
 
 /* VITA */
@@ -95,25 +61,8 @@
   }
 
   /* Gumbi na prvi strani */
-  .i_jumbo_button,
-  .i_muce > a > button,
-  .i_edu button,
-  .i_boter button {
+  .i_jumbo_button {
       font-size: 16px;
       padding: 8px 18px;
-  }
-
-  /* Subtext na prvi strani */
-  .help_item p,
-  .i_boter_txt {
-    font-size: 14px;
-  }
-
-  /* Naslovi na prvi strani */
-  .i_muce > .i_muce_head > h1,
-  .i_help > h1,
-  .i_edu > h1,
-  .i_boter h1 {
-    font-size: 30px;
   }
 }

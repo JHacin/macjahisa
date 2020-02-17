@@ -158,113 +158,9 @@
   .i_jumbo .slick-dots {
     bottom: 5%;
   }
-
-  .i_edu p,
-  .i_boter_txt {
-    font-size: 16px;
-  }
-
-  .i_boter > button {
-    padding: 10px 25px;
-  }
-
-  .i_muce {
-    padding-top: 40px;
-  }
-
-  .i_muca {
-    margin-bottom: 20px;
-    width: 80%;
-    max-width: 90%;
-  }
-
-  .i_muca_txt {
-    width: 100%;
-
-    padding: 10px 0;
-  }
-
-  .i_muca_img {
-    width: 100%;
-    min-height: 380px;
-  }
-
-
-  .i_help {
-    padding: 40px 0 20px 0;
-  }
-
-  .i_help h1 {
-    text-align: center;
-    font-size: 34px;
-    margin-bottom: 0.9em;
-  }
-
-  .help_reel {
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-  }
-
-  .help_item {
-    margin: 0 0 40px 0;
-    margin-bottom: 40px;
-    background-color: rgb(140, 140, 140);
-    background-color: rgba(140, 140, 140, 0.9);
-    width: 70%;
-  }
-
-  .i_edu {
-    padding: 40px 1em;
-  }
-
-  .i_edu_img {
-    margin: 0;
-    -ms-flex-pack: distribute;
-    justify-content: space-around;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    height: auto;
-    width: 90%;
-  }
-
-  .i_edu_img a {
-    text-align: center;
-  }
-
-  .i_edu h1 {
-    text-align: center;
-  }
-
-  .i_edu_img img {
-    height: auto;
-    max-width: 43%;
-    margin: 0 0 25px 0;
-  }
-
-  .i_edu p {
-    text-align: center;
-  }
-
-  .i_boter {
-    padding: 40px 0;
-  }
-
-  .i_boter_txt {
-    width: 90%;
-  }
 }
 
 @media all and (max-width: 640px) {
-  .i_muca_img {
-    min-height: 240px;
-  }
-
   .slick-prev {
     left: 4%;
     z-index: 90001;
@@ -281,17 +177,7 @@
   }
 }
 
-@media all and (max-width: 480px) {
-  .i_edu_img img {
-    margin: 0 0 20px 0;
-  }
-}
-
 @media all and (max-width: 360px) {
-  .i_edu_img img {
-    margin: 0 0 12px 0;
-  }
-
   a.menu-toggle.full {
     height: 55px;
   }
@@ -311,13 +197,5 @@
 
   .nav_menu_primary .fa-bars {
     font-size: 29px;
-  }
-
-  .i_muca {
-    margin-bottom: 10px;
-  }
-
-  .i_muca_img {
-    min-height: 190px;
   }
 }

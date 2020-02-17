@@ -206,21 +206,9 @@ a {
     box-shadow: none;
   }
 
-  .i_muca:hover .i_muca_img a img {
-    filter: sepia(40%);
-  }
-
   .clear input#mc-embedded-subscribe:hover {
     color: rgb(255, 255, 255);
     color: rgba(255, 255, 255, 0.9);
-  }
-
-  .i_edu button:hover,
-  .i_muce button:hover,
-  .i_boter button:hover {
-    cursor: pointer;
-    color: #e5e5e5;
-    background: #515151;
   }
 
   .side_btn a:hover {
