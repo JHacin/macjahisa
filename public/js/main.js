@@ -1,18 +1,4 @@
 $(document).ready(function() {
-    // SAFARI TEMPORARY FIX: prevents donate button from showing above mobile navbar
-    $(window).on('resize', function() {
-        var win = $(this); //this = window
-        var donateButton = $('.nav_donate > form > button');
-        var isNavActive = $('.stellarnav').hasClass('active');
-        if (!isNavActive) {
-            donateButton.removeClass('notVisible');
-        } else if (win.width() > 768) {
-            donateButton.removeClass('notVisible');
-        } else if (isNavActive) {
-            donateButton.addClass('notVisible');
-        }
-    });
-
     // SHOW OR HIDE NAVBAR DURING SCROLL
     var didScroll;
     var lastScrollTop = 0;

@@ -1,83 +1,13 @@
-.i_jumbo {
-  visibility: hidden !important;
-}
-.i_jumbo.slick-initialized {
-  visibility: visible !important;
-}
-
-body > div,
-body > main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  font-family: "Open Sans", sans-serif;
-}
-
-button a {
-  color: #3f3f3f;
-}
-
-a:focus {
-  outline: none !important;
-}
-
-button i {
-  vertical-align: bottom;
-}
-
-.nav_donate > form > button,
-.i_jumbo_button {
+.nav_donate > form > button {
   background-color: #ffcb00;
   transition: background-color 0.2s ease;
   box-shadow: 1px 1px #888888;
-  /* background-image: url("data:image/svg+xml,%3Csvg width='6' height='6' viewBox='0 0 6 6' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23abaaaa' fill-opacity='0.4' fill-rule='evenodd'%3E%3Cpath d='M5 0h1L0 6V5zM6 5v1H5z'/%3E%3C/g%3E%3C/svg%3E"); */
 }
 
 .nav_donate > form > button {
   box-shadow: none;
 }
 
-/* JUMBO */
-.naslovnica {
-  background: #3f3f3f;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  height: calc(60vh - 95px);
-}
-
-.i_jumbo_text {
-  color: #fff;
-  margin: 3% 0 0 3%;
-}
-
-.i_jumbo_title {
-  font-size: 80px;
-  font-weight: 700;
-  letter-spacing: 1px;
-  margin: 0;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
-
-.i_jumbo_subtitle {
-  font-size: 24px;
-  font-weight: 500;
-  margin: 15px 0 23px 0;
-  text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-}
-
-.i_jumbo_button {
-  border: none;
-  font-family: "Open Sans", sans-serif;
-  font-size: 24px;
-  letter-spacing: 1px;
-  padding: 12px 30px;
-  border-radius: 5px;
-}
 .divider {
   -webkit-box-pack: center;
   -ms-flex-pack: center;

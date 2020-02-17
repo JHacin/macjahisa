@@ -5,7 +5,6 @@
     border-right: 1px solid rgba(0, 0, 0, 0.08);
   }
 
-  /* MENU */
   .navbar {
     height: 55px;
     display: -webkit-box;
@@ -101,62 +100,6 @@
     padding: 0;
     border-radius: 0;
     font-weight: 700;
-  }
-  /* END MENU */
-
-  /* INDEX PAGE */
-
-  .naslovnica {
-    height: calc(70vh - 50px);
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-  }
-
-  .i_jumbo_title {
-    font-size: 50px;
-    text-align: center;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  }
-
-  .i_jumbo_subtitle {
-    text-align: center;
-    font-size: 20px;
-    font-weight: 500;
-    text-shadow: 1px 0 0 #000, 0 -1px 0 #000, 0 1px 0 #000, -1px 0 0 #000;
-  }
-
-  .i_jumbo_text {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-orient: vertical;
-    -webkit-box-direction: normal;
-    -ms-flex-direction: column;
-    flex-direction: column;
-    -webkit-box-pack: center;
-    -ms-flex-pack: center;
-    justify-content: center;
-    -webkit-box-align: center;
-    -ms-flex-align: center;
-    align-items: center;
-    margin: 0 5%;
-    height: 100%;
-  }
-
-  .i_jumbo_button {
-    font-size: 18px;
-  }
-
-  .i_jumbo .slick-dots {
-    bottom: 5%;
   }
 }
 

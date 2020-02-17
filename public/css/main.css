@@ -1,97 +1,7 @@
-body {
-  margin: 0;
-}
-
-figure {
-  margin: 0;
-}
-
-iframe {
-  max-width: 100%;
-}
-
-.notVisible {
-  /* visibility: hidden; */
-  display: none;
-}
-
-.nav_menu_primary.mobile.left > ul {
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transform-style: preserve-3d;
-  z-index: 99999;
-  -webkit-transform: translate3d(0, 0, 0);
-  -webkit-transform-style: preserve-3d;
-}
-
 .nav_menu_primary > ul > .nav_menu_primary_category:hover > a {
   color: #f2f2f2;
 }
 
-body > div:not(.with-bootstrap) > .container {
-  width: 1250px;
-  max-width: 1300px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  margin: 0 auto;
-}
-
-h1 {
-  font-size: 26px;
-}
-
-h2 {
-  font-size: 24px;
-}
-
-h3 {
-  font-size: 22px;
-}
-
-p {
-  margin-top: 0;
-  margin-bottom: 0.5em;
-}
-
-a {
-  text-decoration: none;
-}
-
-.main {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-
-.main > div > .container {
-  padding: 45px 0;
-  max-width: 1300px;
-  margin: 0 auto;
-}
-
-/* VITA */
-.vita_category_box a {
-  font-size: 18px;
-  text-decoration: none;
-  margin-bottom: 1.3rem;
-}
-
-.vita_category_box .fa {
-  font-size: 14px;
-  margin-left: 0.2rem;
-}
-
-
-
-/* SLICK */
 .slick-prev:before,
 .slick-next:before {
   color: #bbb !important;
@@ -99,10 +9,6 @@ a {
 
 .slick-slide:focus {
   outline: none;
-}
-
-.i_jumbo .slick-dots {
-  bottom: 10%;
 }
 
 .slick-dotted.slick-slider {
@@ -121,17 +27,8 @@ a {
   margin-right: 50px;
 }
 
-.i_jumbo .slick-dots li.slick-active button:before {
-  opacity: 1;
-  color: #ffcb00;
-}
-
 /* Enable hover effects only on large screens */
 @media all and (min-width: 1140px) {
-  .i_jumbo_button:hover {
-    cursor: pointer;
-  }
-
   .nav_menu_primary > ul > .nav_menu_primary_category:hover {
     background-color: #595959;
   }
@@ -157,30 +54,6 @@ a {
     cursor: pointer;
   }
 
-  .jumbo_button button:hover {
-    cursor: pointer;
-    background: rgb(255, 203, 0);
-    background: rgba(255, 203, 0, 0.75);
-  }
-
-  .nav_menu_primary .nav_kategorija > a:hover {
-    color: black;
-    cursor: pointer;
-  }
-
-  .nav_menu_primary .nav_podstran:hover {
-    background: #f3f3f3;
-  }
-
-  .nav_menu_primary .nav_podstran a:hover {
-    color: black;
-  }
-
-  .search button:hover {
-    cursor: pointer;
-    color: #e59400;
-  }
-
   .gsc-search-button-v2 svg:hover {
     cursor: pointer !important;
   }
@@ -194,8 +67,7 @@ a {
     box-shadow: none !important;
   }
 
-  .nav_donate > form > button:hover,
-  .i_jumbo_button:hover {
+  .nav_donate > form > button:hover {
     cursor: pointer;
     background-color: #ebebeb;
     color: #1f1f1f;
@@ -204,14 +76,5 @@ a {
 
   .nav_donate > form > button:hover {
     box-shadow: none;
-  }
-
-  .clear input#mc-embedded-subscribe:hover {
-    color: rgb(255, 255, 255);
-    color: rgba(255, 255, 255, 0.9);
-  }
-
-  .side_btn a:hover {
-    color: #3f3f3f;
   }
 }

@@ -7,62 +7,8 @@
   font-weight: 700;
 }
 
-/* Naslovnica */
-.i_jumbo_title {
-  font-size: 60px;
-  line-height: 60px;
-  font-weight: 600;
-  font-family: 'Nunito', sans-serif;
-  letter-spacing: 0;
-}
-
-.i_jumbo_subtitle {
-  font-size: 20px;
-  margin: 8px 0 20px 4px;
-  font-family: 'Nunito', sans-serif;
-}
-
-.naslovnica {
-  min-height: 400px;
-}
-
-/* Gumbi na prvi strani */
-.i_jumbo_button {
-    font-size: 18px;
-    padding: 10px 24px;
-    font-weight: 600;
-    font-family: 'Nunito', sans-serif;
-}
-
-/* VITA */
-.vita_category_box a {
-  font-size: 18px;
-  font-family: 'Nunito', sans-serif;
-}
-
 @media all and (max-width: 768px) {
-  /* Menu */
   .nav_donate > form > button {
     font-size: 23px;
-  }
-
-  /* Naslovnice */
-  .i_jumbo_title {
-    font-size: 42px;
-    line-height: 48px;
-  }
-
-  .i_jumbo_subtitle {
-    font-size: 18px;
-  }
-
-  .i_jumbo_text {
-    margin: 0 3%;
-  }
-
-  /* Gumbi na prvi strani */
-  .i_jumbo_button {
-      font-size: 16px;
-      padding: 8px 18px;
   }
 }

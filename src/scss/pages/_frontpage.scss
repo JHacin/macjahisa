@@ -3,3 +3,37 @@
         @extend .py-5;
     }
 }
+
+.index-slideshow {
+    @include media-breakpoint-up(sm) {
+        height: 600px;
+    }
+    height: 400px;
+
+    .slick-list,
+    .slick-track,
+    .index-slide {
+        height: 100%;
+    }
+
+    .slick-dots {
+        bottom: 1rem;
+
+        button:before {
+            color: $white;
+            opacity: 1;
+        }
+
+        .slick-active button:before {
+            color: $primary;
+        }
+    }
+}
+
+.slick-initialized .index-slide {
+    visibility: visible !important;
+}
+
+.index-slide {
+    visibility: hidden !important;
+}

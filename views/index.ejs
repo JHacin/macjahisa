@@ -1,22 +1,36 @@
 <% include ./partials/header %>
 
-<div class="i_jumbo">
-    <% naslovnice.forEach(function(naslovnica) { %>
-        <div class="naslovnica"
-             style="background-position: 50% <%= naslovnica.cssBackgroundPositionVertical %>%; background-image: url(/files/naslovnice/<%= naslovnica.ozadje %>);">
-            <div class="i_jumbo_text">
-                <h1 class="i_jumbo_title"><%- naslovnica.naslov %></h1>
-                <h2 class="i_jumbo_subtitle"><%- naslovnica.podnaslov.includes("steviloMucKiIscejoDom") ? 'Na svoj dom čaka ' + steviloMucKiIscejoDom + ' muc.' : naslovnica.podnaslov %></h2>
-                <a href="<%= naslovnica.povezava %>" target="<%= naslovnica.externalURL ? '_blank' : '_top' %>">
-                    <button class="i_jumbo_button"><%- naslovnica.napisNaGumbu %></button>
-                </a>
-            </div>
-        </div>
-    <% }); %>
-</div>
 <div class="with-bootstrap">
-    <!--Todo: join all sections under one .frontpage parent.-->
     <div class="frontpage">
+        <div class="index-slideshow">
+            <% naslovnice.forEach(naslovnica => {
+                const bgPos = `50% ${naslovnica.cssBackgroundPositionVertical}%`;
+                const bgUrl = `/files/naslovnice/${naslovnica.ozadje}`;
+                const subTitle = naslovnica.podnaslov.includes("steviloMucKiIscejoDom")
+                        ? `Na svoj dom čaka ${steviloMucKiIscejoDom} muc.`
+                        : naslovnica.podnaslov;
+            %>
+            <section
+                    class="index-slide bg-cover d-flex flex-column align-items-center align-items-md-start text-center text-md-left px-5"
+                    style="background-position: <%= bgPos %>; background-image: url(<%= bgUrl %>);"
+            >
+                <div class="text-white text-shadow">
+                    <h1 class="display-4 mb-3">
+                        <strong><%- naslovnica.naslov %></strong>
+                        <small class="h5 d-block mt-1"><%- subTitle %></small>
+                    </h1>
+                </div>
+                <a
+                    href="<%= naslovnica.povezava %>"
+                    target="<%= naslovnica.externalURL ? '_blank' : '_top' %>"
+                    class="btn btn-primary mt-auto mb-4 my-md-0"
+                >
+                    <%- naslovnica.napisNaGumbu %>
+                </a>
+            </section>
+            <% }); %>
+        </div>
+
         <section class="bg-dark text-light">
             <div class="container text-center">
                 <p class="mb-2">
@@ -30,23 +44,19 @@
                 </a>
             </div>
         </section>
-    </div>
-</div>
 
-<div class="with-bootstrap">
-    <div class="frontpage">
         <section class="container text-center">
             <h1 class="mb-0">Iščejo dom</h1>
             <div class="row my-2">
                 <% muce.forEach(muca => { %>
                     <a
-                        class="col-12 col-sm-6 col-lg-3 no-underline rounded my-2"
-                        href="/posvojitev/muce/<%= muca.dbid %>"
+                            class="col-12 col-sm-6 col-lg-3 no-underline rounded my-2"
+                            href="/posvojitev/muce/<%= muca.dbid %>"
                     >
                         <img
-                            src="/files/oglasi_muce/<%= muca.file_name1 %>"
-                            alt="<%= muca.ime %>"
-                            class="img-fluid hover-sepia rounded-top"
+                                src="/files/oglasi_muce/<%= muca.file_name1 %>"
+                                alt="<%= muca.ime %>"
+                                class="img-fluid hover-sepia rounded-top"
                         />
                         <div class="bg-gray-1 text-dark text-center py-1 px-2 rounded-bottom">
                             <h5 class="mb-0"><%= muca.ime %></h5>
@@ -67,11 +77,7 @@
                 <i class="fas fa-angle-double-right"></i>
             </a>
         </section>
-    </div>
-</div>
 
-<div class="with-bootstrap">
-    <div class="frontpage">
         <section class="bg-cover" style="background-image: url('/files/page/podpora2.JPG');">
             <div class="container text-center">
                 <h1 class="text-white text-shadow mb-3">Kako nas še lahko podprete?</h1>
@@ -132,11 +138,7 @@
                 </div>
             </div>
         </section>
-    </div>
-</div>
 
-<div class="with-bootstrap">
-    <div class="frontpage">
         <section class="container text-center">
             <h1>Zbirka Mačje hiše</h1>
             <div class="row my-1 justify-content-center">
@@ -162,12 +164,7 @@
                 Preberi več <i class="fas fa-angle-double-right"></i>
             </a>
         </section>
-    </div>
-</div>
 
-<div class="with-bootstrap">
-    <!--Todo: join all sections under one .frontpage parent.-->
-    <div class="frontpage">
         <section class="bg-cover" style="background-image: url('/images/backgrounds/front_doniraj.jpg');">
             <div class="container text-center">
                 <h3 class="text-shadow text-white mb-4">
@@ -176,10 +173,7 @@
                 <a href="/pomoc/donacije" class="btn btn-primary d-inline-flex align-items-center">Doniraj</a>
             </div>
         </section>
-    </div>
-</div>
-<div class="with-bootstrap">
-    <div class="frontpage">
+
         <section class="container text-center">
             <h1>Mačji boter</h1>
             <img src="/files/index/boter.png" alt="Mačji boter" class="img-fluid my-3" />
