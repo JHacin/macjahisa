@@ -122,7 +122,10 @@ router.get("/muce/iscejo", middleware.isLoggedIn, (req, res) => {
         '<br /><br /><strong><a href="http://www.macjahisa.si/posvojitev/muce" target="_blank">' +
         'Za vse muce, ki iščejo dom, klikni tukaj.</a></strong>';
 
-    let xml = xmlBuilder.create('trgovina').att('id', 'macja_hisa');
+    let xml = xmlBuilder.create('trgovina', {
+      encoding: 'UTF-8',
+      standalone: true
+    }).att('id', 'macja_hisa');
 
     muce.forEach(muca => {
       const description = muca.opis
@@ -149,7 +152,9 @@ router.get("/muce/iscejo", middleware.isLoggedIn, (req, res) => {
       } else {
         imageFields.forEach(imageField => {
           if (muca[imageField] !== undefined) {
-            xml = xml.ele('slika', 'http://www.macjahisa.si/files/oglasi_muce/' + muca[imageField]).up();
+            xml = xml.ele('slika', {
+              href: 'http://www.macjahisa.si/files/oglasi_muce/' + muca[imageField]
+            }).up();
           }
         });
         xml = xml.up();
