@@ -6,7 +6,6 @@ $(document).ready(() => {
             itemPath: '.seznam-muc-list-item',
             panelPath: '.jplist-panel',
             animateToTop: 'html, body',
-            effect: 'fade'
         });
     }
 });
