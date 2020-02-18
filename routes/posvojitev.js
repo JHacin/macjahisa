@@ -50,7 +50,9 @@ router.get('/muce/:id', (req, res) => {
             slike_large: slike_large,
             title: `${muca.ime} | Mačja hiša`,
             social_description: muca.opis.replace(/<(?:.|\n)*?>/gm, ''),
-            social_image: `${req.secure ? 'https://' : 'http://'}${req.headers.host}/files/oglasi_muce/${muca.file_name1}`,
+            social_image: `${req.secure ? 'https://' : 'http://'}${
+                req.headers.host
+            }/files/oglasi_muce/${muca.file_name1}`,
             needsSlickSlider: true,
         });
     });

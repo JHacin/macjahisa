@@ -46,7 +46,7 @@ router.get('/prispevki-clanki-povezave', (req, res) => {
             return res.render('500');
         }
 
-        Clanek.find({ objava: "1" }, (err, clanki) => {
+        Clanek.find({ objava: '1' }, (err, clanki) => {
             if (err) {
                 return res.render('500');
             }

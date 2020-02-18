@@ -4,10 +4,10 @@ const Podstran = require('../models/podstran');
 const Muca = require('../models/muca');
 
 router.get('/:page', function(req, res, next) {
-  const perPage = 20;
-  const currentPage = req.params.page || 1;
+    const perPage = 20;
+    const currentPage = req.params.page || 1;
 
-  Podstran.findOne({ naslov: 'V novem domu' }, (err, podstran) => {
+    Podstran.findOne({ naslov: 'V novem domu' }, (err, podstran) => {
         Muca.find({})
             .where('status')
             .equals(4)
@@ -20,7 +20,7 @@ router.get('/:page', function(req, res, next) {
                     .count()
                     .exec((err, count) => {
                         if (err) {
-                          return next(err);
+                            return next(err);
                         }
 
                         res.render('v-novem-domu/index', {

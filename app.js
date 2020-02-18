@@ -117,7 +117,6 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 app.get('/oglasi_xml_bolha.xml', (req, res) => {
-    console.log('hi');
     res.type('application/xml');
     res.sendFile(__dirname + '/oglasi_xml_bolha.xml');
 });

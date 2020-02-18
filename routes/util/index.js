@@ -4,7 +4,7 @@ module.exports = {
     renderGenericPage: (req, res) => {
         Podstran.findOne({ url: req.params.podstran }, (err, podstran) => {
             if (err) {
-                return res.render('500')
+                return res.render('500');
             }
             if (!podstran) {
                 return res.render('404');
@@ -16,5 +16,5 @@ module.exports = {
                 title: podstran.naslov + ' | Mačja hiša',
             });
         });
-    }
+    },
 };
