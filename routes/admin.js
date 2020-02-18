@@ -1,80 +1,80 @@
-var express = require("express");
-var router = express.Router({mergeParams: true});
-var Muca = require("../models/muca");
-var Clanek = require("../models/clanek");
-var Podstran = require("../models/podstran");
-var Naslovnica = require("../models/naslovnica");
-var Kategorija = require("../models/kategorija");
-var Kontakt = require("../models/kontakt");
-var Oskrbnica = require("../models/oskrbnica");
-var Izobrazevalna_vsebina = require("../models/izobrazevalna_vsebina");
-var Otroci_vsebina = require("../models/otroci_vsebina");
-var User = require("../models/user");
-var moment = require("moment");
-var passport = require("passport");
-var middleware = require("../middleware");
+const express = require('express');
+const router = express.Router({ mergeParams: true });
+const Muca = require('../models/muca');
+const Clanek = require('../models/clanek');
+const Podstran = require('../models/podstran');
+const Naslovnica = require('../models/naslovnica');
+const Kategorija = require('../models/kategorija');
+const Kontakt = require('../models/kontakt');
+const Oskrbnica = require('../models/oskrbnica');
+const Izobrazevalna_vsebina = require('../models/izobrazevalna_vsebina');
+const Otroci_vsebina = require('../models/otroci_vsebina');
+const User = require('../models/user');
+const moment = require('moment');
+const passport = require('passport');
+const middleware = require('../middleware');
 const nodemailer = require("nodemailer");
-var crypto = require("crypto");
-var async = require("async");
+const crypto = require('crypto');
+const async = require('async');
 const fs = require("fs");
 const xmlBuilder = require('xmlbuilder');
 
 // MULTER
-var multer = require("multer");
-var storage_muce = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files/oglasi_muce')
+const multer = require('multer');
+const storage_muce = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/files/oglasi_muce');
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname.replace(/[ )(]/g,''))
-  }
-})
-
-var storage_clanki = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files/clanki')
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + file.originalname.replace(/[ )(]/g, ''));
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname.replace(/[ )(]/g,''))
-  }
-})
+});
 
-var storage_izobrazevanje = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files/izobrazevanje')
+const storage_clanki = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/files/clanki');
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname.replace(/[ )(]/g,''))
-  }
-})
-
-var storage_otroci = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files/otroski-koticek')
+  filename: (req, file, cb) => {
+    cb(null, file.originalname.replace(/[ )(]/g, ''));
   },
-  filename: function (req, file, cb) {
-    cb(null, file.originalname.replace(/[ )(]/g,''))
-  }
-})
+});
 
-var storage_naslovnice = multer.diskStorage({
-  destination: function (req, file, cb) {
-    cb(null, 'public/files/naslovnice')
+const storage_izobrazevanje = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/files/izobrazevanje');
   },
-  filename: function (req, file, cb) {
-    cb(null, Date.now() + file.originalname.replace(/[ )(]/g,''))
-  }
-})
+  filename: (req, file, cb) => {
+    cb(null, file.originalname.replace(/[ )(]/g, ''));
+  },
+});
 
-var upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
-var upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
-var upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
-var upload_otroci = multer({ storage: storage_otroci, limits: { fieldSize: 25 * 1024 * 10240 } });
-var upload_naslovnice = multer({ storage: storage_naslovnice, limits: { fieldSize: 25 * 1024 * 10240 } });
+const storage_otroci = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/files/otroski-koticek');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.originalname.replace(/[ )(]/g, ''));
+  },
+});
+
+const storage_naslovnice = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, 'public/files/naslovnice');
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + file.originalname.replace(/[ )(]/g, ''));
+  },
+});
+
+const upload_muce = multer({ storage: storage_muce, limits: { fieldSize: 25 * 1024 * 10240 } });
+const upload_clanki = multer({ storage: storage_clanki, limits: { fieldSize: 25 * 1024 * 10240 } });
+const upload_izobrazevanje = multer({ storage: storage_izobrazevanje, limits: { fieldSize: 25 * 1024 * 10240 } });
+const upload_otroci = multer({ storage: storage_otroci, limits: { fieldSize: 25 * 1024 * 10240 } });
+const upload_naslovnice = multer({ storage: storage_naslovnice, limits: { fieldSize: 25 * 1024 * 10240 } });
 // END MULTER
 
 // INDEX ADMIN
-router.get("/", function(req, res){
+router.get("/", (req, res) => {
   if(req.user){
     return res.redirect("/admin/muce/iscejo");
   } else {
@@ -82,11 +82,11 @@ router.get("/", function(req, res){
   }
 });
 
-router.get("/login", function(req, res){
+router.get("/login", (req, res) => {
   res.render("admin/login");
 });
 
-router.get("/register", function(req, res){
+router.get("/register", (req, res) => {
   res.render("admin/register");
 });
 
@@ -95,21 +95,21 @@ router.post("/login", passport.authenticate("local",
     {
         successRedirect: "/admin/muce/iscejo",
         failureRedirect: "/admin/login"
-    }), function(req, res) {
+    }), (req, res) => {
 });
 
 // LOGOUT LOGIC
-router.get("/logout", function(req, res) {
+router.get("/logout", (req, res) => {
     req.logout();
     req.flash("success", "Odjava uspešna.");
     res.redirect("/admin/login");
 });
 
 // MUCE
-router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
+router.get("/muce/iscejo", middleware.isLoggedIn, (req, res) => {
 
   // MAKE XML FILES FOR BOLHA/SALOMON
-  Muca.find({}).where("status").in([1, 2]).exec(function(err, muce) {
+  Muca.find({}).where("status").in([1, 2]).exec((err, muce) => {
     if (err) {
       return console.error(err);
     }
@@ -124,7 +124,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
 
     let xml = xmlBuilder.create('trgovina').att('id', 'macja_hisa');
 
-    muce.forEach(function(muca) {
+    muce.forEach(muca => {
       const description = muca.opis
           .replace(/(<([^>]+)>)/ig, "")
           .replace(/&scaron;/g, "š")
@@ -168,7 +168,7 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
     fs.createWriteStream('oglasi_xml_salomon.xml').write(xml);
   });
 
-  Muca.find().where("status").in([1, 2]).sort({datum_objave: -1}).exec(function(err, muce) {
+  Muca.find().where("status").in([1, 2]).sort({datum_objave: -1}).exec((err, muce) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -178,8 +178,8 @@ router.get("/muce/iscejo", middleware.isLoggedIn, function(req, res){
 });
 
 // MUCE KI IŠČEJO BOTRA
-router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
-  Muca.find().where("posvojitev_na_daljavo").equals(1).where("status").in([1, 2, 3]).sort({datum_objave: -1}).exec(function(err, muce) {
+router.get("/muce/iscejo_botra", middleware.isLoggedIn, (req, res) => {
+  Muca.find().where("posvojitev_na_daljavo").equals(1).where("status").in([1, 2, 3]).sort({datum_objave: -1}).exec((err, muce) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -188,8 +188,8 @@ router.get("/muce/iscejo_botra", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
-  Muca.find().where("status").equals(4).sort({datum_objave: -1}).exec(function(err, muce) {
+router.get("/muce/v-novem-domu", middleware.isLoggedIn, (req, res) => {
+  Muca.find().where("status").equals(4).sort({datum_objave: -1}).exec((err, muce) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -198,8 +198,8 @@ router.get("/muce/v-novem-domu", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
-  Muca.find({}).sort({datum_objave: -1}).exec(function(err, muce) {
+router.get("/muce/arhiv", middleware.isLoggedIn, (req, res) => {
+  Muca.find({}).sort({datum_objave: -1}).exec((err, muce) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -208,9 +208,9 @@ router.get("/muce/arhiv", middleware.isLoggedIn, function(req, res){
   })
 });
 
-router.get("/muce/:id/edit/", middleware.isLoggedIn, function(req, res) {
-  Muca.findOne({dbid: req.params.id}, function(err, muca) {
-    Kontakt.find({}, function(err, kontakti){
+router.get("/muce/:id/edit/", middleware.isLoggedIn, (req, res) => {
+  Muca.findOne({dbid: req.params.id}, (err, muca) => {
+    Kontakt.find({}, (err, kontakti) => {
       if(err) {
         req.flash("error", "Prišlo je do napake v bazi podatkov.");
         return res.redirect("/admin/muce/iscejo");
@@ -220,8 +220,8 @@ router.get("/muce/:id/edit/", middleware.isLoggedIn, function(req, res) {
   })
 });
 
-router.get("/muce/add", middleware.isLoggedIn, function(req, res){
-  Kontakt.find({}, function(err, kontakti){
+router.get("/muce/add", middleware.isLoggedIn, (req, res) => {
+  Kontakt.find({}, (err, kontakti) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/muce/iscejo");
@@ -230,11 +230,11 @@ router.get("/muce/add", middleware.isLoggedIn, function(req, res){
   });
 });
 
-router.post("/muce", middleware.isLoggedIn, function(req, res) {
-    Muca.count({}, function(err, count){
+router.post("/muce", middleware.isLoggedIn, (req, res) => {
+    Muca.count({}, (err, count) => {
       // dodaj novo muco
-      Muca.create(req.body, function(err, novaMuca) {
-        if(err) {
+      Muca.create(req.body, (err, novaMuca) => {
+        if (err) {
           req.flash("error", "Prišlo je do napake.");
           return res.redirect("/admin/login");
         }
@@ -243,12 +243,12 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           novaMuca.izpostavljena = req.body.izpostavljena;
 
           // VET STATUS
-          for(var key in req.body.vet) {
+          for (let key in req.body.vet) {
             novaMuca.vet[key] = req.body.vet[key];
           }
 
           // slike
-          if(req.body.slika1_crop) {
+          if (req.body.slika1_crop) {
             var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
 
             var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -260,13 +260,9 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name1 = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
-          if(req.body.slika1_large_crop) {
+          if (req.body.slika1_large_crop) {
             var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
 
             var imageBuffer = Buffer.from(base64_string, 'base64');
@@ -278,10 +274,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name1_large = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika2_crop) {
@@ -295,10 +287,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name2 = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika2_large_crop) {
@@ -313,10 +301,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name2_large = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika3_crop) {
@@ -330,10 +314,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name3 = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika3_large_crop) {
@@ -348,10 +328,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name3_large = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika4_crop) {
@@ -365,10 +341,6 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name4 = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
           if(req.body.slika4_large_crop) {
@@ -383,22 +355,10 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
               console.error(e);
             }
             novaMuca.file_name4_large = imageName;
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
-          // poprava imen (ki vključujejo nepotreben CAPS LOCK)
-          var ime = req.body.ime;
-          // ime = ime.toLowerCase();
-          // ime = ime.charAt(0).toUpperCase() + ime.slice(1);
-          // if(ime.indexOf(" in ") != -1) {
-          //   var index = ime.indexOf(" in ");
-          //   ime = ime.substring(0, index + 4) + ime.charAt(index + 4).toUpperCase() + ime.slice(index + 5);
-          // };
-
-          novaMuca.ime = ime;
+          novaMuca.ime = req.body.ime;
+          novaMuca.status = Number(req.body.status);
           novaMuca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
           novaMuca.boter_povezava = req.body.boter_povezava;
           novaMuca.SEOmetaTitle = req.body.SEOmetaTitle;
@@ -408,7 +368,7 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
           novaMuca.SEOtwitterTitle = req.body.SEOtwitterTitle;
           novaMuca.SEOtwitterDescription = req.body.SEOtwitterDescription;
 
-          if(req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
+          if (req.body.SEOmetaTitle === "" || req.body.SEOmetaTitle === null || req.body.SEOmetaTitle === undefined || req.body.SEOmetaTitle === 'undefined') {
 
             novaMuca.SEOmetaTitle = req.body.ime + " | Mačja hiša";
             novaMuca.SEOfbTitle = req.body.ime + " | Mačja hiša";
@@ -416,16 +376,12 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
             novaMuca.SEOmetaDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
             novaMuca.SEOfbDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
             novaMuca.SEOtwitterDescription = req.body.opis.replace(/<\/?[^>]+(>|$)/g, "").substring(0, 300);
-            novaMuca.save(function (err) {
-              if (err) return handleError(err);
-              // saved!
-            });
           }
 
-          // shrani
-          novaMuca.save(function (err) {
-            if (err) return handleError(err);
-            // saved!
+          novaMuca.save(err => {
+            if (err) {
+              console.error(err);
+            }
           });
 
           req.flash("success", "Nova muca dodana.");
@@ -434,6 +390,36 @@ router.post("/muce", middleware.isLoggedIn, function(req, res) {
     });
 });
 
+const sendNotificationMail = (muca, oskrbnice) => {
+  let transporter = nodemailer.createTransport({
+    host: 'mail.macjahisa.si',
+    port: 26,
+    secure: false,
+    tls: {
+      rejectUnauthorized:false
+    },
+    auth: {
+      user: process.env.NOTIF_MAIL,
+      pass: process.env.NOTIF_MAIL_PW
+    }
+  });
+
+  let mailOptions = {
+    from: process.env.NOTIF_MAIL, // sender address
+    to: oskrbnice, // list of receivers
+    subject: `${muca.ime} gre v nov dom`, // Subject line
+    text: 'To je samodejno generirano sporočilo.', // plain text body
+    html: "<p><strong>Datum odhoda: </strong>" + moment().format("D[.]M[.]YYYY") + "</p>" // html body
+  };
+
+  transporter.sendMail(mailOptions).then(info => {
+    console.log(info);
+    return true;
+  }).catch(err => {
+    console.error(err);
+  })
+};
+
 router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
   Muca.findById(req.params.id, (err, muca) => {
     if (err) {
@@ -441,8 +427,9 @@ router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
       return res.redirect("/admin/login");
     }
 
-    const greVNovDom = req.body.status === 4 && muca.status !== 4;
-    const jePrislaNazaj = req.body.status !== 4 && muca.status === 4;
+    const newStatus = Number(req.body.status);
+    const greVNovDom = newStatus === 4 && muca.status !== 4;
+    const jePrislaNazaj = newStatus !== 4 && muca.status === 4;
 
     muca.ime = req.body.ime;
     muca.boter_povezava = req.body.boter_povezava;
@@ -465,7 +452,7 @@ router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
     muca.datum = req.body.datum;
     muca.datum_objave = req.body.datum_objave;
     muca.izpostavljena = req.body.izpostavljena;
-    muca.status = req.body.status;
+    muca.status = newStatus;
     muca.mesec_rojstva = moment(req.body.mesec_rojstva).toISOString();
     muca.spol = req.body.spol;
     muca.opis = req.body.opis;
@@ -525,237 +512,18 @@ router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
       }
     });
 
-    // if (req.body.slika1_crop) {
-    //   var base64_string = req.body.slika1_crop.replace(/^data:image\/\w+;base64,/, "");
-    //   var imageBuffer = Buffer.from(base64_string, 'base64');
-    //   var imageName = muca.dbid + "_" + "_1" + ".jpeg";
-    //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-    //   try {
-    //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-    //   } catch (e) {
-    //     console.error(e);
-    //   }
-    //   muca.file_name1 = imageName;
-    //   muca.save(function (err) {
-    //     if (err) return handleError(err);
-    //     // saved!
-    //   });
-    // }
-
-      // if(req.body.slika1_large_crop) {
-      //   var base64_string = req.body.slika1_large_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_1_large" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name1_large = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika2_crop) {
-      //   var base64_string = req.body.slika2_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_2" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name2 = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika2_large_crop) {
-      //   var base64_string = req.body.slika2_large_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_2_large" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name2_large = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika3_crop) {
-      //   var base64_string = req.body.slika3_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_3" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name3 = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika3_large_crop) {
-      //   var base64_string = req.body.slika3_large_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_3_large" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name3_large = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika4_crop) {
-      //   var base64_string = req.body.slika4_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_4" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name4 = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if(req.body.slika4_large_crop) {
-      //   var base64_string = req.body.slika4_large_crop.replace(/^data:image\/\w+;base64,/, "");
-      //   var imageBuffer = Buffer.from(base64_string, 'base64');
-      //   var imageName = muca.dbid + "_" + "_4_large" + ".jpeg";
-      //   var fileLocation = "public/files/oglasi_muce/" + imageName;
-      //   try {
-      //     fs.writeFileSync(fileLocation, imageBuffer, {encoding:"base64"});
-      //   } catch (e) {
-      //     console.error(e);
-      //   }
-      //   muca.file_name4_large = imageName;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-      // if (req.body.slika1_delete) {
-      //   muca.file_name1 = undefined;
-      //   muca.file_name1_large = undefined;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-      //
-      // if (req.body.slika2_delete) {
-      //   muca.file_name2 = undefined;
-      //   muca.file_name2_large = undefined;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-      //
-      // if (req.body.slika3_delete) {
-      //   muca.file_name3 = undefined;
-      //   muca.file_name3_large = undefined;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-      //
-      // if (req.body.slika4_delete) {
-      //   muca.file_name4 = undefined;
-      //   muca.file_name4_large = undefined;
-      //   muca.save(function (err) {
-      //     if (err) return handleError(err);
-      //     // saved!
-      //   });
-      // }
-
-    // če gre v nov dom
     if (greVNovDom) {
-      Oskrbnica.find({}, (err, oskrbnice) => {
+      Oskrbnica.find({ aktivna: "Da" }, async (err, oskrbnice) => {
         if (err) {
           req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
           return res.redirect("/admin/muce/iscejo");
         }
-        // create reusable transporter object using the default SMTP transport
-        let transporter = nodemailer.createTransport({
-            host: 'mail.macjahisa.si',
-            port: 26,
-            secure: false,
-            tls: {
-              rejectUnauthorized:false
-            },
-            auth: {
-                user: process.env.NOTIF_MAIL,
-                pass: process.env.NOTIF_MAIL_PW
-            }
-        });
-
-        // gre/gresta
-        let subject_stevilo = 'gre';
-        if (muca.nacin_posvojitve === "v_paru") {
-          subject_stevilo = "gresta";
-        }
-
-        let html_zapis = '';
-        html_zapis += "<h3>" + muca.ime + " ";
-        if (muca.nacin_posvojitve === "v_paru") {
-          html_zapis += "gresta ";
-        } else {
-          html_zapis += "gre ";
-        }
-        html_zapis += "v nov dom.";
-        html_zapis += "</h3><p>";
-        html_zapis += "<strong>Datum spremembe: </strong>" + moment().format("D[.]M[.]YYYY");
-        html_zapis += "</p>";
-        html_zapis += "<p><em>To je samodejno generirano sporočilo.</em></p>";
-
-        let mailOptions = {
-            from: process.env.NOTIF_MAIL, // sender address
-            to: oskrbnice, // list of receivers
-            subject: muca.ime + ' ' + subject_stevilo + ' v nov dom!', // Subject line
-            text: muca.ime + ' ' + subject_stevilo + ' v nov dom. To je samodejno generirano sporočilo.', // plain text body
-            html: html_zapis // html body
-        };
-
-        transporter.sendMail(mailOptions, (error, info) => {
-            if (error) {
-              req.flash("error", "Prišlo je do napake pri pošiljanju e-mail obvestila.");
-              return res.redirect("/admin/muce/iscejo");
-            }
-            console.log('Message sent: %s', info.messageId);
-        });
+        const list = oskrbnice.map(o => o.email);
+        sendNotificationMail(muca, list);
       });
     }
 
-    muca.save(function (err) {
+    muca.save(err => {
       if (err) {
         return console.log(err);
       }
@@ -768,9 +536,9 @@ router.put("/muce/:id", middleware.isLoggedIn, (req, res) => {
 // END MUCE
 
 // ČLANKI
-router.get("/clanki", middleware.isPageEditor, function(req, res){
+router.get("/clanki", middleware.isPageEditor, (req, res) => {
   // prikaži vse članke po vrsti od nazadnje objavljenega
-  Clanek.find({}).sort({datum: -1}).exec(function(err, clanki) {
+  Clanek.find({}).sort({datum: -1}).exec((err, clanki) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -779,25 +547,25 @@ router.get("/clanki", middleware.isPageEditor, function(req, res){
   })
 });
 
-router.get("/clanki/add_text", middleware.isPageEditor, function(req, res){
+router.get("/clanki/add_text", middleware.isPageEditor, (req, res) => {
   res.render("admin/clanki/add_text");
 });
 
-router.get("/clanki/add_file", middleware.isPageEditor, function(req, res){
+router.get("/clanki/add_file", middleware.isPageEditor, (req, res) => {
   res.render("admin/clanki/add_file");
 });
 
-router.get("/clanki/add_link", middleware.isPageEditor, function(req, res){
+router.get("/clanki/add_link", middleware.isPageEditor, (req, res) => {
   res.render("admin/clanki/add_link");
 });
 
-router.get("/clanki/:id/edit", middleware.isPageEditor, function(req, res){
-  Clanek.findOne({dbid: req.params.id}, function(err, clanek){
+router.get("/clanki/:id/edit", middleware.isPageEditor, (req, res) => {
+  Clanek.findOne({dbid: req.params.id}, (err, clanek) => {
     if(err) {
       req.flash("error", "Članka ne najdem v bazi podatkov.");
       return res.redirect("/admin/clanki");
     }
-    var tip = clanek.tip;
+    const tip = clanek.tip;
     if(tip=="datoteka") {
       res.render("admin/clanki/edit_file", {clanek: clanek});
     } else if(tip=="povezava") {
@@ -808,9 +576,9 @@ router.get("/clanki/:id/edit", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("clanek[vsebina]"), function(req, res, next){
-  Clanek.count({}, function(err, count){
-    Clanek.create(req.body.clanek, function(err, clanek){
+router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("clanek[vsebina]"), (req, res, next) => {
+  Clanek.count({}, (err, count) => {
+    Clanek.create(req.body.clanek, (err, clanek) => {
       if(err) {
         req.flash("error", "Prišlo je do napake pri dodajanju prispevka.");
         return res.redirect("/admin/clanki");
@@ -819,7 +587,7 @@ router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("cla
         clanek.vsebina = req.file.originalname.replace(/[ )(]/g,'');
         clanek.dbid = count + 1;
         clanek.save();
-      };
+      }
 
       req.flash("success", "Prispevek dodan.");
       res.redirect("/admin/clanki");
@@ -827,9 +595,9 @@ router.post("/clanki_upload", middleware.isPageEditor, upload_clanki.single("cla
   });
 });
 
-router.post("/clanki", middleware.isPageEditor, function(req, res){
-  Clanek.count({}, function(err, count){
-    Clanek.create(req.body.clanek, function(err, clanek){
+router.post("/clanki", middleware.isPageEditor, (req, res) => {
+  Clanek.count({}, (err, count) => {
+    Clanek.create(req.body.clanek, (err, clanek) => {
       if(err) {
         req.flash("error", "Prišlo je do napake pri dodajanju prispevka.");
         return res.redirect("/admin/clanki");
@@ -854,8 +622,8 @@ router.post("/clanki", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.get("/clanki/:id", middleware.isPageEditor, function(req, res){
-  Clanek.findOne({dbid: req.params.id}, function(err, clanek) {
+router.get("/clanki/:id", middleware.isPageEditor, (req, res) => {
+  Clanek.findOne({dbid: req.params.id}, (err, clanek) => {
     if(err) {
       req.flash("error", "Članka ne najdem v bazi podatkov.");
       return res.redirect("/admin/clanki");
@@ -870,8 +638,8 @@ router.get("/clanki/:id", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.put("/clanki/:id", middleware.isPageEditor, function(req, res){
-  Clanek.findOneAndUpdate({dbid: req.params.id}, req.body.clanek, function(err, clanek){
+router.put("/clanki/:id", middleware.isPageEditor, (req, res) => {
+  Clanek.findOneAndUpdate({dbid: req.params.id}, req.body.clanek, (err, clanek) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
       return res.redirect("/admin/clanki");
@@ -901,8 +669,8 @@ router.put("/clanki/:id", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("clanek[nova_vsebina]"), function(req, res, next){
-  Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, function(err, clanek){
+router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("clanek[nova_vsebina]"), (req, res, next) => {
+  Clanek.findByIdAndUpdate(req.params.id, req.body.clanek, (err, clanek) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju prispevka.");
       return res.redirect("/admin/clanki");
@@ -918,9 +686,9 @@ router.put("/clanki_upload/:id", middleware.isPageEditor, upload_clanki.single("
 // END ČLANKI
 
 // BEGIN IZOBRAŽEVANJE
-router.get("/izobrazevalne-vsebine", middleware.isPageEditor, function(req, res){
+router.get("/izobrazevalne-vsebine", middleware.isPageEditor, (req, res) => {
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
-  Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
+  Izobrazevalna_vsebina.find({}).sort({datum: -1}).exec((err, vsebine) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -929,12 +697,12 @@ router.get("/izobrazevalne-vsebine", middleware.isPageEditor, function(req, res)
   })
 });
 
-router.get("/izobrazevalne-vsebine/add", middleware.isPageEditor, function(req, res){
+router.get("/izobrazevalne-vsebine/add", middleware.isPageEditor, (req, res) => {
   res.render("admin/izobrazevalne-vsebine/add");
 });
 
-router.get("/izobrazevalne-vsebine/:id/edit", middleware.isPageEditor, function(req, res){
-  Izobrazevalna_vsebina.findById(req.params.id, function(err, vsebina){
+router.get("/izobrazevalne-vsebine/:id/edit", middleware.isPageEditor, (req, res) => {
+  Izobrazevalna_vsebina.findById(req.params.id, (err, vsebina) => {
     if(err) {
       req.flash("error", "Vsebine ne najdem v bazi podatkov.");
       return res.redirect("/admin/izobrazevalne-vsebine");
@@ -944,8 +712,8 @@ router.get("/izobrazevalne-vsebine/:id/edit", middleware.isPageEditor, function(
 });
 
 router.post("/izobrazevalne-vsebine", middleware.isPageEditor, upload_izobrazevanje.fields([
-    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
-  Izobrazevalna_vsebina.create(req.body.vsebina, function(err, vsebina){
+    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), (req, res, next) => {
+  Izobrazevalna_vsebina.create(req.body.vsebina, (err, vsebina) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri vnosu vsebine.");
       return res.redirect("/admin/izobrazevalne-vsebine");
@@ -953,20 +721,20 @@ router.post("/izobrazevalne-vsebine", middleware.isPageEditor, upload_izobrazeva
     if(req.files["vsebina[datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
 
     if(req.files["vsebina[naslovna_slika]"]) {
       vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     req.flash("success", "Vsebina dodana.");
     res.redirect("/admin/izobrazevalne-vsebine");
   });
 });
 
 router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobrazevanje.fields([
-    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
-  Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
+    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), (req, res, next) => {
+  Izobrazevalna_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, (err, vsebina) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju vsebine.");
       return res.redirect("/admin/izobrazevalne-vsebine");
@@ -974,11 +742,11 @@ router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobraz
     if(req.files["vsebina[nova_datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     if(req.files["vsebina[nova_naslovna_slika]"]) {
       vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     req.flash("success", "Vsebina posodobljena.");
     res.redirect("/admin/izobrazevalne-vsebine");
   });
@@ -986,8 +754,8 @@ router.put("/izobrazevalne-vsebine/:id", middleware.isPageEditor, upload_izobraz
 // END IZOBRAŽEVANJE
 
 // BEGIN OTROŠKI KOTIČEK
-router.get("/koticek-za-otroke", middleware.isPageEditor, function(req, res){
-  Otroci_vsebina.find({}).sort({datum: -1}).exec(function(err, vsebine) {
+router.get("/koticek-za-otroke", middleware.isPageEditor, (req, res) => {
+  Otroci_vsebina.find({}).sort({datum: -1}).exec((err, vsebine) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -996,12 +764,12 @@ router.get("/koticek-za-otroke", middleware.isPageEditor, function(req, res){
   })
 });
 
-router.get("/koticek-za-otroke/add", middleware.isPageEditor, function(req, res){
+router.get("/koticek-za-otroke/add", middleware.isPageEditor, (req, res) => {
   res.render("admin/koticek-za-otroke/add");
 });
 
-router.get("/koticek-za-otroke/:id/edit", middleware.isPageEditor, function(req, res){
-  Otroci_vsebina.findById(req.params.id, function(err, vsebina){
+router.get("/koticek-za-otroke/:id/edit", middleware.isPageEditor, (req, res) => {
+  Otroci_vsebina.findById(req.params.id, (err, vsebina) => {
     if(err) {
       req.flash("error", "Vsebine ne najdem v bazi podatkov.");
       return res.redirect("/admin/koticek-za-otroke");
@@ -1011,8 +779,8 @@ router.get("/koticek-za-otroke/:id/edit", middleware.isPageEditor, function(req,
 });
 
 router.post("/koticek-za-otroke", middleware.isPageEditor, upload_otroci.fields([
-    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), function(req, res, next){
-  Otroci_vsebina.create(req.body.vsebina, function(err, vsebina){
+    {name: "vsebina[datoteka]"}, {name: "vsebina[naslovna_slika]"}]), (req, res, next) => {
+  Otroci_vsebina.create(req.body.vsebina, (err, vsebina) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri vnosu vsebine.");
       return res.redirect("/admin/koticek-za-otroke");
@@ -1020,20 +788,20 @@ router.post("/koticek-za-otroke", middleware.isPageEditor, upload_otroci.fields(
     if(req.files["vsebina[datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
 
     if(req.files["vsebina[naslovna_slika]"]) {
       vsebina.naslovna_slika = req.files["vsebina[naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     req.flash("success", "Vsebina dodana.");
     res.redirect("/admin/koticek-za-otroke");
   });
 });
 
 router.put("/koticek-za-otroke/:id", middleware.isPageEditor, upload_otroci.fields([
-    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), function(req, res, next){
-  Otroci_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, function(err, vsebina){
+    {name: "vsebina[nova_datoteka]"}, {name: "vsebina[nova_naslovna_slika]"}]), (req, res, next) => {
+  Otroci_vsebina.findByIdAndUpdate(req.params.id, req.body.vsebina, (err, vsebina) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju vsebine.");
       return res.redirect("/admin/koticek-za-otroke");
@@ -1041,11 +809,11 @@ router.put("/koticek-za-otroke/:id", middleware.isPageEditor, upload_otroci.fiel
     if(req.files["vsebina[nova_datoteka]"]) {
       vsebina.datoteka = req.files["vsebina[nova_datoteka]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     if(req.files["vsebina[nova_naslovna_slika]"]) {
       vsebina.naslovna_slika = req.files["vsebina[nova_naslovna_slika]"][0].originalname.replace(/[ )(]/g,'');
       vsebina.save();
-    };
+    }
     req.flash("success", "Vsebina posodobljena.");
     res.redirect("/admin/koticek-za-otroke");
   });
@@ -1053,9 +821,9 @@ router.put("/koticek-za-otroke/:id", middleware.isPageEditor, upload_otroci.fiel
 // END OTROŠKI KOTIČEK
 
 // PODSTRANI
-router.get("/podstrani", middleware.isPageEditor, function(req, res){
+router.get("/podstrani", middleware.isPageEditor, (req, res) => {
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
-  Podstran.find({}).sort({datum: -1}).populate("kategorija").exec(function(err, podstrani) {
+  Podstran.find({}).sort({datum: -1}).populate("kategorija").exec((err, podstrani) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -1064,13 +832,13 @@ router.get("/podstrani", middleware.isPageEditor, function(req, res){
   })
 });
 
-router.post("/podstrani", middleware.isPageEditor, function(req, res){
-  Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
+router.post("/podstrani", middleware.isPageEditor, (req, res) => {
+  Kategorija.findById(req.body.podstran.kategorija, (err, kategorija) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
       return res.redirect("/admin/podstrani");
     }
-    Podstran.create(req.body.podstran, function(err, podstran){
+    Podstran.create(req.body.podstran, (err, podstran) => {
       if(err) {
         req.flash("error", "Prišlo je do napake pri kreiranju podstrani.");
         return res.redirect("/admin/podstrani");
@@ -1103,8 +871,8 @@ router.post("/podstrani", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.get("/podstrani/add", middleware.isPageEditor, function(req, res){
-  Kategorija.find({}, function(err, kategorije){
+router.get("/podstrani/add", middleware.isPageEditor, (req, res) => {
+  Kategorija.find({}, (err, kategorije) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/podstrani");
@@ -1113,8 +881,8 @@ router.get("/podstrani/add", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
-  Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, function(err, podstran){
+router.put("/podstrani/:id", middleware.isPageEditor, (req, res) => {
+  Podstran.findByIdAndUpdate(req.params.id, req.body.podstran, (err, podstran) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju podstrani.");
       return res.redirect("/admin/login");
@@ -1130,7 +898,7 @@ router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
     }
     podstran.save();
 
-    Kategorija.findById(req.body.podstran.kategorija, function(err, kategorija){
+    Kategorija.findById(req.body.podstran.kategorija, (err, kategorija) => {
       if(err) return res.render("500");
       kategorija.save();
       req.flash("success", "Podstran posodobljena.");
@@ -1139,13 +907,13 @@ router.put("/podstrani/:id", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.get("/podstrani/:id/edit", middleware.isPageEditor, function(req, res){
-  Podstran.findById(req.params.id, function(err, podstran) {
+router.get("/podstrani/:id/edit", middleware.isPageEditor, (req, res) => {
+  Podstran.findById(req.params.id, (err, podstran) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    Kategorija.find({}, function(err, kategorije){
+    Kategorija.find({}, (err, kategorije) => {
       if(err) {
         req.flash("error", "Prišlo je do napake v bazi podatkov.");
         return res.redirect("/admin/login");
@@ -1158,30 +926,30 @@ router.get("/podstrani/:id/edit", middleware.isPageEditor, function(req, res){
 // END PODSTRANI
 
 // MENU
-router.get("/menu", middleware.isOwner, function(req, res){
+router.get("/menu", middleware.isOwner, (req, res) => {
   // prikaži vse podstrani po vrsti od nazadnje spremenjene
-  Kategorija.find({}, function(err, kategorije) {
+  Kategorija.find({}, (err, kategorije) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
-    Podstran.find({}, function(err, podstrani) {
+    Podstran.find({}, (err, podstrani) => {
       if(err) {
         req.flash("error", "Prišlo je do napake v bazi podatkov.");
         return res.redirect("/admin/login");
-      };
+      }
       res.render("admin/menu/index", {kategorije: kategorije, podstrani: podstrani});
     });
   })
 });
 
-router.get("/menu/add", middleware.isOwner, function(req, res){
+router.get("/menu/add", middleware.isOwner, (req, res) => {
   res.render("admin/menu/add");
 });
 
 
-router.post("/menu", middleware.isOwner, function(req, res){
-  Kategorija.create({naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
+router.post("/menu", middleware.isOwner, (req, res) => {
+  Kategorija.create({naslov: req.body.naslov, url: req.body.url}, (err, kategorija) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri dodajanju kategorije.");
       return res.redirect("/admin/menu");
@@ -1191,18 +959,18 @@ router.post("/menu", middleware.isOwner, function(req, res){
   })
 });
 
-router.get("/menu/:id/edit", middleware.isOwner, function(req, res){
-  Kategorija.findById(req.params.id, function(err, kategorija){
+router.get("/menu/:id/edit", middleware.isOwner, (req, res) => {
+  Kategorija.findById(req.params.id, (err, kategorija) => {
     if(err) {
       req.flash("error", "Kategorije ne najdem v bazi podatkov.");
       return res.redirect("/admin/menu");
-    };
+    }
     res.render("admin/menu/edit", {kategorija: kategorija});
   });
 });
 
-router.put("/menu/:id", middleware.isOwner, function(req, res){
-  Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, function(err, kategorija){
+router.put("/menu/:id", middleware.isOwner, (req, res) => {
+  Kategorija.findByIdAndUpdate(req.params.id, {naslov: req.body.naslov, url: req.body.url}, (err, kategorija) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju kategorije.");
       return res.redirect("/admin/menu");
@@ -1214,8 +982,8 @@ router.put("/menu/:id", middleware.isOwner, function(req, res){
 // END MENU
 
 // BEGIN CONTACTS
-router.get("/kontakti", middleware.isAdmin, function(req, res){
-  Kontakt.find({}, function(err, kontakti) {
+router.get("/kontakti", middleware.isAdmin, (req, res) => {
+  Kontakt.find({}, (err, kontakti) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -1224,12 +992,12 @@ router.get("/kontakti", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/kontakti/add", middleware.isAdmin, function(req, res){
+router.get("/kontakti/add", middleware.isAdmin, (req, res) => {
   res.render("admin/kontakti/add");
 });
 
-router.post("/kontakti", middleware.isAdmin, function(req, res){
-  Kontakt.create(req.body.kontakt, function(err, kontakt){
+router.post("/kontakti", middleware.isAdmin, (req, res) => {
+  Kontakt.create(req.body.kontakt, (err, kontakt) => {
     if(err) {
       return console.log(err);
       req.flash("error", "Prišlo je do napake pri dodajanju kontakta.");
@@ -1240,8 +1008,8 @@ router.post("/kontakti", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/kontakti/:id/edit", middleware.isAdmin, function(req, res){
-  Kontakt.findById(req.params.id, function(err, kontakt){
+router.get("/kontakti/:id/edit", middleware.isAdmin, (req, res) => {
+  Kontakt.findById(req.params.id, (err, kontakt) => {
     if(err) {
       req.flash("error", "Kontakta ne najdem v bazi podatkov.");
       return res.redirect("/admin/kontakti");
@@ -1250,8 +1018,8 @@ router.get("/kontakti/:id/edit", middleware.isAdmin, function(req, res){
   });
 });
 
-router.put("/kontakti/:id", middleware.isAdmin, function(req, res){
-  Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, function(err, kontakt) {
+router.put("/kontakti/:id", middleware.isAdmin, (req, res) => {
+  Kontakt.findByIdAndUpdate(req.params.id, req.body.kontakt, (err, kontakt) => {
       if(err) {
         req.flash("error", "Prišlo je do napake pri posodabljanju kontakta.");
         return res.redirect("/admin/kontakti");
@@ -1263,8 +1031,8 @@ router.put("/kontakti/:id", middleware.isAdmin, function(req, res){
 // END CONTACTS
 
 // OSKRBNICE
-router.get("/oskrbnice", middleware.isAdmin, function(req, res){
-  Oskrbnica.find({}, function(err, oskrbnice) {
+router.get("/oskrbnice", middleware.isAdmin, (req, res) => {
+  Oskrbnica.find({}, (err, oskrbnice) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -1273,12 +1041,12 @@ router.get("/oskrbnice", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/oskrbnice/add", middleware.isAdmin, function(req, res){
+router.get("/oskrbnice/add", middleware.isAdmin, (req, res) => {
   res.render("admin/oskrbnice/add");
 });
 
-router.post("/oskrbnice", middleware.isAdmin, function(req, res){
-  Oskrbnica.create(req.body.oskrbnica, function(err, oskrbnica){
+router.post("/oskrbnice", middleware.isAdmin, (req, res) => {
+  Oskrbnica.create(req.body.oskrbnica, (err, oskrbnica) => {
     if(err) {
       req.flash("error", "Prišlo je do napake pri dodajanju.");
       return res.redirect("/admin/oskrbnice");
@@ -1288,8 +1056,8 @@ router.post("/oskrbnice", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/oskrbnice/:id/edit", middleware.isAdmin, function(req, res){
-  Oskrbnica.findById(req.params.id, function(err, oskrbnica){
+router.get("/oskrbnice/:id/edit", middleware.isAdmin, (req, res) => {
+  Oskrbnica.findById(req.params.id, (err, oskrbnica) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/oskrbnice");
@@ -1298,8 +1066,8 @@ router.get("/oskrbnice/:id/edit", middleware.isAdmin, function(req, res){
   });
 });
 
-router.put("/oskrbnice/:id", middleware.isAdmin, function(req, res){
-  Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, function(err, oskrbnica) {
+router.put("/oskrbnice/:id", middleware.isAdmin, (req, res) => {
+  Oskrbnica.findByIdAndUpdate(req.params.id, req.body.oskrbnica, (err, oskrbnica) => {
       if(err) {
         req.flash("error", "Prišlo je do napake pri posodabljanju podatkov.");
         return res.redirect("/admin/oskrbnice");
@@ -1311,8 +1079,8 @@ router.put("/oskrbnice/:id", middleware.isAdmin, function(req, res){
 // END OSKRBNICE
 
 // BEGIN USERS
-router.get("/users", middleware.isAdmin, function(req, res){
-  User.find({}, function(err, users) {
+router.get("/users", middleware.isAdmin, (req, res) => {
+  User.find({}, (err, users) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
@@ -1321,20 +1089,20 @@ router.get("/users", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/users/add", middleware.isAdmin, function(req, res){
+router.get("/users/add", middleware.isAdmin, (req, res) => {
   res.render("admin/users/add");
 });
 
-router.post("/users", middleware.isAdmin, function(req, res){
-  var newUser = new User(
-        {
-            username: req.body.username,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            adminLevel: req.body.adminLevel
-        });
-  User.register(newUser, req.body.password, function(err, user){
+router.post("/users", middleware.isAdmin, (req, res) => {
+  const newUser = new User(
+      {
+        username: req.body.username,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
+        email: req.body.email,
+        adminLevel: req.body.adminLevel,
+      });
+  User.register(newUser, req.body.password, (err, user) => {
     if(err) {
       console.log(err);
       req.flash("error", err.message);
@@ -1345,8 +1113,8 @@ router.post("/users", middleware.isAdmin, function(req, res){
   })
 });
 
-router.get("/users/:id/edit", middleware.isAdmin, function(req, res){
-  User.findById(req.params.id, function(err, user){
+router.get("/users/:id/edit", middleware.isAdmin, (req, res) => {
+  User.findById(req.params.id, (err, user) => {
     if(err) {
       req.flash("error", err.message);
       return res.redirect("/admin/users");
@@ -1355,15 +1123,15 @@ router.get("/users/:id/edit", middleware.isAdmin, function(req, res){
   });
 });
 
-router.put("/users/:id", middleware.isAdmin, function(req, res){
-  var userData = {
-            username: req.body.username,
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email,
-            adminLevel: req.body.adminLevel
-        };
-  User.findByIdAndUpdate(req.params.id, userData, function(err, user) {
+router.put("/users/:id", middleware.isAdmin, (req, res) => {
+  const userData = {
+    username: req.body.username,
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+    adminLevel: req.body.adminLevel,
+  };
+  User.findByIdAndUpdate(req.params.id, userData, (err, user) => {
       if(err) {
         req.flash("error", err.message);
         return res.redirect("/admin/users");
@@ -1375,21 +1143,21 @@ router.put("/users/:id", middleware.isAdmin, function(req, res){
 // END USERS
 
 // BEGIN PROFIL UPORABNIKA
-router.get("/profil", middleware.isLoggedIn, function(req, res){
+router.get("/profil", middleware.isLoggedIn, (req, res) => {
   res.render("admin/profil", {user: req.user});
 });
 
-router.get("/profil/geslo", middleware.isLoggedIn, function(req, res){
+router.get("/profil/geslo", middleware.isLoggedIn, (req, res) => {
   res.render("admin/profil/geslo", {user: req.user});
 });
 
-router.put("/profil/:id", middleware.isLoggedIn, function(req, res){
-  var userData = {
-            firstName: req.body.firstName,
-            lastName: req.body.lastName,
-            email: req.body.email
-        };
-  User.findByIdAndUpdate(req.params.id, userData, function(err, user) {
+router.put("/profil/:id", middleware.isLoggedIn, (req, res) => {
+  const userData = {
+    firstName: req.body.firstName,
+    lastName: req.body.lastName,
+    email: req.body.email,
+  };
+  User.findByIdAndUpdate(req.params.id, userData, (err, user) => {
       if(err) {
         req.flash("error", err.message);
         return res.redirect("/admin/users");
@@ -1400,15 +1168,15 @@ router.put("/profil/:id", middleware.isLoggedIn, function(req, res){
 });
 
 // sprememba gesla
-router.put("/profil/geslo/:id", middleware.isLoggedIn, function(req, res){
-  User.findById(req.params.id, function(err, user) {
+router.put("/profil/geslo/:id", middleware.isLoggedIn, (req, res) => {
+  User.findById(req.params.id, (err, user) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi.");
       return res.redirect("/admin/profil");
     }
 
     if(req.body.newPassword === req.body.confirm) {
-      user.changePassword(req.body.oldPassword, req.body.newPassword, function(err){
+      user.changePassword(req.body.oldPassword, req.body.newPassword, err => {
         if(err) {
           req.flash("error", "Staro geslo ni pravilno.");
           return res.redirect("/admin/profil/geslo");
@@ -1427,20 +1195,20 @@ router.put("/profil/geslo/:id", middleware.isLoggedIn, function(req, res){
 
 
 // BEGIN SPREMEMBA POZABLJENEGA GESLA
-router.get('/forgot', function(req, res) {
+router.get('/forgot', (req, res) => {
   res.render('admin/forgot');
 });
 
-router.post('/forgot', function(req, res, next) {
+router.post('/forgot', (req, res, next) => {
   async.waterfall([
-    function(done) {
-      crypto.randomBytes(20, function(err, buf) {
-        var token = buf.toString('hex');
+    done => {
+      crypto.randomBytes(20, (err, buf) => {
+        const token = buf.toString('hex');
         done(err, token);
       });
     },
-    function(token, done) {
-      User.findOne({ email: req.body.email }, function(err, user) {
+    (token, done) => {
+      User.findOne({ email: req.body.email }, (err, user) => {
           if(err) {
               req.flash('error', 'Nekaj je šlo narobe.');
               return res.redirect('back');
@@ -1453,50 +1221,50 @@ router.post('/forgot', function(req, res, next) {
         user.resetPasswordToken = token;
         user.resetPasswordExpires = Date.now() + 3600000; // 1 hour
 
-        user.save(function(err) {
+        user.save(err => {
           done(err, token, user);
         });
       });
     },
-    function(token, user, done) {
-      var smtpTransport = nodemailer.createTransport({
+    (token, user, done) => {
+      const smtpTransport = nodemailer.createTransport({
         host: 'mail.macjahisa.si',
         port: 26,
         secure: false,
         tls: {
-          rejectUnauthorized:false
+          rejectUnauthorized: false,
         },
         auth: {
-            user: process.env.NOTIF_MAIL,
-            pass: process.env.NOTIF_MAIL_PW
-        }
+          user: process.env.NOTIF_MAIL,
+          pass: process.env.NOTIF_MAIL_PW,
+        },
       });
 
-      var link = "http://www.macjahisa.si/admin/reset/" + token;
+      const link = 'http://www.macjahisa.si/admin/reset/' + token;
 
-      var mailOptions = {
+      const mailOptions = {
         to: user.email,
         from: process.env.NOTIF_MAIL,
         subject: 'Mačja hiša CMS - Sprememba gesla',
         text: 'Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.\n\n' +
-          'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
-          'http://www.macjahisa.si/admin/reset/' + token + '\n\n' +
-          'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n',
-        html: "<p>Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.</p><p>Postopek lahko zaključite z uporabo spodnje povezave:</p><p><a href='" + link + "' target='_blank'>" + link + "</a></p><p>Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.</p>"
+            'Postopek lahko zaključite z uporabo spodnje povezave:\n\n' +
+            'http://www.macjahisa.si/admin/reset/' + token + '\n\n' +
+            'Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.\n',
+        html: '<p>Vi (ali nekdo drug) je zahteval ponastavitev vašega gesla za administrativno (CMS) stran Mačje hiše.</p><p>Postopek lahko zaključite z uporabo spodnje povezave:</p><p><a href=\'' + link + '\' target=\'_blank\'>' + link + '</a></p><p>Če ponastavitve gesla niste zahtevali, lahko to sporočilo ignorirate.</p>',
       };
-      smtpTransport.sendMail(mailOptions, function(err) {
+      smtpTransport.sendMail(mailOptions, err => {
         req.flash('success', 'Navodila za ponastavitev gesla so bila poslana na e-mail naslov ' + user.email + '.');
         done(err, 'done');
       });
     }
-  ], function(err) {
+  ], err => {
     if (err) return next(err);
     res.redirect('/admin/forgot');
   });
 });
 
-router.get('/reset/:token', function(req, res) {
-  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+router.get('/reset/:token', (req, res) => {
+  User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, (err, user) => {
     if(err) {
       req.flash('error', 'Nekaj je šlo narobe.');
       return res.redirect('back');
@@ -1509,10 +1277,10 @@ router.get('/reset/:token', function(req, res) {
   });
 });
 
-router.post('/reset/:token', function(req, res) {
+router.post('/reset/:token', (req, res) => {
   async.waterfall([
-    function(done) {
-      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, function(err, user) {
+    done => {
+      User.findOne({ resetPasswordToken: req.params.token, resetPasswordExpires: { $gt: Date.now() } }, (err, user) => {
         if(err) {
           req.flash('error', 'Nekaj je šlo narobe.');
           return res.redirect('back');
@@ -1522,7 +1290,7 @@ router.post('/reset/:token', function(req, res) {
           return res.redirect('back');
         }
         if(req.body.password === req.body.confirm) {
-          user.setPassword(req.body.password, function(err) {
+          user.setPassword(req.body.password, err => {
             if(err) {
               req.flash('error', 'Nekaj je šlo narobe.');
               return res.redirect('back');
@@ -1530,12 +1298,12 @@ router.post('/reset/:token', function(req, res) {
             user.resetPasswordToken = undefined;
             user.resetPasswordExpires = undefined;
 
-            user.save(function(err) {
+            user.save(err => {
                 if(err) {
                   req.flash('error', 'Nekaj je šlo narobe.');
                   return res.redirect('back');
                 }
-              req.logIn(user, function(err) {
+              req.logIn(user, err => {
                 done(err, user);
               });
             });
@@ -1546,31 +1314,31 @@ router.post('/reset/:token', function(req, res) {
         }
       });
     },
-    function(user, done) {
-      var smtpTransport = nodemailer.createTransport({
+    (user, done) => {
+      const smtpTransport = nodemailer.createTransport({
         host: 'mail.macjahisa.si',
         port: 26,
         secure: false,
         tls: {
-          rejectUnauthorized:false
+          rejectUnauthorized: false,
         },
         auth: {
-            user: process.env.NOTIF_MAIL,
-            pass: process.env.NOTIF_MAIL_PW
-        }
+          user: process.env.NOTIF_MAIL,
+          pass: process.env.NOTIF_MAIL_PW,
+        },
       });
-      var mailOptions = {
+      const mailOptions = {
         to: user.email,
         from: process.env.NOTIF_MAIL,
         subject: 'Vaše geslo za administrativno stran (CMS) Mačja hiša je bilo spremenjeno',
-        text: 'Obveščamo vas, da je bilo geslo za račun z e-mail naslovom ' + user.email + ' ravnokar spremenjeno.\n'
+        text: 'Obveščamo vas, da je bilo geslo za račun z e-mail naslovom ' + user.email + ' ravnokar spremenjeno.\n',
       };
-      smtpTransport.sendMail(mailOptions, function(err) {
+      smtpTransport.sendMail(mailOptions, err => {
         req.flash('success', 'Geslo je bilo uspešno spremenjeno.');
         done(err);
       });
     }
-  ], function(err) {
+  ], err => {
         if(err) {
           req.flash('error', 'Nekaj je šlo narobe.');
           return res.redirect('back');
@@ -1581,28 +1349,28 @@ router.post('/reset/:token', function(req, res) {
 // END SPREMEMBA POZABLJENEGA GESLA
 
 // NASLOVNICE
-router.get("/naslovnice", middleware.isPageEditor, function(req, res){
+router.get("/naslovnice", middleware.isPageEditor, (req, res) => {
   // prikaži vse vsebine po vrsti od nazadnje spremenjene
-  Naslovnica.find({}, function(err, naslovnice) {
+  Naslovnica.find({}, (err, naslovnice) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
     // preglej katere so aktivne
-    var prva;
-    var druga;
-    var tretja;
+    let prva;
+    let druga;
+    let tretja;
 
-    naslovnice.map(function(naslovnica){
+    naslovnice.map(naslovnica => {
       if(naslovnica.pozicija === 1) {
         prva = naslovnica;
-      };
+      }
       if(naslovnica.pozicija === 2) {
         druga = naslovnica;
-      };
+      }
       if(naslovnica.pozicija === 3) {
         tretja = naslovnica;
-      };
+      }
     });
 
     res.render("admin/naslovnice/index",
@@ -1616,12 +1384,12 @@ router.get("/naslovnice", middleware.isPageEditor, function(req, res){
   })
 });
 
-router.get("/naslovnice/add", middleware.isPageEditor, function(req, res){
+router.get("/naslovnice/add", middleware.isPageEditor, (req, res) => {
   res.render("admin/naslovnice/add");
 });
 
-router.get("/naslovnice/:id/edit", middleware.isPageEditor, function(req, res){
-  Naslovnica.findById(req.params.id, function(err, naslovnica){
+router.get("/naslovnice/:id/edit", middleware.isPageEditor, (req, res) => {
+  Naslovnica.findById(req.params.id, (err, naslovnica) => {
     if(err) {
       req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
       return res.redirect("/admin/naslovnice");
@@ -1630,14 +1398,14 @@ router.get("/naslovnice/:id/edit", middleware.isPageEditor, function(req, res){
   });
 });
 
-router.post("/naslovnice/:id/deactivate", middleware.isPageEditor, function(req, res){
-  Naslovnica.findById(req.params.id, function(err, naslovnica){
+router.post("/naslovnice/:id/deactivate", middleware.isPageEditor, (req, res) => {
+  Naslovnica.findById(req.params.id, (err, naslovnica) => {
     if(err) {
       req.flash("error", "Naslovnice ne najdem v bazi podatkov.");
       return res.redirect("/admin/naslovnice");
     }
     naslovnica.pozicija = 0;
-    naslovnica.save(function (err) {
+    naslovnica.save(err => {
       if (err) return handleError(err);
       // saved!
     });
@@ -1646,20 +1414,20 @@ router.post("/naslovnice/:id/deactivate", middleware.isPageEditor, function(req,
   });
 });
 
-router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
-  Naslovnica.count({}, function(err, count){
+router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), (req, res, next) => {
+  Naslovnica.count({}, (err, count) => {
     if (err) {
       req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
       return res.redirect("/admin/naslovnice");
     }
 
-    Naslovnica.create(req.body.naslovnica, function(err, naslovnica){
+    Naslovnica.create(req.body.naslovnica, (err, naslovnica) => {
       if (err) {
         req.flash("error", "Prišlo je do napake pri kreiranju naslovnice.");
         return res.redirect("/admin/naslovnice");
       }
 
-      var dbid = count + 1;
+      const dbid = count + 1;
       naslovnica.dbid = dbid;
       naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
 
@@ -1667,7 +1435,7 @@ router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("na
         naslovnica.ozadje = req.file.filename.replace(/[ )(]/g,'');
       }
 
-      naslovnica.save(function (err) {
+      naslovnica.save(err => {
         if (err) {
           console.log(err);
           req.flash("error", "Prišlo je do napake pri ustvarjanju naslovnice.");
@@ -1681,15 +1449,15 @@ router.post("/naslovnice", middleware.isPageEditor, upload_naslovnice.single("na
   });
 });
 
-router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), function(req, res, next){
-  Naslovnica.findByIdAndUpdate(req.params.id, req.body.naslovnica, function(err, naslovnica){
+router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single("naslovnica[ozadje]"), (req, res, next) => {
+  Naslovnica.findByIdAndUpdate(req.params.id, req.body.naslovnica, (err, naslovnica) => {
     if (err) {
       req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
       return res.redirect("/admin/naslovnice");
     }
 
     if (req.file) {
-      var ozadje = req.file.filename.replace(/[ )(]/g,'');
+      const ozadje = req.file.filename.replace(/[ )(]/g, '');
       naslovnica.ozadje = ozadje;
     }
 
@@ -1697,7 +1465,7 @@ router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single(
     naslovnica.cssBackgroundPositionVertical = req.body.rangeInput;
     naslovnica.datum = Date.now();
 
-    naslovnica.save(function (err) {
+    naslovnica.save(err => {
       if (err) {
         console.log(err);
         req.flash("error", "Prišlo je do napake pri posodabljanju naslovnice.");
@@ -1710,18 +1478,18 @@ router.put("/naslovnice/:id", middleware.isPageEditor, upload_naslovnice.single(
   });
 });
 
-router.post("/naslovnice/:pozicija/:id", middleware.isPageEditor, function(req, res, next){
-  Naslovnica.find({}, function(err, naslovnice) {
+router.post("/naslovnice/:pozicija/:id", middleware.isPageEditor, (req, res, next) => {
+  Naslovnica.find({}, (err, naslovnice) => {
     if(err) {
       req.flash("error", "Prišlo je do napake v bazi podatkov.");
       return res.redirect("/admin/login");
     }
 
     // umakni pozicijo pri dosedanji naslovnici
-    naslovnice.map(function(dosedanja_naslovnica){
+    naslovnice.map(dosedanja_naslovnica => {
       if(dosedanja_naslovnica.pozicija === Number(req.params.pozicija)) {
         dosedanja_naslovnica.pozicija = 0;
-        dosedanja_naslovnica.save(function (err) {
+        dosedanja_naslovnica.save(err => {
           if (err) return handleError(err);
           // saved!
         });
@@ -1729,9 +1497,9 @@ router.post("/naslovnice/:pozicija/:id", middleware.isPageEditor, function(req, 
     });
 
     // najdi novo in dodeli pozicijo
-    Naslovnica.findById(req.params.id, function(err, nova_naslovnica) {
+    Naslovnica.findById(req.params.id, (err, nova_naslovnica) => {
       nova_naslovnica.pozicija = Number(req.params.pozicija);
-      nova_naslovnica.save(function (err) {
+      nova_naslovnica.save(err => {
         if (err) return handleError(err);
         // saved!
       });

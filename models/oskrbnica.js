@@ -1,9 +1,9 @@
-var mongoose = require("mongoose");
+const mongoose = require('mongoose');
 
-var oskrbnicaSchema = new mongoose.Schema({
+const oskrbnicaSchema = new mongoose.Schema({
   ime: String,
   email: String,
-  aktivna: String
+  aktivna: String,
 });
 
 module.exports = mongoose.model("Oskrbnica", oskrbnicaSchema);
