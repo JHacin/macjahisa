@@ -134,11 +134,10 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
                 'Za vse muce, ki iščejo dom, klikni tukaj.</a></strong>';
 
             let xml = xmlBuilder
-                .create('trgovina', {
+                .create('ad_list', {
                     encoding: 'UTF-8',
                     standalone: true,
-                })
-                .att('id', 'macja_hisa');
+                });
 
             muce.forEach(muca => {
                 const description =
@@ -151,22 +150,28 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
                         .replace(/&nbsp;/g, '')
                         .replace(/(?:\r\n|\r|\n)/g, ' ') + descriptionSuffix;
 
-                xml = xml
-                    .ele('izdelek')
-                    .ele('izdelekID', muca.dbid)
-                    .up()
-                    .ele('izdelekIme')
-                    .dat(muca.ime)
-                    .up()
-                    .ele('zadnja_osvezitev', currentTime)
-                    .up()
-                    .ele('url')
-                    .dat('http://www.macjahisa.si/posvojitev/muce/' + muca.dbid)
-                    .up()
-                    .ele('opis')
-                    .dat(description)
-                    .up()
-                    .ele('slike');
+                xml = xml.ele('ad_item').att('class', 'ad_simple')
+                .ele('category_id', 12410).up()
+                .ele('original_id', muca.dbid).up()
+                .ele('user_id', 'macja_hisa').up() //Todo: actual ID
+                .ele('location_id', 27249).up()
+                .ele('isApproximateLocationOnMap', 0).up()
+                .ele('userCompany', 'Podjetje').up()  // Todo: ???
+                .ele('title').dat(muca.ime).up()
+                .ele('description_raw').dat(description).up()
+                .ele('condition_id', 10).up() //Todo: ??
+                .ele('price', 0.00).up() //Todo: ??
+                .ele('priceOnRequest', 0).up()
+                .ele('imgPath', 'https://macjahisa.si/').up()
+                .ele('webshopLink', 'https://macjahisa.si/').up()
+                .ele('typeOfTransaction', 'Prodam').up()
+                .ele('internalItemCode', muca.dbid).up()
+                .ele('phone_list')
+                    .ele('phone')
+                        .ele('calling_code', 386).up()
+                        .ele('area_code', 40).up()
+                        .ele('phone_number', 937959).up().up().up()
+                .ele('image_list')
 
                 const imageFields = [1, 2, 3, 4].map(n => 'file_name' + n);
                 const hasNoImages = imageFields.every(imageIndex => muca[imageIndex] === undefined);
@@ -176,22 +181,15 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
                     imageFields.forEach(imageField => {
                         if (muca[imageField] !== undefined) {
                             xml = xml
-                                .ele('slika', {
-                                    href:
-                                        'http://www.macjahisa.si/files/oglasi_muce/' +
-                                        muca[imageField],
-                                })
+                                .ele(
+                                    'image',
+                                    `http://www.macjahisa.si/files/oglasi_muce/${muca[imageField]}`
+                                )
                                 .up();
                         }
                     });
                     xml = xml.up();
                 }
-
-                xml = xml
-                    .ele('cena', 'Podarimo')
-                    .up()
-                    .ele('kategorijaID', '3564')
-                    .up();
 
                 xml = xml.up();
             });
@@ -199,7 +197,6 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
             xml = xml.end();
 
             fs.createWriteStream('oglasi_xml_bolha.xml').write(xml);
-            fs.createWriteStream('oglasi_xml_salomon.xml').write(xml);
         });
 
     Muca.find()
