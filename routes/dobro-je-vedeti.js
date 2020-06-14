@@ -12,7 +12,9 @@ router.get('/', function(req, res) {
 
 router.get('/zbirka-macje-hise', function(req, res) {
     Podstran.findOne({ naslov: 'Zbirka Mačje hiše' }, function(err, podstran) {
-        if (err) return res.render('500');
+        if (err) {
+            return res.render('500');
+        }
         Izobrazevalna_vsebina.find({ kategorija: 'zbirka-macje-hise' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
@@ -27,7 +29,9 @@ router.get('/zbirka-macje-hise', function(req, res) {
 
 router.get('/letaki', function(req, res) {
     Podstran.findOne({ naslov: 'Letaki' }, function(err, podstran) {
-        if (err) return res.render('500');
+        if (err) {
+            return res.render('500');
+        }
         Izobrazevalna_vsebina.find({ kategorija: 'letaki' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
