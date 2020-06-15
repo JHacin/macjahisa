@@ -153,18 +153,17 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
                 xml = xml.ele('ad_item').att('class', 'ad_simple')
                 .ele('category_id', 12410).up()
                 .ele('original_id', muca.dbid).up()
-                .ele('user_id', 'macja_hisa').up() //Todo: actual ID
+                .ele('user_id', 3769278).up()
                 .ele('location_id', 27249).up()
                 .ele('isApproximateLocationOnMap', 0).up()
-                .ele('userCompany', 'Podjetje').up()  // Todo: ???
+                .ele('userCompany', 'Podjetje').up()
                 .ele('title').dat(muca.ime).up()
                 .ele('description_raw').dat(description).up()
-                .ele('condition_id', 10).up() //Todo: ??
-                .ele('price', 0.00).up() //Todo: ??
+                .ele('price', 0.00).up()
                 .ele('priceOnRequest', 0).up()
                 .ele('imgPath', 'https://macjahisa.si/').up()
                 .ele('webshopLink', 'https://macjahisa.si/').up()
-                .ele('typeOfTransaction', 'Prodam').up()
+                .ele('typeOfTransaction', 'Podarim').up()
                 .ele('internalItemCode', muca.dbid).up()
                 .ele('phone_list')
                     .ele('phone')
@@ -179,7 +178,7 @@ router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
                     xml = xml.ele('slika', 'http://www.macjahisa.si/files/page/logo.png').up();
                 } else {
                     imageFields.forEach(imageField => {
-                        if (muca[imageField] !== undefined) {
+                        if (muca[imageField] && muca[imageField] !== 'NULL') {
                             xml = xml
                                 .ele(
                                     'image',
