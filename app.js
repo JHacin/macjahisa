@@ -61,29 +61,29 @@ app.use((req, res, next) => {
 mongoose.connect('mongodb://localhost/macjahisa' || process.env.DATABASE);
 
 // find all categories and subpages (for navigation menu), cats and news (for sidebar)
-// app.use('*', (req, res, next) => {
-//     Kategorija.find({}, (err, kategorije) => {
-//         if (err) {
-//             return res.render('500');
-//         }
-//         Podstran.find({}, (err, podstrani) => {
-//             if (err) {
-//                 return res.render('500');
-//             }
-//             Muca.find()
-//                 .where('status')
-//                 .in([1, 2])
-//                 .sort({ datum: -1 })
-//                 .random(3, true, (err, sidebar_muce) => {
-//                     if (err) {
-//                         return res.render('500');
-//                     }
-//                     req.sidebar_muce = sidebar_muce;
-//                     next();
-//                 });
-//         });
-//     });
-// });
+app.use('*', (req, res, next) => {
+    Kategorija.find({}, (err, kategorije) => {
+        if (err) {
+            return res.render('500');
+        }
+        Podstran.find({}, (err, podstrani) => {
+            if (err) {
+                return res.render('500');
+            }
+            Muca.find()
+                .where('status')
+                .in([1, 2])
+                .sort({ datum: -1 })
+                .random(3, true, (err, sidebar_muce) => {
+                    if (err) {
+                        return res.render('500');
+                    }
+                    req.sidebar_muce = sidebar_muce;
+                    next();
+                });
+        });
+    });
+});
 
 // MAINTENANCE MODE
 // app.get('/admin', function(req, res) {
@@ -126,7 +126,7 @@ app.get('/oglasi_xml_salomon.xml', (req, res) => {
     res.sendFile(__dirname + '/oglasi_xml_salomon.xml');
 });
 
-/*app.get('/', (req, res) => {
+app.get('/', (req, res) => {
     Muca.find()
         .where('status')
         .in([1, 2])
@@ -168,7 +168,7 @@ app.get('/oglasi_xml_salomon.xml', (req, res) => {
 
 app.get('/zasebnost', (req, res) => {
     res.redirect('o-nas/zasebnost');
-});*/
+});
 
 app.use('/', require('./routes/redirects.js'));
 app.use('/o-nas/', require('./routes/o-nas.js'));
