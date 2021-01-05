@@ -116,16 +116,6 @@ app.get('/sitemap.xml', (req, res) => {
     res.sendFile('sitemap.xml');
 });
 
-app.get('/oglasi_xml_bolha.xml', (req, res) => {
-    res.type('application/xml');
-    res.sendFile(__dirname + '/oglasi_xml_bolha.xml');
-});
-
-app.get('/oglasi_xml_salomon.xml', (req, res) => {
-    res.type('application/xml');
-    res.sendFile(__dirname + '/oglasi_xml_salomon.xml');
-});
-
 app.get('/', (req, res) => {
     Muca.find()
         .where('status')

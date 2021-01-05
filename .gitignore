@@ -1,6 +1,4 @@
 node_modules/
 .env
 /public/files
-oglasi_xml_bolha.xml
-oglasi_xml_salomon.xml
 .idea
