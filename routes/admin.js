@@ -17,7 +17,6 @@ const nodemailer = require('nodemailer');
 const crypto = require('crypto');
 const async = require('async');
 const fs = require('fs');
-const xmlBuilder = require('xmlbuilder');
 
 // MULTER
 const multer = require('multer');
@@ -115,89 +114,6 @@ router.get('/logout', (req, res) => {
 
 // MUCE
 router.get('/muce/iscejo', middleware.isLoggedIn, (req, res) => {
-    // MAKE XML FILES FOR BOLHA/SALOMON
-    Muca.find({})
-        .where('status')
-        .in([1, 2])
-        .exec((err, muce) => {
-            if (err) {
-                return console.error(err);
-            }
-
-            const currentTime = moment().format('DD[/]MM[/]YYYY');
-
-            const descriptionSuffix =
-                '<br /><br />Dom išče kot izključno notranja muca brez izhodov v zunanje okolje.' +
-                '<br /><br />V posvojitev se oddaja s pogodbo Mačje hiše, s katero se zavežete za notranje bivanje' +
-                ' brez zunanjih izhodov, kvalitetno prehrano, redno cepljenje in veterinarsko oskrbo po potrebi.' +
-                '<br /><br /><strong><a href="http://www.macjahisa.si/posvojitev/muce" target="_blank">' +
-                'Za vse muce, ki iščejo dom, klikni tukaj.</a></strong>';
-
-            let xml = xmlBuilder
-                .create('ad_list', {
-                    encoding: 'UTF-8',
-                    standalone: true,
-                });
-
-            muce.forEach(muca => {
-                const description =
-                    muca.opis
-                        .replace(/(<([^>]+)>)/gi, '')
-                        .replace(/&scaron;/g, 'š')
-                        .replace(/&Scaron;/g, 'Š')
-                        .replace(/&raquo;/g, '"')
-                        .replace(/&laquo;/g, '"')
-                        .replace(/&nbsp;/g, '')
-                        .replace(/(?:\r\n|\r|\n)/g, ' ') + descriptionSuffix;
-
-                xml = xml.ele('ad_item').att('class', 'ad_simple')
-                .ele('category_id', 12410).up()
-                .ele('original_id', muca.dbid).up()
-                .ele('user_id', 3769278).up()
-                .ele('location_id', 27249).up()
-                .ele('isApproximateLocationOnMap', 0).up()
-                .ele('userCompany', 'Podjetje').up()
-                .ele('title').dat(muca.ime).up()
-                .ele('description_raw').dat(description).up()
-                .ele('price', 0.00).up()
-                .ele('priceOnRequest', 0).up()
-                .ele('imgPath', 'https://macjahisa.si/').up()
-                .ele('webshopLink', 'https://macjahisa.si/').up()
-                .ele('typeOfTransaction', 'Podarim').up()
-                .ele('internalItemCode', muca.dbid).up()
-                .ele('phone_list')
-                    .ele('phone')
-                        .ele('calling_code', 386).up()
-                        .ele('area_code', 40).up()
-                        .ele('phone_number', 937959).up().up().up()
-                .ele('image_list')
-
-                const imageFields = [1, 2, 3, 4].map(n => 'file_name' + n);
-                const hasNoImages = imageFields.every(imageIndex => muca[imageIndex] === undefined);
-                if (hasNoImages) {
-                    xml = xml.ele('slika', 'http://www.macjahisa.si/files/page/logo.png').up();
-                } else {
-                    imageFields.forEach(imageField => {
-                        if (muca[imageField] && muca[imageField] !== 'NULL') {
-                            xml = xml
-                                .ele(
-                                    'image',
-                                    `http://www.macjahisa.si/files/oglasi_muce/${muca[imageField]}`
-                                )
-                                .up();
-                        }
-                    });
-                    xml = xml.up();
-                }
-
-                xml = xml.up();
-            });
-
-            xml = xml.end();
-
-            fs.createWriteStream('oglasi_xml_bolha.xml').write(xml);
-        });
-
     Muca.find()
         .where('status')
         .in([1, 2])

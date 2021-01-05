@@ -54,7 +54,6 @@
     "popper.js": "^1.16.1",
     "rfs": "^9.0.2",
     "trumbowyg": "^2.10.0",
-    "xmlbuilder": "^13.0.2",
     "xmlify": "^1.1.0"
   },
   "devDependencies": {
