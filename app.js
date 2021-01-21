@@ -156,8 +156,8 @@ app.get('/', (req, res) => {
         });
 });
 
-app.get('/zasebnost', (req, res) => {
-    res.redirect('o-nas/zasebnost');
+app.get('/izjava-o-zasebnosti', (req, res) => {
+    res.redirect('o-nas/izjava-o-zasebnosti');
 });
 
 app.use('/', require('./routes/redirects.js'));
