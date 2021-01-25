@@ -1,1596 +1,1393 @@
-<?xml version="1.0" encoding="utf-8"?>
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+        xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  <!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+
   <url>
-    <loc>http://www.macjahisa.si/</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <loc>https://macjahisa.si/</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>1.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/o-nas/eu-dog-and-cat-alliance</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/pogoji-in-postopek</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/predstavitev</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/1</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/pomoc/nacini-pomoci</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/zbiramo-za-zavetisce</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1756</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/nacini-pomoci</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2662</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/donacije</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/dohodnina</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/o-nas/zasebnost</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/o-nas/macji-boter</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2683</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/predstavitev</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/o-nas/kdo-smo</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/sterilizacija-kastracija</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/sterilizacija-kastracija</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/zbirka-macje-hise</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/pomoc/donacije</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/letaki</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/pogoji-in-postopek</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2352</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/koticek-za-otroke</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/o-nas/zavetisce-mh</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/o-nas/kdo-smo</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/zbirka-macje-hise</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/o-nas/zavetisce-mh</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/pomoc/dohodnina</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/o-nas/eu-dog-and-cat-alliance</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/1</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/koledar</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/309</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3413</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/342</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3371</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2583</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3188</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1471</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3411</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2650</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/kako-skrbeti-za-svojo-macko.pdf</loc>
+    <lastmod>2018-02-04T16:57:01+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/460</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/prostozivece-macke.pdf</loc>
+    <lastmod>2018-02-04T16:40:57+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2625</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/razumite-obnasanje-svoje-macke.pdf</loc>
+    <lastmod>2018-06-22T10:00:35+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2669</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/dobrodosla-doma.pdf</loc>
+    <lastmod>2018-06-23T10:01:03+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/311</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/pomoc/dobrodelni-koncert</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.80</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2373</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/o-nas/kontakt</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1302</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/clanki/pogodba-o-posvojitvi-vzorec-21.pdf</loc>
+    <lastmod>2021-01-21T16:49:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/849</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/napotki-za-posvojitelje.pdf</loc>
+    <lastmod>2019-04-15T21:35:48+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1473</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3212</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1699</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3279</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/325</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3283</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1963</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/2244</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1740</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3429</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2476</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3427</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1581</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3324</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2691</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3426</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/4</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3421</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/778</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3422</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2110</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3423</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2082</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3420</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1940</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3419</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1766</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3181</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1850</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3250</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2206</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3266</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1798</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3308</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2307</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3323</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2097</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3376</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2244</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3234</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2671</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3400</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2469</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3401</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2589</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3396</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2056</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3397</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1864</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3247</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2591</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3388</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2648</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3304</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2400</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3375</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2655</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3360</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2673</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3337</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2528</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3310</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2694</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3261</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2638</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3263</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2656</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3225</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2685</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3020</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2695</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/2583</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2675</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3186</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2692</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/3187</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2595</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/2727</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2676</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/2307</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2641</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/2335</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2689</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/posvojitev/muce/1740</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2664</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/2</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2693</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/3</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2679</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/163</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2684</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/zbiramo_za_zavetisce/sponzorska_ponudba.pdf</loc>
+    <lastmod>2020-11-16T21:32:35+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2690</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/Pravila%20in%20pogoji%20uporabe%20storitve_SMS%20Donacija_POMOCMH5.pdf</loc>
+    <lastmod>2016-07-09T12:00:39+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2621</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/vita-po-zivljenju-za-zivljenje</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/1754</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/po-zivljenju-za-zivljenje</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2101</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/kako-zapustiti-premozenje-macji-hisi</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/kako-zapustiti-premozenje-macji-hisi</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/skrb-za-muce-po-smrti</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2296</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/projekt-vita/najpogostejsa-vprasanja</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2335</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/zakaj-je-cokolada-strupena-za-macke.pdf</loc>
+    <lastmod>2018-08-06T17:49:55+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/18</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/clanek-macke-in-otroci.pdf</loc>
+    <lastmod>2018-06-25T11:06:05+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/326</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/clanek-macke-in-zdrava-prehrana.pdf</loc>
+    <lastmod>2018-06-25T11:07:44+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2622</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/clanek-posvojitev-macke.pdf</loc>
+    <lastmod>2018-06-25T11:08:11+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/3</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/sterilizacija-macke.pdf</loc>
+    <lastmod>2018-06-25T11:10:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/skrb-za-muce-po-smrti</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/dejstva-s-k.pdf</loc>
+    <lastmod>2018-06-25T11:09:42+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2041</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/pravilna-prehrana-mack.pdf</loc>
+    <lastmod>2018-02-04T16:41:39+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/vita-po-zivljenju-za-zivljenje</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/macke-dopust.pdf</loc>
+    <lastmod>2018-02-04T16:42:14+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/najpogostejsa-vprasanja</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/10-razlogov-za-posvojitev-odrasle-muce.pdf</loc>
+    <lastmod>2018-02-04T16:42:43+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/5</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/plasne-muce.pdf</loc>
+    <lastmod>2018-02-04T16:43:24+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/projekt-vita/po-zivljenju-za-zivljenje</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/skrb-za-invalidne-muce.pdf</loc>
+    <lastmod>2018-06-23T16:52:51+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2530</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/izobrazevanje/sterilizirajte_plakat.pdf</loc>
+    <lastmod>2018-06-25T11:18:23+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2678</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/4</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/15</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/6</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/17</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/7</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/13</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/8</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/10</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/9</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/1</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/13</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2610</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/2</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/4</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/3</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/7</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/otroski-koticek/urnik.pdf</loc>
+    <lastmod>2018-06-25T14:07:31+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/6</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/dogovor-o-prostovoljskem-delu.pdf</loc>
+    <lastmod>2014-05-21T20:09:31+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/2</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/navodila-za-zacasne-skrbnike.pdf</loc>
+    <lastmod>2014-05-21T10:54:22+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/14</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/clanki/porocilo-o-delovanju-zavetisca-macja-hisa-2019.pdf</loc>
+    <lastmod>2020-06-15T17:31:12+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/16</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/clanki/porocilo-o-delovanju-zavetisca-macja-hisa-2018.pdf</loc>
+    <lastmod>2019-04-03T12:14:18+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/12</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa-2017.pdf</loc>
+    <lastmod>2018-06-23T16:31:47+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/11</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa-2016.pdf</loc>
+    <lastmod>2017-03-16T13:33:13+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/9</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa-2015.pdf</loc>
+    <lastmod>2016-03-05T14:52:57+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/pogodba-o-posvojitvi.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa.pdf</loc>
+    <lastmod>2015-03-29T13:09:47+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/dobro-je-vedeti/prispevki-clanki-povezave/8</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/clanki/porocilo-EU-Dog-and-Cat-Alliance.pdf</loc>
+    <lastmod>2018-06-06T18:56:38+00:00</lastmod>
+    <priority>0.64</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/2687</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/4</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/posvojitev/muce/799</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/5</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/o-nas/kontakt</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/162</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/10-razlogov-za-posvojitev-odrasle-muce.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/161</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/Pravila in pogoji uporabe storitve_SMS Donacija_POMOCMH5.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/vita/predloga-oporoka.pdf</loc>
+    <lastmod>2013-09-23T20:18:55+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/macke-dopust.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/vita/predloga-dodatek-k-oporoki.pdf</loc>
+    <lastmod>2013-09-23T20:18:57+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/prostozivece-macke.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/vita/volila-predlogi.pdf</loc>
+    <lastmod>2013-09-23T20:18:59+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/napotki-za-posvojitelje.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/files/vita/prijavnica-vita.pdf</loc>
+    <lastmod>2013-09-24T10:13:53+00:00</lastmod>
+    <priority>0.51</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/6</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.41</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/navodila-za-zacasne-skrbnike.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/7</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.41</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/3</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/160</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.41</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/kako-skrbeti-za-svojo-macko.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/159</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.41</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa-2015.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/8</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.33</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/dogovor-o-prostovoljskem-delu.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/9</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.33</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/namenite-del-dohodnine-macji-hisi.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/158</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.33</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/namenite-del-dohodnine-macji-hisi.doc</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/157</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.33</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/plasne-muce.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/10</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.26</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/izobrazevanje/pravilna-prehrana-mack.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/11</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.26</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/porocilo-o-delovanju-zavetisca-macja-hisa-2016.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/156</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.26</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/2</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/155</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.26</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/128</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/12</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.21</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/vita/volila-predlogi.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/13</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.21</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/vita/predloga-dodatek-k-oporoki.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/154</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.21</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/vita/predloga-oporoka.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/153</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.21</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/clanki/plasne-muce.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/14</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.17</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/clanki/skrb-za-invalidne-muce.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/15</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.17</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/clanki/porocilo-EU-Dog-and-Cat-Alliance.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/152</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.17</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/files/vita/prijavnica-vita.pdf</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/151</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.17</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/4</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/16</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.13</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/5</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/17</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.13</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/126</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/150</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.13</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/127</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/149</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.13</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/6</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/18</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.11</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/7</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/19</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.11</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/124</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/148</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.11</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/125</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/147</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.11</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/8</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/20</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.09</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/9</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/21</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.09</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/123</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/146</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.09</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/122</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/145</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.09</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/10</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/22</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.07</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/11</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/23</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.07</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/120</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/144</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.07</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/121</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/143</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.07</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/12</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/24</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.05</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/13</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/25</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.05</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/118</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/142</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.05</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/14</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/141</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.05</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/119</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/26</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/15</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/27</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/16</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/140</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/117</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/139</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/116</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/28</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/17</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/29</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/18</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/138</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/115</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/137</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.04</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/114</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/30</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.03</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/19</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/31</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.03</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/20</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/136</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.03</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/112</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/135</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.03</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/113</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/32</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/22</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/33</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/21</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/134</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/111</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/133</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/110</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/34</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/23</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/35</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/24</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/132</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/108</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/131</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.02</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/109</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/36</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/25</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/37</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/26</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/130</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/106</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/129</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/107</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/38</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/27</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/39</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/28</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/128</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/104</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/127</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/105</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/40</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/29</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/41</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/30</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/126</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/31</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/125</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/103</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/42</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/102</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/43</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/32</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/124</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/101</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/123</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/33</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/44</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/100</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/45</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/34</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/122</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/35</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/121</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.01</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/99</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/46</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/36</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/47</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/98</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/120</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/37</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/119</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/97</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/48</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/38</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/49</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/96</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/118</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/39</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/117</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/95</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/50</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/40</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/51</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/94</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/116</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/41</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/115</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/93</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/52</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/42</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/53</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/92</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/114</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/43</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/113</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/91</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/54</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/44</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/55</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/90</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/112</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/45</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/111</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/89</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/56</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/46</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/57</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/88</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/110</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/47</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/109</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/87</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/58</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/48</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/59</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/86</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/108</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/49</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/107</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/85</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/60</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/50</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/61</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/84</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/106</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/51</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/105</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/83</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/62</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/52</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/63</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/82</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/104</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/53</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/103</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/81</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/64</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/54</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/65</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/80</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/102</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/55</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/101</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/79</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/66</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/56</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/67</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/78</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/100</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/57</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/99</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/77</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/68</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/58</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/69</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/76</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/98</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/59</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/97</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/75</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/70</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/60</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/71</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/74</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/96</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/61</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/95</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/73</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/72</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/62</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/73</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/72</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/94</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/64</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/93</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/63</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/74</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/71</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/75</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/70</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/92</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/66</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/91</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/65</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/76</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/69</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/77</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/68</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/90</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
   <url>
-    <loc>http://www.macjahisa.si/v-novem-domu/67</loc>
-    <lastmod>2018-06-21</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://macjahisa.si/v-novem-domu/89</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
   </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/78</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/79</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/88</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/87</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/80</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/81</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/86</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/85</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/82</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/83</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+  <url>
+    <loc>https://macjahisa.si/v-novem-domu/84</loc>
+    <lastmod>2021-01-25T17:35:17+00:00</lastmod>
+    <priority>0.00</priority>
+  </url>
+
+
 </urlset>
-<!--<guid value="cb536234-8d01-4dd0-b7c0-fdb7941eca7d" />-->
-<!--Created using XmlSitemapGenerator.org - Free HTML, RSS and XML sitemap generator-->
