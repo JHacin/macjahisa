@@ -15,7 +15,7 @@ router.get('/zbirka-macje-hise', function(req, res) {
         if (err) {
             return res.render('500');
         }
-        Izobrazevalna_vsebina.find({ kategorija: 'zbirka-macje-hise' })
+        Izobrazevalna_vsebina.find({ kategorija: 'zbirka-macje-hise', objava: '1' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
                 res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
@@ -32,7 +32,7 @@ router.get('/letaki', function(req, res) {
         if (err) {
             return res.render('500');
         }
-        Izobrazevalna_vsebina.find({ kategorija: 'letaki' })
+        Izobrazevalna_vsebina.find({ kategorija: 'letaki', objava: '1' })
             .sort({ datum: -1 })
             .exec(function(err, vsebine) {
                 res.render('dobro-je-vedeti/izobrazevalne-vsebine', {
