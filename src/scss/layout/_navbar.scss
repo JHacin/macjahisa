@@ -422,13 +422,27 @@
                 > li {
                     a {
                         @include font-size(16px);
-                        padding: 0 15px 0 0;
+                        margin-right: 15px;
                         font-weight: 300;
                         color: $color-midgray;
                         letter-spacing: 0.1px;
 
-                        &:hover {
+                        &:not(.highlighted):hover {
                             color: $color-black;
+                        }
+
+                        &.highlighted {
+                            background-color: $secondary;
+                            color: #fff;
+                            padding: 8px;
+                            font-weight: 600;
+                            border-radius: 4px;
+                            transition: background-color .15s ease-in-out;
+
+                            &:hover {
+                                background-color: darken($secondary, 7.5%);
+                                text-decoration: none;
+                            }
                         }
                     }
                 }
