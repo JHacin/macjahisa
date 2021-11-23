@@ -15,4 +15,8 @@
             @extend .mb-1;
         }
     }
+
+    img {
+        max-width: 100%;
+    }
 }
