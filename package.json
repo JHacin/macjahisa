@@ -26,7 +26,7 @@
   "dependencies": {
     "@ckeditor/ckeditor5-alignment": "^10.0.1",
     "@ckeditor/ckeditor5-build-classic": "^10.1.0",
-    "async": "^2.6.0",
+    "async": "^3.2.2",
     "body-parser": "^1.18.2",
     "bootstrap": "^4.4.1",
     "compression": "^1.7.2",
