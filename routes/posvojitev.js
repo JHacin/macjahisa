@@ -17,7 +17,7 @@ router.get('/muce', (req, res) => {
                 res.render('posvojitev/seznam_muc', {
                     podstran: podstran,
                     sidebar_muce: req.sidebar_muce,
-                    title: 'Muce, ki iščejo dom | Mačja hiša',
+                    title: 'Iščejo dom | Mačja hiša',
                     muce: muce,
                     needsJpList: true,
                 });
