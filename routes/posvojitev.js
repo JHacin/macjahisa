@@ -5,7 +5,7 @@ const Muca = require('../models/muca');
 const { renderGenericPage } = require('./util');
 
 router.get('/muce', (req, res) => {
-    Podstran.findOne({ naslov: 'Muce, ki iščejo dom' }, (err, podstran) => {
+    Podstran.findOne({ url: 'muce' }, (err, podstran) => {
         Muca.find()
             .where('status')
             .in([1, 2])
