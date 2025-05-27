@@ -1,15 +1,26 @@
 <% include ../partials/header %>
 <% include ../partials/content-hero %>
 
-<%- podstran.vsebina %>
+<div class="with-bootstrap">
+    <div class="container">
+      <div class="row content-wrapper py-4 py-md-5">
+          <div class="content-body col-12 col-lg-8">
+              <%- podstran.vsebina %>
 
-<div class="back_to_articles_list">
-  <em>
-    <a class="back_to_articles_list_link" href="/dobro-je-vedeti/prispevki-clanki-povezave">
-      <i class="fas fa-angle-double-left"></i> Nazaj na seznam člankov
-    </a>
-  </em>
+              <div class="back_to_articles_list">
+                  <em>
+                      <a class="back_to_articles_list_link" href="/dobro-je-vedeti/prispevki-clanki-povezave">
+                          <i class="fas fa-angle-double-left"></i> Nazaj na seznam člankov
+                      </a>
+                  </em>
+              </div>
+          </div>
+
+          <div class="col-12 col-lg-4">
+              <% include ../partials/sidebar %>
+          </div>
+      </div>
+    </div>
 </div>
 
-<% include ../partials/sidebar %>
 <% include ../partials/footer %>
