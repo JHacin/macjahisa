@@ -377,7 +377,7 @@ router.post('/muce', middleware.isLoggedIn, (req, res) => {
 const sendNotificationMail = (muca, oskrbnice) => {
     let transporter = nodemailer.createTransport({
         host: 'mail.macjahisa.si',
-        port: 26,
+        port: 587,
         secure: false,
         tls: {
             rejectUnauthorized: false,
@@ -1317,7 +1317,7 @@ router.post('/forgot', (req, res, next) => {
             (token, user, done) => {
                 const smtpTransport = nodemailer.createTransport({
                     host: 'mail.macjahisa.si',
-                    port: 26,
+                    port: 587,
                     secure: false,
                     tls: {
                         rejectUnauthorized: false,
@@ -1433,7 +1433,7 @@ router.post('/reset/:token', (req, res) => {
             (user, done) => {
                 const smtpTransport = nodemailer.createTransport({
                     host: 'mail.macjahisa.si',
-                    port: 26,
+                    port: 587,
                     secure: false,
                     tls: {
                         rejectUnauthorized: false,
